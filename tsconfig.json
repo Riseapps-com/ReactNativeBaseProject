@@ -6,16 +6,9 @@
     "baseUrl": "./",
     "checkJs": true,
     "esModuleInterop": true,
-    "exclude": [
-      "android",
-      "ios",
-      "node_modules"
-    ],
     "isolatedModules": false,
     "jsx": "react-native",
-    "lib": [
-      "ES2016"
-    ],
+    "lib": ["ES2016"],
     "module": "commonjs",
     "moduleResolution": "node",
     "noEmit": true,
@@ -26,15 +19,9 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "paths": {
-      "~assets/*": [
-        "assets/*"
-      ],
-      "~modules/*": [
-        "src/modules/*"
-      ],
-      "~theme": [
-        "src/theme"
-      ]
+      "~assets/*": ["assets/*"],
+      "~modules/*": ["src/modules/*"],
+      "~theme": ["src/theme"]
     },
     "removeComments": true,
     "strict": true,
@@ -45,5 +32,13 @@
     "target": "ES2016",
     "resolveJsonModule": true,
     "sourceMap": true
-  }
+  },
+  "exclude": [
+    "node_modules",
+    ".eslintrc.js",
+    ".prettierrc.js",
+    "babel.config.js",
+    "metro.config.js",
+    "rn-cli.config.js"
+  ]
 }
