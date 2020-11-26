@@ -25,7 +25,6 @@ module.exports = {
     'unused-imports',
   ],
   extends: [
-    'eslint:recommended',
     'airbnb-base',
     'prettier',
     'plugin:prettier/recommended',
@@ -45,42 +44,32 @@ module.exports = {
     },
   },
   rules: {
-    // es-lint
-    // 'max-len': ['error', 100],
-    // 'max-lines': ['error', { max: 150, skipBlankLines: true, skipComments: true }],
-    // 'max-statements': ['error', 20],
-    // 'max-depth': ['error', 3],
-    // 'max-params': ['error', 5],
-    // complexity: ['error', 20],
-    // 'max-nested-callbacks': ['error', 4],
-    // 'arrow-parens': ['error', 'as-needed'],
-    // 'func-style': ['error', 'expression'],
-    // 'no-negated-condition': 'error',
-    // 'no-console': 'error',
-    // 'no-param-reassign': ['error', { props: false }],
-    // 'no-case-declarations': 'error',
-    // 'padding-line-between-statements': [
-    //   'error',
-    //   {
-    //     blankLine: 'always',
-    //     prev: '*',
-    //     next: 'return',
-    //   },
-    //   {
-    //     blankLine: 'always',
-    //     prev: ['const', 'let', 'var', 'block', 'block-like'],
-    //     next: '*',
-    //   },
-    //   {
-    //     blankLine: 'any',
-    //     prev: ['const', 'let', 'var'],
-    //     next: ['const', 'let', 'var'],
-    //   },
-    // ],
+    //es lint
+    'max-depth': ['error', 3],
+    'max-len': ['error', 100],
+    'max-lines': ['error', { max: 200 }],
+    'max-nested-callbacks': ['error', 4],
+    'max-params': ['error', 5],
+    'max-statements': ['error', 20],
+    'no-negated-condition': 'error',
+    'no-console': 'error',
+    'padding-line-between-statements': [
+      'error',
+      {
+        blankLine: 'always',
+        prev: '*',
+        next: ['return', 'if', 'switch', 'for', 'while', 'do', 'try', 'throw'],
+      },
+      {
+        blankLine: 'always',
+        prev: ['const', 'let', 'if', 'switch', 'for', 'while', 'do', 'try', 'throw'],
+        next: '*',
+      },
+    ],
 
     // typescript
     '@typescript-eslint/consistent-type-definitions': ['error', 'type'],
-    '@typescript-eslint/explicit-function-return-type': ['error'],
+    '@typescript-eslint/explicit-function-return-type': 'error',
     '@typescript-eslint/naming-convention': [
       'error',
       {
@@ -108,10 +97,9 @@ module.exports = {
     ],
     '@typescript-eslint/no-confusing-non-null-assertion': 'error',
     '@typescript-eslint/no-dynamic-delete': 'error',
-    '@typescript-eslint/no-unnecessary-boolean-literal-compare': ['error'],
+    '@typescript-eslint/no-unnecessary-boolean-literal-compare': 'error',
     '@typescript-eslint/prefer-enum-initializers': 'error',
     '@typescript-eslint/prefer-literal-enum-member': 'error',
-    '@typescript-eslint/prefer-optional-chain': 'error',
     '@typescript-eslint/require-array-sort-compare': ['error', { ignoreStringArrays: true }],
     '@typescript-eslint/switch-exhaustiveness-check': 'error',
     // typescript extension
@@ -122,10 +110,10 @@ module.exports = {
     'no-magic-numbers': 'off',
     'no-use-before-define': 'off',
     'space-infix-ops': 'off',
-    '@typescript-eslint/default-param-last': ['error'],
-    '@typescript-eslint/func-call-spacing': ['error', 'never'],
-    '@typescript-eslint/no-duplicate-imports': ['error'],
-    '@typescript-eslint/no-loop-func': ['error'],
+    '@typescript-eslint/default-param-last': 'error',
+    '@typescript-eslint/func-call-spacing': 'error',
+    '@typescript-eslint/no-duplicate-imports': ['error', { includeExports: true }],
+    '@typescript-eslint/no-loop-func': 'error',
     '@typescript-eslint/no-magic-numbers': [
       'error',
       {
@@ -139,13 +127,18 @@ module.exports = {
         ignoreReadonlyClassProperties: true,
       },
     ],
-    '@typescript-eslint/no-use-before-define': ['error'],
+    '@typescript-eslint/no-use-before-define': ['error', { ignoreTypeReferences: false }],
     '@typescript-eslint/space-infix-ops': ['error', { int32Hint: false }],
 
     // react
     'react/prop-types': 'off',
     'react/display-name': 'off',
     'react/no-deprecated': 'error',
+    'react/default-props-match-prop-types': 'error',
+    'react/destructuring-assignment': ['error', 'never'],
+    'react/no-multi-comp': ['error', { ignoreStateless: false }],
+    'react/no-unused-prop-types': 'error',
+    'react/self-closing-comp': 'error',
     // jsx
     'react/jsx-closing-tag-location': 'error',
     'react/jsx-curly-newline': 'error',
