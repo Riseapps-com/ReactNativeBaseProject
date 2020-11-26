@@ -47,6 +47,7 @@ module.exports = {
     //airbnb es lint
     'import/no-unresolved': 'off',
     'import/extensions': 'off',
+    'camelcase': 'off',
     'max-depth': ['error', 3],
     'max-len': ['error', 100],
     'max-lines': ['error', { max: 200 }],
@@ -76,7 +77,6 @@ module.exports = {
 
     // typescript
     '@typescript-eslint/consistent-type-definitions': ['error', 'type'],
-    '@typescript-eslint/explicit-function-return-type': 'error',
     '@typescript-eslint/naming-convention': [
       'error',
       {
@@ -88,20 +88,46 @@ module.exports = {
         format: ['camelCase', 'PascalCase', 'UPPER_CASE'],
       },
       {
-        selector: 'variable',
-        types: ['boolean'],
+        selector: 'function',
+        format: ['camelCase', 'PascalCase'],
+      },
+      {
+        selector: 'parameter',
         format: ['camelCase'],
-        prefix: ['is', 'should', 'has', 'can', 'did', 'will'],
       },
       {
         selector: 'enumMember',
         format: ['UPPER_CASE'],
       },
       {
+        selector: 'variable',
+        types: ['boolean'],
+        format: ['camelCase', 'UPPER_CASE'],
+        prefix: [
+          'is',
+          'should',
+          'has',
+          'can',
+          'did',
+          'will',
+          'IS',
+          'SHOULD',
+          'HAS',
+          'CAN',
+          'DID',
+          'WILL',
+        ],
+      },
+      {
         selector: 'typeLike',
         format: ['PascalCase'],
       },
+      {
+        selector: 'property',
+        format: ['camelCase', 'PascalCase'],
+      },
     ],
+    '@typescript-eslint/explicit-module-boundary-types': 'off',
     '@typescript-eslint/no-confusing-non-null-assertion': 'error',
     '@typescript-eslint/no-dynamic-delete': 'error',
     '@typescript-eslint/no-unnecessary-boolean-literal-compare': 'error',
