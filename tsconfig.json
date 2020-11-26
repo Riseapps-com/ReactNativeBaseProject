@@ -9,7 +9,6 @@
     "isolatedModules": false,
     "jsx": "react-native",
     "lib": ["ES2016"],
-    "module": "commonjs",
     "moduleResolution": "node",
     "noEmit": true,
     "noFallthroughCasesInSwitch": true,

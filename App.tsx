@@ -8,6 +8,8 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
+import { sizes } from '~theme';
+
 const styles = StyleSheet.create({
   scrollView: {
     backgroundColor: Colors.lighter,
@@ -20,17 +22,17 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.white,
   },
   sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
+    marginTop: sizes.SPACING_XL,
+    paddingHorizontal: sizes.SPACING_L,
   },
   sectionTitle: {
-    fontSize: 24,
+    fontSize: sizes.SPACING_L,
     fontWeight: '600',
     color: Colors.black,
   },
   sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
+    marginTop: sizes.SPACING_S,
+    fontSize: sizes.BASE_FONT_SIZE,
     fontWeight: '400',
     color: Colors.dark,
   },
@@ -39,15 +41,15 @@ const styles = StyleSheet.create({
   },
   footer: {
     color: Colors.dark,
-    fontSize: 12,
+    fontSize: sizes.BASE_FONT_SIZE,
     fontWeight: '600',
-    padding: 4,
-    paddingRight: 12,
+    padding: sizes.SPACING_XS,
+    paddingRight: sizes.BASE_FONT_SIZE,
     textAlign: 'right',
   },
 });
 
-const App = (): React.ReactNode => {
+const App: React.FC = () => {
   return (
     <>
       <StatusBar barStyle="dark-content" />

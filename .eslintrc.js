@@ -44,7 +44,9 @@ module.exports = {
     },
   },
   rules: {
-    //es lint
+    //airbnb es lint
+    'import/no-unresolved': 'off',
+    'import/extensions': 'off',
     'max-depth': ['error', 3],
     'max-len': ['error', 100],
     'max-lines': ['error', { max: 200 }],
@@ -58,12 +60,17 @@ module.exports = {
       {
         blankLine: 'always',
         prev: '*',
-        next: ['return', 'if', 'switch', 'for', 'while', 'do', 'try', 'throw'],
+        next: ['return'],
       },
       {
         blankLine: 'always',
-        prev: ['const', 'let', 'if', 'switch', 'for', 'while', 'do', 'try', 'throw'],
+        prev: ['const', 'let', 'block', 'block-like'],
         next: '*',
+      },
+      {
+        blankLine: 'any',
+        prev: ['const', 'let'],
+        next: ['const', 'let'],
       },
     ],
 
