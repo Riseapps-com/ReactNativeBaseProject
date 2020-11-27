@@ -309,6 +309,8 @@ PODS:
     - React-Core
     - React-RCTImage
     - React-RCTText
+  - RNLocalize (2.0.1):
+    - React-Core
   - RNSnackbar (2.2.4):
     - React-Core
   - Yoga (1.14.0)
@@ -364,6 +366,7 @@ DEPENDENCIES:
   - React-RCTVibration (from `../node_modules/react-native/Libraries/Vibration`)
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
   - ReactNativeNavigation (from `../node_modules/react-native-navigation`)
+  - RNLocalize (from `../node_modules/react-native-localize`)
   - RNSnackbar (from `../node_modules/react-native-snackbar`)
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
@@ -437,6 +440,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon"
   ReactNativeNavigation:
     :path: "../node_modules/react-native-navigation"
+  RNLocalize:
+    :path: "../node_modules/react-native-localize"
   RNSnackbar:
     :path: "../node_modules/react-native-snackbar"
   Yoga:
@@ -481,6 +486,7 @@ SPEC CHECKSUMS:
   React-RCTVibration: 8e9fb25724a0805107fc1acc9075e26f814df454
   ReactCommon: 4167844018c9ed375cc01a843e9ee564399e53c3
   ReactNativeNavigation: a4ca957f6656172b6a7632592c101a5f75a0c9a2
+  RNLocalize: 41026b7c14878f1a1b381bc79f668f1fbf841adb
   RNSnackbar: 86092381dba7a0ed9fbd7acdb82ebbd5bfd26372
   Yoga: 7d13633d129fd179e01b8953d38d47be90db185a
   YogaKit: f782866e155069a2cca2517aafea43200b01fd5a

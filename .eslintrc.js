@@ -47,6 +47,8 @@ module.exports = {
     //airbnb es lint
     'import/no-unresolved': 'off',
     'import/extensions': 'off',
+    'import/prefer-default-export': 'off',
+    'import/no-named-default': 'off',
     'camelcase': 'off',
     'max-depth': ['error', 3],
     'max-len': ['error', 100],
