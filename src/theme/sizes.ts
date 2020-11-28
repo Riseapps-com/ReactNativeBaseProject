@@ -1,4 +1,8 @@
+export const SMALLEST_FONT_SIZE = 12;
+export const SMALLER_FONT_SIZE = 14;
 export const BASE_FONT_SIZE = 16;
+export const BIGGER_FONT_SIZE = 18;
+export const BIGGEST_FONT_SIZE = 20;
 
 export const SPACING_XXS = 2;
 export const SPACING_XS = 4;

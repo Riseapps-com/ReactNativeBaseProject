@@ -3,7 +3,3 @@ dist
 coverage
 
 .eslintrc.js
-.prettierrc.js
-babel.config.js
-metro.config.js
-rn-cli.config.js

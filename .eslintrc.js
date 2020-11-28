@@ -152,7 +152,7 @@ module.exports = {
     '@typescript-eslint/no-magic-numbers': [
       'error',
       {
-        ignore: [0],
+        ignore: [0, 1],
         ignoreDefaultValues: true,
         ignoreArrayIndexes: true,
         enforceConst: true,
@@ -170,7 +170,6 @@ module.exports = {
     'react/display-name': 'off',
     'react/no-deprecated': 'error',
     'react/default-props-match-prop-types': 'error',
-    'react/destructuring-assignment': ['error', 'never'],
     'react/no-multi-comp': ['error', { ignoreStateless: false }],
     'react/no-unused-prop-types': 'error',
     'react/self-closing-comp': 'error',

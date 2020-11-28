@@ -20,6 +20,8 @@
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		B8FDC948FE9775628B2B0A1F /* libPods-ReactNativeBaseProject-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D22FBFC6099E8CCCEFDD41CB /* libPods-ReactNativeBaseProject-tvOS.a */; };
 		F2CA66E59EE83526C4BDD611 /* libPods-ReactNativeBaseProject-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DB301642C3A0FBB7BCEFAD40 /* libPods-ReactNativeBaseProject-tvOSTests.a */; };
+		11DFAB0CE2764FE1A4848F4F /* Quicksand-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = BC84CA35A94D4532AD50DDDD /* Quicksand-Bold.otf */; };
+		FFACF8071AB844FDAD2212CF /* Quicksand-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = A3B92390B6F448C0953FDB4A /* Quicksand-Regular.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +69,8 @@
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
 		F2317DF6A8F978E8300AC646 /* Pods-ReactNativeBaseProject-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactNativeBaseProject-tvOS.release.xcconfig"; path = "Target Support Files/Pods-ReactNativeBaseProject-tvOS/Pods-ReactNativeBaseProject-tvOS.release.xcconfig"; sourceTree = "<group>"; };
 		F880AFDB583BE34B8E908767 /* Pods-ReactNativeBaseProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactNativeBaseProject.debug.xcconfig"; path = "Target Support Files/Pods-ReactNativeBaseProject/Pods-ReactNativeBaseProject.debug.xcconfig"; sourceTree = "<group>"; };
+		BC84CA35A94D4532AD50DDDD /* Quicksand-Bold.otf */ = {isa = PBXFileReference; name = "Quicksand-Bold.otf"; path = "../assets/fonts/Quicksand-Bold.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		A3B92390B6F448C0953FDB4A /* Quicksand-Regular.otf */ = {isa = PBXFileReference; name = "Quicksand-Regular.otf"; path = "../assets/fonts/Quicksand-Regular.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +169,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				DE6C1A467981560A7BB12E9D /* Pods */,
+				776C658786004CD797093EDB /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -197,6 +202,16 @@
 			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
+		};
+		776C658786004CD797093EDB /* Resources */ = {
+			isa = "PBXGroup";
+			children = (
+				BC84CA35A94D4532AD50DDDD /* Quicksand-Bold.otf */,
+				A3B92390B6F448C0953FDB4A /* Quicksand-Regular.otf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+			path = "";
 		};
 /* End PBXGroup section */
 
@@ -342,6 +357,8 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				11DFAB0CE2764FE1A4848F4F /* Quicksand-Bold.otf in Resources */,
+				FFACF8071AB844FDAD2212CF /* Quicksand-Regular.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

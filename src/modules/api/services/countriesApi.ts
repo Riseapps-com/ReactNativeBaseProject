@@ -1,9 +1,6 @@
+import { ALL, BY_CODE, BY_REGION } from '../config';
+import { Country, Region } from '../types';
 import { get } from './axiosBase';
-import { Country, Region } from './types';
-
-const ALL = 'all';
-const BY_REGION = 'region';
-const BY_CODE = 'alpha';
 
 export const getAllCountries = () => get<Country[]>(ALL);
 

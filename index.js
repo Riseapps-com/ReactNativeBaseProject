@@ -1,25 +1,11 @@
-import { AppRegistry } from 'react-native';
+import '~modules/localization/services/I18n';
+
 import { Navigation } from 'react-native-navigation';
 
-import Root from '~modules/main/components/Root';
+import { registerScreens, setDefaultOptions, setRoot } from '~modules/navigation';
 
-import { name as appName } from './app.json';
-
-Navigation.registerComponent('com.myApp.WelcomeScreen', () => Root);
-Navigation.events().registerAppLaunchedListener(() => {
-  Navigation.setRoot({
-    root: {
-      stack: {
-        children: [
-          {
-            component: {
-              name: 'com.myApp.WelcomeScreen',
-            },
-          },
-        ],
-      },
-    },
-  });
+Navigation.events().registerAppLaunchedListener(async () => {
+  registerScreens();
+  setDefaultOptions();
+  await setRoot();
 });
-
-AppRegistry.registerComponent(appName, () => Root);
