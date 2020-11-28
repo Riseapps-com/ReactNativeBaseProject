@@ -1,6 +1,8 @@
 import React from 'react';
 import { Text as NativeText, TextStyle } from 'react-native';
 
+import { useColors } from '~theme';
+
 import { TextFontStyle, TextSize } from '../../types';
 import styles from './styles';
 
@@ -21,8 +23,10 @@ const DEFAULT_FONT_SIZE = 'normal';
 const Text: React.FC<TextProps> = (props: TextProps) => {
   const { fontStyle, size, style, ...restProps } = props;
 
+  const { colors } = useColors();
+
   const textStyles: TextStyle[] = [
-    styles.text,
+    { color: colors.ui.components.text.defaultColor },
     styles[fontStyle || DEFAULT_FONT_STYLE],
     styles[size || DEFAULT_FONT_SIZE],
     style || {},

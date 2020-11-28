@@ -1,7 +1,7 @@
 import * as colors from './colors';
-import { ColorsScheme } from './types';
+import { ColorScheme } from './types';
 
-export const darkScheme: ColorsScheme = {
+export const darkScheme: ColorScheme = {
   countries: {
     components: {
       countriesList: { background: '' },

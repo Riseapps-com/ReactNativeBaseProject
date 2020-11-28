@@ -1,13 +1,9 @@
 import { StyleSheet } from 'react-native';
 
 import { getFont } from '~assets/fonts';
-import { colors, sizes } from '~theme';
+import { sizes } from '~theme';
 
 export default StyleSheet.create({
-  text: {
-    color: colors.TEXT,
-  },
-
   regular: {
     fontFamily: getFont('quicksand-regular'),
   },

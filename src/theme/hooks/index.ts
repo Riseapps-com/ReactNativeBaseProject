@@ -1,3 +1,3 @@
-import { default as useTheme } from './useTheme';
+import { default as useColors } from './useColors';
 
-export { useTheme };
+export { useColors };

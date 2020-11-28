@@ -1,4 +1,4 @@
-export type ColorsScheme = {
+export type ColorScheme = {
   navigation: {
     background: string;
     topBarBackground: string;

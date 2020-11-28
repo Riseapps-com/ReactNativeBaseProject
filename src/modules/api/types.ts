@@ -1,10 +1,10 @@
-type Currency = {
+export type Currency = {
   code: string;
   name: string;
   symbol: string;
 };
 
-type Language = {
+export type Language = {
   // eslint-disable-next-line @typescript-eslint/naming-convention
   iso639_1: string;
   // eslint-disable-next-line @typescript-eslint/naming-convention
@@ -13,7 +13,7 @@ type Language = {
   nativeName: string;
 };
 
-type Translations = {
+export type Translations = {
   de: string;
   es: string;
   fr: string;
@@ -26,7 +26,7 @@ type Translations = {
   fa: string;
 };
 
-type RegionalBloc = {
+export type RegionalBloc = {
   acronym: string;
   name: string;
   otherAcronyms: string[];
@@ -34,7 +34,6 @@ type RegionalBloc = {
 };
 
 export type Country = {
-  id?: string;
   name: string;
   topLevelDomain: string[];
   alpha2Code: string;

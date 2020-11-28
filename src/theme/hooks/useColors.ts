@@ -3,8 +3,9 @@ import { Appearance, ColorSchemeName } from 'react-native';
 
 import { darkScheme } from '../darkScheme';
 import { lightScheme } from '../lightScheme';
+import { ColorScheme } from '../types';
 
-const useTheme = (): { colorScheme: ColorSchemeName; colors: Record<string, any> } => {
+const useColors = (): { colors: ColorScheme; colorScheme: ColorSchemeName } => {
   const [colorScheme, setColorScheme] = useState<ColorSchemeName>(Appearance.getColorScheme());
 
   useEffect(() => {
@@ -19,9 +20,9 @@ const useTheme = (): { colorScheme: ColorSchemeName; colors: Record<string, any>
   }, []);
 
   return {
-    colorScheme,
     colors: colorScheme === 'dark' ? darkScheme : lightScheme,
+    colorScheme,
   };
 };
 
-export default useTheme;
+export default useColors;

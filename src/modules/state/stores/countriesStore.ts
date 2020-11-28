@@ -1,6 +1,7 @@
 import { makeAutoObservable } from 'mobx';
 
 import { countriesApi, Country, Region } from '~modules/api';
+import { countriesParsers } from '~modules/countries';
 
 import { Resettable } from '../types';
 
@@ -58,6 +59,18 @@ class CountriesStore implements Resettable {
     }
 
     this.loading = false;
+  }
+
+  get localAllCountries() {
+    return countriesParsers.parseCountries(this.allCountries);
+  }
+
+  get localCountriesByRegion() {
+    return countriesParsers.parseCountries(this.countriesByRegion);
+  }
+
+  get localCountryDetails() {
+    return this.countryByCode ? countriesParsers.parseCountry(this.countryByCode) : undefined;
   }
 
   reset(): void {
