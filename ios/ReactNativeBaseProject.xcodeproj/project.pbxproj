@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* ReactNativeBaseProjectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* ReactNativeBaseProjectTests.m */; };
+		11DFAB0CE2764FE1A4848F4F /* Quicksand-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = BC84CA35A94D4532AD50DDDD /* Quicksand-Bold.otf */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
@@ -20,7 +21,6 @@
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		B8FDC948FE9775628B2B0A1F /* libPods-ReactNativeBaseProject-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D22FBFC6099E8CCCEFDD41CB /* libPods-ReactNativeBaseProject-tvOS.a */; };
 		F2CA66E59EE83526C4BDD611 /* libPods-ReactNativeBaseProject-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DB301642C3A0FBB7BCEFAD40 /* libPods-ReactNativeBaseProject-tvOSTests.a */; };
-		11DFAB0CE2764FE1A4848F4F /* Quicksand-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = BC84CA35A94D4532AD50DDDD /* Quicksand-Bold.otf */; };
 		FFACF8071AB844FDAD2212CF /* Quicksand-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = A3B92390B6F448C0953FDB4A /* Quicksand-Regular.otf */; };
 /* End PBXBuildFile section */
 
@@ -61,7 +61,9 @@
 		7ADC9F5D861EB802C5BB2227 /* Pods-ReactNativeBaseProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactNativeBaseProject.release.xcconfig"; path = "Target Support Files/Pods-ReactNativeBaseProject/Pods-ReactNativeBaseProject.release.xcconfig"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = ReactNativeBaseProject/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8CE724C75BD0839C53D76F83 /* Pods-ReactNativeBaseProject-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactNativeBaseProject-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-ReactNativeBaseProject-tvOSTests/Pods-ReactNativeBaseProject-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
+		A3B92390B6F448C0953FDB4A /* Quicksand-Regular.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Quicksand-Regular.otf"; path = "../assets/fonts/Quicksand-Regular.otf"; sourceTree = "<group>"; };
 		B3ED527C690DC77ECDCBB539 /* Pods-ReactNativeBaseProject-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactNativeBaseProject-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-ReactNativeBaseProject-tvOSTests/Pods-ReactNativeBaseProject-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
+		BC84CA35A94D4532AD50DDDD /* Quicksand-Bold.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Quicksand-Bold.otf"; path = "../assets/fonts/Quicksand-Bold.otf"; sourceTree = "<group>"; };
 		D22FBFC6099E8CCCEFDD41CB /* libPods-ReactNativeBaseProject-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ReactNativeBaseProject-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D95735DD55892455D7763BEB /* libPods-ReactNativeBaseProject.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ReactNativeBaseProject.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB301642C3A0FBB7BCEFAD40 /* libPods-ReactNativeBaseProject-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ReactNativeBaseProject-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -69,8 +71,6 @@
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
 		F2317DF6A8F978E8300AC646 /* Pods-ReactNativeBaseProject-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactNativeBaseProject-tvOS.release.xcconfig"; path = "Target Support Files/Pods-ReactNativeBaseProject-tvOS/Pods-ReactNativeBaseProject-tvOS.release.xcconfig"; sourceTree = "<group>"; };
 		F880AFDB583BE34B8E908767 /* Pods-ReactNativeBaseProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactNativeBaseProject.debug.xcconfig"; path = "Target Support Files/Pods-ReactNativeBaseProject/Pods-ReactNativeBaseProject.debug.xcconfig"; sourceTree = "<group>"; };
-		BC84CA35A94D4532AD50DDDD /* Quicksand-Bold.otf */ = {isa = PBXFileReference; name = "Quicksand-Bold.otf"; path = "../assets/fonts/Quicksand-Bold.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		A3B92390B6F448C0953FDB4A /* Quicksand-Regular.otf */ = {isa = PBXFileReference; name = "Quicksand-Regular.otf"; path = "../assets/fonts/Quicksand-Regular.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +153,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		776C658786004CD797093EDB /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				BC84CA35A94D4532AD50DDDD /* Quicksand-Bold.otf */,
+				A3B92390B6F448C0953FDB4A /* Quicksand-Regular.otf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
@@ -199,19 +208,8 @@
 				8CE724C75BD0839C53D76F83 /* Pods-ReactNativeBaseProject-tvOSTests.debug.xcconfig */,
 				B3ED527C690DC77ECDCBB539 /* Pods-ReactNativeBaseProject-tvOSTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
-		};
-		776C658786004CD797093EDB /* Resources */ = {
-			isa = "PBXGroup";
-			children = (
-				BC84CA35A94D4532AD50DDDD /* Quicksand-Bold.otf */,
-				A3B92390B6F448C0953FDB4A /* Quicksand-Regular.otf */,
-			);
-			name = Resources;
-			sourceTree = "<group>";
-			path = "";
 		};
 /* End PBXGroup section */
 
@@ -310,6 +308,7 @@
 					};
 					13B07F861A680F5B00A75B9A = {
 						LastSwiftMigration = 1120;
+						ProvisioningStyle = Manual;
 					};
 					2D02E47A1E0B4A5D006451C7 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -672,7 +671,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = ReactNativeBaseProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -683,6 +684,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = ReactNativeBaseProject;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -695,7 +697,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = ReactNativeBaseProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -705,6 +709,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = ReactNativeBaseProject;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};

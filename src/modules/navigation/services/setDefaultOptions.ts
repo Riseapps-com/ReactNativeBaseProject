@@ -1,13 +1,16 @@
+import { Appearance } from 'react-native';
 import { Navigation } from 'react-native-navigation';
 
 import { getFont } from '~assets/fonts';
-import { colors, sizes } from '~theme';
+import { ColorsScheme, darkScheme, lightScheme, sizes } from '~theme';
 
-export const setDefaultOptions = (): void =>
+export const setDefaultOptions = (): void => {
+  const colors: ColorsScheme = Appearance.getColorScheme() === 'dark' ? darkScheme : lightScheme;
+
   Navigation.setDefaultOptions({
     layout: {
-      backgroundColor: colors.WHITE,
-      componentBackgroundColor: colors.WHITE,
+      backgroundColor: colors.navigation.background,
+      componentBackgroundColor: colors.navigation.background,
       orientation: ['portrait'],
     },
     topBar: {
@@ -16,14 +19,15 @@ export const setDefaultOptions = (): void =>
       hideOnScroll: true,
       title: {
         fontSize: sizes.BASE_FONT_SIZE,
-        color: colors.WHITE,
+        color: colors.navigation.topBarTitle,
         fontFamily: getFont('quicksand-bold'),
       },
       backButton: {
-        color: colors.WHITE,
+        color: colors.navigation.topBarBackButton,
       },
       background: {
-        color: colors.PRIMARY,
+        color: colors.navigation.topBarBackground,
       },
     },
   });
+};

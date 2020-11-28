@@ -78,6 +78,7 @@ module.exports = {
     ],
 
     // typescript
+    '@typescript-eslint/no-explicit-any': 'off',
     '@typescript-eslint/consistent-type-definitions': ['error', 'type'],
     '@typescript-eslint/naming-convention': [
       'error',

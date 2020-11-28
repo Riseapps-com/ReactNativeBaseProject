@@ -11,7 +11,6 @@ import {
   SelectRegionScreen,
 } from '~modules/countries';
 import { AppProvider } from '~modules/main';
-import { colors } from '~theme';
 
 import { Screen } from '../types';
 
@@ -19,30 +18,26 @@ const screens: Screen[] = [
   {
     id: MENU_SCREEN_NAME,
     component: MenuScreen,
-    backgroundColor: colors.WHITE,
   },
   {
     id: COUNTRIES_SCREEN_NAME,
     component: CountriesScreen,
-    backgroundColor: colors.WHITE,
   },
   {
     id: SELECT_REGION_SCREEN_NAME,
     component: SelectRegionScreen,
-    backgroundColor: colors.WHITE,
   },
   {
     id: COUNTRY_DETAILS_SCREEN_NAME,
     component: CountryDetailsScreen,
-    backgroundColor: colors.WHITE,
   },
 ];
 
 export const registerScreens = (): void =>
-  screens.forEach(({ id, component, backgroundColor }) =>
+  screens.forEach(({ id, component }) =>
     Navigation.registerComponent(
       id,
-      () => AppProvider(component, backgroundColor),
+      () => AppProvider(component),
       () => component
     )
   );
