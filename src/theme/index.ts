@@ -1,8 +1,8 @@
 import * as colors from './colors';
 import * as sizes from './sizes';
 
-export * from './darkScheme';
+export * from './config';
 export * from './hooks';
-export * from './lightScheme';
+export * from './services';
 export * from './types';
 export { colors, sizes };

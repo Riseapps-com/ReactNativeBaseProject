@@ -1,9 +1,11 @@
-import { StyleSheet } from 'react-native';
-
 import { getFont } from '~assets/fonts';
-import { sizes } from '~theme';
+import { sizes, styleSheetFactory } from '~theme';
 
-export default StyleSheet.create({
+export default styleSheetFactory(theme => ({
+  text: {
+    color: theme.text,
+  },
+
   regular: {
     fontFamily: getFont('quicksand-regular'),
   },
@@ -26,4 +28,4 @@ export default StyleSheet.create({
   biggest: {
     fontSize: sizes.BASE_FONT_SIZE,
   },
-});
+}));

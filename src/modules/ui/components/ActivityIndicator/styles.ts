@@ -1,9 +1,9 @@
-import { StyleSheet } from 'react-native';
+import { styleSheetFactory } from '~theme';
 
-export default StyleSheet.create({
+export default styleSheetFactory(() => ({
   wrapper: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
   },
-});
+}));

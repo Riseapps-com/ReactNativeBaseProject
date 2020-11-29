@@ -1,15 +1,19 @@
 import React from 'react';
-import { Text as NativeText, TextStyle } from 'react-native';
+import {
+  StyleProp,
+  Text as NativeText,
+  TextProps as NativeTextProps,
+  TextStyle,
+} from 'react-native';
 
-import { useColors } from '~theme';
+import { useTheme } from '~theme';
 
 import { TextFontStyle, TextSize } from '../../types';
-import styles from './styles';
+import themedStyles from './styles';
 
-export type TextProps = React.ComponentProps<typeof NativeText> & {
+export type TextProps = NativeTextProps & {
   fontStyle?: TextFontStyle;
   size?: TextSize;
-  style?: TextStyle;
 };
 
 const DEFAULT_FONT_STYLE = 'regular';
@@ -20,19 +24,19 @@ const DEFAULT_FONT_SIZE = 'normal';
  *
  * Should be used for the various titles used in the app to ensure consistency.
  */
-const Text: React.FC<TextProps> = (props: TextProps) => {
+const Text: React.FC<TextProps> = props => {
   const { fontStyle, size, style, ...restProps } = props;
 
-  const { colors } = useColors();
+  const [styles] = useTheme(themedStyles);
 
-  const textStyles: TextStyle[] = [
-    { color: colors.ui.components.text.defaultColor },
+  const textStyles: StyleProp<TextStyle>[] = [
+    styles.text,
     styles[fontStyle || DEFAULT_FONT_STYLE],
     styles[size || DEFAULT_FONT_SIZE],
-    style || {},
+    style,
   ];
 
   return <NativeText style={textStyles} {...restProps} />;
 };
 
-export default React.memo(Text);
+export default Text;

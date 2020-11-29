@@ -13,13 +13,6 @@ const instance: AxiosInstance = axios.create({
   timeout: AXIOS_REQUEST_TIMEOUT_MSEC,
 });
 
-instance.interceptors.response.use(
-  response => response,
-  error => {
-    return Promise.reject(error);
-  }
-);
-
 const get = <R>(url: string, config?: AxiosRequestConfig): Promise<R> =>
   instance.get(url, config).then(({ data }) => data);
 

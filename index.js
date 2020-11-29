@@ -1,4 +1,5 @@
 import '~modules/localization/services/I18n';
+import 'react-native-get-random-values';
 
 import { Navigation } from 'react-native-navigation';
 

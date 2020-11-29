@@ -50,6 +50,8 @@ module.exports = {
     'import/prefer-default-export': 'off',
     'import/no-named-default': 'off',
     'camelcase': 'off',
+    'no-throw-literal': 'off',
+    'class-methods-use-this': 'off',
     'max-depth': ['error', 3],
     'max-len': ['error', 100],
     'max-lines': ['error', { max: 200 }],
@@ -139,6 +141,7 @@ module.exports = {
     '@typescript-eslint/require-array-sort-compare': ['error', { ignoreStringArrays: true }],
     '@typescript-eslint/switch-exhaustiveness-check': 'error',
     // typescript extension
+    "no-shadow": "off",
     'default-param-last': 'off',
     'func-call-spacing': 'off',
     'no-duplicate-imports': 'off',
@@ -165,6 +168,7 @@ module.exports = {
     ],
     '@typescript-eslint/no-use-before-define': ['error', { ignoreTypeReferences: false }],
     '@typescript-eslint/space-infix-ops': ['error', { int32Hint: false }],
+    "@typescript-eslint/no-shadow": ["error"],
 
     // react
     'react/prop-types': 'off',
