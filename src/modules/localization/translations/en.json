@@ -19,5 +19,5 @@
   "serverErrorException": "Something went wrong. Please try again or contact our support.",
   "unknownException": "Something went wrong. Please try again or contact our support.",
   "errorBoundaryTitle": "Something went wrong",
-  "errorBoundarySubtitle": "Please try again. If the issue persist contact our support."
+  "errorBoundarySubtitle": "Please try again. If the issue persists contact our support."
 }
