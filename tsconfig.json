@@ -19,7 +19,15 @@
     "noUnusedParameters": true,
     "paths": {
       "~assets/*": ["assets/*"],
-      "~modules/*": ["src/modules/*"],
+      "~modules/api": ["./src/modules/api"],
+      "~modules/countries": ["./src/modules/countries"],
+      "~modules/errors": ["./src/modules/errors"],
+      "~modules/localization": ["./src/modules/localization"],
+      "~modules/logger": ["./src/modules/logger"],
+      "~modules/main": ["./src/modules/main"],
+      "~modules/navigation": ["./src/modules/navigation"],
+      "~modules/state": ["./src/modules/state"],
+      "~modules/ui": ["./src/modules/ui"],
       "~theme": ["src/theme"]
     },
     "removeComments": true,
@@ -33,8 +41,5 @@
     "sourceMap": true,
     "useDefineForClassFields": true
   },
-  "exclude": [
-    "node_modules",
-    "babel.config.js"
-  ]
+  "exclude": ["node_modules", "babel.config.js"]
 }

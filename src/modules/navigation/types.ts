@@ -1,6 +1,6 @@
-import React from 'react';
+import { NavigationFunctionComponent } from 'react-native-navigation';
 
 export type Screen = {
   id: string;
-  component: React.FC;
+  component: NavigationFunctionComponent;
 };
