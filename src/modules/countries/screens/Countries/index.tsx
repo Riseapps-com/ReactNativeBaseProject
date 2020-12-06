@@ -18,7 +18,7 @@ const CountriesScreen: NavigationFunctionComponent<CountriesScreenProps> = props
     <View style={[styles.container, { marginTop: top, marginBottom: bottom }]}>
       <StatusBar barStyle={'light-content'} />
 
-      <CountriesList componentId={props.componentId} region={props.region} />
+      <CountriesList region={props.region} />
     </View>
   );
 };

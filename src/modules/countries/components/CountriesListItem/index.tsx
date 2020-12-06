@@ -29,6 +29,7 @@ const CountriesListItem: React.FC<CountriesListItemProps> = props => {
         resizeMode={FastImage.resizeMode.contain}
         source={{ uri: countriesUtils.getCountryFlag(props.country.alpha2Code, 'h60') }}
       />
+
       <View style={styles.centerContainer}>
         <Text numberOfLines={1} fontStyle={'bold'}>
           {props.country.name}

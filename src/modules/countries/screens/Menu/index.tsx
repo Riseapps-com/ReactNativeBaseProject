@@ -8,7 +8,7 @@ import { useTheme } from '~theme';
 import { Menu } from '../../components';
 import themedStyles from './styles';
 
-const MenuScreen: NavigationFunctionComponent = props => {
+const MenuScreen: NavigationFunctionComponent = () => {
   const [styles] = useTheme(themedStyles);
   const { top, bottom } = useSafeAreaInsets();
 
@@ -16,7 +16,7 @@ const MenuScreen: NavigationFunctionComponent = props => {
     <View style={[styles.container, { marginTop: top, marginBottom: bottom }]}>
       <StatusBar barStyle={'light-content'} />
 
-      <Menu componentId={props.componentId} />
+      <Menu />
     </View>
   );
 };

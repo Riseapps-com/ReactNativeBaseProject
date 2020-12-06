@@ -1,22 +1,28 @@
-import React, { useMemo } from 'react';
+import { observer } from 'mobx-react-lite';
+import React, { useEffect, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { View } from 'react-native';
 import FastImage from 'react-native-fast-image';
 
-import { Text } from '~modules/ui';
+import { useStore } from '~modules/state';
+import { ActivityIndicator, Text } from '~modules/ui';
 import { useTheme } from '~theme';
 
 import { countriesUtils } from '../../services';
-import { LocalCountry } from '../../types';
 import themedStyles from './styles';
 
 export type CountryDetailsProps = {
-  country: LocalCountry;
+  code: string;
 };
 
-const CountryDetails: React.FC<CountryDetailsProps> = props => {
+const CountryDetails: React.FC<CountryDetailsProps> = observer(props => {
   const [styles] = useTheme(themedStyles);
   const { t } = useTranslation();
+  const { countriesStore } = useStore();
+
+  useEffect(() => {
+    countriesStore.getCountryDetails(props.code);
+  }, [countriesStore, props.code]);
 
   const contentRow = useMemo(
     () => (title: string, value: string) => {
@@ -32,31 +38,38 @@ const CountryDetails: React.FC<CountryDetailsProps> = props => {
     [styles.rowContainer, styles.title, styles.value]
   );
 
-  return (
+  if (countriesStore.loading) return <ActivityIndicator />;
+
+  return countriesStore.localCountryDetails ? (
     <View style={styles.cardContainer}>
       <View style={styles.contentContainer}>
         <FastImage
           style={styles.flagContainer}
           resizeMode={FastImage.resizeMode.cover}
-          source={{ uri: countriesUtils.getCountryFlag(props.country.alpha2Code, 'h240') }}
+          source={{
+            uri: countriesUtils.getCountryFlag(
+              countriesStore.localCountryDetails.alpha2Code,
+              'h240'
+            ),
+          }}
         >
           <Text numberOfLines={1} style={styles.name} size={'biggest'} fontStyle={'bold'}>
-            {props.country.name}
+            {countriesStore.localCountryDetails.name}
           </Text>
         </FastImage>
 
-        {contentRow(t('capital'), props.country.capital)}
+        {contentRow(t('capital'), countriesStore.localCountryDetails.capital)}
 
-        {contentRow(t('region'), props.country.region)}
+        {contentRow(t('region'), countriesStore.localCountryDetails.region)}
 
-        {contentRow(t('subregion'), props.country.subregion)}
+        {contentRow(t('subregion'), countriesStore.localCountryDetails.subregion)}
 
-        {contentRow(t('timezones'), props.country.timezones.join(', '))}
+        {contentRow(t('timezones'), countriesStore.localCountryDetails.timezones.join(', '))}
 
-        {contentRow(t('currencies'), props.country.currencies.join(', '))}
+        {contentRow(t('currencies'), countriesStore.localCountryDetails.currencies.join(', '))}
       </View>
     </View>
-  );
-};
+  ) : null;
+});
 
 export default CountryDetails;

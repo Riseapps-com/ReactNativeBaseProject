@@ -21,6 +21,7 @@ export type Theme = {
   error: ColorValue;
   text: ColorValue;
   secondaryText: ColorValue;
+  separator: ColorValue;
   disabled: ColorValue;
   placeholder: ColorValue;
   backdrop: ColorValue;

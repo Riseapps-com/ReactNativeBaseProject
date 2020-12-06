@@ -1,18 +1,16 @@
 import React, { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { NavigationFunctionComponent } from 'react-native-navigation';
 import { useNavigation } from 'react-native-navigation-hooks';
 
-import { images } from '~assets/images';
+import { images } from '~assets';
 
 import { COUNTRIES_SCREEN_NAME, SELECT_REGION_SCREEN_NAME } from '../../config';
 import { CountriesScreenProps } from '../../types';
 import { MenuItem } from '../index';
 
-const Menu: NavigationFunctionComponent = props => {
+const Menu: React.FC = () => {
   const { t } = useTranslation();
-
-  const navigation = useNavigation(props.componentId);
+  const navigation = useNavigation();
 
   const handleAllCountriesPress = useCallback(async () => {
     await navigation.push<CountriesScreenProps>(COUNTRIES_SCREEN_NAME);

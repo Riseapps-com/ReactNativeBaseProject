@@ -1,27 +1,34 @@
 import { observer } from 'mobx-react-lite';
 import React, { useCallback, useEffect, useMemo } from 'react';
 import { FlatList, ListRenderItemInfo } from 'react-native';
-import { NavigationFunctionComponent } from 'react-native-navigation';
 import { useNavigation } from 'react-native-navigation-hooks';
 
-import { Region } from '~modules/api';
-import { COUNTRY_DETAILS_SCREEN_NAME } from '~modules/countries';
 import { useStore } from '~modules/state';
 import { ActivityIndicator } from '~modules/ui';
 
-import { CountryDetailsScreenProps, LocalCountry } from '../../types';
+import { COUNTRY_DETAILS_SCREEN_NAME } from '../../config';
+import { CountryDetailsScreenProps, LocalCountry, LocalRegion } from '../../types';
 import CountriesListItem from '../CountriesListItem';
 
 export type CountriesListProps = {
-  region?: Region;
+  region?: LocalRegion;
 };
 
-const CountriesList: NavigationFunctionComponent<CountriesListProps> = observer(props => {
-  const navigation = useNavigation(props.componentId);
+const CountriesList: React.FC<CountriesListProps> = observer(props => {
+  const navigation = useNavigation();
   const { countriesStore } = useStore();
+
   const countries = props.region
     ? countriesStore.localCountriesByRegion
     : countriesStore.localAllCountries;
+
+  useEffect(() => {
+    if (props.region) {
+      countriesStore.getCountriesByRegion(props.region);
+    } else {
+      countriesStore.getAllCountries();
+    }
+  }, [countriesStore, props.region]);
 
   const handleItemPress = useCallback(
     async (index: number) => {
@@ -32,6 +39,7 @@ const CountriesList: NavigationFunctionComponent<CountriesListProps> = observer(
     },
     [countries, navigation]
   );
+
   const renderItem = useMemo(
     () => (itemInfo: ListRenderItemInfo<LocalCountry>) => {
       return (
@@ -45,14 +53,6 @@ const CountriesList: NavigationFunctionComponent<CountriesListProps> = observer(
     [handleItemPress]
   );
   const keyExtractor = (localCountry: LocalCountry) => localCountry.id;
-
-  useEffect(() => {
-    if (props.region) {
-      countriesStore.getCountriesByRegion(props.region);
-    } else {
-      countriesStore.getAllCountries();
-    }
-  }, [countriesStore, props.region]);
 
   if (countriesStore.loading) return <ActivityIndicator />;
 

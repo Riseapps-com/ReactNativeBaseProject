@@ -1,7 +1,7 @@
 import { Appearance } from 'react-native';
 import { Navigation } from 'react-native-navigation';
 
-import { getFont } from '~assets/fonts';
+import { getFont } from '~assets';
 import { dark, light, sizes } from '~theme';
 
 export const setDefaultOptions = (): void => {
@@ -28,7 +28,26 @@ export const setDefaultOptions = (): void => {
       background: {
         color: theme.primary,
       },
-      borderColor: theme.surface,
+    },
+    animations: {
+      setStackRoot: {
+        waitForRender: true,
+      },
+      setRoot: {
+        waitForRender: true,
+      },
+      push: {
+        waitForRender: true,
+      },
+      pop: {
+        waitForRender: true,
+      },
+      showModal: {
+        waitForRender: true,
+      },
+      dismissModal: {
+        waitForRender: true,
+      },
     },
   });
 };

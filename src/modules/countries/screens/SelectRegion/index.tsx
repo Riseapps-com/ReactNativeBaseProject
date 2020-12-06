@@ -9,7 +9,7 @@ import { useTheme } from '~theme';
 import { SelectRegionMenu } from '../../components';
 import themedStyles from './styles';
 
-const SelectRegionScreen: NavigationFunctionComponent = props => {
+const SelectRegionScreen: NavigationFunctionComponent = () => {
   const [styles] = useTheme(themedStyles);
   const { top, bottom } = useSafeAreaInsets();
 
@@ -17,7 +17,7 @@ const SelectRegionScreen: NavigationFunctionComponent = props => {
     <View style={[styles.container, { marginTop: top, marginBottom: bottom }]}>
       <StatusBar barStyle={'light-content'} />
 
-      <SelectRegionMenu componentId={props.componentId} />
+      <SelectRegionMenu />
     </View>
   );
 };

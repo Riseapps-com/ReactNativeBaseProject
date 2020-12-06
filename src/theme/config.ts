@@ -15,6 +15,7 @@ export const light: Theme = {
   error: colors.SUNSET_ORANGE,
   text: colors.CAPE_COD,
   secondaryText: colors.WHITE,
+  separator: colors.WHITE,
   disabled: Color(colors.CAPE_COD).alpha(ALPHA_VALUE).toString(),
   placeholder: Color(colors.CAPE_COD).alpha(ALPHA_VALUE).toString(),
   backdrop: colors.BLACK,
@@ -22,15 +23,16 @@ export const light: Theme = {
 };
 
 export const dark: Theme = {
-  primary: colors.KINGFISHER_DAISY,
+  primary: colors.VIOLET_EGGPLANT,
   accent: colors.SHAMROCK,
   background: colors.CAPE_COD,
   surface: colors.CAPE_COD,
   error: colors.SUNSET_ORANGE,
   text: colors.WHITE,
   secondaryText: colors.WHITE,
+  separator: colors.WHITE,
   disabled: Color(colors.WHITE).alpha(ALPHA_VALUE).toString(),
   placeholder: Color(colors.WHITE).alpha(ALPHA_VALUE).toString(),
-  backdrop: Color(colors.WHITE).alpha(ALPHA_VALUE).toString(),
+  backdrop: colors.BLACK,
   notification: colors.SHAMROCK,
 };

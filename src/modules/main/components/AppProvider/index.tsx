@@ -1,11 +1,14 @@
 import React from 'react';
+import { NavigationProvider } from 'react-native-navigation-hooks';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { ErrorBoundary } from '~modules/errors';
 import { StoreContext, stores } from '~modules/state';
+import { ThemeProvider } from '~theme';
 
-// eslint-disable-next-line @typescript-eslint/ban-types
-export type AppProviderProps = {};
+export type AppProviderProps = {
+  componentId: string;
+};
 
 const AppProvider = <P extends AppProviderProps>(
   // eslint-disable-next-line @typescript-eslint/naming-convention
@@ -15,7 +18,11 @@ const AppProvider = <P extends AppProviderProps>(
     <StoreContext.Provider value={stores.rootStore}>
       <SafeAreaProvider>
         <ErrorBoundary>
-          <Component {...(props as P)} />
+          <NavigationProvider value={{ componentId: props.componentId }}>
+            <ThemeProvider>
+              <Component {...(props as P)} />
+            </ThemeProvider>
+          </NavigationProvider>
         </ErrorBoundary>
       </SafeAreaProvider>
     </StoreContext.Provider>

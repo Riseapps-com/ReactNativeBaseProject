@@ -1,4 +1,4 @@
-import { getFont } from '~assets/fonts';
+import { getFont } from '~assets';
 import { sizes, styleSheetFactory } from '~theme';
 
 export default styleSheetFactory(theme => ({
