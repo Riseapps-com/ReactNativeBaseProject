@@ -17,7 +17,7 @@ export const light: Theme = {
   secondaryText: colors.WHITE,
   disabled: Color(colors.CAPE_COD).alpha(ALPHA_VALUE).toString(),
   placeholder: Color(colors.CAPE_COD).alpha(ALPHA_VALUE).toString(),
-  backdrop: Color(colors.CAPE_COD).alpha(ALPHA_VALUE).toString(),
+  backdrop: colors.BLACK,
   notification: colors.SHAMROCK,
 };
 

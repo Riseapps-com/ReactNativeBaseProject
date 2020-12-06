@@ -175,7 +175,7 @@ module.exports = {
     'react/display-name': 'off',
     'react/no-deprecated': 'error',
     'react/default-props-match-prop-types': 'error',
-    'react/no-multi-comp': ['error', { ignoreStateless: false }],
+    'react/no-multi-comp': ['error', { ignoreStateless: true }],
     'react/no-unused-prop-types': 'error',
     'react/self-closing-comp': 'error',
     // jsx

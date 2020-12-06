@@ -53,7 +53,7 @@ class CountriesStore implements Resettable {
     this.error = undefined;
 
     try {
-      this.countryByCode = yield countriesApi.getCountryByCode(code);
+      this.countryByCode = yield countriesApi.getCountryByCode(code.toLowerCase());
     } catch (e) {
       this.error = e.message;
     }

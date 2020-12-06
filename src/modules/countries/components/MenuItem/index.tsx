@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { TouchableOpacity, View } from 'react-native';
 import FastImage from 'react-native-fast-image';
 
-import { DEFAULT_ACTIVE_OPACITY, Separator, Text, VoidCallback } from '~modules/ui';
+import { DEFAULT_ACTIVE_OPACITY, Separator, Text } from '~modules/ui';
 import { useTheme } from '~theme';
 
 import themedStyles from './styles';
@@ -10,29 +10,37 @@ import themedStyles from './styles';
 export type MenuItemProps = {
   image: number;
   title: string;
-  onItemPress: VoidCallback;
+  index: number;
+  onItemPress?: (index: number) => void;
   bottomSeparator?: boolean;
   testID?: string;
 };
 
 const MenuItem: React.FC<MenuItemProps> = (props: MenuItemProps) => {
   const [styles] = useTheme(themedStyles);
+  const handleItemPress = useCallback(() => props.onItemPress && props.onItemPress(props.index), [
+    props,
+  ]);
 
   return (
     <>
       <TouchableOpacity
         activeOpacity={DEFAULT_ACTIVE_OPACITY}
         testID={props.testID}
-        onPress={props.onItemPress}
+        onPress={handleItemPress}
         style={styles.container}
       >
         <View style={styles.imageContainer}>
           <FastImage style={styles.image} source={props.image} />
         </View>
+
         <View style={styles.titleContainer}>
-          <Text style={styles.title}>{props.title}</Text>
+          <Text fontStyle={'bold'} style={styles.title}>
+            {props.title}
+          </Text>
         </View>
       </TouchableOpacity>
+
       {props.bottomSeparator && <Separator />}
     </>
   );

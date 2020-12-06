@@ -1,6 +1,6 @@
 import { sizes, styleSheetFactory } from '~theme';
 
-const MENU_IMAGE_HEIGHT = 80;
+const MENU_IMAGE_HEIGHT = 48;
 
 export default styleSheetFactory(theme => ({
   container: {

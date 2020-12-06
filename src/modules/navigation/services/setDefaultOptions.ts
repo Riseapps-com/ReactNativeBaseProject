@@ -16,7 +16,6 @@ export const setDefaultOptions = (): void => {
     topBar: {
       drawBehind: false,
       animate: true,
-      hideOnScroll: true,
       title: {
         fontSize: sizes.BASE_FONT_SIZE,
         color: theme.secondaryText,
@@ -24,10 +23,12 @@ export const setDefaultOptions = (): void => {
       },
       backButton: {
         color: theme.secondaryText,
+        fontFamily: getFont('quicksand-bold'),
       },
       background: {
         color: theme.primary,
       },
+      borderColor: theme.surface,
     },
   });
 };

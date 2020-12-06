@@ -23,9 +23,9 @@ export default styleSheetFactory(theme => ({
     fontSize: sizes.BASE_FONT_SIZE,
   },
   bigger: {
-    fontSize: sizes.BASE_FONT_SIZE,
+    fontSize: sizes.BIGGER_FONT_SIZE,
   },
   biggest: {
-    fontSize: sizes.BASE_FONT_SIZE,
+    fontSize: sizes.BIGGEST_FONT_SIZE,
   },
 }));

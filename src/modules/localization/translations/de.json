@@ -12,6 +12,7 @@
   "name": "Name",
   "oceania": "Ozeanien",
   "region": "Region",
+  "regions": "Regions",
   "subregion": "Unterregion",
   "timezones": "Zeitzonen",
   "notFoundException": "Der angeforderte Artikel konnte nicht gefunden werden.",
