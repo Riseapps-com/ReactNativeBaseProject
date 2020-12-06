@@ -7,7 +7,7 @@ import { useTheme } from '~theme';
 
 import { CountryDetails } from '../../components';
 import { CountryDetailsScreenProps } from '../../types';
-import themedStyles from '../Menu/styles';
+import themedStyles from './styles';
 
 const CountryDetailsScreen: NavigationFunctionComponent<CountryDetailsScreenProps> = props => {
   const [styles] = useTheme(themedStyles);

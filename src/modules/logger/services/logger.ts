@@ -1,4 +1,4 @@
-import { AppError } from '~modules/errors';
+import AppError from '~modules/errors/AppError';
 
 import { JSON_SPACE } from '../config';
 

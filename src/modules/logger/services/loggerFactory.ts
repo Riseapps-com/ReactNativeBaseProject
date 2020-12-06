@@ -1,4 +1,4 @@
-import { AppError } from '~modules/errors';
+import AppError from '~modules/errors/AppError';
 
 import { log, logError } from './logger';
 

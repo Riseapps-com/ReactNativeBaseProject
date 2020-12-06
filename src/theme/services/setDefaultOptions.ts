@@ -2,9 +2,11 @@ import { Appearance } from 'react-native';
 import { Navigation } from 'react-native-navigation';
 
 import { getFont } from '~assets';
-import { dark, light, sizes } from '~theme';
 
-export const setDefaultOptions = (): void => {
+import { dark, light } from '../config';
+import * as sizes from '../sizes';
+
+const setDefaultOptions = (): void => {
   const theme = Appearance.getColorScheme() === 'dark' ? dark : light;
 
   Navigation.setDefaultOptions({
@@ -51,3 +53,5 @@ export const setDefaultOptions = (): void => {
     },
   });
 };
+
+export default setDefaultOptions;

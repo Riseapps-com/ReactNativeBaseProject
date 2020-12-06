@@ -6,7 +6,7 @@ import { images } from '~assets';
 
 import { COUNTRIES_SCREEN_NAME, regions } from '../../config';
 import { CountriesScreenProps } from '../../types';
-import { MenuItem } from '../index';
+import MenuItem from '../MenuItem';
 
 const Menu: React.FC = () => {
   const { t } = useTranslation();

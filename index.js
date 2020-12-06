@@ -3,7 +3,8 @@ import 'react-native-get-random-values';
 
 import { Navigation } from 'react-native-navigation';
 
-import { registerScreens, setDefaultOptions, setRoot } from '~modules/navigation';
+import { registerScreens, setRoot } from '~modules/navigation';
+import { setDefaultOptions } from '~theme';
 
 Navigation.events().registerAppLaunchedListener(async () => {
   registerScreens();

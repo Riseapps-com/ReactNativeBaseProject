@@ -8,7 +8,7 @@ import { useTheme } from '~theme';
 
 import { CountriesList } from '../../components';
 import { CountriesScreenProps } from '../../types';
-import themedStyles from '../Menu/styles';
+import themedStyles from './styles';
 
 const CountriesScreen: NavigationFunctionComponent<CountriesScreenProps> = props => {
   const [styles] = useTheme(themedStyles);

@@ -1,6 +1,6 @@
 import React, { Component, ErrorInfo } from 'react';
 
-import { logger } from '~modules/logger';
+import { logger } from '~modules/logger/services';
 
 import RuntimeError from '../../RuntimeError';
 import ErrorScreen from '../Error';

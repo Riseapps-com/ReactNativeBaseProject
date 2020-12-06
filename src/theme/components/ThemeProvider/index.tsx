@@ -2,8 +2,8 @@ import React, { useContext, useEffect, useMemo } from 'react';
 import { useColorScheme } from 'react-native';
 import { NavigationContext, useNavigation } from 'react-native-navigation-hooks';
 
-import { setDefaultOptions } from '~modules/navigation';
-import { dark, light } from '~theme';
+import { dark, light } from '../../config';
+import { setDefaultOptions } from '../../services';
 
 const ThemeProvider: React.FC = props => {
   const { componentId } = useContext(NavigationContext);
