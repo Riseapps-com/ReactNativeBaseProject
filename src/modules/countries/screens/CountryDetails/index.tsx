@@ -11,12 +11,12 @@ import themedStyles from './styles';
 
 const CountryDetailsScreen: NavigationFunctionComponent<CountryDetailsScreenProps> = props => {
   const [styles] = useTheme(themedStyles);
-  const { top, bottom } = useSafeAreaInsets();
+  const { bottom } = useSafeAreaInsets();
 
   return (
     <ScrollView
       showsVerticalScrollIndicator={false}
-      contentContainerStyle={[styles.container, { marginTop: top, marginBottom: bottom }]}
+      contentContainerStyle={[styles.container, { marginBottom: bottom }]}
     >
       <StatusBar barStyle={'light-content'} />
 

@@ -1,18 +1,18 @@
 import React, { useCallback } from 'react';
-import { TouchableOpacity, View } from 'react-native';
+import { StyleProp, TouchableOpacity, View, ViewStyle } from 'react-native';
 import FastImage from 'react-native-fast-image';
 
-import { DEFAULT_ACTIVE_OPACITY, Separator, Text } from '~modules/ui';
+import { DEFAULT_ACTIVE_OPACITY, Text } from '~modules/ui';
 import { useTheme } from '~theme';
 
 import themedStyles from './styles';
 
 export type MenuItemProps = {
+  style?: StyleProp<ViewStyle>;
   image: number;
   title: string;
   index: number;
   onItemPress?: (index: number) => void;
-  bottomSeparator?: boolean;
   testID?: string;
 };
 
@@ -24,26 +24,22 @@ const MenuItem: React.FC<MenuItemProps> = (props: MenuItemProps) => {
   ]);
 
   return (
-    <>
-      <TouchableOpacity
-        activeOpacity={DEFAULT_ACTIVE_OPACITY}
-        testID={props.testID}
-        onPress={handleItemPress}
-        style={styles.container}
-      >
-        <View style={styles.imageContainer}>
-          <FastImage style={styles.image} source={props.image} />
-        </View>
+    <TouchableOpacity
+      activeOpacity={DEFAULT_ACTIVE_OPACITY}
+      testID={props.testID}
+      onPress={handleItemPress}
+      style={[styles.container, props.style]}
+    >
+      <View style={styles.imageContainer}>
+        <FastImage style={styles.image} source={props.image} />
+      </View>
 
-        <View style={styles.titleContainer}>
-          <Text fontStyle={'bold'} style={styles.title}>
-            {props.title}
-          </Text>
-        </View>
-      </TouchableOpacity>
-
-      {props.bottomSeparator && <Separator />}
-    </>
+      <View style={styles.titleContainer}>
+        <Text fontStyle={'bold'} style={styles.title}>
+          {props.title}
+        </Text>
+      </View>
+    </TouchableOpacity>
   );
 };
 

@@ -4,9 +4,12 @@ const MENU_IMAGE_HEIGHT = 48;
 
 export default styleSheetFactory(theme => ({
   container: {
-    flex: 1,
+    borderRadius: sizes.SPACING_S,
+    overflow: 'hidden',
     backgroundColor: theme.primary,
     flexDirection: 'row',
+    margin: sizes.SPACING_M,
+    padding: sizes.SPACING_S,
   },
   imageContainer: {
     width: '30%',

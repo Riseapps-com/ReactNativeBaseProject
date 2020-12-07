@@ -12,10 +12,10 @@ import themedStyles from './styles';
 
 const CountriesScreen: NavigationFunctionComponent<CountriesScreenProps> = props => {
   const [styles] = useTheme(themedStyles);
-  const { top, bottom } = useSafeAreaInsets();
+  const { bottom } = useSafeAreaInsets();
 
   return (
-    <View style={[styles.container, { marginTop: top, marginBottom: bottom }]}>
+    <View style={[styles.container, { marginBottom: bottom }]}>
       <StatusBar barStyle={'light-content'} />
 
       <CountriesList region={props.region} />

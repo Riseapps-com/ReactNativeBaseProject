@@ -1,4 +1,10 @@
+import { TranslationGetters } from '../types';
 import de from './de.json';
 import en from './en.json';
 
-export { de, en };
+const translations: TranslationGetters = {
+  en: () => en,
+  de: () => de,
+};
+
+export { translations };

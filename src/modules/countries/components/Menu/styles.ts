@@ -6,6 +6,6 @@ export default styleSheetFactory(() => ({
     justifyContent: 'space-between',
   },
   menuItem: {
-    height: '14%',
+    height: '40%',
   },
 }));
