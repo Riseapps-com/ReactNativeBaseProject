@@ -9,7 +9,7 @@ import {
 } from 'react-native-navigation-hooks';
 
 import { useStore } from '~modules/state';
-import { ActivityIndicator, Text } from '~modules/ui';
+import { ActivityIndicator, Error, Text } from '~modules/ui';
 import { useTheme } from '~theme';
 
 import { countriesUtils } from '../../services';
@@ -25,7 +25,7 @@ const CountryDetails: React.FC<CountryDetailsProps> = observer(props => {
   const { countriesStore } = useStore();
 
   useNavigationComponentDidAppear(() => {
-    countriesStore.getCountryDetails(props.code);
+    countriesStore.getCountryByCode(props.code);
   });
 
   useNavigationComponentDidDisappear(() => {
@@ -47,6 +47,8 @@ const CountryDetails: React.FC<CountryDetailsProps> = observer(props => {
   );
 
   if (countriesStore.isCountryByCodeLoading) return <ActivityIndicator />;
+
+  if (countriesStore.countryByCodeError) return <Error />;
 
   return countriesStore.localCountryByCode ? (
     <View style={styles.cardContainer}>
@@ -72,9 +74,15 @@ const CountryDetails: React.FC<CountryDetailsProps> = observer(props => {
 
         {contentRow(t('subregion'), countriesStore.localCountryByCode.subregion)}
 
-        {contentRow(t('timezones'), countriesStore.localCountryByCode.timezones.join(', '))}
+        {contentRow(
+          t('timezones'),
+          countriesStore.localCountryByCode.timezones.filter(timezone => timezone).join(',\n')
+        )}
 
-        {contentRow(t('currencies'), countriesStore.localCountryByCode.currencies.join(', '))}
+        {contentRow(
+          t('currencies'),
+          countriesStore.localCountryByCode.currencies.filter(currency => currency).join(',\n')
+        )}
       </View>
     </View>
   ) : null;

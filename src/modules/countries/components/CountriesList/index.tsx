@@ -4,7 +4,7 @@ import { FlatList, ListRenderItemInfo } from 'react-native';
 import { useNavigation, useNavigationComponentDidAppear } from 'react-native-navigation-hooks';
 
 import { LocalCountry, LocalRegion, useStore } from '~modules/state';
-import { ActivityIndicator } from '~modules/ui';
+import { ActivityIndicator, Error } from '~modules/ui';
 
 import { COUNTRY_DETAILS_SCREEN_NAME } from '../../config';
 import { CountryDetailsScreenProps } from '../../types';
@@ -23,9 +23,9 @@ const CountriesList: React.FC<CountriesListProps> = observer(props => {
     : countriesStore.localAllCountries;
 
   useNavigationComponentDidAppear(() => {
-    if (props.region && !countriesStore.localCountriesByRegion.length) {
+    if (props.region && !countriesStore.countriesByRegion.length) {
       countriesStore.getCountriesByRegion(props.region);
-    } else if (!countriesStore.localAllCountries.length) {
+    } else if (!props.region && !countriesStore.allCountries.length) {
       countriesStore.getAllCountries();
     }
   });
@@ -66,6 +66,9 @@ const CountriesList: React.FC<CountriesListProps> = observer(props => {
 
   if (countriesStore.areAllCountriesLoading || countriesStore.areCountriesByRegionLoading)
     return <ActivityIndicator />;
+
+  if ((props.region && countriesStore.countriesByRegionError) || countriesStore.allCountriesError)
+    return <Error />;
 
   return <FlatList data={countries} renderItem={renderItem} keyExtractor={keyExtractor} />;
 });

@@ -25,7 +25,11 @@ class CountriesStore implements Resettable {
 
   isCountryByCodeLoading = false;
 
-  error: string | undefined = undefined;
+  allCountriesError: string | undefined = undefined;
+
+  countriesByRegionError: string | undefined = undefined;
+
+  countryByCodeError: string | undefined = undefined;
 
   region: Region = 'africa';
 
@@ -35,13 +39,13 @@ class CountriesStore implements Resettable {
 
   *getAllCountries() {
     this.areAllCountriesLoading = true;
-    this.error = undefined;
+    this.allCountriesError = undefined;
 
     try {
       this.allCountries = yield countriesApi.getAllCountries();
       this.localAllCountries = countriesParsers.parseCountries(this.allCountries);
     } catch (e) {
-      this.error = e.message;
+      this.allCountriesError = e.message;
     }
 
     this.areAllCountriesLoading = false;
@@ -50,17 +54,18 @@ class CountriesStore implements Resettable {
   resetAllCountries() {
     this.allCountries = [];
     this.localAllCountries = [];
+    this.allCountriesError = undefined;
   }
 
   *getCountriesByRegion(region: LocalRegion) {
     this.areCountriesByRegionLoading = true;
-    this.error = undefined;
+    this.countriesByRegionError = undefined;
 
     try {
       this.countriesByRegion = yield countriesApi.getCountriesByRegion(region);
       this.localCountriesByRegion = countriesParsers.parseCountries(this.countriesByRegion);
     } catch (e) {
-      this.error = e.message;
+      this.countriesByRegionError = e.message;
     }
 
     this.areCountriesByRegionLoading = false;
@@ -69,11 +74,12 @@ class CountriesStore implements Resettable {
   resetCountriesByRegion() {
     this.countriesByRegion = [];
     this.localCountriesByRegion = [];
+    this.countriesByRegionError = undefined;
   }
 
-  *getCountryDetails(code: string) {
+  *getCountryByCode(code: string) {
     this.isCountryByCodeLoading = true;
-    this.error = undefined;
+    this.countryByCodeError = undefined;
 
     try {
       this.countryByCode = yield countriesApi.getCountryByCode(code.toLowerCase());
@@ -81,7 +87,7 @@ class CountriesStore implements Resettable {
         ? countriesParsers.parseCountry(this.countryByCode)
         : undefined;
     } catch (e) {
-      this.error = e.message;
+      this.countryByCodeError = e.message;
     }
 
     this.isCountryByCodeLoading = false;
@@ -90,6 +96,7 @@ class CountriesStore implements Resettable {
   resetCountryByCode() {
     this.countryByCode = undefined;
     this.localCountryByCode = undefined;
+    this.countryByCodeError = undefined;
   }
 
   reset(): void {
@@ -99,7 +106,9 @@ class CountriesStore implements Resettable {
     this.areAllCountriesLoading = false;
     this.areCountriesByRegionLoading = false;
     this.isCountryByCodeLoading = false;
-    this.error = undefined;
+    this.allCountriesError = undefined;
+    this.countriesByRegionError = undefined;
+    this.countryByCodeError = undefined;
     this.region = 'africa';
   }
 }

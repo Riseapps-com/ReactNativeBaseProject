@@ -15,6 +15,7 @@
   "regions": "Regions",
   "subregion": "Subregion",
   "timezones": "Timezones",
+  "menu": "Menu",
   "notFoundException": "Couldn't find the requested item.",
   "invalidRequestException": "There was a problem with the request. Please try again or contact our support.",
   "serverErrorException": "Something went wrong. Please try again or contact our support.",

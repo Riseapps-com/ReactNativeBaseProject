@@ -3,6 +3,7 @@ import { StatusBar, View } from 'react-native';
 import { NavigationFunctionComponent, Options } from 'react-native-navigation';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
+import { I18n } from '~modules/localization';
 import { useTheme } from '~theme';
 
 import { Menu } from '../../components';
@@ -10,10 +11,10 @@ import themedStyles from './styles';
 
 const MenuScreen: NavigationFunctionComponent = () => {
   const [styles] = useTheme(themedStyles);
-  const { top, bottom } = useSafeAreaInsets();
+  const { bottom } = useSafeAreaInsets();
 
   return (
-    <View style={[styles.container, { paddingTop: top, paddingBottom: bottom }]}>
+    <View style={[styles.container, { paddingBottom: bottom }]}>
       <StatusBar barStyle={'light-content'} />
 
       <Menu />
@@ -23,7 +24,9 @@ const MenuScreen: NavigationFunctionComponent = () => {
 
 MenuScreen.options = (): Options => ({
   topBar: {
-    visible: false,
+    title: {
+      text: I18n.t('menu'),
+    },
   },
 });
 
