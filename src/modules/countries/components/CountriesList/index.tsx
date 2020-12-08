@@ -3,11 +3,11 @@ import React, { useCallback, useEffect, useMemo } from 'react';
 import { FlatList, ListRenderItemInfo } from 'react-native';
 import { useNavigation } from 'react-native-navigation-hooks';
 
-import { useStore } from '~modules/state';
+import { LocalCountry, LocalRegion, useStore } from '~modules/state';
 import { ActivityIndicator } from '~modules/ui';
 
 import { COUNTRY_DETAILS_SCREEN_NAME } from '../../config';
-import { CountryDetailsScreenProps, LocalCountry, LocalRegion } from '../../types';
+import { CountryDetailsScreenProps } from '../../types';
 import CountriesListItem from '../CountriesListItem';
 
 export type CountriesListProps = {
@@ -54,7 +54,8 @@ const CountriesList: React.FC<CountriesListProps> = observer(props => {
   );
   const keyExtractor = (localCountry: LocalCountry) => localCountry.id;
 
-  if (countriesStore.loading) return <ActivityIndicator />;
+  if (countriesStore.areAllCountriesLoading || countriesStore.areCountriesByRegionLoading)
+    return <ActivityIndicator />;
 
   return <FlatList data={countries} renderItem={renderItem} keyExtractor={keyExtractor} />;
 });

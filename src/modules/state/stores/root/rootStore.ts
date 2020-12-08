@@ -1,5 +1,5 @@
-import { Resettable } from '../types';
-import CountriesStore from './countriesStore';
+import { Resettable } from '../../types';
+import CountriesStore from '../countries/countriesStore';
 
 class StoreRoot {
   countriesStore = new CountriesStore();

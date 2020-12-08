@@ -38,9 +38,9 @@ const CountryDetails: React.FC<CountryDetailsProps> = observer(props => {
     [styles.rowContainer, styles.title, styles.value]
   );
 
-  if (countriesStore.loading) return <ActivityIndicator />;
+  if (countriesStore.isCountryByCodeLoading) return <ActivityIndicator />;
 
-  return countriesStore.localCountryDetails ? (
+  return countriesStore.localCountryByCode ? (
     <View style={styles.cardContainer}>
       <View style={styles.contentContainer}>
         <FastImage
@@ -48,25 +48,25 @@ const CountryDetails: React.FC<CountryDetailsProps> = observer(props => {
           resizeMode={FastImage.resizeMode.cover}
           source={{
             uri: countriesUtils.getCountryFlag(
-              countriesStore.localCountryDetails.alpha2Code,
+              countriesStore.localCountryByCode.alpha2Code,
               'h240'
             ),
           }}
         >
           <Text numberOfLines={1} style={styles.name} size={'biggest'} fontStyle={'bold'}>
-            {countriesStore.localCountryDetails.name}
+            {countriesStore.localCountryByCode.name}
           </Text>
         </FastImage>
 
-        {contentRow(t('capital'), countriesStore.localCountryDetails.capital)}
+        {contentRow(t('capital'), countriesStore.localCountryByCode.capital)}
 
-        {contentRow(t('region'), countriesStore.localCountryDetails.region)}
+        {contentRow(t('region'), countriesStore.localCountryByCode.region)}
 
-        {contentRow(t('subregion'), countriesStore.localCountryDetails.subregion)}
+        {contentRow(t('subregion'), countriesStore.localCountryByCode.subregion)}
 
-        {contentRow(t('timezones'), countriesStore.localCountryDetails.timezones.join(', '))}
+        {contentRow(t('timezones'), countriesStore.localCountryByCode.timezones.join(', '))}
 
-        {contentRow(t('currencies'), countriesStore.localCountryDetails.currencies.join(', '))}
+        {contentRow(t('currencies'), countriesStore.localCountryByCode.currencies.join(', '))}
       </View>
     </View>
   ) : null;

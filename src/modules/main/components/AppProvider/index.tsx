@@ -3,7 +3,7 @@ import { NavigationProvider } from 'react-native-navigation-hooks';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { ErrorBoundary } from '~modules/errors';
-import { StoreContext, stores } from '~modules/state';
+import { rootStore, StoreContext } from '~modules/state';
 import { ThemeProvider } from '~theme';
 
 export type AppProviderProps = {
@@ -15,7 +15,7 @@ const AppProvider = <P extends AppProviderProps>(
   Component: React.ComponentType<P>
 ) => (props: AppProviderProps) => {
   return (
-    <StoreContext.Provider value={stores.rootStore}>
+    <StoreContext.Provider value={rootStore}>
       <SafeAreaProvider>
         <ErrorBoundary>
           <NavigationProvider value={{ componentId: props.componentId }}>

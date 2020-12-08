@@ -34,6 +34,7 @@ export type RegionalBloc = {
 };
 
 export type Country = {
+  id: string;
   name: string;
   topLevelDomain: string[];
   alpha2Code: string;

@@ -2,7 +2,7 @@ import { v4 } from 'uuid';
 
 import { Country } from '~modules/api';
 
-import { LocalCountry } from '../types';
+import { LocalCountry } from './types';
 
 export const parseCountry = (country: Country): LocalCountry => ({
   id: v4(),

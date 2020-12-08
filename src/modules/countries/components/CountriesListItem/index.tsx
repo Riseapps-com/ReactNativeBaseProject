@@ -2,11 +2,11 @@ import React, { useCallback } from 'react';
 import { TouchableOpacity, View } from 'react-native';
 import FastImage from 'react-native-fast-image';
 
+import { LocalCountry } from '~modules/state';
 import { Text } from '~modules/ui';
 import { useTheme } from '~theme';
 
 import { countriesUtils } from '../../services';
-import { LocalCountry } from '../../types';
 import themedStyles from './styles';
 
 export type CountriesListItemProps = {
@@ -17,9 +17,11 @@ export type CountriesListItemProps = {
 
 const CountriesListItem: React.FC<CountriesListItemProps> = props => {
   const [styles] = useTheme(themedStyles);
+  const { onItemPress } = props;
 
-  const handleItemPress = useCallback(() => props.onItemPress && props.onItemPress(props.index), [
-    props,
+  const handleItemPress = useCallback(() => onItemPress && onItemPress(props.index), [
+    onItemPress,
+    props.index,
   ]);
 
   return (

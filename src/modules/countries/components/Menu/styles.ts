@@ -1,4 +1,4 @@
-import { styleSheetFactory } from '~theme';
+import { sizes, styleSheetFactory } from '~theme';
 
 export default styleSheetFactory(() => ({
   container: {
@@ -6,6 +6,6 @@ export default styleSheetFactory(() => ({
     justifyContent: 'space-between',
   },
   menuItem: {
-    height: '40%',
+    marginVertical: sizes.SPACING_M,
   },
 }));

@@ -17,7 +17,7 @@ const setDefaultOptions = (): void => {
     },
     topBar: {
       drawBehind: false,
-      animate: true,
+      animate: false,
       title: {
         fontSize: sizes.BASE_FONT_SIZE,
         color: theme.secondaryText,

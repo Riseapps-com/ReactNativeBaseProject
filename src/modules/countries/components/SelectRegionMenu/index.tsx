@@ -27,44 +27,24 @@ const Menu: React.FC = () => {
 
   return (
     <View style={styles.container}>
-      <MenuItem
-        title={t('africa')}
-        image={images.africa}
-        index={0}
-        onItemPress={handleItemPress}
-        style={styles.menuItem}
-      />
+      <MenuItem title={t('africa')} image={images.africa} index={0} onItemPress={handleItemPress} />
 
       <MenuItem
         title={t('americas')}
         image={images.americas}
         index={1}
         onItemPress={handleItemPress}
-        style={styles.menuItem}
       />
 
-      <MenuItem
-        title={t('asia')}
-        image={images.asia}
-        index={2}
-        onItemPress={handleItemPress}
-        style={styles.menuItem}
-      />
+      <MenuItem title={t('asia')} image={images.asia} index={2} onItemPress={handleItemPress} />
 
-      <MenuItem
-        title={t('europe')}
-        image={images.europe}
-        index={3}
-        onItemPress={handleItemPress}
-        style={styles.menuItem}
-      />
+      <MenuItem title={t('europe')} image={images.europe} index={3} onItemPress={handleItemPress} />
 
       <MenuItem
         title={t('oceania')}
         image={images.oceania}
         index={4}
         onItemPress={handleItemPress}
-        style={styles.menuItem}
       />
     </View>
   );

@@ -1,3 +1,5 @@
+import { Platform } from 'react-native';
+
 import { sizes, styleSheetFactory } from '~theme';
 
 const SHADOW_HEIGHT = 2;
@@ -8,17 +10,21 @@ const FLAG_HEIGHT = 200;
 
 export default styleSheetFactory(theme => ({
   cardContainer: {
-    shadowColor: theme.backdrop,
-    shadowOffset: {
-      width: 0,
-      height: SHADOW_HEIGHT,
-    },
-    shadowOpacity: SHADOW_OPACITY,
-    shadowRadius: SHADOW_RADIUS,
-    elevation: ELEVATION,
+    ...Platform.select({
+      ios: {
+        shadowColor: theme.backdrop,
+        shadowOffset: {
+          width: 0,
+          height: SHADOW_HEIGHT,
+        },
+        shadowOpacity: SHADOW_OPACITY,
+        shadowRadius: SHADOW_RADIUS,
+      },
+    }),
     margin: sizes.SPACING_M,
   },
   contentContainer: {
+    ...Platform.select({ android: { elevation: ELEVATION } }),
     borderRadius: sizes.SPACING_S,
     backgroundColor: theme.surface,
     overflow: 'hidden',

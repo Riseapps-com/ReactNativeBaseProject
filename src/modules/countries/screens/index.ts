@@ -1,6 +1,6 @@
-import { default as CountriesScreen } from './Countries';
-import { default as CountryDetailsScreen } from './CountryDetails';
-import { default as MenuScreen } from './Menu';
-import { default as SelectRegionScreen } from './SelectRegion';
+import { default as CountriesScreen } from './CountriesScreen';
+import { default as CountryDetailsScreen } from './CountryDetailsScreen';
+import { default as MenuScreen } from './MenuScreen';
+import { default as SelectRegionScreen } from './SelectRegionScreen';
 
 export { CountriesScreen, CountryDetailsScreen, MenuScreen, SelectRegionScreen };

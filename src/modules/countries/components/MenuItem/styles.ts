@@ -8,8 +8,10 @@ export default styleSheetFactory(theme => ({
     overflow: 'hidden',
     backgroundColor: theme.primary,
     flexDirection: 'row',
-    margin: sizes.SPACING_M,
+    marginHorizontal: sizes.SPACING_S,
+    marginVertical: sizes.SPACING_S,
     padding: sizes.SPACING_S,
+    flex: 1,
   },
   imageContainer: {
     width: '30%',

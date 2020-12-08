@@ -18,9 +18,11 @@ export type MenuItemProps = {
 
 const MenuItem: React.FC<MenuItemProps> = (props: MenuItemProps) => {
   const [styles] = useTheme(themedStyles);
+  const { onItemPress } = props;
 
-  const handleItemPress = useCallback(() => props.onItemPress && props.onItemPress(props.index), [
-    props,
+  const handleItemPress = useCallback(() => onItemPress && onItemPress(props.index), [
+    onItemPress,
+    props.index,
   ]);
 
   return (
