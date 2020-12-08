@@ -28,6 +28,14 @@ const CountriesList: React.FC<CountriesListProps> = observer(props => {
     } else {
       countriesStore.getAllCountries();
     }
+
+    return () => {
+      if (props.region) {
+        countriesStore.resetCountriesByRegion();
+      } else {
+        countriesStore.resetAllCountries();
+      }
+    };
   }, [countriesStore, props.region]);
 
   const handleItemPress = useCallback(

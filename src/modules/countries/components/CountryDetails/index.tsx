@@ -22,6 +22,10 @@ const CountryDetails: React.FC<CountryDetailsProps> = observer(props => {
 
   useEffect(() => {
     countriesStore.getCountryDetails(props.code);
+
+    return () => {
+      countriesStore.resetCountryByCode();
+    };
   }, [countriesStore, props.code]);
 
   const contentRow = useMemo(

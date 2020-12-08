@@ -47,6 +47,11 @@ class CountriesStore implements Resettable {
     this.areAllCountriesLoading = false;
   }
 
+  resetAllCountries() {
+    this.allCountries = [];
+    this.localAllCountries = [];
+  }
+
   *getCountriesByRegion(region: LocalRegion) {
     this.areCountriesByRegionLoading = true;
     this.error = undefined;
@@ -59,6 +64,11 @@ class CountriesStore implements Resettable {
     }
 
     this.areCountriesByRegionLoading = false;
+  }
+
+  resetCountriesByRegion() {
+    this.countriesByRegion = [];
+    this.localCountriesByRegion = [];
   }
 
   *getCountryDetails(code: string) {
@@ -75,6 +85,11 @@ class CountriesStore implements Resettable {
     }
 
     this.isCountryByCodeLoading = false;
+  }
+
+  resetCountryByCode() {
+    this.countryByCode = undefined;
+    this.localCountryByCode = undefined;
   }
 
   reset(): void {
