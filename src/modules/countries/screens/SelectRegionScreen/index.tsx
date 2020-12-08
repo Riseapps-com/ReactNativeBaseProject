@@ -14,7 +14,7 @@ const SelectRegionScreen: NavigationFunctionComponent = () => {
   const { bottom } = useSafeAreaInsets();
 
   return (
-    <View style={[styles.container, { marginBottom: bottom }]}>
+    <View style={[styles.container, { paddingBottom: bottom }]}>
       <StatusBar barStyle={'light-content'} />
 
       <SelectRegionMenu />

@@ -1,5 +1,9 @@
+import { configure } from 'mobx';
+
 import { Resettable } from '../../types';
 import CountriesStore from '../countries/countriesStore';
+
+configure({ useProxies: 'never', enforceActions: 'never' });
 
 class StoreRoot {
   countriesStore = new CountriesStore();

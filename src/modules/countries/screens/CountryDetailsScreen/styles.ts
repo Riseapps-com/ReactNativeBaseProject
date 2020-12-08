@@ -6,4 +6,7 @@ export default styleSheetFactory(theme => ({
     height: '100%',
     backgroundColor: theme.background,
   },
+  contentStyle: {
+    flex: 1,
+  },
 }));

@@ -4,7 +4,7 @@ export default styleSheetFactory(theme => ({
   container: {
     flexDirection: 'row',
     paddingHorizontal: sizes.SPACING_M,
-    marginTop: sizes.SPACING_S,
+    paddingVertical: sizes.SPACING_S,
   },
   centerContainer: {
     flex: 1,

@@ -1,8 +1,12 @@
 import { observer } from 'mobx-react-lite';
-import React, { useEffect, useMemo } from 'react';
+import React, { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { View } from 'react-native';
 import FastImage from 'react-native-fast-image';
+import {
+  useNavigationComponentDidAppear,
+  useNavigationComponentDidDisappear,
+} from 'react-native-navigation-hooks';
 
 import { useStore } from '~modules/state';
 import { ActivityIndicator, Text } from '~modules/ui';
@@ -20,13 +24,13 @@ const CountryDetails: React.FC<CountryDetailsProps> = observer(props => {
   const { t } = useTranslation();
   const { countriesStore } = useStore();
 
-  useEffect(() => {
+  useNavigationComponentDidAppear(() => {
     countriesStore.getCountryDetails(props.code);
+  });
 
-    return () => {
-      countriesStore.resetCountryByCode();
-    };
-  }, [countriesStore, props.code]);
+  useNavigationComponentDidDisappear(() => {
+    countriesStore.resetCountryByCode();
+  });
 
   const contentRow = useMemo(
     () => (title: string, value: string) => {

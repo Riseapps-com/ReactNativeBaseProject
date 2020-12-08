@@ -1,7 +1,7 @@
 import { observer } from 'mobx-react-lite';
 import React, { useCallback, useEffect, useMemo } from 'react';
 import { FlatList, ListRenderItemInfo } from 'react-native';
-import { useNavigation } from 'react-native-navigation-hooks';
+import { useNavigation, useNavigationComponentDidAppear } from 'react-native-navigation-hooks';
 
 import { LocalCountry, LocalRegion, useStore } from '~modules/state';
 import { ActivityIndicator } from '~modules/ui';
@@ -22,13 +22,15 @@ const CountriesList: React.FC<CountriesListProps> = observer(props => {
     ? countriesStore.localCountriesByRegion
     : countriesStore.localAllCountries;
 
-  useEffect(() => {
-    if (props.region) {
+  useNavigationComponentDidAppear(() => {
+    if (props.region && !countriesStore.localCountriesByRegion.length) {
       countriesStore.getCountriesByRegion(props.region);
-    } else {
+    } else if (!countriesStore.localAllCountries.length) {
       countriesStore.getAllCountries();
     }
+  });
 
+  useEffect(() => {
     return () => {
       if (props.region) {
         countriesStore.resetCountriesByRegion();
