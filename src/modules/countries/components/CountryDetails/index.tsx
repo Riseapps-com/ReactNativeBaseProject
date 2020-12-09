@@ -78,6 +78,15 @@ const CountryDetails: React.FC<CountryDetailsProps> = observer(props => {
           t('timezones'),
           countriesStore.localCountryByCode.timezones.filter(timezone => timezone).join(',\n')
         )}
+        {contentRow(
+          t('timezones'),
+          countriesStore.localCountryByCode.timezones.filter(timezone => timezone).join(',\n')
+        )}
+        {contentRow(
+          t('timezones'),
+          countriesStore.localCountryByCode.timezones.filter(timezone => timezone).join(',\n')
+        )}
+
 
         {contentRow(
           t('currencies'),

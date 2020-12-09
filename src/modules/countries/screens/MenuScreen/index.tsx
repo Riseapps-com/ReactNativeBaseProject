@@ -14,7 +14,7 @@ const MenuScreen: NavigationFunctionComponent = () => {
   const { bottom } = useSafeAreaInsets();
 
   return (
-    <View style={[styles.container, { paddingBottom: bottom }]}>
+    <View style={[styles.container, { marginBottom: bottom }]}>
       <StatusBar barStyle={'light-content'} />
 
       <Menu />

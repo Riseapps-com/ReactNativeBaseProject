@@ -2,11 +2,7 @@ import { styleSheetFactory } from '~theme';
 
 export default styleSheetFactory(theme => ({
   container: {
-    width: '100%',
-    height: '100%',
+    flexGrow: 1,
     backgroundColor: theme.background,
-  },
-  contentStyle: {
-    flex: 1,
   },
 }));

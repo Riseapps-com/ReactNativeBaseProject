@@ -16,8 +16,8 @@ const CountryDetailsScreen: NavigationFunctionComponent<CountryDetailsScreenProp
   return (
     <ScrollView
       showsVerticalScrollIndicator={false}
-      style={[styles.container, { paddingBottom: bottom }]}
-      contentContainerStyle={styles.contentStyle}
+      style={{ marginBottom: bottom }}
+      contentContainerStyle={styles.container}
     >
       <StatusBar barStyle={'light-content'} />
 
