@@ -20,6 +20,7 @@ export default styleSheetFactory(theme => ({
     }),
     marginHorizontal: sizes.SPACING_S,
     marginVertical: sizes.SPACING_S,
+    padding: sizes.SPACING_S,
     flex: 1,
   },
   contentContainer: {
@@ -27,7 +28,6 @@ export default styleSheetFactory(theme => ({
     overflow: 'hidden',
     borderRadius: sizes.SPACING_S,
     flexDirection: 'row',
-    padding: sizes.SPACING_S,
     backgroundColor: theme.primary,
     flex: 1,
   },

@@ -23,6 +23,7 @@
       "~theme": ["src/theme"]
     },
     "removeComments": true,
+    "skipLibCheck": true,
     "strict": true,
     "strictBindCallApply": true,
     "strictFunctionTypes": true,

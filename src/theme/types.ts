@@ -1,4 +1,4 @@
-import { ColorValue, ImageStyle, TextStyle, ViewStyle } from 'react-native';
+import { ImageStyle, TextStyle, ViewStyle } from 'react-native';
 import { ImageStyle as FastImageStyle } from 'react-native-fast-image';
 
 export type AppearanceProvider<T> = () => T;
@@ -14,16 +14,16 @@ export type StyleSheetData<N extends string, T, S> = {
 };
 
 export type Theme = {
-  primary: ColorValue;
-  accent: ColorValue;
-  background: ColorValue;
-  surface: ColorValue;
-  error: ColorValue;
-  text: ColorValue;
-  secondaryText: ColorValue;
-  separator: ColorValue;
-  disabled: ColorValue;
-  placeholder: ColorValue;
-  backdrop: ColorValue;
-  notification: ColorValue;
+  primary: string;
+  accent: string;
+  background: string;
+  surface: string;
+  error: string;
+  text: string;
+  secondaryText: string;
+  separator: string;
+  disabled: string;
+  placeholder: string;
+  backdrop: string;
+  notification: string;
 };

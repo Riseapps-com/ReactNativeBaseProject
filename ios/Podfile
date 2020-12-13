@@ -5,14 +5,9 @@ platform :ios, '11.0'
 
 target 'ReactNativeBaseProject' do
   config = use_native_modules!
-
+  
   use_react_native!(:path => config["reactNativePath"])
-
-  target 'ReactNativeBaseProjectTests' do
-    inherit! :complete
-    # Pods for testing
-  end
-
+  
   # Enables Flipper.
   #
   # Note that if you have use_frameworks! enabled, Flipper will not work and
@@ -20,14 +15,5 @@ target 'ReactNativeBaseProject' do
   use_flipper!('Flipper' => '0.62.0')
   post_install do |installer|
     flipper_post_install(installer)
-  end
-end
-
-target 'ReactNativeBaseProject-tvOS' do
-  # Pods for ReactNativeBaseProject-tvOS
-
-  target 'ReactNativeBaseProject-tvOSTests' do
-    inherit! :search_paths
-    # Pods for testing
   end
 end

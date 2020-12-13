@@ -30,7 +30,7 @@ static void InitializeFlipper(UIApplication *application) {
 #ifdef FB_SONARKIT_ENABLED
   InitializeFlipper(application);
 #endif
-
+  
   [ReactNativeNavigation bootstrapWithDelegate:self launchOptions:launchOptions];
   return YES;
 }
