@@ -1,7 +1,6 @@
 import React from 'react';
 import { StatusBar, View } from 'react-native';
 import { NavigationFunctionComponent, Options } from 'react-native-navigation';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { I18n } from '~modules/localization';
 import { useTheme } from '~theme';
@@ -12,10 +11,9 @@ import themedStyles from './styles';
 
 const CountriesScreen: NavigationFunctionComponent<CountriesScreenProps> = props => {
   const [styles] = useTheme(themedStyles);
-  const { bottom } = useSafeAreaInsets();
 
   return (
-    <View style={[styles.container, { marginBottom: bottom }]}>
+    <View style={styles.container}>
       <StatusBar barStyle={'light-content'} />
 
       <CountriesList region={props.region} />

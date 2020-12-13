@@ -1,8 +1,7 @@
 import React, { useCallback } from 'react';
 import { StyleProp, TouchableOpacity, View, ViewStyle } from 'react-native';
-import FastImage from 'react-native-fast-image';
 
-import { DEFAULT_ACTIVE_OPACITY, Text } from '~modules/ui';
+import { DEFAULT_ACTIVE_OPACITY, FastImage, Text } from '~modules/ui';
 import { useTheme } from '~theme';
 
 import themedStyles from './styles';
@@ -32,14 +31,16 @@ const MenuItem: React.FC<MenuItemProps> = (props: MenuItemProps) => {
       onPress={handleItemPress}
       style={[styles.container, props.style]}
     >
-      <View style={styles.imageContainer}>
-        <FastImage style={styles.image} source={props.image} />
-      </View>
+      <View style={styles.contentContainer}>
+        <View style={styles.imageContainer}>
+          <FastImage style={styles.image} source={props.image} />
+        </View>
 
-      <View style={styles.titleContainer}>
-        <Text fontStyle={'bold'} style={styles.title}>
-          {props.title}
-        </Text>
+        <View style={styles.titleContainer}>
+          <Text fontStyle={'bold'} style={styles.title}>
+            {props.title}
+          </Text>
+        </View>
       </View>
     </TouchableOpacity>
   );

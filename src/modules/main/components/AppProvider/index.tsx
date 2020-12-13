@@ -1,10 +1,12 @@
 import React from 'react';
+import { SafeAreaView, View } from 'react-native';
 import { NavigationProvider } from 'react-native-navigation-hooks';
-import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { ErrorBoundary } from '~modules/errors';
 import { rootStore, StoreContext } from '~modules/state';
 import { ThemeProvider } from '~theme';
+
+import styles from './styles';
 
 export type AppProviderProps = {
   componentId: string;
@@ -12,19 +14,22 @@ export type AppProviderProps = {
 
 const AppProvider = <P extends AppProviderProps>(
   // eslint-disable-next-line @typescript-eslint/naming-convention
-  Component: React.ComponentType<P>
+  Component: React.ComponentType<P>,
+  withSafeArea: boolean
 ) => (props: AppProviderProps) => {
+  const Container = withSafeArea ? SafeAreaView : View;
+
   return (
     <StoreContext.Provider value={rootStore}>
-      <SafeAreaProvider>
-        <ErrorBoundary>
-          <NavigationProvider value={{ componentId: props.componentId }}>
-            <ThemeProvider>
+      <ErrorBoundary>
+        <NavigationProvider value={{ componentId: props.componentId }}>
+          <ThemeProvider>
+            <Container style={styles.container}>
               <Component {...(props as P)} />
-            </ThemeProvider>
-          </NavigationProvider>
-        </ErrorBoundary>
-      </SafeAreaProvider>
+            </Container>
+          </ThemeProvider>
+        </NavigationProvider>
+      </ErrorBoundary>
     </StoreContext.Provider>
   );
 };

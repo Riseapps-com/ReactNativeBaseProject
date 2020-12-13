@@ -1,7 +1,6 @@
 import React from 'react';
 import { ScrollView, StatusBar } from 'react-native';
 import { NavigationFunctionComponent, Options } from 'react-native-navigation';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { useTheme } from '~theme';
 
@@ -11,14 +10,9 @@ import themedStyles from './styles';
 
 const CountryDetailsScreen: NavigationFunctionComponent<CountryDetailsScreenProps> = props => {
   const [styles] = useTheme(themedStyles);
-  const { bottom } = useSafeAreaInsets();
 
   return (
-    <ScrollView
-      showsVerticalScrollIndicator={false}
-      style={{ marginBottom: bottom }}
-      contentContainerStyle={styles.container}
-    >
+    <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.container}>
       <StatusBar barStyle={'light-content'} />
 
       <CountryDetails code={props.code} />

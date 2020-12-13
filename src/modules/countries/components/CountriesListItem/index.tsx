@@ -1,9 +1,8 @@
 import React, { useCallback } from 'react';
 import { TouchableOpacity, View } from 'react-native';
-import FastImage from 'react-native-fast-image';
 
 import { LocalCountry } from '~modules/state';
-import { Text } from '~modules/ui';
+import { FastImage, resizeMode, Text } from '~modules/ui';
 import { useTheme } from '~theme';
 
 import { countriesUtils } from '../../services';
@@ -28,7 +27,7 @@ const CountriesListItem: React.FC<CountriesListItemProps> = props => {
     <TouchableOpacity onPress={handleItemPress} style={styles.container}>
       <FastImage
         style={styles.icon}
-        resizeMode={FastImage.resizeMode.contain}
+        resizeMode={resizeMode.contain}
         source={{ uri: countriesUtils.getCountryFlag(props.country.alpha2Code, 'h60') }}
       />
 

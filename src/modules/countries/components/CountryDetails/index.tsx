@@ -2,14 +2,13 @@ import { observer } from 'mobx-react-lite';
 import React, { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { View } from 'react-native';
-import FastImage from 'react-native-fast-image';
 import {
   useNavigationComponentDidAppear,
   useNavigationComponentDidDisappear,
 } from 'react-native-navigation-hooks';
 
 import { useStore } from '~modules/state';
-import { ActivityIndicator, Error, Text } from '~modules/ui';
+import { ActivityIndicator, Error, FastImage, resizeMode, Text } from '~modules/ui';
 import { useTheme } from '~theme';
 
 import { countriesUtils } from '../../services';
@@ -55,7 +54,7 @@ const CountryDetails: React.FC<CountryDetailsProps> = observer(props => {
       <View style={styles.contentContainer}>
         <FastImage
           style={styles.flagContainer}
-          resizeMode={FastImage.resizeMode.cover}
+          resizeMode={resizeMode.cover}
           source={{
             uri: countriesUtils.getCountryFlag(
               countriesStore.localCountryByCode.alpha2Code,

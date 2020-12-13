@@ -1,11 +1,8 @@
 import { Platform } from 'react-native';
 
+import { ELEVATION, SHADOW_HEIGHT, SHADOW_OPACITY, SHADOW_RADIUS } from '~modules/ui';
 import { sizes, styleSheetFactory } from '~theme';
 
-const SHADOW_HEIGHT = 2;
-const SHADOW_OPACITY = 0.25;
-const SHADOW_RADIUS = 3.84;
-const ELEVATION = 5;
 const FLAG_HEIGHT = 200;
 
 export default styleSheetFactory(theme => ({

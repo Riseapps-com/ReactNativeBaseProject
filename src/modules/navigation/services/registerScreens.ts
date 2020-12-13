@@ -18,26 +18,30 @@ const screens: Screen[] = [
   {
     id: MENU_SCREEN_NAME,
     component: MenuScreen,
+    withSafeArea: true,
   },
   {
     id: COUNTRIES_SCREEN_NAME,
     component: CountriesScreen,
+    withSafeArea: true,
   },
   {
     id: SELECT_REGION_SCREEN_NAME,
     component: SelectRegionScreen,
+    withSafeArea: true,
   },
   {
     id: COUNTRY_DETAILS_SCREEN_NAME,
     component: CountryDetailsScreen,
+    withSafeArea: true,
   },
 ];
 
 export const registerScreens = (): void =>
-  screens.forEach(({ id, component }) =>
+  screens.forEach(({ id, component, withSafeArea }) =>
     Navigation.registerComponent(
       id,
-      () => AppProvider(component),
+      () => AppProvider(component, withSafeArea),
       () => component
     )
   );

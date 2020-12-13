@@ -1,7 +1,7 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { View } from 'react-native';
-import { useNavigation, useNavigationComponentDidAppear } from 'react-native-navigation-hooks';
+import { useNavigation } from 'react-native-navigation-hooks';
 
 import { images } from '~assets';
 import { useTheme } from '~theme';
@@ -16,12 +16,6 @@ const Menu: React.FC = () => {
   const navigation = useNavigation();
   const [styles] = useTheme(themedStyles);
 
-  const [didAppear, setDidAppear] = useState<boolean>();
-
-  useNavigationComponentDidAppear(() => {
-    setDidAppear(true);
-  });
-
   const handleItemPress = useCallback(
     async (index: number) => {
       await navigation.push<CountriesScreenProps>(COUNTRIES_SCREEN_NAME, {
@@ -31,7 +25,7 @@ const Menu: React.FC = () => {
     [navigation]
   );
 
-  return didAppear ? (
+  return (
     <View style={styles.container}>
       <MenuItem title={t('africa')} image={images.africa} index={0} onItemPress={handleItemPress} />
 
@@ -53,7 +47,7 @@ const Menu: React.FC = () => {
         onItemPress={handleItemPress}
       />
     </View>
-  ) : null;
+  );
 };
 
 export default Menu;
