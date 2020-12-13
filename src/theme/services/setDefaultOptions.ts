@@ -51,6 +51,9 @@ const setDefaultOptions = (): void => {
         waitForRender: true,
       },
     },
+    statusBar: {
+      style: 'light',
+    },
   });
 };
 

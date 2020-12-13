@@ -12,7 +12,7 @@ const CountryDetailsScreen: NavigationFunctionComponent<CountryDetailsScreenProp
   const [styles] = useTheme(themedStyles);
 
   return (
-    <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.container}>
+    <ScrollView contentContainerStyle={styles.container}>
       <StatusBar barStyle={'light-content'} />
 
       <CountryDetails code={props.code} />

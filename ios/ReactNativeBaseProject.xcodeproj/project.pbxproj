@@ -20,6 +20,7 @@
 		4D584BC43F26835A476DB315 /* libPods-ReactNativeBaseProject-ReactNativeBaseProjectTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 053F7C19D07302F94544DCB0 /* libPods-ReactNativeBaseProject-ReactNativeBaseProjectTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		B8FDC948FE9775628B2B0A1F /* libPods-ReactNativeBaseProject-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D22FBFC6099E8CCCEFDD41CB /* libPods-ReactNativeBaseProject-tvOS.a */; };
+		D6047476258622CA00DE5185 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D6047475258622CA00DE5185 /* Assets.xcassets */; };
 		F2CA66E59EE83526C4BDD611 /* libPods-ReactNativeBaseProject-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DB301642C3A0FBB7BCEFAD40 /* libPods-ReactNativeBaseProject-tvOSTests.a */; };
 		FFACF8071AB844FDAD2212CF /* Quicksand-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = A3B92390B6F448C0953FDB4A /* Quicksand-Regular.otf */; };
 /* End PBXBuildFile section */
@@ -65,6 +66,7 @@
 		B3ED527C690DC77ECDCBB539 /* Pods-ReactNativeBaseProject-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactNativeBaseProject-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-ReactNativeBaseProject-tvOSTests/Pods-ReactNativeBaseProject-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		BC84CA35A94D4532AD50DDDD /* Quicksand-Bold.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Quicksand-Bold.otf"; path = "../assets/fonts/Quicksand-Bold.otf"; sourceTree = "<group>"; };
 		D22FBFC6099E8CCCEFDD41CB /* libPods-ReactNativeBaseProject-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ReactNativeBaseProject-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D6047475258622CA00DE5185 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D95735DD55892455D7763BEB /* libPods-ReactNativeBaseProject.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ReactNativeBaseProject.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB301642C3A0FBB7BCEFAD40 /* libPods-ReactNativeBaseProject-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ReactNativeBaseProject-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
@@ -136,6 +138,7 @@
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB71A68108700A75B9A /* main.m */,
+				D6047475258622CA00DE5185 /* Assets.xcassets */,
 			);
 			name = ReactNativeBaseProject;
 			sourceTree = "<group>";
@@ -358,6 +361,7 @@
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				11DFAB0CE2764FE1A4848F4F /* Quicksand-Bold.otf in Resources */,
 				FFACF8071AB844FDAD2212CF /* Quicksand-Regular.otf in Resources */,
+				D6047476258622CA00DE5185 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -676,6 +680,7 @@
 				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = ReactNativeBaseProject/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -701,6 +706,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = ReactNativeBaseProject/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
