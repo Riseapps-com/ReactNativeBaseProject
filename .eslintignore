@@ -6,3 +6,5 @@ coverage
 
 .eslintrc.js
 babel.config.js
+
+src/modules/storybook/generated/**

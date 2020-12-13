@@ -49,6 +49,7 @@ module.exports = {
     'import/extensions': 'off',
     'import/prefer-default-export': 'off',
     'import/no-named-default': 'off',
+    'import/no-extraneous-dependencies': 'off',
     camelcase: 'off',
     'no-throw-literal': 'off',
     'class-methods-use-this': 'off',
@@ -196,8 +197,13 @@ module.exports = {
   },
   overrides: [
     {
-      files: ['*.test.ts', '*.test.tsx'],
-      rules: {},
+      files: ['*.stories.tsx'],
+      rules: {
+        'max-lines': 'off',
+        'max-nested-callbacks': 'off',
+        'react/jsx-handler-names': 'off',
+        '@typescript-eslint/no-magic-numbers': 'off',
+      },
     },
   ],
 };

@@ -1,3 +1,4 @@
+import { getStorybookUI } from '@storybook/react-native';
 import { Navigation } from 'react-native-navigation';
 
 import {
@@ -11,10 +12,18 @@ import {
   SelectRegionScreen,
 } from '~modules/countries';
 import { AppProvider } from '~modules/main';
+import { STORYBOOK_SCREEN_NAME } from '~modules/storybook';
 
 import { Screen } from '../types';
 
 const screens: Screen[] = [
+  {
+    id: STORYBOOK_SCREEN_NAME,
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    component: getStorybookUI({}),
+    withSafeArea: true,
+  },
   {
     id: MENU_SCREEN_NAME,
     component: MenuScreen,
