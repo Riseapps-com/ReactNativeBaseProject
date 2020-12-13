@@ -37,7 +37,7 @@ const MenuItem: React.FC<MenuItemProps> = (props: MenuItemProps) => {
         </View>
 
         <View style={styles.titleContainer}>
-          <Text fontStyle={'bold'} style={styles.title}>
+          <Text numberOfLines={2} fontStyle={'bold'} style={styles.title}>
             {props.title}
           </Text>
         </View>

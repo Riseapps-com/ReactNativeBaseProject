@@ -16,6 +16,6 @@ storiesOf('MenuItem', module)
       onItemPress={index => log('onItemPress:: ', index)}
     />
   ))
-  .add('with long title', () => (
+  .add('with long data', () => (
     <MenuItem image={images.americas} title={'long title'.repeat(10)} index={0} />
   ));
