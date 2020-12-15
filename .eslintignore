@@ -8,3 +8,6 @@ coverage
 babel.config.js
 
 src/modules/storybook/generated/**
+
+__e2e__/config/**
+__e2e__/environment.js

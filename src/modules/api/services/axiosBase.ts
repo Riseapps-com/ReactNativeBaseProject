@@ -1,6 +1,5 @@
 import axios, { AxiosInstance, AxiosRequestConfig } from 'axios';
 import { Appearance } from 'react-native';
-import Config from 'react-native-config';
 import Snackbar from 'react-native-snackbar';
 
 import { I18n } from '~modules/localization';
@@ -8,7 +7,7 @@ import { dark, light } from '~theme';
 
 import { AXIOS_REQUEST_TIMEOUT_MSEC } from '../config';
 
-const BASE_URL = __DEV__ ? Config.BASE_API_DEV_URL : Config.BASE_API_PROD_URL;
+const BASE_URL = __DEV__ ? 'https://restcountries.eu/rest/v2' : 'https://restcountries.eu/rest/v2';
 
 const instance: AxiosInstance = axios.create({
   baseURL: BASE_URL,

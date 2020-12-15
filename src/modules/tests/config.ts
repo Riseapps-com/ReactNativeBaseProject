@@ -14,8 +14,10 @@ export const testIDs = {
   countries: {
     back: 'back',
     country: 'country',
+    scrollContainer: 'scrollContainer',
   },
   countryDetails: {
     back: 'back',
+    scrollContainer: 'scrollContainer',
   },
 };

@@ -1,9 +1,10 @@
 import { observer } from 'mobx-react-lite';
 import React, { useCallback, useEffect, useMemo } from 'react';
 import { FlatList, ListRenderItemInfo } from 'react-native';
-import { useNavigation, useNavigationComponentDidAppear } from 'react-native-navigation-hooks';
+import { useNavigation } from 'react-native-navigation-hooks';
 
 import { LocalCountry, LocalRegion, useStore } from '~modules/state';
+import { testIDs } from '~modules/tests';
 import { ActivityIndicator, Error } from '~modules/ui';
 
 import { COUNTRY_DETAILS_SCREEN_NAME } from '../../config';
@@ -22,15 +23,13 @@ const CountriesList: React.FC<CountriesListProps> = observer(props => {
     ? countriesStore.localCountriesByRegion
     : countriesStore.localAllCountries;
 
-  useNavigationComponentDidAppear(() => {
-    if (props.region && !countriesStore.countriesByRegion.length) {
+  useEffect(() => {
+    if (props.region) {
       countriesStore.getCountriesByRegion(props.region);
-    } else if (!props.region && !countriesStore.allCountries.length) {
+    } else {
       countriesStore.getAllCountries();
     }
-  });
 
-  useEffect(() => {
     return () => {
       if (props.region) {
         countriesStore.resetCountriesByRegion();
@@ -70,7 +69,14 @@ const CountriesList: React.FC<CountriesListProps> = observer(props => {
   if ((props.region && countriesStore.countriesByRegionError) || countriesStore.allCountriesError)
     return <Error />;
 
-  return <FlatList data={countries} renderItem={renderItem} keyExtractor={keyExtractor} />;
+  return (
+    <FlatList
+      testID={testIDs.countries.scrollContainer}
+      data={countries}
+      renderItem={renderItem}
+      keyExtractor={keyExtractor}
+    />
+  );
 });
 
 export default CountriesList;

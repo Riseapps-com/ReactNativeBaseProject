@@ -1,6 +1,8 @@
 /* eslint-disable global-require */
 
-type Images = {
+import { Appearance } from 'react-native';
+
+export type Images = {
   flag: number;
   region: number;
   africa: number;
@@ -10,7 +12,7 @@ type Images = {
   oceania: number;
 };
 
-const images: Images = {
+export const lightImages: Images = {
   flag: require('./flag.png'),
   region: require('./region.png'),
   africa: require('./africa.png'),
@@ -20,4 +22,14 @@ const images: Images = {
   oceania: require('./oceania.png'),
 };
 
-export default images;
+export const darkImages: Images = {
+  flag: require('./flag.png'),
+  region: require('./region.png'),
+  africa: require('./africa.png'),
+  americas: require('./america.png'),
+  asia: require('./asia.png'),
+  europe: require('./europe.png'),
+  oceania: require('./oceania.png'),
+};
+
+export const images: Images = Appearance.getColorScheme() === 'dark' ? darkImages : lightImages;

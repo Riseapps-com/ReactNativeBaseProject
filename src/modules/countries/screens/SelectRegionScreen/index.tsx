@@ -3,6 +3,7 @@ import { StatusBar, View } from 'react-native';
 import { NavigationFunctionComponent, Options } from 'react-native-navigation';
 
 import { I18n } from '~modules/localization';
+import { testIDs } from '~modules/tests';
 import { useTheme } from '~theme';
 
 import { SelectRegionMenu } from '../../components';
@@ -24,6 +25,9 @@ SelectRegionScreen.options = (): Options => ({
   topBar: {
     title: {
       text: I18n.t('regions'),
+    },
+    backButton: {
+      testID: testIDs.selectRegion.back,
     },
   },
 });

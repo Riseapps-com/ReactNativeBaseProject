@@ -2,6 +2,7 @@ import React from 'react';
 import { ScrollView, StatusBar } from 'react-native';
 import { NavigationFunctionComponent, Options } from 'react-native-navigation';
 
+import { testIDs } from '~modules/tests';
 import { useTheme } from '~theme';
 
 import { CountryDetails } from '../../components';
@@ -12,7 +13,10 @@ const CountryDetailsScreen: NavigationFunctionComponent<CountryDetailsScreenProp
   const [styles] = useTheme(themedStyles);
 
   return (
-    <ScrollView contentContainerStyle={styles.container}>
+    <ScrollView
+      testID={testIDs.countryDetails.scrollContainer}
+      contentContainerStyle={styles.container}
+    >
       <StatusBar barStyle={'light-content'} />
 
       <CountryDetails code={props.code} />
@@ -24,6 +28,9 @@ CountryDetailsScreen.options = (props: CountryDetailsScreenProps): Options => ({
   topBar: {
     title: {
       text: props.title,
+    },
+    backButton: {
+      testID: testIDs.countryDetails.back,
     },
   },
 });

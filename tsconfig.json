@@ -34,5 +34,5 @@
     "sourceMap": true,
     "useDefineForClassFields": true
   },
-  "exclude": ["node_modules", "babel.config.js"]
+  "exclude": ["node_modules", "babel.config.js", "__e2e__/config/**", "__e2e__/environment.js"]
 }

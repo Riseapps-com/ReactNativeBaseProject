@@ -3,6 +3,7 @@ import { StatusBar, View } from 'react-native';
 import { NavigationFunctionComponent, Options } from 'react-native-navigation';
 
 import { I18n } from '~modules/localization';
+import { testIDs } from '~modules/tests';
 import { useTheme } from '~theme';
 
 import { CountriesList } from '../../components';
@@ -25,6 +26,9 @@ CountriesScreen.options = (props: CountriesScreenProps): Options => ({
   topBar: {
     title: {
       text: props.region ? I18n.t(props.region) : I18n.t('allCountries'),
+    },
+    backButton: {
+      testID: testIDs.countries.back,
     },
   },
 });
