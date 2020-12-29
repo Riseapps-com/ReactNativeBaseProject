@@ -1,4 +1,4 @@
-import { expect } from 'detox';
+import { device, expect } from 'detox';
 
 import { testIDs } from '~modules/tests';
 
@@ -27,11 +27,10 @@ describe('00-all-countries', () => {
   describe('AllCountries', () => {
     it('renders all countries', async () => {
       await byId(testIDs.menu.allCountries).tap();
-      await byId(testIDs.countries.back).tap();
     });
 
     it('scrolls', async () => {
-      await byId(testIDs.countries.scrollContainer).scroll(200, 'bottom');
+      await byId(testIDs.countries.scrollContainer).scroll(200, 'down');
       await byId(testIDs.countries.scrollContainer).scrollTo('top');
     });
 

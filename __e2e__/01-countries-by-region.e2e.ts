@@ -1,4 +1,4 @@
-import { expect } from 'detox';
+import { device, expect } from 'detox';
 
 import { testIDs } from '~modules/tests';
 
@@ -64,11 +64,10 @@ describe('01-countries-by-region', () => {
   describe('CountriesByRegion', () => {
     it('renders countriesByRegion', async () => {
       await byId(testIDs.selectRegion.africa).tap();
-      await byId(testIDs.countries.back).tap();
     });
 
     it('scrolls', async () => {
-      await byId(testIDs.countries.scrollContainer).scroll(200, 'bottom');
+      await byId(testIDs.countries.scrollContainer).scroll(200, 'down');
       await byId(testIDs.countries.scrollContainer).scrollTo('top');
     });
 

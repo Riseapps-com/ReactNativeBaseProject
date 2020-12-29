@@ -307,12 +307,12 @@ PODS:
     - React-Core (= 0.63.4)
     - React-cxxreact (= 0.63.4)
     - React-jsi (= 0.63.4)
-  - ReactNativeNavigation (7.6.0):
+  - ReactNativeNavigation (7.7.0):
     - React-Core
     - React-RCTImage
     - React-RCTText
-    - ReactNativeNavigation/Core (= 7.6.0)
-  - ReactNativeNavigation/Core (7.6.0):
+    - ReactNativeNavigation/Core (= 7.7.0)
+  - ReactNativeNavigation/Core (7.7.0):
     - React-Core
     - React-RCTImage
     - React-RCTText
@@ -322,7 +322,7 @@ PODS:
     - SDWebImageWebPCoder (~> 0.6.1)
   - RNLocalize (2.0.1):
     - React-Core
-  - RNSnackbar (2.2.4):
+  - RNSnackbar (2.3.1):
     - React-Core
   - SDWebImage (5.9.5):
     - SDWebImage/Core (= 5.9.5)
@@ -509,10 +509,10 @@ SPEC CHECKSUMS:
   React-RCTText: 5c51df3f08cb9dedc6e790161195d12bac06101c
   React-RCTVibration: ae4f914cfe8de7d4de95ae1ea6cc8f6315d73d9d
   ReactCommon: 73d79c7039f473b76db6ff7c6b159c478acbbb3b
-  ReactNativeNavigation: 91c082139a6ee8ef7d5c04c70995fdd2e8ababc9
+  ReactNativeNavigation: 8a9cf15040eeffcf4a6c750ae7e9a63042aea0aa
   RNFastImage: d4870d58f5936111c56218dbd7fcfc18e65b58ff
   RNLocalize: 41026b7c14878f1a1b381bc79f668f1fbf841adb
-  RNSnackbar: 86092381dba7a0ed9fbd7acdb82ebbd5bfd26372
+  RNSnackbar: 559b3b4fedd6bbbe017e4f357ae230536b35b115
   SDWebImage: 0b2ba0d56479bf6a45ecddbfd5558bea93150d25
   SDWebImageWebPCoder: d0dac55073088d24b2ac1b191a71a8f8d0adac21
   Yoga: 4bd86afe9883422a7c4028c00e34790f560923d6

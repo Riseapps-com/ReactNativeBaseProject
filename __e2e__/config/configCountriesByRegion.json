@@ -1,8 +1,0 @@
-{
-  "testEnvironment": "../environment",
-  "testRunner": "jest-circus/runner",
-  "testTimeout": 720000,
-  "testRegex": "countriesByRegion.e2e.js",
-  "reporters": ["detox/runners/jest/streamlineReporter"],
-  "verbose": true
-}
