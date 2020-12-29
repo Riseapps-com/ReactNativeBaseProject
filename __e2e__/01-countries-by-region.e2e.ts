@@ -1,13 +1,12 @@
-import { device, expect } from 'detox';
+import { expect } from 'detox';
 
 import { testIDs } from '~modules/tests';
 
 import { byId, disableAndroidEmulatorAnimations } from './utils';
 
 describe('01-countries-by-region', () => {
-  beforeAll(async () => {
+  beforeAll(() => {
     disableAndroidEmulatorAnimations();
-    await device.reloadReactNative();
   });
 
   describe('Menu', () => {
