@@ -1,10 +1,19 @@
 import { exec } from 'shelljs';
 
-const openSimulator = () =>
-  exec('emulator -avd Pixel_3a_XL_API_30 -no-snapshot -memory 2048 -no-boot-anim');
-const detoxBuild = () => exec('detox build --configuration ios.sim.debug');
-const detoxTest = () => exec('detox test --configuration ios.sim.debug');
+import e2e from '../config/e2e';
 
-openSimulator();
+const withSimulator = process.argv.includes('--withSimulator');
+
+const openSimulator = () =>
+  exec(`emulator -avd ${e2e.androidDeviceName} -no-snapshot -memory 2048 -no-boot-anim`, {
+    async: true,
+  });
+const detoxBuild = () => exec('detox build --configuration android.emu.debug');
+const detoxTest = () => exec('detox test --configuration android.emu.debug');
+
+if (withSimulator) {
+  openSimulator();
+}
+
 detoxBuild();
 detoxTest();

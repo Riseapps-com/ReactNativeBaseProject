@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
+    "postinstall": "npx jetify",
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",
@@ -14,7 +15,12 @@
     "prestorybook": "rnstl",
     "storybook": "start-storybook -p 7007",
     "build-storybook": "build-storybook",
-    "e2e:ios": "ts-node ./scripts/e2e-ios.ts"
+    "e2e": "ts-node ./scripts/e2e-ios.ts ./scripts/e2e-android.ts",
+    "e2e:withSimulator": "ts-node ./scripts/e2e-ios.ts --withSimulator && ts-node ./scripts/e2e-android.ts --withSimulator",
+    "e2e:ios": "ts-node ./scripts/e2e-ios.ts",
+    "e2e:ios:withSimulator": "ts-node ./scripts/e2e-ios.ts --withSimulator",
+    "e2e:android": "ts-node ./scripts/e2e-android.ts",
+    "e2e:android:withSimulator": "ts-node ./scripts/e2e-android.ts --withSimulator"
   },
   "dependencies": {
     "axios": "^0.21.1",
