@@ -15,7 +15,7 @@
     "prestorybook": "rnstl",
     "storybook": "start-storybook -p 7007",
     "build-storybook": "build-storybook",
-    "e2e": "ts-node ./scripts/e2e-ios.ts ./scripts/e2e-android.ts",
+    "e2e": "ts-node ./scripts/e2e-ios.ts && ts-node ./scripts/e2e-android.ts",
     "e2e:withSimulator": "ts-node ./scripts/e2e-ios.ts --withSimulator && ts-node ./scripts/e2e-android.ts",
     "e2e:ios": "ts-node ./scripts/e2e-ios.ts",
     "e2e:ios:withSimulator": "ts-node ./scripts/e2e-ios.ts --withSimulator",

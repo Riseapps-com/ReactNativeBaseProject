@@ -4,7 +4,6 @@
     "allowSyntheticDefaultImports": true,
     "alwaysStrict": true,
     "baseUrl": "./",
-    "checkJs": true,
     "esModuleInterop": true,
     "isolatedModules": false,
     "jsx": "react-native",
@@ -34,5 +33,5 @@
     "sourceMap": true,
     "useDefineForClassFields": true
   },
-  "exclude": ["node_modules", "babel.config.js", "__e2e__/config/**", "__e2e__/environment.js", "__mocks__"]
+  "exclude": ["node_modules"]
 }

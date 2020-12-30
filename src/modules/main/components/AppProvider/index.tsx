@@ -13,7 +13,6 @@ export type AppProviderProps = {
 };
 
 const AppProvider = <P extends AppProviderProps>(
-  // eslint-disable-next-line @typescript-eslint/naming-convention
   Component: React.ComponentType<P>,
   withSafeArea: boolean
 ) => (props: AppProviderProps) => {

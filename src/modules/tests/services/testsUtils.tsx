@@ -14,7 +14,6 @@ import { MaybeMocked, MaybeMockedDeep, RenderComponent } from '../types';
 /**
  * Renders test component
  */
-// eslint-disable-next-line @typescript-eslint/naming-convention
 export const renderComponent: RenderComponent = (Component, props, wrapper?) => {
   return render(<Component {...props} />, { wrapper });
 };

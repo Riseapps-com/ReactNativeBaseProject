@@ -1,4 +1,5 @@
 import { RenderAPI } from '@testing-library/react-native';
+import React from 'react';
 
 type MockableFunction = (...args: any[]) => any;
 type MethodKeysOf<T> = { [K in keyof T]: T[K] extends MockableFunction ? K : never }[keyof T];
@@ -28,10 +29,11 @@ type MockedObjectDeep<T> = MaybeMockedConstructor<T> &
 
 export type MaybeMockedDeep<T> = T extends MockableFunction
   ? MockedFunctionDeep<T>
-  : T extends object // eslint-disable-line @typescript-eslint/ban-types
+  : // eslint-disable-next-line @typescript-eslint/ban-types
+  T extends object
   ? MockedObjectDeep<T>
   : T;
-// eslint-disable-next-line @typescript-eslint/ban-types
+
 export type MaybeMocked<T> = T extends MockableFunction
   ? MockedFunction<T>
   : // eslint-disable-next-line @typescript-eslint/ban-types

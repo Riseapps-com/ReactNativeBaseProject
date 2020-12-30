@@ -7,6 +7,7 @@ module.exports = {
     },
     sourceType: 'module',
     project: './tsconfig.json',
+    createDefaultProgram: true,
   },
   env: {
     es6: true,
@@ -44,7 +45,7 @@ module.exports = {
     },
   },
   rules: {
-    //airbnb es lint
+    // airbnb es lint
     'import/no-unresolved': 'off',
     'import/extensions': 'off',
     'import/prefer-default-export': 'off',
@@ -99,7 +100,7 @@ module.exports = {
       },
       {
         selector: 'parameter',
-        format: ['camelCase'],
+        format: ['camelCase', 'PascalCase'],
       },
       {
         selector: 'enumMember',
@@ -197,7 +198,7 @@ module.exports = {
   },
   overrides: [
     {
-      files: ['*.stories.tsx', '*.e2e.ts'],
+      files: ['*.stories.tsx', '*.e2e.ts', '.test.ts'],
       rules: {
         'max-lines': 'off',
         'max-nested-callbacks': 'off',
