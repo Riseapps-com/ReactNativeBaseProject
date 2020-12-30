@@ -1,3 +1,4 @@
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { getStorybookUI } from '@storybook/react-native';
 import { Navigation } from 'react-native-navigation';
 
@@ -21,7 +22,7 @@ const screens: Screen[] = [
     id: STORYBOOK_SCREEN_NAME,
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
-    component: getStorybookUI({}),
+    component: getStorybookUI({ asyncStorage: AsyncStorage }),
     withSafeArea: true,
   },
   {

@@ -1,8 +1,7 @@
 import { configure } from '@storybook/react-native';
 import { Navigation } from 'react-native-navigation';
 
-import { STORYBOOK_SCREEN_NAME } from '~modules/storybook';
-
+import { STORYBOOK_SCREEN_NAME } from '../config';
 import { loadStories } from '../generated/storyLoader';
 
 configure(() => {
