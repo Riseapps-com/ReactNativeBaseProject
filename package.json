@@ -91,6 +91,9 @@
     "ts-node": "^9.1.1",
     "typescript": "^4.1.3"
   },
+  "jest": {
+    "preset": "react-native"
+  },
   "config": {
     "react-native-storybook-loader": {
       "searchDir": [
