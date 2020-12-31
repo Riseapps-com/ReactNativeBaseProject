@@ -11,7 +11,7 @@
     "lint": "eslint . --ext .ts,.tsx,.js,.jsx --fix && prettier -c '**/*.{ts,tsx,js,jsx,json,yml,md}' --write",
     "test": "jest",
     "test:coverage": "jest --collect-coverage",
-    "verify": "yarn compile && yarn lint",
+    "verify": "yarn compile && yarn lint && yarn test --passWithNoTests",
     "prestorybook": "rnstl",
     "storybook": "start-storybook -p 7007",
     "build-storybook": "build-storybook",
@@ -86,13 +86,11 @@
     "react-dom": "16.14.0",
     "react-native-storybook-loader": "^2.0.2",
     "react-native-typescript-transformer": "^1.2.13",
+    "react-test-renderer": "^17.0.1",
     "shelljs": "^0.8.4",
     "snapshot-diff": "^0.8.1",
     "ts-node": "^9.1.1",
     "typescript": "^4.1.3"
-  },
-  "jest": {
-    "preset": "react-native"
   },
   "config": {
     "react-native-storybook-loader": {
