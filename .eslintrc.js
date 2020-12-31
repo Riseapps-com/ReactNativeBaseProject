@@ -198,7 +198,7 @@ module.exports = {
   },
   overrides: [
     {
-      files: ['*.stories.tsx', '*.e2e.ts', '*.test.ts'],
+      files: ['*.stories.tsx', '*.e2e.ts', '*.test.ts', '*.test.tsx'],
       rules: {
         'max-lines': 'off',
         'max-nested-callbacks': 'off',

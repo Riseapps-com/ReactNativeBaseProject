@@ -4,7 +4,7 @@ import { logger } from '~modules/logger/services';
 import { setRoot } from '~modules/navigation/services/setRoot';
 
 import RuntimeError from '../../RuntimeError';
-import ErrorScreen from '../Error';
+import ErrorScreen from '../ErrorScreen';
 
 class ErrorBoundary extends Component {
   public state = {

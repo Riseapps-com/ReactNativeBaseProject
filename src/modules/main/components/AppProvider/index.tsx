@@ -14,7 +14,7 @@ export type AppProviderProps = {
 
 const AppProvider = <P extends AppProviderProps>(
   Component: React.ComponentType<P>,
-  withSafeArea: boolean
+  withSafeArea?: boolean
 ) => (props: AppProviderProps) => {
   const Container = withSafeArea ? SafeAreaView : View;
 

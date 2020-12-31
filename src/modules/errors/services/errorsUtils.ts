@@ -16,7 +16,10 @@ export const translateHttpStatusCode = (httpStatusCode: number): ErrorCode => {
     return 'InvalidRequestException';
   }
 
-  if (httpStatusCode >= HttpStatusCode.INTERNAL_SERVER_ERROR) {
+  if (
+    httpStatusCode >= HttpStatusCode.INTERNAL_SERVER_ERROR &&
+    httpStatusCode <= HttpStatusCode.NETWORK_AUTHENTICATION_REQUIRED
+  ) {
     return 'ServerErrorException';
   }
 
