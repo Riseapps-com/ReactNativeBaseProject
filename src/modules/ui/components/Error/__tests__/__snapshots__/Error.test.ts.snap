@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ui <Error /> renders error correctly 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "flex": 1,
+      "justifyContent": "center",
+    }
+  }
+>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#4A4E4D",
+        },
+        Object {
+          "fontFamily": "Quicksand-Bold",
+        },
+        Object {
+          "fontSize": 18,
+        },
+        Object {
+          "color": "#fe4a49",
+        },
+      ]
+    }
+  >
+    errorBoundaryTitle
+  </Text>
+</View>
+`;

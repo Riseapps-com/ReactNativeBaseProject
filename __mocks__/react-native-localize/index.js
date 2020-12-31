@@ -1,9 +1,9 @@
 const getLocales = () => [
-  { countryCode: 'US', languageTag: 'en-US', languageCode: 'en', isRTL: false },
+  { countryCode: 'US', languageTag: 'en', languageCode: 'en', isRTL: false },
 ];
 
 const findBestAvailableLanguage = () => ({
-  languageTag: 'en-US',
+  languageTag: 'en',
   isRTL: false,
 });
 

@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ui <Text /> renders correctly 1`] = `
+<Text
+  style={
+    Array [
+      Object {
+        "color": "#4A4E4D",
+      },
+      Object {
+        "fontFamily": "Quicksand-Regular",
+      },
+      Object {
+        "fontSize": 16,
+      },
+      undefined,
+    ]
+  }
+>
+  Hello world!
+</Text>
+`;
