@@ -198,7 +198,7 @@ module.exports = {
   },
   overrides: [
     {
-      files: ['*.stories.tsx', '*.e2e.ts', '*.test.ts', '*.test.tsx'],
+      files: ['*.stories.tsx', '*.e2e.ts', '*.test.ts', '*.test.tsx', '**/__data__/*.ts'],
       rules: {
         'max-lines': 'off',
         'max-nested-callbacks': 'off',
@@ -206,6 +206,7 @@ module.exports = {
         'react/jsx-no-literals': 'off',
         '@typescript-eslint/no-magic-numbers': 'off',
         'react-native/no-inline-styles': 'off',
+        '@typescript-eslint/no-empty-function': 'off',
       },
     },
   ],

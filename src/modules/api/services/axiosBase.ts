@@ -41,10 +41,4 @@ const post = <D, R>(url: string, data?: D, config?: AxiosRequestConfig): Promise
 const put = <D, R>(url: string, data?: D, config?: AxiosRequestConfig): Promise<R> =>
   instance.put(url, data, config).then(({ data: responseData }) => responseData);
 
-const patch = <D, R>(url: string, data?: D, config?: AxiosRequestConfig): Promise<R> =>
-  instance.patch(url, data, config).then(({ data: responseDate }) => responseDate);
-
-const deleteAxios = <R>(url: string, config?: AxiosRequestConfig): Promise<R> =>
-  instance.delete(url, config).then(({ data }) => data);
-
-export { deleteAxios, get, patch, post, put };
+export { get, instance, post, put };
