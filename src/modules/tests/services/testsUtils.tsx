@@ -6,16 +6,28 @@
 
 import { render } from '@testing-library/react-native';
 import React from 'react';
+import { NavigationProvider } from 'react-native-navigation-hooks';
 
 import RuntimeError from '~modules/errors/RuntimeError';
 
-import { MaybeMocked, MaybeMockedDeep, RenderComponent } from '../types';
+import { MaybeMocked, MaybeMockedDeep, RenderComponent, RenderNavigationComponent } from '../types';
 
 /**
  * Renders test component
  */
 export const renderComponent: RenderComponent = (Component, props, wrapper?) => {
   return render(<Component {...props} />, { wrapper });
+};
+
+export const renderNavigationComponent: RenderNavigationComponent = (Component, props, wrapper) => {
+  const componentId = 'componentId';
+
+  return render(
+    <NavigationProvider value={{ componentId }}>
+      <Component {...props} />
+    </NavigationProvider>,
+    { wrapper }
+  );
 };
 
 /**
