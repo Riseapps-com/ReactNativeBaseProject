@@ -1,6 +1,6 @@
 import { mocked } from '~modules/tests';
 
-import { country } from '../../__data__/country';
+import { country } from '../../__data__';
 import { ALL, BY_CODE, BY_REGION } from '../../config';
 import { Region } from '../../types';
 import * as axiosBase from '../axiosBase';

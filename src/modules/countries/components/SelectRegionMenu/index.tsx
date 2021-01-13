@@ -12,7 +12,7 @@ import { CountriesScreenProps } from '../../types';
 import MenuItem from '../MenuItem';
 import themedStyles from './styles';
 
-const Menu: React.FC = () => {
+const SelectRegionMenu: React.FC = () => {
   const { t } = useTranslation();
   const navigation = useNavigation();
   const [styles] = useTheme(themedStyles);
@@ -72,4 +72,4 @@ const Menu: React.FC = () => {
   );
 };
 
-export default Menu;
+export default SelectRegionMenu;

@@ -1,0 +1,104 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`countries <CountriesListItem /> renders countries list item 1`] = `
+<View
+  accessible={true}
+  focusable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "flexDirection": "row",
+      "opacity": 1,
+      "paddingHorizontal": 16,
+      "paddingVertical": 8,
+    }
+  }
+  testID="country"
+>
+  <View
+    style={
+      Array [
+        Object {
+          "overflow": "hidden",
+        },
+        Object {
+          "width": 32,
+        },
+      ]
+    }
+  >
+    <FastImageView
+      resizeMode="contain"
+      source={
+        Object {
+          "uri": "https://flagcdn.com/h60/ck.png",
+        }
+      }
+      style={
+        Object {
+          "bottom": 0,
+          "left": 0,
+          "position": "absolute",
+          "right": 0,
+          "top": 0,
+        }
+      }
+    />
+  </View>
+  <View
+    style={
+      Object {
+        "flex": 1,
+        "marginStart": 16,
+      }
+    }
+  >
+    <Text
+      numberOfLines={1}
+      style={
+        Array [
+          Object {
+            "color": "#4A4E4D",
+          },
+          Object {
+            "fontFamily": "Quicksand-Bold",
+          },
+          Object {
+            "fontSize": 16,
+          },
+          undefined,
+        ]
+      }
+    >
+      Cook Islands
+    </Text>
+    <Text
+      numberOfLines={1}
+      style={
+        Array [
+          Object {
+            "color": "#4A4E4D",
+          },
+          Object {
+            "fontFamily": "Quicksand-Bold",
+          },
+          Object {
+            "fontSize": 16,
+          },
+          Object {
+            "color": "rgba(74, 78, 77, 0.5)",
+          },
+        ]
+      }
+    >
+      Avarua
+    </Text>
+  </View>
+</View>
+`;

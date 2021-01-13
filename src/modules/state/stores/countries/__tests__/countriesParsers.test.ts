@@ -1,6 +1,6 @@
-import { country } from '~modules/api/__data__/country';
+import { country } from '~modules/api/__data__';
 
-import { localCountry } from '../../../__data__/localCountry';
+import { localCountry } from '../../../__data__';
 import * as countriesParsers from '../countriesParsers';
 
 describe('state', () => {

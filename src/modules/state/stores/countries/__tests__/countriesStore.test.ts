@@ -1,10 +1,10 @@
 import { countriesApi } from '~modules/api';
-import { country } from '~modules/api/__data__/country';
+import { country } from '~modules/api/__data__';
 import { HttpRequestError } from '~modules/errors';
 import { LocalCountry } from '~modules/state';
 import { mocked } from '~modules/tests';
 
-import { localCountry } from '../../../__data__/localCountry';
+import { localCountry } from '../../../__data__';
 import CountriesStore from '../countriesStore';
 
 jest.mock('~modules/api');

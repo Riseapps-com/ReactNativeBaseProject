@@ -1,0 +1,243 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`countries <Menu /> renders menu 1`] = `
+<View
+  style={
+    Object {
+      "flex": 1,
+      "justifyContent": "space-between",
+    }
+  }
+>
+  <View
+    accessible={true}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "flex": 1,
+        "marginHorizontal": 8,
+        "marginVertical": 16,
+        "opacity": 1,
+        "padding": 8,
+        "shadowColor": "#000000",
+        "shadowOffset": Object {
+          "height": 2,
+          "width": 0,
+        },
+        "shadowOpacity": 0.25,
+        "shadowRadius": 3.84,
+      }
+    }
+    testID="allCountries"
+  >
+    <View
+      style={
+        Object {
+          "backgroundColor": "#0036A7",
+          "borderRadius": 8,
+          "flex": 1,
+          "flexDirection": "row",
+          "overflow": "hidden",
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "justifyContent": "center",
+            "paddingHorizontal": 8,
+            "width": "30%",
+          }
+        }
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "overflow": "hidden",
+              },
+              Object {
+                "height": 48,
+                "width": 48,
+              },
+            ]
+          }
+        >
+          <FastImageView
+            resizeMode="cover"
+            source={
+              Object {
+                "testUri": "../../../assets/images/flag.png",
+              }
+            }
+            style={
+              Object {
+                "bottom": 0,
+                "left": 0,
+                "position": "absolute",
+                "right": 0,
+                "top": 0,
+              }
+            }
+          />
+        </View>
+      </View>
+      <View
+        style={
+          Object {
+            "flex": 1,
+            "justifyContent": "center",
+            "paddingEnd": 16,
+            "paddingStart": 8,
+          }
+        }
+      >
+        <Text
+          numberOfLines={2}
+          style={
+            Array [
+              Object {
+                "color": "#4A4E4D",
+              },
+              Object {
+                "fontFamily": "Quicksand-Bold",
+              },
+              Object {
+                "fontSize": 16,
+              },
+              Object {
+                "color": "#FFFFFF",
+              },
+            ]
+          }
+        >
+          allCountries
+        </Text>
+      </View>
+    </View>
+  </View>
+  <View
+    accessible={true}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "flex": 1,
+        "marginHorizontal": 8,
+        "marginVertical": 16,
+        "opacity": 1,
+        "padding": 8,
+        "shadowColor": "#000000",
+        "shadowOffset": Object {
+          "height": 2,
+          "width": 0,
+        },
+        "shadowOpacity": 0.25,
+        "shadowRadius": 3.84,
+      }
+    }
+    testID="countriesByRegion"
+  >
+    <View
+      style={
+        Object {
+          "backgroundColor": "#0036A7",
+          "borderRadius": 8,
+          "flex": 1,
+          "flexDirection": "row",
+          "overflow": "hidden",
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "justifyContent": "center",
+            "paddingHorizontal": 8,
+            "width": "30%",
+          }
+        }
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "overflow": "hidden",
+              },
+              Object {
+                "height": 48,
+                "width": 48,
+              },
+            ]
+          }
+        >
+          <FastImageView
+            resizeMode="cover"
+            source={
+              Object {
+                "testUri": "../../../assets/images/region.png",
+              }
+            }
+            style={
+              Object {
+                "bottom": 0,
+                "left": 0,
+                "position": "absolute",
+                "right": 0,
+                "top": 0,
+              }
+            }
+          />
+        </View>
+      </View>
+      <View
+        style={
+          Object {
+            "flex": 1,
+            "justifyContent": "center",
+            "paddingEnd": 16,
+            "paddingStart": 8,
+          }
+        }
+      >
+        <Text
+          numberOfLines={2}
+          style={
+            Array [
+              Object {
+                "color": "#4A4E4D",
+              },
+              Object {
+                "fontFamily": "Quicksand-Bold",
+              },
+              Object {
+                "fontSize": 16,
+              },
+              Object {
+                "color": "#FFFFFF",
+              },
+            ]
+          }
+        >
+          countriesByRegion
+        </Text>
+      </View>
+    </View>
+  </View>
+</View>
+`;
