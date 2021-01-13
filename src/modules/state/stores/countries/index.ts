@@ -1,5 +1,5 @@
 import * as countriesParsers from './countriesParsers';
-import { default as countriesStore } from './countriesStore';
+import { default as CountriesStore } from './countriesStore';
 
 export * from './types';
-export { countriesParsers, countriesStore };
+export { countriesParsers, CountriesStore };

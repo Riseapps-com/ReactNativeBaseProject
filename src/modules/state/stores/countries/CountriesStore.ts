@@ -1,21 +1,15 @@
 import { makeAutoObservable } from 'mobx';
 
-import { countriesApi, Country, Region } from '~modules/api';
+import { countriesApi } from '~modules/api';
 
 import { Resettable } from '../../types';
 import * as countriesParsers from './countriesParsers';
 import { LocalCountry, LocalRegion } from './types';
 
 class CountriesStore implements Resettable {
-  allCountries: Country[] = [];
-
   localAllCountries: LocalCountry[] = [];
 
-  countriesByRegion: Country[] = [];
-
   localCountriesByRegion: LocalCountry[] = [];
-
-  countryByCode: Country | undefined = undefined;
 
   localCountryByCode: LocalCountry | undefined = undefined;
 
@@ -31,8 +25,6 @@ class CountriesStore implements Resettable {
 
   countryByCodeError: string | undefined = undefined;
 
-  region: Region = 'africa';
-
   constructor() {
     makeAutoObservable(this);
   }
@@ -42,8 +34,9 @@ class CountriesStore implements Resettable {
     this.allCountriesError = undefined;
 
     try {
-      this.allCountries = yield countriesApi.getAllCountries();
-      this.localAllCountries = countriesParsers.parseCountries(this.allCountries);
+      this.localAllCountries = countriesParsers.parseToLocalCountries(
+        yield countriesApi.getAllCountries()
+      );
     } catch (e) {
       this.allCountriesError = e.message;
     }
@@ -52,7 +45,6 @@ class CountriesStore implements Resettable {
   }
 
   resetAllCountries() {
-    this.allCountries = [];
     this.localAllCountries = [];
     this.allCountriesError = undefined;
   }
@@ -62,8 +54,9 @@ class CountriesStore implements Resettable {
     this.countriesByRegionError = undefined;
 
     try {
-      this.countriesByRegion = yield countriesApi.getCountriesByRegion(region);
-      this.localCountriesByRegion = countriesParsers.parseCountries(this.countriesByRegion);
+      this.localCountriesByRegion = countriesParsers.parseToLocalCountries(
+        yield countriesApi.getCountriesByRegion(region)
+      );
     } catch (e) {
       this.countriesByRegionError = e.message;
     }
@@ -72,7 +65,6 @@ class CountriesStore implements Resettable {
   }
 
   resetCountriesByRegion() {
-    this.countriesByRegion = [];
     this.localCountriesByRegion = [];
     this.countriesByRegionError = undefined;
   }
@@ -82,9 +74,10 @@ class CountriesStore implements Resettable {
     this.countryByCodeError = undefined;
 
     try {
-      this.countryByCode = yield countriesApi.getCountryByCode(code.toLowerCase());
-      this.localCountryByCode = this.countryByCode
-        ? countriesParsers.parseCountry(this.countryByCode)
+      const countryByCode = yield countriesApi.getCountryByCode(code.toLowerCase());
+
+      this.localCountryByCode = countryByCode
+        ? countriesParsers.parseToLocalCountry(countryByCode)
         : undefined;
     } catch (e) {
       this.countryByCodeError = e.message;
@@ -94,22 +87,17 @@ class CountriesStore implements Resettable {
   }
 
   resetCountryByCode() {
-    this.countryByCode = undefined;
     this.localCountryByCode = undefined;
     this.countryByCodeError = undefined;
   }
 
   reset(): void {
-    this.allCountries = [];
-    this.countriesByRegion = [];
-    this.countryByCode = undefined;
     this.areAllCountriesLoading = false;
     this.areCountriesByRegionLoading = false;
     this.isCountryByCodeLoading = false;
     this.allCountriesError = undefined;
     this.countriesByRegionError = undefined;
     this.countryByCodeError = undefined;
-    this.region = 'africa';
   }
 }
 

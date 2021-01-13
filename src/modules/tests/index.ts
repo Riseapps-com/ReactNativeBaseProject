@@ -4,4 +4,5 @@ export {
   mocked,
   renderComponent,
   renderNavigationComponent,
+  renderStoreComponent,
 } from './services';

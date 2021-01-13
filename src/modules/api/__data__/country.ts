@@ -1,7 +1,6 @@
 import { Country } from '../types';
 
 const country: Country = {
-  id: 'id0',
   name: 'Cook Islands',
   topLevelDomain: ['.ck'],
   alpha2Code: 'CK',

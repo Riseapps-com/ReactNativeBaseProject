@@ -9,6 +9,7 @@ import React from 'react';
 import { NavigationProvider } from 'react-native-navigation-hooks';
 
 import RuntimeError from '~modules/errors/RuntimeError';
+import { rootStore, StoreContext } from '~modules/state';
 
 import { MaybeMocked, MaybeMockedDeep, RenderComponent, RenderNavigationComponent } from '../types';
 
@@ -23,9 +24,20 @@ export const renderNavigationComponent: RenderNavigationComponent = (Component, 
   const componentId = 'componentId';
 
   return render(
-    <NavigationProvider value={{ componentId }}>
+    <StoreContext.Provider value={rootStore}>
+      <NavigationProvider value={{ componentId }}>
+        <Component {...props} />
+      </NavigationProvider>
+    </StoreContext.Provider>,
+    { wrapper }
+  );
+};
+
+export const renderStoreComponent: RenderNavigationComponent = (Component, props, wrapper) => {
+  return render(
+    <StoreContext.Provider value={rootStore}>
       <Component {...props} />
-    </NavigationProvider>,
+    </StoreContext.Provider>,
     { wrapper }
   );
 };

@@ -4,7 +4,7 @@ import { Country } from '~modules/api';
 
 import { LocalCountry } from './types';
 
-export const parseCountry = (country: Country): LocalCountry => ({
+export const parseToLocalCountry = (country: Country): LocalCountry => ({
   id: v4(),
   name: country.name,
   capital: country.capital,
@@ -15,4 +15,5 @@ export const parseCountry = (country: Country): LocalCountry => ({
   alpha2Code: country.alpha2Code,
 });
 
-export const parseCountries = (countries: Country[]): LocalCountry[] => countries.map(parseCountry);
+export const parseToLocalCountries = (countries: Country[]): LocalCountry[] =>
+  countries.map(parseToLocalCountry);

@@ -1,7 +1,7 @@
 import { configure } from 'mobx';
 
 import { Resettable } from '../../types';
-import CountriesStore from '../countries/countriesStore';
+import CountriesStore from '../countries/CountriesStore';
 
 configure({ useProxies: 'never', enforceActions: 'never' });
 

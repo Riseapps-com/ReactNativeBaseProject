@@ -50,3 +50,9 @@ export type RenderNavigationComponent = <T>(
   props?: T,
   Wrapper?: (() => JSX.Element) | React.FC<any>
 ) => RenderAPI;
+
+export type RenderStoreComponent = <T>(
+  Component: (() => JSX.Element) | React.FC<any>,
+  props?: T,
+  Wrapper?: (() => JSX.Element) | React.FC<any>
+) => RenderAPI;
