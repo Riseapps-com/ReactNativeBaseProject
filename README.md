@@ -8,7 +8,7 @@ This project contains the next features:
 3) Configured **localization** module (using **i18next** + **react-i18next**);
 4) Configured **logger** module;
 5) Configured **errors** module;
-6) Small application which contains 4 full screens;
+6) Small application which contains 4 real screens;
 7) The project is fully covered with **unit tests** (**jest** + **@testing-library**);
 8) The project is fully covered with **e2e tests** (**detox**);
 9) All the components are developed as separate components with **stories** (**storybook**);
