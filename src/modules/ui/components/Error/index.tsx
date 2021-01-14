@@ -2,7 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { View } from 'react-native';
 
-import { testIDs } from '~assets';
+import { testIDs } from '~config';
 import { useTheme } from '~theme';
 
 import Text from '../Text';

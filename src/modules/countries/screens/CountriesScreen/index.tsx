@@ -2,7 +2,7 @@ import React from 'react';
 import { StatusBar, View } from 'react-native';
 import { NavigationFunctionComponent, Options } from 'react-native-navigation';
 
-import { testIDs } from '~assets';
+import { testIDs } from '~config';
 import { I18n } from '~modules/localization';
 import { useTheme } from '~theme';
 

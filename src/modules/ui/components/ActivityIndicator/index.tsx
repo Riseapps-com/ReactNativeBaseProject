@@ -5,7 +5,7 @@ import {
   View,
 } from 'react-native';
 
-import { testIDs } from '~assets';
+import { testIDs } from '~config';
 import { useTheme } from '~theme';
 
 import themedStyles from './styles';

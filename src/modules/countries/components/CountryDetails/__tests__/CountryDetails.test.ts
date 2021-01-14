@@ -1,6 +1,6 @@
 import { act } from '@testing-library/react-native';
 
-import { testIDs } from '~assets';
+import { testIDs } from '~config';
 import { countriesApi, Country } from '~modules/api';
 import { country } from '~modules/api/__data__';
 import { HttpRequestError } from '~modules/errors';

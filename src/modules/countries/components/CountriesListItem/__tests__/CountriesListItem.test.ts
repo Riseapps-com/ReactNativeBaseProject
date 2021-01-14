@@ -1,7 +1,7 @@
 import { fireEvent } from '@testing-library/react-native';
 import { v4 } from 'uuid';
 
-import { testIDs } from '~assets';
+import { testIDs } from '~config';
 import { LocalCountry } from '~modules/state';
 import { localCountry } from '~modules/state/__data__';
 import { renderComponent } from '~modules/tests';

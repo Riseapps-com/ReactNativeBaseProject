@@ -1,7 +1,7 @@
 import { act, fireEvent } from '@testing-library/react-native';
 import { useNavigation } from 'react-native-navigation-hooks';
 
-import { testIDs } from '~assets';
+import { testIDs } from '~config';
 import { countriesApi, Region } from '~modules/api';
 import { country } from '~modules/api/__data__';
 import { HttpRequestError } from '~modules/errors';

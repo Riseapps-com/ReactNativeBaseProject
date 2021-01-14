@@ -3,7 +3,7 @@ import React, { useCallback, useEffect, useMemo } from 'react';
 import { FlatList, ListRenderItemInfo } from 'react-native';
 import { useNavigation } from 'react-native-navigation-hooks';
 
-import { testIDs } from '~assets';
+import { testIDs } from '~config';
 import { LocalCountry, LocalRegion, useStore } from '~modules/state';
 import { ActivityIndicator, Error } from '~modules/ui';
 

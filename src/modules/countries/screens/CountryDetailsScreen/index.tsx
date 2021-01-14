@@ -2,7 +2,7 @@ import React from 'react';
 import { ScrollView, StatusBar } from 'react-native';
 import { NavigationFunctionComponent, Options } from 'react-native-navigation';
 
-import { testIDs } from '~assets';
+import { testIDs } from '~config';
 import { useTheme } from '~theme';
 
 import { CountryDetails } from '../../components';
