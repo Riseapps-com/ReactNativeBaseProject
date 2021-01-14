@@ -15,7 +15,7 @@ This project contains the next features:
 10) Uses **mobx** as a state management system;
 11) Custom configuration of **eslint** + **prettier**;
 12) Implemented native **splash screens** on both platforms;
-13) Implemented **app icons* on both platforms;
+13) Implemented **app icons** on both platforms;
 14) Git hooks (**husky** + **list-staged**);
 15) Implemented **light/dark theme** based on device theme. Fully dynamic (colors + images + navigation);
 16) Custom **babel** configuration (modules system);
