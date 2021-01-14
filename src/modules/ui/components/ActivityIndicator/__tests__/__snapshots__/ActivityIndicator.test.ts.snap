@@ -15,6 +15,7 @@ exports[`ui <ActivityIndicator /> renders correctly 1`] = `
     color="#0036A7"
     hidesWhenStopped={true}
     size="large"
+    testID="activityIndicator"
   />
 </View>
 `;

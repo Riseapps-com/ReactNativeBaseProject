@@ -20,4 +20,8 @@ export const testIDs = {
     back: 'back',
     scrollContainer: 'scrollContainer',
   },
+  global: {
+    activityIndicator: 'activityIndicator',
+    error: 'error',
+  },
 };

@@ -9,6 +9,7 @@ exports[`ui <Error /> renders error correctly 1`] = `
       "justifyContent": "center",
     }
   }
+  testID="error"
 >
   <Text
     style={

@@ -2,6 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { View } from 'react-native';
 
+import { testIDs } from '~modules/tests';
 import { useTheme } from '~theme';
 
 import Text from '../Text';
@@ -12,7 +13,7 @@ const Error: React.FC = () => {
   const { t } = useTranslation();
 
   return (
-    <View style={styles.wrapper}>
+    <View testID={testIDs.global.error} style={styles.wrapper}>
       <Text fontStyle={'bold'} size={'bigger'} style={styles.error}>
         {t('errorBoundaryTitle')}
       </Text>

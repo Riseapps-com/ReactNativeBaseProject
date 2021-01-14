@@ -5,6 +5,7 @@ import {
   View,
 } from 'react-native';
 
+import { testIDs } from '~modules/tests';
 import { useTheme } from '~theme';
 
 import themedStyles from './styles';
@@ -16,7 +17,12 @@ const ActivityIndicator: React.FC<ActivityIndicatorProps> = props => {
 
   return (
     <View style={styles.wrapper}>
-      <NativeActivityIndicator color={theme.primary} size={'large'} {...props} />
+      <NativeActivityIndicator
+        testID={testIDs.global.activityIndicator}
+        color={theme.primary}
+        size={'large'}
+        {...props}
+      />
     </View>
   );
 };
