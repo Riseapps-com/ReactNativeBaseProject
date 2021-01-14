@@ -3,8 +3,8 @@ import React, { useCallback, useEffect, useMemo } from 'react';
 import { FlatList, ListRenderItemInfo } from 'react-native';
 import { useNavigation } from 'react-native-navigation-hooks';
 
+import { testIDs } from '~assets';
 import { LocalCountry, LocalRegion, useStore } from '~modules/state';
-import { testIDs } from '~modules/tests';
 import { ActivityIndicator, Error } from '~modules/ui';
 
 import { COUNTRY_DETAILS_SCREEN_NAME } from '../../config';

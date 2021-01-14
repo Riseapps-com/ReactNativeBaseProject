@@ -1,4 +1,4 @@
-export const testIDs = {
+const testIDs = {
   menu: {
     allCountries: 'allCountries',
     countriesByRegion: 'countriesByRegion',
@@ -25,3 +25,5 @@ export const testIDs = {
     error: 'error',
   },
 };
+
+export { testIDs };

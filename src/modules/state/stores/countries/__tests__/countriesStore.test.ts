@@ -5,7 +5,7 @@ import { LocalCountry } from '~modules/state';
 import { mocked } from '~modules/tests';
 
 import { localCountry } from '../../../__data__';
-import CountriesStore from '../countriesStore';
+import CountriesStore from '../CountriesStore';
 
 jest.mock('~modules/api');
 

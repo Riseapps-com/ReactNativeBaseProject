@@ -1,6 +1,6 @@
 import { expect } from 'detox';
 
-import { testIDs } from '~modules/tests';
+import { testIDs } from '~assets';
 
 import { byId, disableAndroidEmulatorAnimations } from './utils';
 

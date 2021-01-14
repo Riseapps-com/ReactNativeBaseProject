@@ -3,8 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { View } from 'react-native';
 import { useNavigation } from 'react-native-navigation-hooks';
 
-import { useImages } from '~assets';
-import { testIDs } from '~modules/tests';
+import { testIDs, useImages } from '~assets';
 import { useTheme } from '~theme';
 
 import { COUNTRIES_SCREEN_NAME, regions } from '../../config';

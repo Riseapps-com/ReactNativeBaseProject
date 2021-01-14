@@ -2,8 +2,8 @@ import React from 'react';
 import { StatusBar, View } from 'react-native';
 import { NavigationFunctionComponent, Options } from 'react-native-navigation';
 
+import { testIDs } from '~assets';
 import { I18n } from '~modules/localization';
-import { testIDs } from '~modules/tests';
 import { useTheme } from '~theme';
 
 import { SelectRegionMenu } from '../../components';

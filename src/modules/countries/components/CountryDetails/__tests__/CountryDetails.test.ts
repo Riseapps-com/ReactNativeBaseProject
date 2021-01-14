@@ -1,9 +1,10 @@
 import { act } from '@testing-library/react-native';
 
+import { testIDs } from '~assets';
 import { countriesApi, Country } from '~modules/api';
 import { country } from '~modules/api/__data__';
 import { HttpRequestError } from '~modules/errors';
-import { mocked, renderStoreComponent, testIDs } from '~modules/tests';
+import { mocked, renderStoreComponent } from '~modules/tests';
 
 import CountryDetails, { CountryDetailsProps } from '../index';
 

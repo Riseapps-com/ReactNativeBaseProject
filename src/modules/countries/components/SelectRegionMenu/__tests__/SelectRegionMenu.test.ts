@@ -1,7 +1,8 @@
 import { fireEvent } from '@testing-library/react-native';
 import { useNavigation } from 'react-native-navigation-hooks';
 
-import { mocked, renderComponent, testIDs } from '~modules/tests';
+import { testIDs } from '~assets';
+import { mocked, renderComponent } from '~modules/tests';
 
 import { COUNTRIES_SCREEN_NAME } from '../../../config';
 import SelectRegionMenu from '../index';

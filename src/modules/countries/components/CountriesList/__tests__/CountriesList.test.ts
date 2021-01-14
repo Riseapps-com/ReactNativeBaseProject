@@ -1,10 +1,11 @@
 import { act, fireEvent } from '@testing-library/react-native';
 import { useNavigation } from 'react-native-navigation-hooks';
 
+import { testIDs } from '~assets';
 import { countriesApi, Region } from '~modules/api';
 import { country } from '~modules/api/__data__';
 import { HttpRequestError } from '~modules/errors';
-import { mocked, renderNavigationComponent, testIDs } from '~modules/tests';
+import { mocked, renderNavigationComponent } from '~modules/tests';
 
 import { COUNTRY_DETAILS_SCREEN_NAME } from '../../../config';
 import CountriesList, { CountriesListProps } from '../index';

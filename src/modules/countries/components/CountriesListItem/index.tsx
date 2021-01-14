@@ -1,8 +1,8 @@
 import React, { useCallback } from 'react';
 import { TouchableOpacity, View } from 'react-native';
 
+import { testIDs } from '~assets';
 import { LocalCountry } from '~modules/state';
-import { testIDs } from '~modules/tests';
 import { FastImage, resizeMode, Text } from '~modules/ui';
 import { useTheme } from '~theme';
 
