@@ -1,6 +1,7 @@
 # ReactNativeBaseProject
 
-## Short description (the documentation will be provided later).
+## Short description (the documentation will be provided later)
+
 This project contains the next features:
 1) Last version of **react-native**;
 2) Configured **navigation** module (using **react-native-navigation**);
@@ -15,7 +16,7 @@ This project contains the next features:
 11) Custom configuration of **eslint** + **prettier**;
 12) Implemented native splash screens on both platforms;
 13) Implemented app icons on both platforms;
-14) Git hooks (**husky* + **list-staged**);
+14) Git hooks (**husky** + **list-staged**);
 15) Implemented **light/dark theme** based on device theme. Fully dynamic (colors + images + navigation);
 16) Custom **babel** configuration (modules system);
 17) Bunch of **scripts**;
