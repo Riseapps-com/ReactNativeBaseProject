@@ -6,6 +6,7 @@
     "postinstall": "npx jetify",
     "android": "react-native run-android",
     "ios": "react-native run-ios",
+    "clear-cache": "watchman watch-del-all && rm -rf node_modules/ && npm cache verify && yarn install && npm start -- --reset-cache",
     "start": "react-native start",
     "compile": "tsc",
     "lint": "eslint . --ext .ts,.tsx,.js,.jsx --fix && prettier -c '**/*.{ts,tsx,js,jsx,json,yml,md}' --write",
@@ -19,7 +20,8 @@
     "e2e:withSimulator": "ts-node ./scripts/e2e-ios.ts --withSimulator && ts-node ./scripts/e2e-android.ts",
     "e2e:ios": "ts-node ./scripts/e2e-ios.ts",
     "e2e:ios:withSimulator": "ts-node ./scripts/e2e-ios.ts --withSimulator",
-    "e2e:android": "ts-node ./scripts/e2e-android.ts"
+    "e2e:android": "ts-node ./scripts/e2e-android.ts",
+    "detox:clean": "detox clean-framework-cache && detox build-framework-cache"
   },
   "dependencies": {
     "@react-native-async-storage/async-storage": "1.13.2",
