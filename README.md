@@ -19,5 +19,5 @@ This project contains the next features:
 14) The project is fully covered with **unit tests** (**jest** + **@testing-library**);
 15) The project is fully covered with **e2e tests** (**detox**);
 16) All the components are developed as separate components with **stories** (**storybook**);
-17) Git hooks (**husky** + **list-staged**);
+17) Git hooks (**husky** + **lint-staged**);
 18) Bunch of **scripts**;
