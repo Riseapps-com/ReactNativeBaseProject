@@ -11,7 +11,7 @@ class CountriesStore implements Resettable {
 
   localCountriesByRegion: LocalCountry[] = [];
 
-  localCountryByCode: LocalCountry | undefined = undefined;
+  localCountryByCode: LocalCountry = undefined;
 
   areAllCountriesLoading = false;
 
@@ -19,11 +19,11 @@ class CountriesStore implements Resettable {
 
   isCountryByCodeLoading = false;
 
-  allCountriesError: string | undefined = undefined;
+  allCountriesError: string = undefined;
 
-  countriesByRegionError: string | undefined = undefined;
+  countriesByRegionError: string = undefined;
 
-  countryByCodeError: string | undefined = undefined;
+  countryByCodeError: string = undefined;
 
   constructor() {
     makeAutoObservable(this);
