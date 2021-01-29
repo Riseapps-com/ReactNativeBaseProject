@@ -2,6 +2,8 @@ package com.riseapps.reactnativebaseproject;
 
 import android.content.Context;
 
+import androidx.multidex.MultiDex;
+
 import com.facebook.react.PackageList;
 import com.facebook.react.ReactInstanceManager;
 import com.facebook.react.ReactNativeHost;
@@ -13,6 +15,12 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 
 public class MainApplication extends NavigationApplication {
+
+    @Override
+    protected void attachBaseContext(Context base) {
+        MultiDex.install(this);
+        super.attachBaseContext(base);
+    }
 
     private final ReactNativeHost mReactNativeHost =
             new NavigationReactNativeHost(this) {
