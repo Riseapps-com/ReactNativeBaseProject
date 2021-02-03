@@ -23,7 +23,6 @@ module.exports = {
     'jest',
     'jest-formatting',
     'simple-import-sort',
-    'unused-imports',
   ],
   extends: [
     'airbnb-base',
@@ -187,14 +186,6 @@ module.exports = {
     'import/order': 'off',
     'simple-import-sort/imports': 'error',
     'simple-import-sort/exports': 'error',
-
-    // unused-imports
-    '@typescript-eslint/no-unused-vars': 'off',
-    'unused-imports/no-unused-imports-ts': 'error',
-    'unused-imports/no-unused-vars-ts': [
-      'warn',
-      { vars: 'all', varsIgnorePattern: '^_', args: 'after-used', argsIgnorePattern: '^_' },
-    ],
   },
   overrides: [
     {
