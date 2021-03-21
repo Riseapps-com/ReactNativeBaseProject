@@ -4,14 +4,20 @@
  * defined in `@types/jest.d.ts` file.
  */
 
+import { NavigationContext } from '@react-navigation/native';
 import { render } from '@testing-library/react-native';
 import React from 'react';
-import { NavigationProvider } from 'react-native-navigation-hooks';
 
 import RuntimeError from '~modules/errors/RuntimeError';
 import { rootStore, StoreContext } from '~modules/state';
 
-import { MaybeMocked, MaybeMockedDeep, RenderComponent, RenderNavigationComponent } from '../types';
+import {
+  MaybeMocked,
+  MaybeMockedDeep,
+  RenderComponent,
+  RenderNavigationComponent,
+  RenderStoreComponent,
+} from '../types';
 
 /**
  * Renders test component
@@ -20,20 +26,28 @@ export const renderComponent: RenderComponent = (Component, props, wrapper?) => 
   return render(<Component {...props} />, { wrapper });
 };
 
-export const renderNavigationComponent: RenderNavigationComponent = (Component, props, wrapper) => {
-  const componentId = 'componentId';
+export const renderNavigationComponent: RenderNavigationComponent = (
+  Component,
+  isFocused,
+  props,
+  wrapper
+) => {
+  const navContextValue: any = {
+    isFocused: () => isFocused,
+    addListener: jest.fn(() => jest.fn()),
+  };
 
   return render(
     <StoreContext.Provider value={rootStore}>
-      <NavigationProvider value={{ componentId }}>
+      <NavigationContext.Provider value={navContextValue}>
         <Component {...props} />
-      </NavigationProvider>
+      </NavigationContext.Provider>
     </StoreContext.Provider>,
     { wrapper }
   );
 };
 
-export const renderStoreComponent: RenderNavigationComponent = (Component, props, wrapper) => {
+export const renderStoreComponent: RenderStoreComponent = (Component, props, wrapper) => {
   return render(
     <StoreContext.Provider value={rootStore}>
       <Component {...props} />

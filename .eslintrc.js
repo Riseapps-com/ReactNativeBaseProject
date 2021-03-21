@@ -26,11 +26,8 @@ module.exports = {
   ],
   extends: [
     'airbnb-base',
-    'prettier',
     'plugin:prettier/recommended',
-    'prettier/@typescript-eslint',
     'plugin:@typescript-eslint/recommended',
-    'prettier/react',
     'plugin:react/recommended',
     'plugin:jest/recommended',
     'plugin:jest-formatting/recommended',
@@ -53,6 +50,7 @@ module.exports = {
     camelcase: 'off',
     'no-throw-literal': 'off',
     'class-methods-use-this': 'off',
+    'consistent-return': 'off',
     'max-depth': ['error', 3],
     'max-len': ['error', 100],
     'max-lines': ['error', { max: 200 }],
@@ -172,7 +170,12 @@ module.exports = {
 
     // react-hooks
     'react-hooks/rules-of-hooks': 'error',
-    'react-hooks/exhaustive-deps': 'error',
+    'react-hooks/exhaustive-deps': [
+      'error',
+      {
+        additionalHooks: '(useRetriever)',
+      },
+    ],
 
     // react-native
     'react-native/split-platform-components': 'error',
@@ -193,6 +196,7 @@ module.exports = {
       rules: {
         'max-lines': 'off',
         'max-nested-callbacks': 'off',
+        'prefer-promise-reject-errors': 'off',
         'react/jsx-handler-names': 'off',
         'react/jsx-no-literals': 'off',
         '@typescript-eslint/no-magic-numbers': 'off',

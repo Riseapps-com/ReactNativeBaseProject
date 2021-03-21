@@ -3,4 +3,4 @@ import React from 'react';
 
 import SelectRegionMenu from '../index';
 
-storiesOf('SelectRegionMenu', module).add('with data', () => <SelectRegionMenu />);
+storiesOf('SelectRegionMenu', module).add('default', () => <SelectRegionMenu />);

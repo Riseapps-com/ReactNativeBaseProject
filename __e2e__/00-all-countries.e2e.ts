@@ -2,7 +2,7 @@ import { expect } from 'detox';
 
 import { testIDs } from '~config';
 
-import { byId, disableAndroidEmulatorAnimations } from './utils';
+import { byId, byText, disableAndroidEmulatorAnimations } from './utils';
 
 describe('00-all-countries', () => {
   beforeAll(() => {
@@ -17,8 +17,8 @@ describe('00-all-countries', () => {
 
     it('opens all countries', async () => {
       await byId(testIDs.menu.allCountries).tap();
-      await expect(byId(testIDs.countries.back)).toBeVisible();
-      await byId(testIDs.countries.back).tap();
+      await expect(byText('menu')).toBeVisible();
+      await byText('menu').tap();
       await expect(byId(testIDs.menu.allCountries)).toBeVisible();
     });
   });
@@ -35,16 +35,16 @@ describe('00-all-countries', () => {
 
     it('opens country details', async () => {
       await byId(testIDs.countries.country).atIndex(0).tap();
-      await expect(byId(testIDs.countryDetails.back)).toBeVisible();
-      await byId(testIDs.countryDetails.back).tap();
-      await expect(byId(testIDs.countries.back)).toBeVisible();
+      await expect(byText('All Countries')).toBeVisible();
+      await byText('All Countries').tap();
+      await expect(byText('Menu')).toBeVisible();
     });
   });
 
   describe('CountryDetails', () => {
     it('renders country details', async () => {
       await byId(testIDs.countries.country).atIndex(0).tap();
-      await expect(byId(testIDs.countryDetails.back)).toBeVisible();
+      await expect(byText('All countries')).toBeVisible();
     });
 
     it('scrolls', async () => {

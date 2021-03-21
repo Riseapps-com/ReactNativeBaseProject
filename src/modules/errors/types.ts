@@ -67,7 +67,6 @@ export type ErrorCode =
   | 'NotFoundException'
   | 'InvalidRequestException'
   | 'ServerErrorException'
-  | 'ThemeNotDefinedException'
   | 'InvalidParameterException';
 
 export type ErrorDetails = {

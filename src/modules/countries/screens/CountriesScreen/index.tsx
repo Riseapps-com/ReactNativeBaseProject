@@ -1,36 +1,29 @@
 import React from 'react';
 import { StatusBar, View } from 'react-native';
-import { NavigationFunctionComponent, Options } from 'react-native-navigation';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
-import { testIDs } from '~config';
-import { I18n } from '~modules/localization';
 import { useTheme } from '~theme';
 
 import { CountriesList } from '../../components';
-import { CountriesScreenProps } from '../../types';
+import { CountriesNavigation, CountriesRoute } from '../../types';
 import themedStyles from './styles';
 
-const CountriesScreen: NavigationFunctionComponent<CountriesScreenProps> = props => {
+export type CountriesScreenProps = {
+  navigation: CountriesNavigation;
+  route: CountriesRoute;
+};
+
+const CountriesScreen: React.FC<CountriesScreenProps> = () => {
+  const { bottom } = useSafeAreaInsets();
   const [styles] = useTheme(themedStyles);
 
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, { marginBottom: bottom }]}>
       <StatusBar barStyle={'light-content'} />
 
-      <CountriesList region={props.region} />
+      <CountriesList />
     </View>
   );
 };
-
-CountriesScreen.options = (props: CountriesScreenProps): Options => ({
-  topBar: {
-    title: {
-      text: props.region ? I18n.t(props.region) : I18n.t('allCountries'),
-    },
-    backButton: {
-      testID: testIDs.countries.back,
-    },
-  },
-});
 
 export default CountriesScreen;

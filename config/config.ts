@@ -4,7 +4,6 @@ const testIDs = {
     countriesByRegion: 'countriesByRegion',
   },
   selectRegion: {
-    back: 'back',
     africa: 'africa',
     americas: 'americas',
     asia: 'asia',
@@ -12,12 +11,10 @@ const testIDs = {
     oceania: 'oceania',
   },
   countries: {
-    back: 'back',
     country: 'country',
     scrollContainer: 'scrollContainer',
   },
   countryDetails: {
-    back: 'back',
     scrollContainer: 'scrollContainer',
   },
   global: {

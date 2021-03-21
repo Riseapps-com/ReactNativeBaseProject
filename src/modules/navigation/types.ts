@@ -1,7 +1,19 @@
-import { NavigationFunctionComponent } from 'react-native-navigation';
+import {
+  COUNTRIES_SCREEN_NAME,
+  CountriesParams,
+  COUNTRY_DETAILS_SCREEN_NAME,
+  CountryDetailsParams,
+  MENU_SCREEN_NAME,
+  MenuParams,
+  SELECT_REGION_SCREEN_NAME,
+  SelectRegionParams,
+} from '~modules/countries';
 
-export type Screen = {
-  id: string;
-  component: NavigationFunctionComponent<any>;
-  withSafeArea: boolean;
+export type ApplicationParams = {
+  // COUNTRIES
+
+  [COUNTRIES_SCREEN_NAME]: CountriesParams;
+  [COUNTRY_DETAILS_SCREEN_NAME]: CountryDetailsParams;
+  [MENU_SCREEN_NAME]: MenuParams;
+  [SELECT_REGION_SCREEN_NAME]: SelectRegionParams;
 };

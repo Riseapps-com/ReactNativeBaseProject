@@ -1,38 +1,33 @@
 import React from 'react';
 import { ScrollView, StatusBar } from 'react-native';
-import { NavigationFunctionComponent, Options } from 'react-native-navigation';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { testIDs } from '~config';
 import { useTheme } from '~theme';
 
 import { CountryDetails } from '../../components';
-import { CountryDetailsScreenProps } from '../../types';
+import { CountryDetailsNavigation, CountryDetailsRoute } from '../../types';
 import themedStyles from './styles';
 
-const CountryDetailsScreen: NavigationFunctionComponent<CountryDetailsScreenProps> = props => {
+export type CountryDetailsScreenProps = {
+  navigation: CountryDetailsNavigation;
+  route: CountryDetailsRoute;
+};
+
+const CountryDetailsScreen: React.FC<CountryDetailsScreenProps> = () => {
+  const { bottom } = useSafeAreaInsets();
   const [styles] = useTheme(themedStyles);
 
   return (
     <ScrollView
       testID={testIDs.countryDetails.scrollContainer}
-      contentContainerStyle={styles.container}
+      contentContainerStyle={[styles.container, { marginBottom: bottom }]}
     >
       <StatusBar barStyle={'light-content'} />
 
-      <CountryDetails code={props.code} />
+      <CountryDetails />
     </ScrollView>
   );
 };
-
-CountryDetailsScreen.options = (props: CountryDetailsScreenProps): Options => ({
-  topBar: {
-    title: {
-      text: props.title,
-    },
-    backButton: {
-      testID: testIDs.countryDetails.back,
-    },
-  },
-});
 
 export default CountryDetailsScreen;

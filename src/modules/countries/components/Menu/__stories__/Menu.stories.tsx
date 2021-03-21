@@ -3,4 +3,4 @@ import React from 'react';
 
 import Menu from '../index';
 
-storiesOf('Menu', module).add('with data', () => <Menu />);
+storiesOf('Menu', module).add('default', () => <Menu />);

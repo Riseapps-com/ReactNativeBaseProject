@@ -1,7 +1,8 @@
+import { useNavigation } from '@react-navigation/native';
 import { fireEvent } from '@testing-library/react-native';
-import { useNavigation } from 'react-native-navigation-hooks';
 
 import { testIDs } from '~config';
+import { I18n } from '~modules/localization';
 import { mocked, renderComponent } from '~modules/tests';
 
 import { COUNTRIES_SCREEN_NAME, SELECT_REGION_SCREEN_NAME } from '../../../config';
@@ -13,7 +14,7 @@ const renderMenu = () => renderComponent(MenuItem);
 
 describe('countries', () => {
   describe('<Menu />', () => {
-    it('renders menu', () => {
+    it('renders <Menu />', () => {
       const menu = renderMenu();
 
       expect(menu.getByTestId(testIDs.menu.allCountries)).toBeTruthy();
@@ -27,8 +28,10 @@ describe('countries', () => {
       fireEvent.press(menu.getByTestId(testIDs.menu.allCountries));
       jest.runAllTimers();
 
-      expect(mockedUseNavigation().push).toBeCalledTimes(1);
-      expect(mockedUseNavigation().push).toBeCalledWith(COUNTRIES_SCREEN_NAME);
+      expect(mockedUseNavigation().navigate).toBeCalledTimes(1);
+      expect(mockedUseNavigation().navigate).toBeCalledWith(COUNTRIES_SCREEN_NAME, {
+        title: I18n.t('allCountries'),
+      });
     });
 
     it('navigates to select region menu', () => {
@@ -37,8 +40,8 @@ describe('countries', () => {
       fireEvent.press(menu.getByTestId(testIDs.menu.countriesByRegion));
       jest.runAllTimers();
 
-      expect(mockedUseNavigation().push).toBeCalledTimes(1);
-      expect(mockedUseNavigation().push).toBeCalledWith(SELECT_REGION_SCREEN_NAME);
+      expect(mockedUseNavigation().navigate).toBeCalledTimes(1);
+      expect(mockedUseNavigation().navigate).toBeCalledWith(SELECT_REGION_SCREEN_NAME);
     });
   });
 });

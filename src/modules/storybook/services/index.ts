@@ -1,3 +1,7 @@
-import { default as setStorybookRoot } from './setStorybookRoot';
+import { configure } from '@storybook/react-native';
 
-export { setStorybookRoot };
+import { loadStories } from '../generated/storyLoader';
+
+configure(() => {
+  loadStories();
+}, module);

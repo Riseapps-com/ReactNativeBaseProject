@@ -47,6 +47,7 @@ export type RenderComponent = <T>(
 
 export type RenderNavigationComponent = <T>(
   Component: (() => JSX.Element) | React.FC<any>,
+  isFocused?: boolean,
   props?: T,
   Wrapper?: (() => JSX.Element) | React.FC<any>
 ) => RenderAPI;

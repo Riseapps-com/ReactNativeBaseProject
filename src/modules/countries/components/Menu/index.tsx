@@ -1,14 +1,13 @@
+import { useNavigation } from '@react-navigation/native';
 import React, { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { View } from 'react-native';
-import { useNavigation } from 'react-native-navigation-hooks';
 
 import { useImages } from '~assets';
 import { testIDs } from '~config';
 import { useTheme } from '~theme';
 
 import { COUNTRIES_SCREEN_NAME, SELECT_REGION_SCREEN_NAME } from '../../config';
-import { CountriesScreenProps } from '../../types';
 import MenuItem from '../MenuItem';
 import themedStyles from './styles';
 
@@ -19,11 +18,13 @@ const Menu: React.FC = () => {
   const images = useImages();
 
   const handleAllCountriesPress = useCallback(async () => {
-    await navigation.push<CountriesScreenProps>(COUNTRIES_SCREEN_NAME);
-  }, [navigation]);
+    navigation.navigate(COUNTRIES_SCREEN_NAME, {
+      title: t('allCountries'),
+    });
+  }, [navigation, t]);
 
   const handleCountriesByRegionPress = useCallback(async () => {
-    await navigation.push(SELECT_REGION_SCREEN_NAME);
+    navigation.navigate(SELECT_REGION_SCREEN_NAME);
   }, [navigation]);
 
   return (

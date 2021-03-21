@@ -1,3 +1,4 @@
+import { useRoute } from '@react-navigation/native';
 import { act } from '@testing-library/react-native';
 
 import { testIDs } from '~config';
@@ -6,23 +7,25 @@ import { country } from '~modules/api/__data__';
 import { HttpRequestError } from '~modules/errors';
 import { mocked, renderStoreComponent } from '~modules/tests';
 
-import CountryDetails, { CountryDetailsProps } from '../index';
+import CountryDetails from '../index';
 
 jest.mock('~modules/api');
 
 const mockedCountriesApi = mocked(countriesApi);
+const mockedUseRoute = mocked(useRoute);
 
-const renderCountryDetails = (props: CountryDetailsProps) =>
-  renderStoreComponent(CountryDetails, props);
+const renderCountryDetails = () => renderStoreComponent(CountryDetails);
+
+beforeAll(() => {
+  mockedUseRoute.mockImplementation(() => ({ params: { code: country.alpha2Code } } as any));
+});
 
 describe('countries', () => {
   describe('<CountryDetails />', () => {
-    it('renders country details', () => {
+    it('renders <CountryDetails />', () => {
       mockedCountriesApi.getCountryByCode.mockImplementationOnce(() => Promise.resolve(country));
 
-      const countryDetails = renderCountryDetails({
-        code: country.alpha2Code,
-      });
+      const countryDetails = renderCountryDetails();
 
       act(() => jest.runAllTimers());
 
@@ -39,9 +42,7 @@ describe('countries', () => {
         Promise.resolve(remoteCountry)
       );
 
-      const countryDetails = renderCountryDetails({
-        code: country.alpha2Code,
-      });
+      const countryDetails = renderCountryDetails();
 
       act(() => jest.runAllTimers());
 
@@ -51,9 +52,7 @@ describe('countries', () => {
     it('fetches country by code', () => {
       mockedCountriesApi.getCountryByCode.mockImplementationOnce(() => Promise.resolve(country));
 
-      const countryDetails = renderCountryDetails({
-        code: country.alpha2Code,
-      });
+      const countryDetails = renderCountryDetails();
 
       act(() => jest.runAllTimers());
 
@@ -67,9 +66,7 @@ describe('countries', () => {
         throw new HttpRequestError(500);
       });
 
-      const countryDetails = renderCountryDetails({
-        code: country.alpha2Code,
-      });
+      const countryDetails = renderCountryDetails();
 
       act(() => jest.runAllTimers());
 

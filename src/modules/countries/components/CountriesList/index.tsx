@@ -1,47 +1,44 @@
+import { useNavigation, useRoute } from '@react-navigation/native';
 import { observer } from 'mobx-react-lite';
 import React, { useCallback, useEffect, useMemo } from 'react';
 import { FlatList, ListRenderItemInfo } from 'react-native';
-import { useNavigation } from 'react-native-navigation-hooks';
 
 import { testIDs } from '~config';
-import { LocalCountry, LocalRegion, useStore } from '~modules/state';
+import { LocalCountry, useStore } from '~modules/state';
 import { ActivityIndicator, Error } from '~modules/ui';
 
 import { COUNTRY_DETAILS_SCREEN_NAME } from '../../config';
-import { CountryDetailsScreenProps } from '../../types';
+import { CountriesRoute } from '../../types';
 import CountriesListItem from '../CountriesListItem';
 
-export type CountriesListProps = {
-  region?: LocalRegion;
-};
-
-const CountriesList: React.FC<CountriesListProps> = observer(props => {
+const CountriesList: React.FC = observer(() => {
   const navigation = useNavigation();
+  const { params } = useRoute<CountriesRoute>();
   const { countriesStore } = useStore();
 
-  const countries = props.region
+  const countries = params.region
     ? countriesStore.localCountriesByRegion
     : countriesStore.localAllCountries;
 
   useEffect(() => {
-    if (props.region) {
-      countriesStore.getCountriesByRegion(props.region);
+    if (params.region) {
+      countriesStore.getCountriesByRegion(params.region);
     } else {
       countriesStore.getAllCountries();
     }
 
     return () => {
-      if (props.region) {
+      if (params.region) {
         countriesStore.resetCountriesByRegion();
       } else {
         countriesStore.resetAllCountries();
       }
     };
-  }, [countriesStore, props.region]);
+  }, [countriesStore, params.region]);
 
   const handleItemPress = useCallback(
     async (index: number) => {
-      await navigation.push<CountryDetailsScreenProps>(COUNTRY_DETAILS_SCREEN_NAME, {
+      navigation.navigate(COUNTRY_DETAILS_SCREEN_NAME, {
         code: countries[index].alpha2Code,
         title: countries[index].name,
       });
@@ -66,7 +63,7 @@ const CountriesList: React.FC<CountriesListProps> = observer(props => {
   if (countriesStore.areAllCountriesLoading || countriesStore.areCountriesByRegionLoading)
     return <ActivityIndicator />;
 
-  if ((props.region && countriesStore.countriesByRegionError) || countriesStore.allCountriesError)
+  if ((params.region && countriesStore.countriesByRegionError) || countriesStore.allCountriesError)
     return <Error />;
 
   return (

@@ -1,31 +1,29 @@
 import React from 'react';
 import { StatusBar, View } from 'react-native';
-import { NavigationFunctionComponent, Options } from 'react-native-navigation';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
-import { I18n } from '~modules/localization';
 import { useTheme } from '~theme';
 
 import { Menu } from '../../components';
+import { MenuNavigation, MenuRoute } from '../../types';
 import themedStyles from './styles';
 
-const MenuScreen: NavigationFunctionComponent = () => {
+export type MenuScreenProps = {
+  navigation: MenuNavigation;
+  route: MenuRoute;
+};
+
+const MenuScreen: React.FC<MenuScreenProps> = () => {
+  const { bottom } = useSafeAreaInsets();
   const [styles] = useTheme(themedStyles);
 
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, { marginBottom: bottom }]}>
       <StatusBar barStyle={'light-content'} />
 
       <Menu />
     </View>
   );
 };
-
-MenuScreen.options = (): Options => ({
-  topBar: {
-    title: {
-      text: I18n.t('menu'),
-    },
-  },
-});
 
 export default MenuScreen;

@@ -1,35 +1,29 @@
 import React from 'react';
 import { StatusBar, View } from 'react-native';
-import { NavigationFunctionComponent, Options } from 'react-native-navigation';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
-import { testIDs } from '~config';
-import { I18n } from '~modules/localization';
 import { useTheme } from '~theme';
 
 import { SelectRegionMenu } from '../../components';
+import { SelectRegionNavigation, SelectRegionRoute } from '../../types';
 import themedStyles from './styles';
 
-const SelectRegionScreen: NavigationFunctionComponent = () => {
+export type SelectRegionScreenProps = {
+  navigation: SelectRegionNavigation;
+  route: SelectRegionRoute;
+};
+
+const SelectRegionScreen: React.FC<SelectRegionScreenProps> = () => {
+  const { bottom } = useSafeAreaInsets();
   const [styles] = useTheme(themedStyles);
 
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, { marginBottom: bottom }]}>
       <StatusBar barStyle={'light-content'} />
 
       <SelectRegionMenu />
     </View>
   );
 };
-
-SelectRegionScreen.options = (): Options => ({
-  topBar: {
-    title: {
-      text: I18n.t('regions'),
-    },
-    backButton: {
-      testID: testIDs.selectRegion.back,
-    },
-  },
-});
 
 export default SelectRegionScreen;

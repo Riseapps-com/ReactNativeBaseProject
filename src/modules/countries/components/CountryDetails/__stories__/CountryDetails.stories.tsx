@@ -3,4 +3,4 @@ import React from 'react';
 
 import CountryDetails from '../index';
 
-storiesOf('CountryDetails', module).add('with data', () => <CountryDetails code={'ua'} />);
+storiesOf('CountryDetails', module).add('default', () => <CountryDetails />);

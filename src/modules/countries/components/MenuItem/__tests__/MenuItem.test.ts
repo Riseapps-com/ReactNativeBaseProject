@@ -9,7 +9,7 @@ const renderMenuItem = (props: MenuItemProps) => renderComponent(MenuItem, props
 
 describe('countries', () => {
   describe('<MenuItem />', () => {
-    it('renders menu item', () => {
+    it('renders <MenuItem />', () => {
       const title = 'Title';
       const menuItem = renderMenuItem({
         image: images.africa,

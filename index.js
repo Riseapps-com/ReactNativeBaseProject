@@ -1,23 +1,11 @@
-import '~modules/localization/services/I18n';
+import 'react-native-gesture-handler';
 import 'react-native-get-random-values';
+import '~modules/localization/services/I18n';
 
 import { AppRegistry } from 'react-native';
-import { Navigation } from 'react-native-navigation';
 
-import { registerScreens, setRoot } from '~modules/navigation';
-import { USE_STORYBOOK } from '~modules/storybook';
-import { setStorybookRoot } from '~modules/storybook/services';
-import { setDefaultOptions } from '~theme';
+import { App } from '~modules/main';
 
-Navigation.events().registerAppLaunchedListener(async () => {
-  registerScreens();
-  setDefaultOptions();
-  if (USE_STORYBOOK) {
-    await setStorybookRoot();
-  } else {
-    await setRoot();
-  }
-});
+import { name as appName } from './app.json';
 
-// to prevent an error from react-native-navigation
-AppRegistry.registerComponent('ReactNativeBaseProject', () => () => null);
+AppRegistry.registerComponent(appName, () => App);

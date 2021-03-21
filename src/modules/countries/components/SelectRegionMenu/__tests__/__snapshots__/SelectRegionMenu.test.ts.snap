@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`countries <SelectRegionMenu /> render select region menu 1`] = `
+exports[`countries <SelectRegionMenu /> render <SelectRegionMenu /> 1`] = `
 <View
   style={
     Object {

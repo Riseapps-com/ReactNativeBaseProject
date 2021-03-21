@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`countries <MenuItem /> renders menu item 1`] = `
+exports[`countries <MenuItem /> renders <MenuItem /> 1`] = `
 <View
   accessible={true}
   focusable={true}

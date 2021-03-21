@@ -1,7 +1,6 @@
 import React, { Component, ErrorInfo } from 'react';
 
 import { logger } from '~modules/logger/services';
-import { setRoot } from '~modules/navigation/services/setRoot';
 
 import RuntimeError from '../../RuntimeError';
 import ErrorScreen from '../ErrorScreen';
@@ -24,7 +23,6 @@ class ErrorBoundary extends Component {
 
   handleDismiss = async () => {
     this.setState({ hasError: false });
-    await setRoot();
   };
 
   render() {

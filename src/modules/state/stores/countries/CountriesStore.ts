@@ -1,6 +1,6 @@
 import { makeAutoObservable } from 'mobx';
 
-import { countriesApi } from '~modules/api';
+import { countriesApi, Country } from '~modules/api';
 
 import { Resettable } from '../../types';
 import * as countriesParsers from './countriesParsers';
@@ -74,7 +74,7 @@ class CountriesStore implements Resettable {
     this.countryByCodeError = undefined;
 
     try {
-      const countryByCode = yield countriesApi.getCountryByCode(code.toLowerCase());
+      const countryByCode: Country = yield countriesApi.getCountryByCode(code.toLowerCase());
 
       this.localCountryByCode = countryByCode
         ? countriesParsers.parseToLocalCountry(countryByCode)

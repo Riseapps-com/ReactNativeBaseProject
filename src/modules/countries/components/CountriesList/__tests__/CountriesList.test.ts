@@ -1,5 +1,5 @@
+import { useNavigation, useRoute } from '@react-navigation/native';
 import { act, fireEvent } from '@testing-library/react-native';
-import { useNavigation } from 'react-native-navigation-hooks';
 
 import { testIDs } from '~config';
 import { countriesApi, Region } from '~modules/api';
@@ -8,22 +8,23 @@ import { HttpRequestError } from '~modules/errors';
 import { mocked, renderNavigationComponent } from '~modules/tests';
 
 import { COUNTRY_DETAILS_SCREEN_NAME } from '../../../config';
-import CountriesList, { CountriesListProps } from '../index';
+import CountriesList from '../index';
 
 jest.mock('~modules/api');
 
 const mockedCountriesApi = mocked(countriesApi);
 const mockedNavigation = mocked(useNavigation);
+const mockedUseRoute = mocked(useRoute);
 
-const renderCountriesList = (props: CountriesListProps) =>
-  renderNavigationComponent(CountriesList, props);
+const renderCountriesList = () => renderNavigationComponent(CountriesList);
 
 describe('countries', () => {
   describe('<CountriesList />', () => {
-    it('renders countries list', () => {
+    it('renders <CountriesList />', () => {
       mockedCountriesApi.getAllCountries.mockImplementationOnce(() => Promise.resolve([country]));
+      mockedUseRoute.mockImplementation(() => ({ params: {} } as any));
 
-      const countriesList = renderCountriesList({});
+      const countriesList = renderCountriesList();
 
       act(() => jest.runAllTimers());
 
@@ -32,8 +33,9 @@ describe('countries', () => {
 
     it('fetches all countries', () => {
       mockedCountriesApi.getAllCountries.mockImplementationOnce(() => Promise.resolve([country]));
+      mockedUseRoute.mockImplementation(() => ({ params: {} } as any));
 
-      const countriesList = renderCountriesList({});
+      const countriesList = renderCountriesList();
 
       act(() => jest.runAllTimers());
 
@@ -42,14 +44,14 @@ describe('countries', () => {
     });
 
     it('fetches countries by region', () => {
+      const region: Region = 'oceania';
+
       mockedCountriesApi.getCountriesByRegion.mockImplementationOnce(() =>
         Promise.resolve([country])
       );
-      const region: Region = 'oceania';
+      mockedUseRoute.mockImplementation(() => ({ params: { region } } as any));
 
-      const countriesList = renderCountriesList({
-        region,
-      });
+      const countriesList = renderCountriesList();
 
       act(() => jest.runAllTimers());
 
@@ -62,8 +64,9 @@ describe('countries', () => {
       mockedCountriesApi.getAllCountries.mockImplementationOnce(() => {
         throw new HttpRequestError(500);
       });
+      mockedUseRoute.mockImplementation(() => ({ params: {} } as any));
 
-      const countriesList = renderCountriesList({});
+      const countriesList = renderCountriesList();
 
       act(() => jest.runAllTimers());
 
@@ -72,16 +75,17 @@ describe('countries', () => {
 
     it('navigates to country details', async () => {
       mockedCountriesApi.getAllCountries.mockImplementationOnce(() => Promise.resolve([country]));
+      mockedUseRoute.mockImplementation(() => ({ params: {} } as any));
 
-      const countriesList = renderCountriesList({});
+      const countriesList = renderCountriesList();
 
       await act(async () => {
         jest.runAllTimers();
         await fireEvent.press(countriesList.getByText(country.name));
       });
 
-      expect(mockedNavigation().push).toBeCalledTimes(1);
-      expect(mockedNavigation().push).toBeCalledWith(COUNTRY_DETAILS_SCREEN_NAME, {
+      expect(mockedNavigation().navigate).toBeCalledTimes(1);
+      expect(mockedNavigation().navigate).toBeCalledWith(COUNTRY_DETAILS_SCREEN_NAME, {
         code: country.alpha2Code,
         title: country.name,
       });

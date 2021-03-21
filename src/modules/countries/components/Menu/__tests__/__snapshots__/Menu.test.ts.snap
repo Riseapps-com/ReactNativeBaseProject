@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`countries <Menu /> renders menu 1`] = `
+exports[`countries <Menu /> renders <Menu /> 1`] = `
 <View
   style={
     Object {

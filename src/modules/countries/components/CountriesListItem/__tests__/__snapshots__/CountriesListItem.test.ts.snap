@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`countries <CountriesListItem /> renders countries list item 1`] = `
+exports[`countries <CountriesListItem /> renders <CountriesListItem /> 1`] = `
 <View
   accessible={true}
   focusable={true}

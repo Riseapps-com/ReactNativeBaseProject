@@ -1,3 +1,3 @@
-import { default as AppProvider } from './AppProvider';
+import { default as App } from './App';
 
-export { AppProvider };
+export { App };

@@ -1,8 +1,10 @@
+import { useRoute } from '@react-navigation/native';
 import { observer } from 'mobx-react-lite';
 import React, { useEffect, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { View } from 'react-native';
 
+import { CountryDetailsRoute } from '~modules/countries';
 import { useStore } from '~modules/state';
 import { ActivityIndicator, Error, FastImage, resizeMode, Text } from '~modules/ui';
 import { useTheme } from '~theme';
@@ -10,22 +12,19 @@ import { useTheme } from '~theme';
 import { countriesUtils } from '../../services';
 import themedStyles from './styles';
 
-export type CountryDetailsProps = {
-  code: string;
-};
-
-const CountryDetails: React.FC<CountryDetailsProps> = observer(props => {
+const CountryDetails: React.FC = observer(() => {
   const [styles] = useTheme(themedStyles);
   const { t } = useTranslation();
+  const { params } = useRoute<CountryDetailsRoute>();
   const { countriesStore } = useStore();
 
   useEffect(() => {
-    countriesStore.getCountryByCode(props.code);
+    countriesStore.getCountryByCode(params.code);
 
     return () => {
       countriesStore.resetCountryByCode();
     };
-  }, [countriesStore, props.code]);
+  }, [countriesStore, params.code]);
 
   const contentRow = useMemo(
     () => (title: string, value: string) => {

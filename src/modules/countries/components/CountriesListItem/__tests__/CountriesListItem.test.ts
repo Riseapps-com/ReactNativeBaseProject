@@ -13,7 +13,7 @@ const renderCountriesListItem = (props: CountriesListItemProps) =>
 
 describe('countries', () => {
   describe('<CountriesListItem />', () => {
-    it('renders countries list item', () => {
+    it('renders <CountriesListItem />', () => {
       const country: LocalCountry = {
         ...localCountry,
         id: v4(),
