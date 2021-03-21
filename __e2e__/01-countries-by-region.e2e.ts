@@ -2,7 +2,7 @@ import { expect } from 'detox';
 
 import { testIDs } from '~config';
 
-import { byId, byText, disableAndroidEmulatorAnimations } from './utils';
+import { byId, byLabel, disableAndroidEmulatorAnimations } from './utils';
 
 describe('01-countries-by-region', () => {
   beforeAll(() => {
@@ -17,8 +17,8 @@ describe('01-countries-by-region', () => {
 
     it('opens select region menu', async () => {
       await byId(testIDs.menu.countriesByRegion).tap();
-      await expect(byText('Menu')).toBeVisible();
-      await byText('Menu').tap();
+      await expect(byLabel(testIDs.selectRegion.back).atIndex(0)).toBeVisible();
+      await byLabel(testIDs.selectRegion.back).atIndex(0).tap();
       await expect(byId(testIDs.menu.countriesByRegion)).toBeVisible();
     });
   });
@@ -26,37 +26,37 @@ describe('01-countries-by-region', () => {
   describe('SelectRegionMenu', () => {
     it('renders select region menu', async () => {
       await byId(testIDs.menu.countriesByRegion).tap();
-      await expect(byText('Menu')).toBeVisible();
+      await expect(byLabel(testIDs.selectRegion.back).atIndex(0)).toBeVisible();
     });
 
     it('opens africa countries', async () => {
       await byId(testIDs.selectRegion.africa).tap();
-      await expect(byText('Regions')).toBeVisible();
-      await byText('Regions').tap();
+      await expect(byLabel(testIDs.countries.back).atIndex(0)).toBeVisible();
+      await byLabel(testIDs.countries.back).atIndex(0).tap();
     });
 
     it('opens americas countries', async () => {
       await byId(testIDs.selectRegion.americas).tap();
-      await expect(byText('Regions')).toBeVisible();
-      await byText('Regions').tap();
+      await expect(byLabel(testIDs.countries.back).atIndex(0)).toBeVisible();
+      await byLabel(testIDs.countries.back).atIndex(0).tap();
     });
 
     it('opens asia countries', async () => {
       await byId(testIDs.selectRegion.asia).tap();
-      await expect(byText('Regions')).toBeVisible();
-      await byText('Regions').tap();
+      await expect(byLabel(testIDs.countries.back).atIndex(0)).toBeVisible();
+      await byLabel(testIDs.countries.back).atIndex(0).tap();
     });
 
     it('opens europe countries', async () => {
       await byId(testIDs.selectRegion.europe).tap();
-      await expect(byText('Regions')).toBeVisible();
-      await byText('Regions').tap();
+      await expect(byLabel(testIDs.countries.back).atIndex(0)).toBeVisible();
+      await byLabel(testIDs.countries.back).atIndex(0).tap();
     });
 
     it('opens oceania', async () => {
       await byId(testIDs.selectRegion.oceania).tap();
-      await expect(byText('Regions')).toBeVisible();
-      await byText('Regions').tap();
+      await expect(byLabel(testIDs.countries.back).atIndex(0)).toBeVisible();
+      await byLabel(testIDs.countries.back).atIndex(0).tap();
     });
   });
 
@@ -72,16 +72,16 @@ describe('01-countries-by-region', () => {
 
     it('opens country details', async () => {
       await byId(testIDs.countries.country).atIndex(0).tap();
-      await expect(byText('Africa')).toBeVisible();
-      await byText('Africa').tap();
-      await expect(byText('Regions')).toBeVisible();
+      await expect(byLabel(testIDs.countryDetails.back).atIndex(0)).toBeVisible();
+      await byLabel(testIDs.countryDetails.back).atIndex(0).tap();
+      await expect(byLabel(testIDs.countries.back).atIndex(0)).toBeVisible();
     });
   });
 
   describe('CountryDetails', () => {
     it('renders country details', async () => {
       await byId(testIDs.countries.country).atIndex(0).tap();
-      await expect(byText('Africa')).toBeVisible();
+      await expect(byLabel(testIDs.countryDetails.back).atIndex(0)).toBeVisible();
     });
 
     it('scrolls', async () => {

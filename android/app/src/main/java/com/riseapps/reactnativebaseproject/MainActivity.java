@@ -10,7 +10,7 @@ public class MainActivity extends ReactActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.splash);
+        // setContentView(R.layout.splash);
     }
 
     /**
