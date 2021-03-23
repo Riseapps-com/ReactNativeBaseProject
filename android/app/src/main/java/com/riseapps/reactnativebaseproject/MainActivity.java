@@ -5,12 +5,13 @@ import android.os.Bundle;
 import androidx.annotation.Nullable;
 
 import com.facebook.react.ReactActivity;
+import com.zoontek.rnbootsplash.RNBootSplash;
 
 public class MainActivity extends ReactActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // setContentView(R.layout.splash);
+        RNBootSplash.init(R.drawable.bootsplash, MainActivity.this);
     }
 
     /**

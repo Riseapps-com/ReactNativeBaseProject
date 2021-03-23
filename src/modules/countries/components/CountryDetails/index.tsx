@@ -16,15 +16,16 @@ const CountryDetails: React.FC = observer(() => {
   const [styles] = useTheme(themedStyles);
   const { t } = useTranslation();
   const { params } = useRoute<CountryDetailsRoute>();
+  const { code } = params;
   const { countriesStore } = useStore();
 
   useEffect(() => {
-    countriesStore.getCountryByCode(params.code);
+    countriesStore.getCountryByCode(code);
 
     return () => {
       countriesStore.resetCountryByCode();
     };
-  }, [countriesStore, params.code]);
+  }, [countriesStore, code]);
 
   const contentRow = useMemo(
     () => (title: string, value: string) => {

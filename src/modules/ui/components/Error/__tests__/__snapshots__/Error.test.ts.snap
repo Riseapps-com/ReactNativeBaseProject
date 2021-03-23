@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ui <Error /> renders error correctly 1`] = `
+exports[`ui <Error /> renders <Error /> 1`] = `
 <View
   style={
     Object {
@@ -9,7 +9,7 @@ exports[`ui <Error /> renders error correctly 1`] = `
       "justifyContent": "center",
     }
   }
-  testID="error"
+  testID="global_error"
 >
   <Text
     style={

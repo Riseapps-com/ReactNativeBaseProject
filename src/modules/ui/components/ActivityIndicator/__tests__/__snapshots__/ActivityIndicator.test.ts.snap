@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ui <ActivityIndicator /> renders correctly 1`] = `
+exports[`ui <ActivityIndicator /> renders <ActivityIndicator /> 1`] = `
 <View
   style={
     Object {
@@ -15,7 +15,7 @@ exports[`ui <ActivityIndicator /> renders correctly 1`] = `
     color="#0036A7"
     hidesWhenStopped={true}
     size="large"
-    testID="activityIndicator"
+    testID="global_activityIndicator"
   />
 </View>
 `;

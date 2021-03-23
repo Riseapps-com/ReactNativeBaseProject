@@ -16,7 +16,7 @@ const renderText = (props: React.PropsWithChildren<TextProps> = {}) =>
 
 describe('ui', () => {
   describe('<Text />', () => {
-    it('renders correctly', () => {
+    it('renders <Text />', () => {
       const text = renderText();
 
       expect(text).toMatchSnapshot();

@@ -35,7 +35,7 @@ exports[`countries <Menu /> renders <Menu /> 1`] = `
         "shadowRadius": 3.84,
       }
     }
-    testID="allCountries"
+    testID="menu_allCountries"
   >
     <View
       style={
@@ -150,7 +150,7 @@ exports[`countries <Menu /> renders <Menu /> 1`] = `
         "shadowRadius": 3.84,
       }
     }
-    testID="countriesByRegion"
+    testID="menu_countriesByRegion"
   >
     <View
       style={

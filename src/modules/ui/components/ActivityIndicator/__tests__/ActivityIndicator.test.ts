@@ -6,7 +6,7 @@ const renderActivityIndicator = () => renderComponent(ActivityIndicator);
 
 describe('ui', () => {
   describe('<ActivityIndicator />', () => {
-    it('renders correctly', () => {
+    it('renders <ActivityIndicator />', () => {
       const activityIndicator = renderActivityIndicator();
 
       expect(activityIndicator).toMatchSnapshot();

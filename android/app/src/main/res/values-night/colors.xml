@@ -3,4 +3,5 @@
     <color name="colorPrimary">#91198E</color>
     <color name="colorPrimaryDark">#91198E</color>
     <color name="colorAccent">#29C7AC</color>
+    <color name="bootsplash_background">#91198E</color>
 </resources>

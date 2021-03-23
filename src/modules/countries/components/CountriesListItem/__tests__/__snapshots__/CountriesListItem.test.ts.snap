@@ -19,7 +19,7 @@ exports[`countries <CountriesListItem /> renders <CountriesListItem /> 1`] = `
       "paddingVertical": 8,
     }
   }
-  testID="country"
+  testID="countries_country"
 >
   <View
     style={

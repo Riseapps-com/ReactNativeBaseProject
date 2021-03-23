@@ -8,13 +8,13 @@ const renderError = () => renderComponent(Error);
 
 describe('ui', () => {
   describe('<Error />', () => {
-    it('renders error correctly', () => {
+    it('renders <Error />', () => {
       const error = renderError();
 
       expect(error).toMatchSnapshot();
     });
 
-    it('renders error with correct title and style', () => {
+    it('renders <Error /> with correct title and style', () => {
       const error = renderError();
 
       expect(error.getByText(I18n.t('errorBoundaryTitle'))).toBeTruthy();

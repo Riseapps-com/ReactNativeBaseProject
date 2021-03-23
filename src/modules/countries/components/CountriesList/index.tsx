@@ -14,27 +14,28 @@ import CountriesListItem from '../CountriesListItem';
 const CountriesList: React.FC = observer(() => {
   const navigation = useNavigation();
   const { params } = useRoute<CountriesRoute>();
+  const { region } = params;
   const { countriesStore } = useStore();
 
-  const countries = params.region
+  const countries = region
     ? countriesStore.localCountriesByRegion
     : countriesStore.localAllCountries;
 
   useEffect(() => {
-    if (params.region) {
-      countriesStore.getCountriesByRegion(params.region);
+    if (region) {
+      countriesStore.getCountriesByRegion(region);
     } else {
       countriesStore.getAllCountries();
     }
 
     return () => {
-      if (params.region) {
+      if (region) {
         countriesStore.resetCountriesByRegion();
       } else {
         countriesStore.resetAllCountries();
       }
     };
-  }, [countriesStore, params.region]);
+  }, [countriesStore, region]);
 
   const handleItemPress = useCallback(
     async (index: number) => {
@@ -63,7 +64,7 @@ const CountriesList: React.FC = observer(() => {
   if (countriesStore.areAllCountriesLoading || countriesStore.areCountriesByRegionLoading)
     return <ActivityIndicator />;
 
-  if ((params.region && countriesStore.countriesByRegionError) || countriesStore.allCountriesError)
+  if ((region && countriesStore.countriesByRegionError) || countriesStore.allCountriesError)
     return <Error />;
 
   return (

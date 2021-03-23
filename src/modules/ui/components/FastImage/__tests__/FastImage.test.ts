@@ -11,7 +11,7 @@ const renderFastImage = () => renderComponent(FastImage, defaultProps);
 
 describe('ui', () => {
   describe('<FastImage />', () => {
-    it('renders correctly', () => {
+    it('renders <FastImage />', () => {
       const fastImage = renderFastImage();
 
       expect(fastImage).toMatchSnapshot();

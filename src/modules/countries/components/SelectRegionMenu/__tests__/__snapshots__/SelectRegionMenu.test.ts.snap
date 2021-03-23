@@ -35,7 +35,7 @@ exports[`countries <SelectRegionMenu /> render <SelectRegionMenu /> 1`] = `
         "shadowRadius": 3.84,
       }
     }
-    testID="africa"
+    testID="selectRegion_africa"
   >
     <View
       style={
@@ -150,7 +150,7 @@ exports[`countries <SelectRegionMenu /> render <SelectRegionMenu /> 1`] = `
         "shadowRadius": 3.84,
       }
     }
-    testID="americas"
+    testID="selectRegion_americas"
   >
     <View
       style={
@@ -265,7 +265,7 @@ exports[`countries <SelectRegionMenu /> render <SelectRegionMenu /> 1`] = `
         "shadowRadius": 3.84,
       }
     }
-    testID="asia"
+    testID="selectRegion_asia"
   >
     <View
       style={
@@ -380,7 +380,7 @@ exports[`countries <SelectRegionMenu /> render <SelectRegionMenu /> 1`] = `
         "shadowRadius": 3.84,
       }
     }
-    testID="europe"
+    testID="selectRegion_europe"
   >
     <View
       style={
@@ -495,7 +495,7 @@ exports[`countries <SelectRegionMenu /> render <SelectRegionMenu /> 1`] = `
         "shadowRadius": 3.84,
       }
     }
-    testID="oceania"
+    testID="selectRegion_oceania"
   >
     <View
       style={
