@@ -1,5 +1,5 @@
 import { useFocusEffect } from '@react-navigation/native';
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 
 import useAsync from './useAsync';
 
@@ -8,69 +8,51 @@ const useRetriever = <T>(
   retrieveFnDeps: any[],
   defaultValue?: T,
   runOnFocus = false
-): [T, boolean] => {
+): [T, boolean, () => Promise<void>] => {
+  const isMounted = useRef<boolean>();
+
   const [isLoading, setIsLoading] = useState(true);
   const [result, setResult] = useState<T>(defaultValue);
-  const doAsync = useAsync();
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  const callbackFn = useCallback(retrieveFn, retrieveFnDeps);
+  const doAsync = useAsync();
+  // eslint-disable-next-line
+  const retrieveFnCallback = useCallback(retrieveFn, retrieveFnDeps);
 
   useEffect(() => {
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
-    if (runOnFocus) return;
+    isMounted.current = true;
 
-    let isCancelled = false;
+    return () => {
+      isMounted.current = false;
+    };
+  }, []);
 
+  const retrieve = useCallback(async () => {
     const setIsLoadingCallback = (isLoadingInner: boolean) => {
-      if (!isCancelled) setIsLoading(isLoadingInner);
+      if (isMounted.current) setIsLoading(isLoadingInner);
     };
 
     const setResultCallback = (resultInner: T) => {
-      if (!isCancelled) setResult(resultInner);
+      if (isMounted.current) setResult(resultInner);
     };
 
-    const retrieve = async () => {
-      await doAsync<T>(callbackFn, setIsLoadingCallback, setResultCallback);
-    };
+    await doAsync<T>(retrieveFnCallback, setIsLoadingCallback, setResultCallback);
+  }, [retrieveFnCallback, doAsync]);
+
+  useEffect(() => {
+    if (runOnFocus) return;
 
     retrieve();
-
-    return () => {
-      isCancelled = true;
-    };
-  }, [callbackFn, doAsync, runOnFocus]);
+  }, [retrieve, runOnFocus]);
 
   useFocusEffect(
     useCallback(() => {
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore
       if (!runOnFocus) return;
 
-      let isCancelled = false;
-
-      const setIsLoadingCallback = (isLoadingInner: boolean) => {
-        if (!isCancelled) setIsLoading(isLoadingInner);
-      };
-
-      const setResultCallback = (resultInner: T) => {
-        if (!isCancelled) setResult(resultInner);
-      };
-
-      const retrieve = async () => {
-        await doAsync<T>(callbackFn, setIsLoadingCallback, setResultCallback);
-      };
-
       retrieve();
-
-      return () => {
-        isCancelled = true;
-      };
-    }, [callbackFn, doAsync, runOnFocus])
+    }, [retrieve, runOnFocus])
   );
 
-  return [result, isLoading];
+  return [result, isLoading, retrieve];
 };
 
 export default useRetriever;

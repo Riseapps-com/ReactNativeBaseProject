@@ -4,12 +4,12 @@ import React, { useEffect, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { View } from 'react-native';
 
-import { CountryDetailsRoute } from '~modules/countries';
 import { useStore } from '~modules/state';
 import { ActivityIndicator, Error, FastImage, resizeMode, Text } from '~modules/ui';
 import { useTheme } from '~theme';
 
 import { countriesUtils } from '../../services';
+import { CountryDetailsRoute } from '../../types';
 import themedStyles from './styles';
 
 const CountryDetails: React.FC = observer(() => {

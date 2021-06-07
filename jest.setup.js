@@ -32,6 +32,6 @@ jest.spyOn(global.console, 'error').mockImplementation((message, ...args) => {
   return realConsoleError(message, ...args);
 });
 
-jest.mock('react-native/Libraries/Animated/src/NativeAnimatedHelper');
+jest.mock('react-native/Libraries/Animated/NativeAnimatedHelper');
 
 jestFetchMock.enableMocks();

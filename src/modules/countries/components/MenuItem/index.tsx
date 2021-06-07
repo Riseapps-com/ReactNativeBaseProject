@@ -19,10 +19,10 @@ const MenuItem: React.FC<MenuItemProps> = (props: MenuItemProps) => {
   const [styles] = useTheme(themedStyles);
   const { onItemPress } = props;
 
-  const handleItemPress = useCallback(() => onItemPress && onItemPress(props.index), [
-    onItemPress,
-    props.index,
-  ]);
+  const handleItemPress = useCallback(
+    () => onItemPress && onItemPress(props.index),
+    [onItemPress, props.index]
+  );
 
   return (
     <TouchableOpacity

@@ -1,8 +1,8 @@
 import '~modules/storybook/services';
 
-import AsyncStorage from '@react-native-async-storage/async-storage';
+// import AsyncStorage from '@react-native-async-storage/async-storage';
 import { createStackNavigator } from '@react-navigation/stack';
-import { getStorybookUI } from '@storybook/react-native';
+// import { getStorybookUI } from '@storybook/react-native';
 import React from 'react';
 
 import { STORYBOOK_SCREEN_NAME } from '~modules/storybook';
@@ -19,10 +19,10 @@ const StorybookStack: React.FC = () => {
     >
       {/* // STORYBOOK */}
 
-      <Stack.Screen
-        name={STORYBOOK_SCREEN_NAME}
-        component={getStorybookUI({ asyncStorage: AsyncStorage })}
-      />
+      {/* <Stack.Screen */}
+      {/*  name={STORYBOOK_SCREEN_NAME} */}
+      {/*  component={getStorybookUI({ asyncStorage: AsyncStorage })} */}
+      {/* /> */}
     </Stack.Navigator>
   );
 };
