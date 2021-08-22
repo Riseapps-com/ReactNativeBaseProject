@@ -8,12 +8,13 @@ import { testIDs } from '~config';
 import { useTheme } from '~theme';
 
 import { COUNTRIES_SCREEN_NAME, SELECT_REGION_SCREEN_NAME } from '../../config';
+import { MenuNavigation } from '../../types';
 import MenuItem from '../MenuItem';
 import themedStyles from './styles';
 
 const Menu: React.FC = () => {
   const { t } = useTranslation();
-  const navigation = useNavigation();
+  const navigation = useNavigation<MenuNavigation>();
   const [styles] = useTheme(themedStyles);
   const images = useImages();
 

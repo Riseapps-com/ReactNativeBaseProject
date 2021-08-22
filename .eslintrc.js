@@ -15,13 +15,13 @@ module.exports = {
     'jest/globals': true,
   },
   plugins: [
-    'prettier',
     '@typescript-eslint',
     'react',
     'react-hooks',
     'react-native',
     'jest',
     'jest-formatting',
+    'import',
     'simple-import-sort',
   ],
   extends: [
@@ -149,6 +149,7 @@ module.exports = {
     '@typescript-eslint/no-use-before-define': ['error', { ignoreTypeReferences: false }],
     '@typescript-eslint/space-infix-ops': ['error', { int32Hint: false }],
     '@typescript-eslint/no-shadow': ['error'],
+    '@typescript-eslint/no-unused-vars': ['error', { ignoreRestSiblings: true, "argsIgnorePattern": "^_" }],
 
     // react
     'react/prop-types': 'off',

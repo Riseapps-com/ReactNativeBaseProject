@@ -11,9 +11,7 @@ exports[`ui <ActivityIndicator /> renders <ActivityIndicator /> 1`] = `
   }
 >
   <ActivityIndicator
-    animating={true}
     color="#0036A7"
-    hidesWhenStopped={true}
     size="large"
     testID="global_activityIndicator"
   />

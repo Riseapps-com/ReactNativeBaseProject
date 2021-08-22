@@ -11,7 +11,9 @@ exports[`countries <SelectRegionMenu /> render <SelectRegionMenu /> 1`] = `
 >
   <View
     accessible={true}
+    collapsable={false}
     focusable={true}
+    nativeID="animatedComponent"
     onClick={[Function]}
     onResponderGrant={[Function]}
     onResponderMove={[Function]}
@@ -126,7 +128,9 @@ exports[`countries <SelectRegionMenu /> render <SelectRegionMenu /> 1`] = `
   </View>
   <View
     accessible={true}
+    collapsable={false}
     focusable={true}
+    nativeID="animatedComponent"
     onClick={[Function]}
     onResponderGrant={[Function]}
     onResponderMove={[Function]}
@@ -241,7 +245,9 @@ exports[`countries <SelectRegionMenu /> render <SelectRegionMenu /> 1`] = `
   </View>
   <View
     accessible={true}
+    collapsable={false}
     focusable={true}
+    nativeID="animatedComponent"
     onClick={[Function]}
     onResponderGrant={[Function]}
     onResponderMove={[Function]}
@@ -356,7 +362,9 @@ exports[`countries <SelectRegionMenu /> render <SelectRegionMenu /> 1`] = `
   </View>
   <View
     accessible={true}
+    collapsable={false}
     focusable={true}
+    nativeID="animatedComponent"
     onClick={[Function]}
     onResponderGrant={[Function]}
     onResponderMove={[Function]}
@@ -471,7 +479,9 @@ exports[`countries <SelectRegionMenu /> render <SelectRegionMenu /> 1`] = `
   </View>
   <View
     accessible={true}
+    collapsable={false}
     focusable={true}
+    nativeID="animatedComponent"
     onClick={[Function]}
     onResponderGrant={[Function]}
     onResponderMove={[Function]}

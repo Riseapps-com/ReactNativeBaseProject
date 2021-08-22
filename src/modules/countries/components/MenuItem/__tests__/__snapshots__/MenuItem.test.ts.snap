@@ -3,7 +3,9 @@
 exports[`countries <MenuItem /> renders <MenuItem /> 1`] = `
 <View
   accessible={true}
+  collapsable={false}
   focusable={true}
+  nativeID="animatedComponent"
   onClick={[Function]}
   onResponderGrant={[Function]}
   onResponderMove={[Function]}

@@ -7,6 +7,7 @@ const dispatch = jest.fn();
 
 module.exports = {
   ...jest.requireActual('@react-navigation/native'),
+
   useNavigation: () => ({
     navigate,
     reset,

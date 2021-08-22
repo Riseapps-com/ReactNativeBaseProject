@@ -11,7 +11,6 @@ import {
 
 export type ApplicationParams = {
   // COUNTRIES
-
   [COUNTRIES_SCREEN_NAME]: CountriesParams;
   [COUNTRY_DETAILS_SCREEN_NAME]: CountryDetailsParams;
   [MENU_SCREEN_NAME]: MenuParams;

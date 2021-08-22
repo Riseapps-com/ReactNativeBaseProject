@@ -4,15 +4,3 @@
 jest.mock('react-native/Libraries/Components/StatusBar/StatusBar', () =>
   jest.createMockFromModule('react-native/Libraries/Components/StatusBar/StatusBar')
 );
-
-// Fake timers using Jest
-beforeEach(() => {
-  jest.useFakeTimers();
-});
-
-// Running all pending timers and switching to real timers using Jest
-afterEach(() => {
-  jest.useFakeTimers();
-  jest.runOnlyPendingTimers();
-  jest.useRealTimers();
-});

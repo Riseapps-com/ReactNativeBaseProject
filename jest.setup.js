@@ -32,6 +32,18 @@ jest.spyOn(global.console, 'error').mockImplementation((message, ...args) => {
   return realConsoleError(message, ...args);
 });
 
+jestFetchMock.enableMocks();
+
 jest.mock('react-native/Libraries/Animated/NativeAnimatedHelper');
 
-jestFetchMock.enableMocks();
+jest.mock('react-native-reanimated', () => {
+  // eslint-disable-next-line @typescript-eslint/no-var-requires,global-require
+  const Reanimated = require('react-native-reanimated/mock');
+
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
+  Reanimated.default.call = () => {};
+
+  return Reanimated;
+});
+
+jest.mock('react-native/Libraries/LogBox/LogBox');

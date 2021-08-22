@@ -8,11 +8,11 @@ import { LocalCountry, useStore } from '~modules/state';
 import { ActivityIndicator, Error } from '~modules/ui';
 
 import { COUNTRY_DETAILS_SCREEN_NAME } from '../../config';
-import { CountriesRoute } from '../../types';
+import { CountriesNavigation, CountriesRoute } from '../../types';
 import CountriesListItem from '../CountriesListItem';
 
 const CountriesList: React.FC = observer(() => {
-  const navigation = useNavigation();
+  const navigation = useNavigation<CountriesNavigation>();
   const { params } = useRoute<CountriesRoute>();
   const { region } = params;
   const { countriesStore } = useStore();

@@ -1,11 +1,11 @@
-import { useNavigation, useRoute } from '@react-navigation/native';
+import { useRoute } from '@react-navigation/native';
 import { act, fireEvent } from '@testing-library/react-native';
 
 import { testIDs } from '~config';
 import { countriesApi, Region } from '~modules/api';
 import { country } from '~modules/api/__data__';
 import { HttpRequestError } from '~modules/errors';
-import { mocked, renderNavigationComponent } from '~modules/tests';
+import { mocked, mockedUseNavigation, renderNavigationComponent } from '~modules/tests';
 
 import { COUNTRY_DETAILS_SCREEN_NAME } from '../../../config';
 import CountriesList from '../index';
@@ -13,7 +13,6 @@ import CountriesList from '../index';
 jest.mock('~modules/api');
 
 const mockedCountriesApi = mocked(countriesApi);
-const mockedNavigation = mocked(useNavigation);
 const mockedUseRoute = mocked(useRoute);
 
 const renderCountriesList = () => renderNavigationComponent(CountriesList);
@@ -84,8 +83,8 @@ describe('countries', () => {
         await fireEvent.press(countriesList.getByText(country.name));
       });
 
-      expect(mockedNavigation().navigate).toBeCalledTimes(1);
-      expect(mockedNavigation().navigate).toBeCalledWith(COUNTRY_DETAILS_SCREEN_NAME, {
+      expect(mockedUseNavigation().navigate).toBeCalledTimes(1);
+      expect(mockedUseNavigation().navigate).toBeCalledWith(COUNTRY_DETAILS_SCREEN_NAME, {
         code: country.alpha2Code,
         title: country.name,
       });
