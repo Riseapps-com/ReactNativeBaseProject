@@ -7,4 +7,4 @@ export const getAllCountries = () => axiosBase.get<Country[]>(ALL);
 export const getCountriesByRegion = (region: Region) =>
   axiosBase.get<Country[]>(`${BY_REGION}/${region}`);
 
-export const getCountryByCode = (code: string) => axiosBase.get<Country>(`${BY_CODE}/${code}`);
+export const getCountryByCode = (code: string) => axiosBase.get<Country[]>(`${BY_CODE}/${code}`);

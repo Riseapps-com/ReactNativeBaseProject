@@ -6,7 +6,6 @@ import { LocalCountry } from '~modules/state';
 import { FastImage, resizeMode, Text } from '~modules/ui';
 import { useTheme } from '~theme';
 
-import { countriesUtils } from '../../services';
 import themedStyles from './styles';
 
 export type CountriesListItemProps = {
@@ -18,6 +17,9 @@ export type CountriesListItemProps = {
 const CountriesListItem: React.FC<CountriesListItemProps> = props => {
   const [styles] = useTheme(themedStyles);
   const { onItemPress } = props;
+
+  const title = props.country.name;
+  const subtitle = props.country.capital || '-';
 
   const handleItemPress = useCallback(
     () => onItemPress && onItemPress(props.index),
@@ -33,15 +35,15 @@ const CountriesListItem: React.FC<CountriesListItemProps> = props => {
       <FastImage
         style={styles.icon}
         resizeMode={resizeMode.contain}
-        source={{ uri: countriesUtils.getCountryFlag(props.country.alpha2Code, 'h60') }}
+        source={{ uri: props.country.flagLink }}
       />
 
       <View style={styles.centerContainer}>
-        <Text numberOfLines={1} fontStyle={'bold'}>
-          {props.country.name}
+        <Text numberOfLines={1} fontStyle="bold">
+          {title}
         </Text>
-        <Text numberOfLines={1} style={styles.subtitle} fontStyle={'bold'}>
-          {props.country.capital || '-'}
+        <Text numberOfLines={1} style={styles.subtitle} fontStyle="bold">
+          {subtitle}
         </Text>
       </View>
     </TouchableOpacity>

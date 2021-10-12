@@ -1,6 +1,7 @@
 import { makeAutoObservable } from 'mobx';
 
 import { countriesApi, Country } from '~modules/api';
+import { dataTransformUtilities } from '~modules/dataTransforms';
 
 import { Resettable } from '../../types';
 import * as countriesParsers from './countriesParsers';
@@ -11,7 +12,7 @@ class CountriesStore implements Resettable {
 
   localCountriesByRegion: LocalCountry[] = [];
 
-  localCountryByCode: LocalCountry = undefined;
+  localCountryByCode: LocalCountry | undefined = undefined;
 
   areAllCountriesLoading = false;
 
@@ -19,11 +20,11 @@ class CountriesStore implements Resettable {
 
   isCountryByCodeLoading = false;
 
-  allCountriesError: string = undefined;
+  allCountriesError: string | undefined = undefined;
 
-  countriesByRegionError: string = undefined;
+  countriesByRegionError: string | undefined = undefined;
 
-  countryByCodeError: string = undefined;
+  countryByCodeError: string | undefined = undefined;
 
   constructor() {
     makeAutoObservable(this);
@@ -34,10 +35,10 @@ class CountriesStore implements Resettable {
     this.allCountriesError = undefined;
 
     try {
-      this.localAllCountries = countriesParsers.parseToLocalCountries(
-        yield countriesApi.getAllCountries()
-      );
-    } catch (e) {
+      this.localAllCountries = countriesParsers
+        .parseToLocalCountries(yield countriesApi.getAllCountries())
+        .sort(dataTransformUtilities.comparator('name'));
+    } catch (e: any) {
       this.allCountriesError = e.message;
     }
 
@@ -54,10 +55,10 @@ class CountriesStore implements Resettable {
     this.countriesByRegionError = undefined;
 
     try {
-      this.localCountriesByRegion = countriesParsers.parseToLocalCountries(
-        yield countriesApi.getCountriesByRegion(region)
-      );
-    } catch (e) {
+      this.localCountriesByRegion = countriesParsers
+        .parseToLocalCountries(yield countriesApi.getCountriesByRegion(region))
+        .sort(dataTransformUtilities.comparator('name'));
+    } catch (e: any) {
       this.countriesByRegionError = e.message;
     }
 
@@ -74,12 +75,12 @@ class CountriesStore implements Resettable {
     this.countryByCodeError = undefined;
 
     try {
-      const countryByCode: Country = yield countriesApi.getCountryByCode(code.toLowerCase());
+      const countryByCode: Country[] = yield countriesApi.getCountryByCode(code.toLowerCase());
 
-      this.localCountryByCode = countryByCode
-        ? countriesParsers.parseToLocalCountry(countryByCode)
+      this.localCountryByCode = countryByCode[0]
+        ? countriesParsers.parseToLocalCountry(countryByCode[0])
         : undefined;
-    } catch (e) {
+    } catch (e: any) {
       this.countryByCodeError = e.message;
     }
 

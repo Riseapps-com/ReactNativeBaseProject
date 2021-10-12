@@ -1,13 +1,15 @@
 import { LocalCountry } from '../stores';
 
 const localCountry: Omit<LocalCountry, 'id'> = {
-  name: 'Cook Islands',
-  capital: 'Avarua',
-  region: 'Oceania',
-  subregion: 'Polynesia',
-  timezones: ['UTC-10:00'],
-  currencies: ['NZD', 'CKD'],
-  alpha2Code: 'CK',
+  cca2: 'UA',
+  name: 'Ukraine',
+  capital: 'Kyiv',
+  region: 'Europe',
+  subregion: 'Eastern Europe',
+  population: '44,134,693',
+  flagLink: 'https://flagcdn.com/w320/ua.png',
+  currencies: 'Ukrainian hryvnia',
+  languages: 'Ukrainian',
 };
 
 export { localCountry };

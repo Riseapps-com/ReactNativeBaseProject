@@ -16,3 +16,12 @@ export type ApplicationParams = {
   [MENU_SCREEN_NAME]: MenuParams;
   [SELECT_REGION_SCREEN_NAME]: SelectRegionParams;
 };
+
+declare global {
+  // eslint-disable-next-line @typescript-eslint/no-namespace
+  namespace ReactNavigation {
+    // eslint-disable-next-line max-len
+    // eslint-disable-next-line @typescript-eslint/no-empty-interface,@typescript-eslint/consistent-type-definitions
+    interface RootParamList extends ApplicationParams {}
+  }
+}

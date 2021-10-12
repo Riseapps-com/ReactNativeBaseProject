@@ -15,7 +15,7 @@ type NavigationContainerProps = React.ComponentProps<typeof NativeNavigationCont
 
 const NavigationContainer: React.FC<NavigationContainerProps> = props => {
   const [isReady, setIsReady] = useState(false);
-  const [initialState, setInitialState] = useState<NavigationState>(undefined);
+  const [initialState, setInitialState] = useState<NavigationState>();
   const [, theme] = useTheme(themedStyles);
   const NavigationTheme = {
     ...DefaultTheme,
@@ -25,7 +25,7 @@ const NavigationContainer: React.FC<NavigationContainerProps> = props => {
     },
   };
 
-  const handleStateChange = useCallback((state: NavigationState) => {
+  const handleStateChange = useCallback((state: NavigationState | undefined) => {
     AsyncStorage.setItem(NAVIGATION_STATE_PERSISTENCE_KEY, JSON.stringify(state));
   }, []);
 
@@ -33,9 +33,12 @@ const NavigationContainer: React.FC<NavigationContainerProps> = props => {
     const restoreState = async () => {
       try {
         const savedStateString = await AsyncStorage.getItem(NAVIGATION_STATE_PERSISTENCE_KEY);
-        const state: NavigationState = JSON.parse(savedStateString);
 
-        setInitialState(state);
+        if (savedStateString) {
+          const state: NavigationState = JSON.parse(savedStateString);
+
+          setInitialState(state);
+        }
       } finally {
         setIsReady(true);
       }

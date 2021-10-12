@@ -1,11 +1,14 @@
+import { useNavigation } from '@react-navigation/native';
 import { fireEvent } from '@testing-library/react-native';
 
 import { testIDs } from '~config';
 import { I18n } from '~modules/localization';
-import { mockedUseNavigation, renderComponent } from '~modules/tests';
+import { mocked, renderComponent } from '~modules/tests';
 
 import { COUNTRIES_SCREEN_NAME, SELECT_REGION_SCREEN_NAME } from '../../../config';
 import MenuItem from '../index';
+
+const mockedUseNavigation = <typeof useNavigation>mocked(useNavigation);
 
 const renderMenu = () => renderComponent(MenuItem);
 

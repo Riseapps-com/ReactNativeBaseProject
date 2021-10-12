@@ -5,9 +5,9 @@ import Snackbar from 'react-native-snackbar';
 import { I18n } from '~modules/localization';
 import { dark, light } from '~theme';
 
-import { AXIOS_REQUEST_TIMEOUT_MSEC } from '../config';
+import { AXIOS_REQUEST_TIMEOUT_MSEC, DEV_URL, PROD_URL } from '../config';
 
-const BASE_URL = __DEV__ ? 'https://restcountries.eu/rest/v2' : 'https://restcountries.eu/rest/v2';
+const BASE_URL = __DEV__ ? DEV_URL : PROD_URL;
 
 const instance: AxiosInstance = axios.create({
   baseURL: BASE_URL,

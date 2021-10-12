@@ -12,7 +12,7 @@ const useRetriever = <T>(
   const isMounted = useRef<boolean>();
 
   const [isLoading, setIsLoading] = useState(true);
-  const [result, setResult] = useState<T>(defaultValue);
+  const [result, setResult] = useState<T>(defaultValue as T);
 
   const doAsync = useAsync();
   // eslint-disable-next-line

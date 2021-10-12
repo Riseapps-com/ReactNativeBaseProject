@@ -9,7 +9,7 @@ module.exports = {
       build: `xcodebuild -workspace ios/${e2e.projectName}.xcworkspace -scheme ${e2e.projectName} -configuration Debug -sdk iphonesimulator -derivedDataPath ios/build`,
       type: 'ios.simulator',
       device: {
-        type: e2e.iosDeviceType,
+        name: e2e.iosDeviceType,
       },
     },
     'android.emu.debug': {

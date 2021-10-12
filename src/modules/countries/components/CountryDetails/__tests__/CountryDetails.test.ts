@@ -17,29 +17,29 @@ const mockedUseRoute = mocked(useRoute);
 const renderCountryDetails = () => renderStoreComponent(CountryDetails);
 
 beforeAll(() => {
-  mockedUseRoute.mockImplementation(() => ({ params: { code: country.alpha2Code } } as any));
+  mockedUseRoute.mockImplementation(() => ({ params: { code: country.cca2 } } as any));
 });
 
 describe('countries', () => {
   describe('<CountryDetails />', () => {
     it('renders <CountryDetails />', () => {
-      mockedCountriesApi.getCountryByCode.mockImplementationOnce(() => Promise.resolve(country));
+      mockedCountriesApi.getCountryByCode.mockImplementationOnce(() => Promise.resolve([country]));
 
       const countryDetails = renderCountryDetails();
 
       act(() => jest.runAllTimers());
 
-      expect(countryDetails.getByText(country.name)).toBeTruthy();
+      expect(countryDetails.getByText(country.name.common)).toBeTruthy();
     });
 
-    it('renders "-" if data is not specified', () => {
+    it('renders placeholder if data is not specified', () => {
       const remoteCountry: Country = {
         ...country,
-        capital: '',
+        capital: [],
       };
 
       mockedCountriesApi.getCountryByCode.mockImplementationOnce(() =>
-        Promise.resolve(remoteCountry)
+        Promise.resolve([remoteCountry])
       );
 
       const countryDetails = renderCountryDetails();
@@ -50,15 +50,15 @@ describe('countries', () => {
     });
 
     it('fetches country by code', () => {
-      mockedCountriesApi.getCountryByCode.mockImplementationOnce(() => Promise.resolve(country));
+      mockedCountriesApi.getCountryByCode.mockImplementationOnce(() => Promise.resolve([country]));
 
       const countryDetails = renderCountryDetails();
 
       act(() => jest.runAllTimers());
 
-      expect(countryDetails.getByText(country.name)).toBeTruthy();
+      expect(countryDetails.getByText(country.name.common)).toBeTruthy();
       expect(mockedCountriesApi.getCountryByCode).toBeCalledTimes(1);
-      expect(mockedCountriesApi.getCountryByCode).toBeCalledWith(country.alpha2Code.toLowerCase());
+      expect(mockedCountriesApi.getCountryByCode).toBeCalledWith(country.cca2.toLowerCase());
     });
 
     it('renders error if there was an error', () => {

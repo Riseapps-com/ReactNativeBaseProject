@@ -1,6 +1,6 @@
 import { useNavigation, useRoute } from '@react-navigation/native';
 import { observer } from 'mobx-react-lite';
-import React, { useCallback, useEffect, useMemo } from 'react';
+import React, { useCallback, useEffect } from 'react';
 import { FlatList, ListRenderItemInfo } from 'react-native';
 
 import { testIDs } from '~config';
@@ -8,11 +8,11 @@ import { LocalCountry, useStore } from '~modules/state';
 import { ActivityIndicator, Error } from '~modules/ui';
 
 import { COUNTRY_DETAILS_SCREEN_NAME } from '../../config';
-import { CountriesNavigation, CountriesRoute } from '../../types';
+import { CountriesRoute } from '../../types';
 import CountriesListItem from '../CountriesListItem';
 
 const CountriesList: React.FC = observer(() => {
-  const navigation = useNavigation<CountriesNavigation>();
+  const navigation = useNavigation();
   const { params } = useRoute<CountriesRoute>();
   const { region } = params;
   const { countriesStore } = useStore();
@@ -38,25 +38,23 @@ const CountriesList: React.FC = observer(() => {
   }, [countriesStore, region]);
 
   const handleItemPress = useCallback(
-    async (index: number) => {
+    (index: number) => {
       navigation.navigate(COUNTRY_DETAILS_SCREEN_NAME, {
-        code: countries[index].alpha2Code,
+        code: countries[index].cca2,
         title: countries[index].name,
       });
     },
     [countries, navigation]
   );
 
-  const renderItem = useMemo(
-    () => (itemInfo: ListRenderItemInfo<LocalCountry>) => {
-      return (
-        <CountriesListItem
-          country={itemInfo.item}
-          index={itemInfo.index}
-          onItemPress={handleItemPress}
-        />
-      );
-    },
+  const renderItem = useCallback(
+    (itemInfo: ListRenderItemInfo<LocalCountry>) => (
+      <CountriesListItem
+        country={itemInfo.item}
+        index={itemInfo.index}
+        onItemPress={handleItemPress}
+      />
+    ),
     [handleItemPress]
   );
   const keyExtractor = (localCountry: LocalCountry) => localCountry.id;

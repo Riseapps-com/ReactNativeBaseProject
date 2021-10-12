@@ -1,5 +1,4 @@
 import { fireEvent } from '@testing-library/react-native';
-import { v4 } from 'uuid';
 
 import { testIDs } from '~config';
 import { LocalCountry } from '~modules/state';
@@ -16,7 +15,7 @@ describe('countries', () => {
     it('renders <CountriesListItem />', () => {
       const country: LocalCountry = {
         ...localCountry,
-        id: v4(),
+        id: 'id',
       };
       const countriesListItem = renderCountriesListItem({
         country,
@@ -27,10 +26,10 @@ describe('countries', () => {
       expect(countriesListItem).toMatchSnapshot();
     });
 
-    it('renders "-" if capital is empty', () => {
+    it('renders placeholder if capital is empty', () => {
       const country: LocalCountry = {
         ...localCountry,
-        id: v4(),
+        id: 'id',
         capital: '',
       };
       const countriesListItem = renderCountriesListItem({
@@ -46,7 +45,7 @@ describe('countries', () => {
       const index = 4;
       const country: LocalCountry = {
         ...localCountry,
-        id: v4(),
+        id: 'id',
       };
       const countriesListItem = renderCountriesListItem({
         country,

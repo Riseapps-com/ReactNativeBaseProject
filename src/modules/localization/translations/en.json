@@ -14,12 +14,12 @@
   "region": "Region",
   "regions": "Regions",
   "subregion": "Subregion",
-  "timezones": "Timezones",
   "menu": "Menu",
   "notFoundException": "Couldn't find the requested item.",
   "invalidRequestException": "There was a problem with the request. Please try again or contact our support.",
   "serverErrorException": "Something went wrong. Please try again or contact our support.",
   "unknownException": "Something went wrong. Please try again or contact our support.",
   "errorBoundaryTitle": "Something went wrong",
-  "errorBoundarySubtitle": "Please try again. If the issue persists contact our support."
+  "errorBoundarySubtitle": "Please try again. If the issue persists contact our support.",
+  "population": "Population"
 }

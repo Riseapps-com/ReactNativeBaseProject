@@ -1,63 +1,94 @@
+export type NativeNameItem = {
+  common: string;
+  official: string;
+};
+
+export type NativeName = {
+  [key: string]: NativeNameItem;
+};
+
+export type Name = NativeNameItem & {
+  nativeName: NativeName;
+};
+
 export type Currency = {
-  code: string;
   name: string;
   symbol: string;
 };
 
-export type Language = {
-  // eslint-disable-next-line @typescript-eslint/naming-convention
-  iso639_1: string;
-  // eslint-disable-next-line @typescript-eslint/naming-convention
-  iso639_2: string;
-  name: string;
-  nativeName: string;
+export type Currencies = {
+  [key: string]: Currency;
+};
+
+export type Idd = {
+  root: string;
+  suffixes: string[];
+};
+
+export type Languages = {
+  [key: string]: string;
+};
+
+export type Translation = {
+  official: string;
+  common: string;
 };
 
 export type Translations = {
-  de: string;
-  es: string;
-  fr: string;
-  ja: string;
-  it: string;
-  br: string;
-  pt: string;
-  nl: string;
-  hr: string;
-  fa: string;
+  [key: string]: Translation;
 };
 
-export type RegionalBloc = {
-  acronym: string;
-  name: string;
-  otherAcronyms: string[];
-  otherNames: string[];
+export type Demonym = {
+  f: string;
+  m: string;
+};
+
+export type Demonyms = {
+  [key: string]: Demonym;
+};
+
+export type Maps = {
+  googleMaps: string;
+  openStreetMaps: string;
+};
+
+export type Gini = {
+  [key: string]: number;
+};
+
+export type Flags = {
+  svg: string;
+  png: string;
 };
 
 export type Country = {
-  name: string;
-  topLevelDomain: string[];
-  alpha2Code: string;
-  alpha3Code: string;
-  callingCodes: string[];
-  capital: string;
+  name: Name;
+  tld: string[];
+  cca2: string;
+  ccn3: string;
+  cca3: string;
+  cioc: string;
+  independent: boolean;
+  status: string;
+  unMember: boolean;
+  currencies?: Currencies;
+  idd: Idd;
+  capital?: string[];
   altSpellings: string[];
   region: string;
   subregion: string;
-  population: number;
+  languages?: Languages;
+  translations?: Translations;
   latlng: number[];
-  demonym: string;
-  area: number;
-  gini: number;
-  timezones: string[];
+  landlocked: boolean;
   borders: string[];
-  nativeName: string;
-  numericCode: string;
-  currencies: Currency[];
-  languages: Language[];
-  translations: Translations;
+  area: number;
+  demonyms: Demonyms;
   flag: string;
-  regionalBlocs: RegionalBloc[];
-  cioc: string;
+  maps: Maps;
+  population: number;
+  gini: Gini;
+  flags: Flags;
 };
 
 export type Region = 'africa' | 'americas' | 'asia' | 'europe' | 'oceania';

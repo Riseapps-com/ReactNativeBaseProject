@@ -14,12 +14,12 @@
   "region": "Region",
   "regions": "Regionen",
   "subregion": "Unterregion",
-  "timezones": "Zeitzonen",
   "menu": "Menü",
   "notFoundException": "Der angeforderte Artikel konnte nicht gefunden werden.",
   "invalidRequestException": "Es gab ein Problem mit der Anfrage. Bitte versuchen Sie es erneut oder wenden Sie sich an unseren Support.",
   "serverErrorException": "Etwas ist schief gelaufen. Bitte versuchen Sie es erneut oder wenden Sie sich an unseren Support.",
   "unknownException": "Etwas ist schief gelaufen. Bitte versuchen Sie es erneut oder wenden Sie sich an unseren Support.",
   "errorBoundaryTitle": "Etwas ist schief gelaufen",
-  "errorBoundarySubtitle": "Bitte versuche es erneut. Wenn das Problem weiterhin besteht, wenden Sie sich an unseren Support."
+  "errorBoundarySubtitle": "Bitte versuche es erneut. Wenn das Problem weiterhin besteht, wenden Sie sich an unseren Support.",
+  "population": "Population"
 }

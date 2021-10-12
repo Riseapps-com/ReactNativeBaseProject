@@ -39,7 +39,7 @@ exports[`countries <CountriesListItem /> renders <CountriesListItem /> 1`] = `
       resizeMode="contain"
       source={
         Object {
-          "uri": "https://flagcdn.com/h60/ck.png",
+          "uri": "https://flagcdn.com/w320/ua.png",
         }
       }
       style={
@@ -78,7 +78,7 @@ exports[`countries <CountriesListItem /> renders <CountriesListItem /> 1`] = `
         ]
       }
     >
-      Cook Islands
+      Ukraine
     </Text>
     <Text
       numberOfLines={1}
@@ -99,7 +99,7 @@ exports[`countries <CountriesListItem /> renders <CountriesListItem /> 1`] = `
         ]
       }
     >
-      Avarua
+      Kyiv
     </Text>
   </View>
 </View>

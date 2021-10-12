@@ -1,11 +1,11 @@
-import { useRoute } from '@react-navigation/native';
+import { useNavigation, useRoute } from '@react-navigation/native';
 import { act, fireEvent } from '@testing-library/react-native';
 
 import { testIDs } from '~config';
 import { countriesApi, Region } from '~modules/api';
 import { country } from '~modules/api/__data__';
 import { HttpRequestError } from '~modules/errors';
-import { mocked, mockedUseNavigation, renderNavigationComponent } from '~modules/tests';
+import { mocked, renderNavigationComponent } from '~modules/tests';
 
 import { COUNTRY_DETAILS_SCREEN_NAME } from '../../../config';
 import CountriesList from '../index';
@@ -14,6 +14,7 @@ jest.mock('~modules/api');
 
 const mockedCountriesApi = mocked(countriesApi);
 const mockedUseRoute = mocked(useRoute);
+const mockedUseNavigation = <typeof useNavigation>mocked(useNavigation);
 
 const renderCountriesList = () => renderNavigationComponent(CountriesList);
 
@@ -38,7 +39,7 @@ describe('countries', () => {
 
       act(() => jest.runAllTimers());
 
-      expect(countriesList.getByText(country.name)).toBeTruthy();
+      expect(countriesList.getByText(country.name.common)).toBeTruthy();
       expect(mockedCountriesApi.getAllCountries).toBeCalledTimes(1);
     });
 
@@ -54,7 +55,7 @@ describe('countries', () => {
 
       act(() => jest.runAllTimers());
 
-      expect(countriesList.getByText(country.name)).toBeTruthy();
+      expect(countriesList.getByText(country.name.common)).toBeTruthy();
       expect(mockedCountriesApi.getCountriesByRegion).toBeCalledTimes(1);
       expect(mockedCountriesApi.getCountriesByRegion).toBeCalledWith(region);
     });
@@ -80,13 +81,13 @@ describe('countries', () => {
 
       await act(async () => {
         jest.runAllTimers();
-        await fireEvent.press(countriesList.getByText(country.name));
+        await fireEvent.press(countriesList.getByText(country.name.common));
       });
 
       expect(mockedUseNavigation().navigate).toBeCalledTimes(1);
       expect(mockedUseNavigation().navigate).toBeCalledWith(COUNTRY_DETAILS_SCREEN_NAME, {
-        code: country.alpha2Code,
-        title: country.name,
+        code: country.cca2,
+        title: country.name.common,
       });
     });
   });

@@ -26,5 +26,3 @@ export type SelectRegionNavigation = StackNavigationProp<ApplicationParams, 'SEL
 export type SelectRegionRoute = RouteProp<ApplicationParams, 'SELECT_REGION_SCREEN'>;
 
 // TYPES
-
-export type FlagHeight = 'h20' | 'h24' | 'h40' | 'h60' | 'h80' | 'h120' | 'h240';

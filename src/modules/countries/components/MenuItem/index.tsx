@@ -15,7 +15,7 @@ export type MenuItemProps = {
   testID?: string;
 };
 
-const MenuItem: React.FC<MenuItemProps> = (props: MenuItemProps) => {
+const MenuItem: React.FC<MenuItemProps> = props => {
   const [styles] = useTheme(themedStyles);
   const { onItemPress } = props;
 
@@ -37,7 +37,7 @@ const MenuItem: React.FC<MenuItemProps> = (props: MenuItemProps) => {
         </View>
 
         <View style={styles.titleContainer}>
-          <Text numberOfLines={2} fontStyle={'bold'} style={styles.title}>
+          <Text numberOfLines={2} fontStyle="bold" style={styles.title}>
             {props.title}
           </Text>
         </View>

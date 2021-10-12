@@ -8,10 +8,8 @@ export const retry = <T>(
   options?: { times?: number; delay?: number }
 ) => {
   const passedOptions = options || {};
-  let { times, delay } = passedOptions;
-
-  times = times || DEFAULT_TIMES;
-  delay = delay || DEFAULT_DELAY;
+  const times: number = passedOptions.times || DEFAULT_TIMES;
+  const delay: number = passedOptions.delay || DEFAULT_DELAY;
 
   return new Promise<T>((resolve, reject) => {
     let error: any;

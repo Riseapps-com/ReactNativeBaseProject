@@ -19,13 +19,13 @@ type MaybeMockedConstructor<T> = T extends new (...args: any[]) => infer R
 type MockedFunction<T extends MockableFunction> = MockWithArgs<T> & { [K in keyof T]: T[K] };
 // eslint-disable-next-line @typescript-eslint/no-use-before-define
 type MockedFunctionDeep<T extends MockableFunction> = MockWithArgs<T> & MockedObjectDeep<T>;
-type MockedObject<T> = MaybeMockedConstructor<T> &
-  { [K in MethodKeysOf<T>]: T[K] extends MockableFunction ? MockedFunction<T[K]> : T[K] } &
-  { [K in PropertyKeysOf<T>]: T[K] };
-type MockedObjectDeep<T> = MaybeMockedConstructor<T> &
-  { [K in MethodKeysOf<T>]: T[K] extends MockableFunction ? MockedFunctionDeep<T[K]> : T[K] } &
-  // eslint-disable-next-line @typescript-eslint/no-use-before-define
-  { [K in PropertyKeysOf<T>]: MaybeMockedDeep<T[K]> };
+type MockedObject<T> = MaybeMockedConstructor<T> & {
+  [K in MethodKeysOf<T>]: T[K] extends MockableFunction ? MockedFunction<T[K]> : T[K];
+} & { [K in PropertyKeysOf<T>]: T[K] };
+type MockedObjectDeep<T> = MaybeMockedConstructor<T> & {
+  [K in MethodKeysOf<T>]: T[K] extends MockableFunction ? MockedFunctionDeep<T[K]> : T[K];
+  // eslint-disable-next-line max-len,@typescript-eslint/no-use-before-define
+} & { [K in PropertyKeysOf<T>]: MaybeMockedDeep<T[K]> };
 
 export type MaybeMockedDeep<T> = T extends MockableFunction
   ? MockedFunctionDeep<T>

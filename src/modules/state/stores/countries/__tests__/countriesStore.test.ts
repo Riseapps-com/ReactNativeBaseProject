@@ -136,7 +136,7 @@ describe('store', () => {
       describe('countryByCode', () => {
         it('gets country by code', async () => {
           mockedCountriesApi.getCountryByCode.mockImplementationOnce(() =>
-            Promise.resolve(country)
+            Promise.resolve([country])
           );
 
           const countriesStore = new CountriesStore();
@@ -152,7 +152,7 @@ describe('store', () => {
 
         it('resets country by code', async () => {
           mockedCountriesApi.getCountryByCode.mockImplementationOnce(() =>
-            Promise.resolve(country)
+            Promise.resolve([country])
           );
 
           const countriesStore = new CountriesStore();
