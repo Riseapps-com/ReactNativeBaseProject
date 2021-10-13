@@ -61,3 +61,4 @@ buck-out/
 
 /.jest/
 /coverage/
+/ios/ReactNativeBaseProject.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist
