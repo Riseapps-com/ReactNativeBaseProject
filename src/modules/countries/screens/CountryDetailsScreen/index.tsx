@@ -23,7 +23,7 @@ const CountryDetailsScreen: React.FC<CountryDetailsScreenProps> = () => {
       testID={testIDs.countryDetails.scrollContainer}
       contentContainerStyle={[styles.container, { marginBottom: bottom }]}
     >
-      <StatusBar barStyle={'light-content'} />
+      <StatusBar barStyle="light-content" />
 
       <CountryDetails />
     </ScrollView>

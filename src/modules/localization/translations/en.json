@@ -21,5 +21,6 @@
   "unknownException": "Something went wrong. Please try again or contact our support.",
   "errorBoundaryTitle": "Something went wrong",
   "errorBoundarySubtitle": "Please try again. If the issue persists contact our support.",
-  "population": "Population"
+  "population": "Population",
+  "dismiss": "Dismiss"
 }

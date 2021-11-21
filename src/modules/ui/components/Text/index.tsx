@@ -1,17 +1,13 @@
 import React from 'react';
-import {
-  StyleProp,
-  Text as NativeText,
-  TextProps as NativeTextProps,
-  TextStyle,
-} from 'react-native';
+import { StyleProp, TextStyle } from 'react-native';
+import { Text as PaperText } from 'react-native-paper';
 
 import { useTheme } from '~theme';
 
 import { TextFontStyle, TextSize } from '../../types';
 import themedStyles from './styles';
 
-export type TextProps = NativeTextProps & {
+export type TextProps = React.ComponentProps<typeof PaperText> & {
   fontStyle?: TextFontStyle;
   size?: TextSize;
 };
@@ -36,7 +32,7 @@ const Text: React.FC<TextProps> = props => {
     style,
   ];
 
-  return <NativeText style={textStyles} {...restProps} />;
+  return <PaperText style={textStyles} {...restProps} />;
 };
 
 export default Text;

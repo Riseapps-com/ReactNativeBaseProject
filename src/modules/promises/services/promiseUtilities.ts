@@ -1,7 +1,7 @@
 import { RETRYABLE_ERROR_CODES } from '~modules/errors';
 
 const DEFAULT_TIMES = 3;
-const DEFAULT_DELAY = 5000;
+const DEFAULT_DELAY = 1000;
 
 export const retry = <T>(
   fn: (...args: any) => Promise<T>,

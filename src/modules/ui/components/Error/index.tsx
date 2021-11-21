@@ -14,7 +14,7 @@ const Error: React.FC = () => {
 
   return (
     <View testID={testIDs.global.error} style={styles.wrapper}>
-      <Text fontStyle={'bold'} size={'bigger'} style={styles.error}>
+      <Text fontStyle="bold" size="bigger" style={styles.error}>
         {t('errorBoundaryTitle')}
       </Text>
     </View>

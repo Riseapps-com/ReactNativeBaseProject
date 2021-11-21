@@ -42,7 +42,7 @@ describe('ui', () => {
         expect(text.getByText(children)).toHaveStyle({ fontFamily: getFont('quicksand-regular') });
       });
 
-      it('renders with semi bold font style when specified', () => {
+      it('renders with bold font style when specified', () => {
         const props: TextProps = { fontStyle: 'bold' };
         const text = renderText(props);
 

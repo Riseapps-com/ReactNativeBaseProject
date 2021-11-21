@@ -25,8 +25,8 @@ const CountryDetails: React.FC = () => {
     (title: string, value?: string) => {
       return (
         <View style={styles.rowContainer}>
-          <Text fontStyle={'bold'} style={styles.title}>{`${title}: `}</Text>
-          <Text fontStyle={'bold'} style={styles.value}>
+          <Text fontStyle="bold" style={styles.title}>{`${title}: `}</Text>
+          <Text fontStyle="bold" style={styles.value}>
             {value || '-'}
           </Text>
         </View>

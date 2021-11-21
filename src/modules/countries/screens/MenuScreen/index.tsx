@@ -19,7 +19,7 @@ const MenuScreen: React.FC<MenuScreenProps> = () => {
 
   return (
     <View style={[styles.container, { marginBottom: bottom }]}>
-      <StatusBar barStyle={'light-content'} />
+      <StatusBar barStyle="light-content" />
 
       <Menu />
     </View>

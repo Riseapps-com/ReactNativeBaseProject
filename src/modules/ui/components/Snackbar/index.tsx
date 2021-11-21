@@ -13,7 +13,7 @@ export type SnackbarProps = {
   kind?: SnackbarKind;
   action?: SnackbarAction;
   duration?: SnackbarDuration;
-  onDissmiss: () => void;
+  onDismiss: () => void;
 };
 
 const Snackbar: React.FC<SnackbarProps> = props => {
@@ -33,7 +33,7 @@ const Snackbar: React.FC<SnackbarProps> = props => {
       style={styles[kind]}
       action={props.action}
       theme={{ colors: { accent: accentColors[kind] } }}
-      onDismiss={props.onDissmiss}
+      onDismiss={props.onDismiss}
     >
       <Text style={styles.message} size="smaller">
         {props.message}

@@ -1,5 +1,5 @@
 // Text
-export type TextFontStyle = 'regular' | 'bold';
+export type TextFontStyle = 'light' | 'regular' | 'bold';
 export type TextSize = 'smaller' | 'smallest' | 'normal' | 'bigger' | 'biggest';
 
 // Snackbar
@@ -9,3 +9,7 @@ export type SnackbarAction = {
   label: string;
   onPress: () => void;
 };
+
+// Button
+export type ButtonType = 'primary' | 'secondary';
+export type ButtonTextType = 'textPrimary' | 'textSecondary';

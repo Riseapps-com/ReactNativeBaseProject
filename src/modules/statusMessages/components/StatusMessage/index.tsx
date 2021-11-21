@@ -23,7 +23,7 @@ const StatusMessage: React.FC = () => {
   return (
     <Snackbar
       isVisible={isVisible}
-      onDissmiss={handleDismiss}
+      onDismiss={handleDismiss}
       message={currentStatusMessage?.message}
       kind={currentStatusMessage?.kind}
       duration={currentStatusMessage?.duration}

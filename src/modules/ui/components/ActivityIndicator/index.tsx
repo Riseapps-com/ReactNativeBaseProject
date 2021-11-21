@@ -20,7 +20,7 @@ const ActivityIndicator: React.FC<ActivityIndicatorProps> = props => {
       <NativeActivityIndicator
         testID={testIDs.global.activityIndicator}
         color={theme.primary}
-        size={'large'}
+        size="large"
         {...props}
       />
     </View>

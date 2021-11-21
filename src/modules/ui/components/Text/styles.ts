@@ -6,9 +6,14 @@ export default styleSheetFactory(theme => ({
     color: theme.text,
   },
 
+  light: {
+    fontFamily: getFont('quicksand-light'),
+  },
+
   regular: {
     fontFamily: getFont('quicksand-regular'),
   },
+
   bold: {
     fontFamily: getFont('quicksand-bold'),
   },

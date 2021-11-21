@@ -21,5 +21,6 @@
   "unknownException": "Etwas ist schief gelaufen. Bitte versuchen Sie es erneut oder wenden Sie sich an unseren Support.",
   "errorBoundaryTitle": "Etwas ist schief gelaufen",
   "errorBoundarySubtitle": "Bitte versuche es erneut. Wenn das Problem weiterhin besteht, wenden Sie sich an unseren Support.",
-  "population": "Population"
+  "population": "Population",
+  "dismiss": "Zurückweisen"
 }
