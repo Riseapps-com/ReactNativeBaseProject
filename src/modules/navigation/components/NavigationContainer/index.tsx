@@ -25,7 +25,7 @@ const NavigationContainer: React.FC<NavigationContainerProps> = props => {
     },
   };
 
-  const handleStateChange = useCallback((state: NavigationState | undefined) => {
+  const handleStateChange = useCallback((state?: NavigationState) => {
     AsyncStorage.setItem(NAVIGATION_STATE_PERSISTENCE_KEY, JSON.stringify(state));
   }, []);
 

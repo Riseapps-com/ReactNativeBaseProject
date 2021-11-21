@@ -1,11 +1,11 @@
 import React, { useCallback } from 'react';
-import { TouchableOpacity, View } from 'react-native';
+import { Image, TouchableOpacity, View } from 'react-native';
 
 import { testIDs } from '~config';
-import { LocalCountry } from '~modules/state';
-import { FastImage, resizeMode, Text } from '~modules/ui';
+import { Text } from '~modules/ui';
 import { useTheme } from '~theme';
 
+import { LocalCountry } from '../../types';
 import themedStyles from './styles';
 
 export type CountriesListItemProps = {
@@ -32,11 +32,7 @@ const CountriesListItem: React.FC<CountriesListItemProps> = props => {
       onPress={handleItemPress}
       style={styles.container}
     >
-      <FastImage
-        style={styles.icon}
-        resizeMode={resizeMode.contain}
-        source={{ uri: props.country.flagLink }}
-      />
+      <Image style={styles.icon} resizeMode="contain" source={{ uri: props.country.flagLink }} />
 
       <View style={styles.centerContainer}>
         <Text numberOfLines={1} fontStyle="bold">

@@ -1,41 +1,31 @@
 import { useNavigation, useRoute } from '@react-navigation/native';
-import { observer } from 'mobx-react-lite';
-import React, { useCallback, useEffect } from 'react';
+import React, { useCallback } from 'react';
 import { FlatList, ListRenderItemInfo } from 'react-native';
 
 import { testIDs } from '~config';
-import { LocalCountry, useStore } from '~modules/state';
-import { ActivityIndicator, Error } from '~modules/ui';
+import { useRetriever } from '~modules/promises';
+import { ActivityIndicator } from '~modules/ui';
 
 import { COUNTRY_DETAILS_SCREEN_NAME } from '../../config';
-import { CountriesRoute } from '../../types';
+import { countriesApi } from '../../services';
+import { CountriesRoute, LocalCountry } from '../../types';
 import CountriesListItem from '../CountriesListItem';
 
-const CountriesList: React.FC = observer(() => {
+const CountriesList: React.FC = () => {
   const navigation = useNavigation();
   const { params } = useRoute<CountriesRoute>();
   const { region } = params;
-  const { countriesStore } = useStore();
 
-  const countries = region
-    ? countriesStore.localCountriesByRegion
-    : countriesStore.localAllCountries;
+  const [countries, isLoadingCountries] = useRetriever(
+    async () => {
+      if (region) return countriesApi.getCountriesByRegion(region);
 
-  useEffect(() => {
-    if (region) {
-      countriesStore.getCountriesByRegion(region);
-    } else {
-      countriesStore.getAllCountries();
-    }
-
-    return () => {
-      if (region) {
-        countriesStore.resetCountriesByRegion();
-      } else {
-        countriesStore.resetAllCountries();
-      }
-    };
-  }, [countriesStore, region]);
+      return countriesApi.getAllCountries();
+    },
+    [region],
+    undefined,
+    true
+  );
 
   const handleItemPress = useCallback(
     (index: number) => {
@@ -57,13 +47,9 @@ const CountriesList: React.FC = observer(() => {
     ),
     [handleItemPress]
   );
-  const keyExtractor = (localCountry: LocalCountry) => localCountry.id;
+  const keyExtractor = (localCountry: LocalCountry) => localCountry.name;
 
-  if (countriesStore.areAllCountriesLoading || countriesStore.areCountriesByRegionLoading)
-    return <ActivityIndicator />;
-
-  if ((region && countriesStore.countriesByRegionError) || countriesStore.allCountriesError)
-    return <Error />;
+  if (isLoadingCountries) return <ActivityIndicator />;
 
   return (
     <FlatList
@@ -73,6 +59,6 @@ const CountriesList: React.FC = observer(() => {
       keyExtractor={keyExtractor}
     />
   );
-});
+};
 
 export default CountriesList;

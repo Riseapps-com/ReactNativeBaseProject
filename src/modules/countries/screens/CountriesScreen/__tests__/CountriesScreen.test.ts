@@ -2,23 +2,25 @@ import { useRoute } from '@react-navigation/native';
 import { act } from '@testing-library/react-native';
 
 import { testIDs } from '~config';
-import { countriesApi } from '~modules/api';
-import { country } from '~modules/api/__data__';
 import { mocked, renderNavigationComponent } from '~modules/tests';
 
+import { localCountry } from '../../../__data__';
+import { countriesApi } from '../../../services';
 import CountriesScreen from '../index';
 
-jest.mock('~modules/api');
+jest.mock('../../../services');
 
 const mockedCountriesApi = mocked(countriesApi);
 const mockedUseRoute = mocked(useRoute);
 
-const renderCountriesScreen = () => renderNavigationComponent(CountriesScreen);
+const renderCountriesScreen = () => renderNavigationComponent(CountriesScreen, true);
 
 describe('countries', () => {
   describe('<CountriesScreen />', () => {
     it('renders <CountriesScreen />', () => {
-      mockedCountriesApi.getAllCountries.mockImplementationOnce(() => Promise.resolve([country]));
+      mockedCountriesApi.getAllCountries.mockImplementationOnce(() =>
+        Promise.resolve([localCountry])
+      );
       mockedUseRoute.mockImplementation(() => ({ params: {} } as any));
 
       const countriesScreen = renderCountriesScreen();

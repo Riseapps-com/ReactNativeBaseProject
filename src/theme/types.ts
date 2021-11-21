@@ -1,10 +1,9 @@
 import { ImageStyle, TextStyle, ViewStyle } from 'react-native';
-import { ImageStyle as FastImageStyle } from 'react-native-fast-image';
 
 export type AppearanceProvider<T> = () => T;
 
 export type NamedStyles<T> = {
-  [P in keyof T]: ImageStyle | ViewStyle | TextStyle | FastImageStyle;
+  [P in keyof T]: ImageStyle | ViewStyle | TextStyle;
 };
 
 export type StyleSheetData<N extends string, T, S> = {

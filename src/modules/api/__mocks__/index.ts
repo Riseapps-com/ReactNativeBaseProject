@@ -1,3 +1,7 @@
-jest.mock('../services');
+import * as axiosBase from '../axiosBase';
 
-export * from '../services';
+jest.mock('../axiosBase');
+jest.mock('../countries');
+
+export * from '../countries';
+export { axiosBase };

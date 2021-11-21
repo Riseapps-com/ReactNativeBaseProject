@@ -1,7 +1,6 @@
 module.exports = {
   projectName: 'ReactNativeBaseProject',
-  // This is a temporary fix since detox hasn't supported iOS 15 yet.
-  iosDeviceType: 'iPhone 12 mini (14.5)',
-  iosDeviceUDID: '4088A177-3445-449D-AE63-51560B42B967',
-  androidDeviceName: 'Pixel_4_API_29',
+  iosDeviceType: 'iPhone 13',
+  iosDeviceUDID: 'B7C885C4-C557-4269-8DA4-C32408E68F08',
+  androidDeviceName: 'Pixel_XL_API_30',
 };

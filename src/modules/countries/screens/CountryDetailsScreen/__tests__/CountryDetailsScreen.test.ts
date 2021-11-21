@@ -1,33 +1,35 @@
 import { useRoute } from '@react-navigation/native';
 import { act } from '@testing-library/react-native';
 
-import { countriesApi } from '~modules/api';
-import { country } from '~modules/api/__data__';
-import { mocked, renderStoreComponent } from '~modules/tests';
+import { mocked, renderNavigationComponent } from '~modules/tests';
 
+import { localCountry } from '../../../__data__';
+import { countriesApi } from '../../../services';
 import CountryDetailsScreen from '../index';
 
-jest.mock('~modules/api');
+jest.mock('../../../services');
 
 const mockedCountriesApi = mocked(countriesApi);
 const mockedUseRoute = mocked(useRoute);
 
-const renderCountryDetailsScreen = () => renderStoreComponent(CountryDetailsScreen);
+const renderCountryDetailsScreen = () => renderNavigationComponent(CountryDetailsScreen);
 
 beforeAll(() => {
-  mockedUseRoute.mockImplementation(() => ({ params: { code: country.cca2 } } as any));
+  mockedUseRoute.mockImplementation(() => ({ params: { code: localCountry.cca2 } } as any));
 });
 
 describe('countries', () => {
   describe('<CountryDetailsScreen />', () => {
     it('renders <CountryDetailsScreen />', () => {
-      mockedCountriesApi.getCountryByCode.mockImplementationOnce(() => Promise.resolve([country]));
+      mockedCountriesApi.getCountryDetails.mockImplementationOnce(() =>
+        Promise.resolve(localCountry)
+      );
 
       const countryDetailsScreen = renderCountryDetailsScreen();
 
       act(() => jest.runAllTimers());
 
-      expect(countryDetailsScreen.getByText(country.name.common)).toBeTruthy();
+      expect(countryDetailsScreen.getByText(localCountry.name)).toBeTruthy();
     });
   });
 });

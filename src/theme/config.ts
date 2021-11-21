@@ -5,8 +5,6 @@ import { Theme } from './types';
 
 export const themes = ['light', 'dark'];
 
-const ALPHA_VALUE = 0.5;
-
 export const light: Theme = {
   primary: colors.INTERNATIONAL_KLEIN_BLUE,
   accent: colors.SHAMROCK,
@@ -16,8 +14,8 @@ export const light: Theme = {
   text: colors.CAPE_COD,
   secondaryText: colors.WHITE,
   separator: colors.WHITE,
-  disabled: Color(colors.CAPE_COD).alpha(ALPHA_VALUE).toString(),
-  placeholder: Color(colors.CAPE_COD).alpha(ALPHA_VALUE).toString(),
+  disabled: Color(colors.CAPE_COD).alpha(0.5).toString(),
+  placeholder: Color(colors.CAPE_COD).alpha(0.5).toString(),
   backdrop: colors.BLACK,
   notification: colors.SHAMROCK,
 };
@@ -31,8 +29,8 @@ export const dark: Theme = {
   text: colors.WHITE,
   secondaryText: colors.WHITE,
   separator: colors.WHITE,
-  disabled: Color(colors.WHITE).alpha(ALPHA_VALUE).toString(),
-  placeholder: Color(colors.WHITE).alpha(ALPHA_VALUE).toString(),
+  disabled: Color(colors.WHITE).alpha(0.5).toString(),
+  placeholder: Color(colors.WHITE).alpha(0.5).toString(),
   backdrop: colors.BLACK,
   notification: colors.SHAMROCK,
 };

@@ -4,12 +4,13 @@ import AppError from '../AppError';
 import RuntimeError from '../RuntimeError';
 import { ErrorCode, HttpStatusCode } from '../types';
 
-export const translateHttpStatusCode = (httpStatusCode: number): ErrorCode => {
+export const translateHttpStatusCode = (httpStatusCode?: number): ErrorCode => {
   if (httpStatusCode === HttpStatusCode.NOT_FOUND) {
     return 'NotFoundException';
   }
 
   if (
+    httpStatusCode &&
     httpStatusCode >= HttpStatusCode.BAD_REQUEST &&
     httpStatusCode < HttpStatusCode.INTERNAL_SERVER_ERROR
   ) {
@@ -17,6 +18,7 @@ export const translateHttpStatusCode = (httpStatusCode: number): ErrorCode => {
   }
 
   if (
+    httpStatusCode &&
     httpStatusCode >= HttpStatusCode.INTERNAL_SERVER_ERROR &&
     httpStatusCode <= HttpStatusCode.NETWORK_AUTHENTICATION_REQUIRED
   ) {

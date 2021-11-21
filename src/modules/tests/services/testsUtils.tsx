@@ -7,9 +7,9 @@
 import { NavigationContext } from '@react-navigation/native';
 import { render } from '@testing-library/react-native';
 import React from 'react';
+import { RecoilRoot } from 'recoil';
 
 import RuntimeError from '~modules/errors/RuntimeError';
-import { rootStore, StoreContext } from '~modules/state';
 
 import {
   MaybeMocked,
@@ -38,20 +38,20 @@ export const renderNavigationComponent: RenderNavigationComponent = (
   };
 
   return render(
-    <StoreContext.Provider value={rootStore}>
+    <RecoilRoot>
       <NavigationContext.Provider value={navContextValue}>
         <Component {...props} />
       </NavigationContext.Provider>
-    </StoreContext.Provider>,
+    </RecoilRoot>,
     { wrapper }
   );
 };
 
 export const renderStoreComponent: RenderStoreComponent = (Component, props, wrapper) => {
   return render(
-    <StoreContext.Provider value={rootStore}>
+    <RecoilRoot>
       <Component {...props} />
-    </StoreContext.Provider>,
+    </RecoilRoot>,
     { wrapper }
   );
 };

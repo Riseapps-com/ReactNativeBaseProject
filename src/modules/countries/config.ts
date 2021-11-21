@@ -1,4 +1,4 @@
-import { LocalRegion } from '~modules/state';
+import { LocalRegion } from './types';
 
 export const MENU_SCREEN_NAME = 'MENU_SCREEN';
 export const COUNTRIES_SCREEN_NAME = 'COUNTRIES_SCREEN';

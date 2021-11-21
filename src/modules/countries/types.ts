@@ -2,7 +2,8 @@ import { RouteProp } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
 
 import { ApplicationParams } from '~modules/navigation';
-import { LocalRegion } from '~modules/state';
+
+export type LocalRegion = 'africa' | 'americas' | 'asia' | 'europe' | 'oceania';
 
 // NAVIGATION PARAMS
 
@@ -26,3 +27,14 @@ export type SelectRegionNavigation = StackNavigationProp<ApplicationParams, 'SEL
 export type SelectRegionRoute = RouteProp<ApplicationParams, 'SELECT_REGION_SCREEN'>;
 
 // TYPES
+export type LocalCountry = {
+  cca2: string;
+  name: string;
+  capital?: string;
+  region: string;
+  subregion: string;
+  population: string;
+  flagLink: string;
+  currencies?: string;
+  languages?: string;
+};

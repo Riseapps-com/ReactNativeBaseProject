@@ -23,36 +23,19 @@ exports[`countries <CountriesListItem /> renders <CountriesListItem /> 1`] = `
   }
   testID="countries_country"
 >
-  <View
-    style={
-      Array [
-        Object {
-          "overflow": "hidden",
-        },
-        Object {
-          "width": 32,
-        },
-      ]
+  <Image
+    resizeMode="contain"
+    source={
+      Object {
+        "uri": "https://flagcdn.com/w320/ua.png",
+      }
     }
-  >
-    <FastImageView
-      resizeMode="contain"
-      source={
-        Object {
-          "uri": "https://flagcdn.com/w320/ua.png",
-        }
+    style={
+      Object {
+        "width": 32,
       }
-      style={
-        Object {
-          "bottom": 0,
-          "left": 0,
-          "position": "absolute",
-          "right": 0,
-          "top": 0,
-        }
-      }
-    />
-  </View>
+    }
+  />
   <View
     style={
       Object {

@@ -51,37 +51,19 @@ exports[`countries <MenuItem /> renders <MenuItem /> 1`] = `
         }
       }
     >
-      <View
-        style={
-          Array [
-            Object {
-              "overflow": "hidden",
-            },
-            Object {
-              "height": 48,
-              "width": 48,
-            },
-          ]
+      <Image
+        source={
+          Object {
+            "testUri": "../../../assets/images/africa.png",
+          }
         }
-      >
-        <FastImageView
-          resizeMode="cover"
-          source={
-            Object {
-              "testUri": "../../../assets/images/africa.png",
-            }
+        style={
+          Object {
+            "height": 48,
+            "width": 48,
           }
-          style={
-            Object {
-              "bottom": 0,
-              "left": 0,
-              "position": "absolute",
-              "right": 0,
-              "top": 0,
-            }
-          }
-        />
-      </View>
+        }
+      />
     </View>
     <View
       style={

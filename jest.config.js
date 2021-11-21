@@ -6,4 +6,5 @@ module.exports = {
   setupFilesAfterEnv: ['<rootDir>/jest.after.setup.js', '<rootDir>/jest.extend.js'],
   clearMocks: true,
   timers: 'legacy',
+  transformIgnorePatterns: ['node_modules/(?!@react-native|react-native)'],
 };

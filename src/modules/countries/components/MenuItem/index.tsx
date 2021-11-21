@@ -1,7 +1,7 @@
 import React, { useCallback } from 'react';
-import { StyleProp, TouchableOpacity, View, ViewStyle } from 'react-native';
+import { Image, StyleProp, TouchableOpacity, View, ViewStyle } from 'react-native';
 
-import { DEFAULT_ACTIVE_OPACITY, FastImage, Text } from '~modules/ui';
+import { DEFAULT_ACTIVE_OPACITY, Text } from '~modules/ui';
 import { useTheme } from '~theme';
 
 import themedStyles from './styles';
@@ -33,7 +33,7 @@ const MenuItem: React.FC<MenuItemProps> = props => {
     >
       <View style={styles.contentContainer}>
         <View style={styles.imageContainer}>
-          <FastImage style={styles.image} source={props.image} />
+          <Image style={styles.image} source={props.image} />
         </View>
 
         <View style={styles.titleContainer}>

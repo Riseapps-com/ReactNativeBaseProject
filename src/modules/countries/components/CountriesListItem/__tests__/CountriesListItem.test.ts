@@ -1,10 +1,10 @@
 import { fireEvent } from '@testing-library/react-native';
 
 import { testIDs } from '~config';
-import { LocalCountry } from '~modules/state';
-import { localCountry } from '~modules/state/__data__';
 import { renderComponent } from '~modules/tests';
 
+import { localCountry } from '../../../__data__';
+import { LocalCountry } from '../../../types';
 import CountriesListItem, { CountriesListItemProps } from '../index';
 
 const renderCountriesListItem = (props: CountriesListItemProps) =>
@@ -13,23 +13,18 @@ const renderCountriesListItem = (props: CountriesListItemProps) =>
 describe('countries', () => {
   describe('<CountriesListItem />', () => {
     it('renders <CountriesListItem />', () => {
-      const country: LocalCountry = {
-        ...localCountry,
-        id: 'id',
-      };
       const countriesListItem = renderCountriesListItem({
-        country,
+        country: localCountry,
         index: 0,
       });
 
-      expect(countriesListItem.getByText(country.name)).toBeTruthy();
+      expect(countriesListItem.getByText(localCountry.name)).toBeTruthy();
       expect(countriesListItem).toMatchSnapshot();
     });
 
     it('renders placeholder if capital is empty', () => {
       const country: LocalCountry = {
         ...localCountry,
-        id: 'id',
         capital: '',
       };
       const countriesListItem = renderCountriesListItem({
@@ -43,12 +38,8 @@ describe('countries', () => {
     it('calls on item press', () => {
       const onItemPress = jest.fn();
       const index = 4;
-      const country: LocalCountry = {
-        ...localCountry,
-        id: 'id',
-      };
       const countriesListItem = renderCountriesListItem({
-        country,
+        country: localCountry,
         index,
         onItemPress,
       });

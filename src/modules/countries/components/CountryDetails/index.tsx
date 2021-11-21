@@ -1,31 +1,25 @@
 import { useRoute } from '@react-navigation/native';
-import { observer } from 'mobx-react-lite';
-import React, { useCallback, useEffect } from 'react';
+import React, { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { View } from 'react-native';
+import { ImageBackground, View } from 'react-native';
 
-import { useStore } from '~modules/state';
-import { ActivityIndicator, Error, FastImage, resizeMode, Text } from '~modules/ui';
+import { useRetriever } from '~modules/promises';
+import { ActivityIndicator, Text } from '~modules/ui';
 import { useTheme } from '~theme';
 
+import { countriesApi } from '../../services';
 import { CountryDetailsRoute } from '../../types';
 import themedStyles from './styles';
 
-const CountryDetails: React.FC = observer(() => {
+const CountryDetails: React.FC = () => {
   const [styles] = useTheme(themedStyles);
   const { t } = useTranslation();
   const { params } = useRoute<CountryDetailsRoute>();
   const { code } = params;
-  const { countriesStore } = useStore();
-  const { localCountryByCode } = countriesStore;
-
-  useEffect(() => {
-    countriesStore.getCountryByCode(code);
-
-    return () => {
-      countriesStore.resetCountryByCode();
-    };
-  }, [countriesStore, code]);
+  const [countryDetails, isLoadingCountryDetails] = useRetriever(
+    () => countriesApi.getCountryDetails(code),
+    [code]
+  );
 
   const contentRow = useCallback(
     (title: string, value?: string) => {
@@ -41,37 +35,35 @@ const CountryDetails: React.FC = observer(() => {
     [styles.rowContainer, styles.title, styles.value]
   );
 
-  if (countriesStore.isCountryByCodeLoading) return <ActivityIndicator />;
-
-  if (countriesStore.countryByCodeError) return <Error />;
+  if (isLoadingCountryDetails) return <ActivityIndicator />;
 
   return (
     <View style={styles.cardContainer}>
       <View style={styles.contentContainer}>
-        <FastImage
+        <ImageBackground
           style={styles.flagContainer}
-          resizeMode={resizeMode.cover}
-          source={{ uri: localCountryByCode?.flagLink }}
+          resizeMode="cover"
+          source={{ uri: countryDetails.flagLink }}
         >
           <Text numberOfLines={1} style={styles.name} size="biggest" fontStyle="bold">
-            {localCountryByCode?.name}
+            {countryDetails.name}
           </Text>
-        </FastImage>
+        </ImageBackground>
 
-        {contentRow(t('capital'), localCountryByCode?.capital)}
+        {contentRow(t('capital'), countryDetails.capital)}
 
-        {contentRow(t('region'), localCountryByCode?.region)}
+        {contentRow(t('region'), countryDetails.region)}
 
-        {contentRow(t('subregion'), localCountryByCode?.subregion)}
+        {contentRow(t('subregion'), countryDetails.subregion)}
 
-        {contentRow(t('population'), localCountryByCode?.population.toString())}
+        {contentRow(t('population'), countryDetails.population.toString())}
 
-        {contentRow(t('currencies'), localCountryByCode?.currencies)}
+        {contentRow(t('currencies'), countryDetails.currencies)}
 
-        {contentRow(t('languages'), localCountryByCode?.languages)}
+        {contentRow(t('languages'), countryDetails.languages)}
       </View>
     </View>
   );
-});
+};
 
 export default CountryDetails;

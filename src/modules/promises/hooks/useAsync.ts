@@ -1,11 +1,13 @@
 import { useCallback } from 'react';
 
-import { RuntimeError } from '~modules/errors';
+import { HttpRequestError, RuntimeError } from '~modules/errors';
 import { logger } from '~modules/logger';
+import { useStatusMessage } from '~modules/statusMessages';
 
 import { promiseUtilities } from '../services';
 
 const useAsync = () => {
+  const displayStatusMessage = useStatusMessage();
   const doAsync = useCallback(
     async <T>(
       toCall: () => Promise<T>,
@@ -31,6 +33,10 @@ const useAsync = () => {
           setIsLoadingCallback(false);
         }
 
+        if (error instanceof HttpRequestError) {
+          return displayStatusMessage(error.message, 'error', 2750);
+        }
+
         if (error instanceof RuntimeError) {
           logger.logError('GLOBAL', error);
         }
@@ -38,7 +44,7 @@ const useAsync = () => {
         throw error;
       }
     },
-    []
+    [displayStatusMessage]
   );
 
   return doAsync;

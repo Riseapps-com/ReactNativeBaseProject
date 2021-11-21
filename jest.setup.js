@@ -47,3 +47,10 @@ jest.mock('react-native-reanimated', () => {
 });
 
 jest.mock('react-native/Libraries/LogBox/LogBox');
+
+// Otherwise recoil will throw an error
+if (!global.navigator) {
+  global.navigator = {
+    product: 'ReactNative',
+  };
+}

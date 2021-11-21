@@ -1,5 +1,4 @@
 import 'react-native-gesture-handler';
-import 'react-native-get-random-values';
 import '~modules/localization/services/I18n';
 
 import { AppRegistry } from 'react-native';

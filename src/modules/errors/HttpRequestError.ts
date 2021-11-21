@@ -3,9 +3,9 @@ import { errorsUtils } from './services';
 import { ErrorDetails } from './types';
 
 export default class HttpRequestError extends AppError {
-  status: number;
+  status?: number;
 
-  constructor(httpStatusCode: number, message?: string, details: ErrorDetails = {}) {
+  constructor(httpStatusCode?: number, message?: string, details: ErrorDetails = {}) {
     const errorCode = errorsUtils.translateHttpStatusCode(httpStatusCode);
     const errorMessage = message || errorsUtils.getHttpErrorMessage(errorCode);
 

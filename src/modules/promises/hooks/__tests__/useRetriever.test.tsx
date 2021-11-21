@@ -1,6 +1,7 @@
 import { NavigationContext } from '@react-navigation/native';
 import { act, renderHook } from '@testing-library/react-hooks';
 import React from 'react';
+import { RecoilRoot } from 'recoil';
 
 import { mocked } from '~modules/tests';
 
@@ -16,9 +17,11 @@ const Wrapper: React.FC = props => {
   };
 
   return (
-    <NavigationContext.Provider value={navContextValue}>
-      {props.children}
-    </NavigationContext.Provider>
+    <RecoilRoot>
+      <NavigationContext.Provider value={navContextValue}>
+        {props.children}
+      </NavigationContext.Provider>
+    </RecoilRoot>
   );
 };
 
