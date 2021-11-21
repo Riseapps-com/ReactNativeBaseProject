@@ -7,7 +7,10 @@ export const byLabel = (label: string) => element(by.label(label));
 export const byType = (type: string) => element(by.type(type));
 export const byTraits = (traits: string[]) => element(by.traits(traits));
 
-export const sleep = (ms: number) => new Promise(res => setTimeout(res, ms));
+export const sleep = (ms: number) =>
+  new Promise(res => {
+    setTimeout(res, ms);
+  });
 
 export const disableAndroidEmulatorAnimations = () => {
   if (device.getPlatform() === 'android') {

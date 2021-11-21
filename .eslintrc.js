@@ -47,6 +47,7 @@ module.exports = {
     'import/prefer-default-export': 'off',
     'import/no-named-default': 'off',
     'import/no-extraneous-dependencies': 'off',
+    'import/no-import-module-exports': 'off',
     camelcase: 'off',
     'no-throw-literal': 'off',
     'class-methods-use-this': 'off',
