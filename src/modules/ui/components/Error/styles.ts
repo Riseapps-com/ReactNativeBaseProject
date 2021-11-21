@@ -6,6 +6,7 @@ export default styleSheetFactory(theme => ({
     justifyContent: 'center',
     alignItems: 'center',
   },
+
   error: {
     color: theme.error,
   },

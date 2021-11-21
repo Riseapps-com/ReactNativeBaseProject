@@ -15,6 +15,7 @@
 		D69CF27F260A499F002CDC60 /* BootSplash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D69CF27E260A499F002CDC60 /* BootSplash.storyboard */; };
 		F5D94E167BE7837942AF5CC2 /* libPods-ReactNativeBaseProject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 65651A34C2DE545D7B4747DC /* libPods-ReactNativeBaseProject.a */; };
 		FFACF8071AB844FDAD2212CF /* Quicksand-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = A3B92390B6F448C0953FDB4A /* Quicksand-Regular.otf */; };
+		BE278AD2431144018A1A4B57 /* Quicksand-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = A7473395C63145F0B3250786 /* Quicksand-Light.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		D69CF27E260A499F002CDC60 /* BootSplash.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = BootSplash.storyboard; path = ReactNativeBaseProject/BootSplash.storyboard; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		F880AFDB583BE34B8E908767 /* Pods-ReactNativeBaseProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactNativeBaseProject.debug.xcconfig"; path = "Target Support Files/Pods-ReactNativeBaseProject/Pods-ReactNativeBaseProject.debug.xcconfig"; sourceTree = "<group>"; };
+		A7473395C63145F0B3250786 /* Quicksand-Light.otf */ = {isa = PBXFileReference; name = "Quicksand-Light.otf"; path = "../assets/fonts/Quicksand-Light.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +78,7 @@
 			children = (
 				BC84CA35A94D4532AD50DDDD /* Quicksand-Bold.otf */,
 				A3B92390B6F448C0953FDB4A /* Quicksand-Regular.otf */,
+				A7473395C63145F0B3250786 /* Quicksand-Light.otf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -186,6 +189,7 @@
 				11DFAB0CE2764FE1A4848F4F /* Quicksand-Bold.otf in Resources */,
 				FFACF8071AB844FDAD2212CF /* Quicksand-Regular.otf in Resources */,
 				D6047476258622CA00DE5185 /* Assets.xcassets in Resources */,
+				BE278AD2431144018A1A4B57 /* Quicksand-Light.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
