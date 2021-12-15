@@ -18,7 +18,7 @@ const MenuScreen: React.FC<MenuScreenProps> = () => {
   const [styles] = useTheme(themedStyles);
 
   return (
-    <View style={[styles.container, { marginBottom: bottom }]}>
+    <View style={[styles.menuScreen, { marginBottom: bottom }]}>
       <StatusBar barStyle="light-content" />
 
       <Menu />

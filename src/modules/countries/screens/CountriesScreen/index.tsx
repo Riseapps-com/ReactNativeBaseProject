@@ -18,7 +18,7 @@ const CountriesScreen: React.FC<CountriesScreenProps> = () => {
   const [styles] = useTheme(themedStyles);
 
   return (
-    <View style={[styles.container, { marginBottom: bottom }]}>
+    <View style={[styles.countriesScreen, { marginBottom: bottom }]}>
       <StatusBar barStyle="light-content" />
 
       <CountriesList />

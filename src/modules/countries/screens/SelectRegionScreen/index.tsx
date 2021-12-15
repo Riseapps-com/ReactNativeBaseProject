@@ -18,7 +18,7 @@ const SelectRegionScreen: React.FC<SelectRegionScreenProps> = () => {
   const [styles] = useTheme(themedStyles);
 
   return (
-    <View style={[styles.container, { marginBottom: bottom }]}>
+    <View style={[styles.selectRegionScreen, { marginBottom: bottom }]}>
       <StatusBar barStyle="light-content" />
 
       <SelectRegionMenu />

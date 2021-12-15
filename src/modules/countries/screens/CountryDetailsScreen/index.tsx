@@ -21,7 +21,7 @@ const CountryDetailsScreen: React.FC<CountryDetailsScreenProps> = () => {
   return (
     <ScrollView
       testID={testIDs.countryDetails.scrollContainer}
-      contentContainerStyle={[styles.container, { marginBottom: bottom }]}
+      contentContainerStyle={[styles.countryDetailsScreen, { marginBottom: bottom }]}
     >
       <StatusBar barStyle="light-content" />
 

@@ -1,7 +1,7 @@
 import { styleSheetFactory } from '~theme';
 
 export default styleSheetFactory(theme => ({
-  container: {
+  countriesScreen: {
     flex: 1,
     backgroundColor: theme.background,
   },

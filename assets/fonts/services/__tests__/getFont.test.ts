@@ -1,4 +1,4 @@
-import { getFont } from '~assets';
+import getFont from '../getFont';
 
 describe('assets', () => {
   describe('fonts', () => {
