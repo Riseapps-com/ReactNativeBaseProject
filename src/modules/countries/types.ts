@@ -16,10 +16,7 @@ export type SelectRegionParams = undefined;
 
 export type CountriesNavigation = StackNavigationProp<ApplicationParams, 'COUNTRIES_SCREEN'>;
 export type CountriesRoute = RouteProp<ApplicationParams, 'COUNTRIES_SCREEN'>;
-export type CountryDetailsNavigation = StackNavigationProp<
-  ApplicationParams,
-  'COUNTRY_DETAILS_SCREEN'
->;
+export type CountryDetailsNavigation = StackNavigationProp<ApplicationParams, 'COUNTRY_DETAILS_SCREEN'>;
 export type CountryDetailsRoute = RouteProp<ApplicationParams, 'COUNTRY_DETAILS_SCREEN'>;
 export type MenuNavigation = StackNavigationProp<ApplicationParams, 'MENU_SCREEN'>;
 export type MenuRoute = RouteProp<ApplicationParams, 'MENU_SCREEN'>;

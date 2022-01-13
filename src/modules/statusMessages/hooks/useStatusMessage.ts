@@ -1,21 +1,21 @@
 import { useCallback } from 'react';
 import { useRecoilState } from 'recoil';
 
-import { statusMessagesState } from '~modules/state';
+import { statusMessagesAtom } from '~modules/state';
 import { SnackbarAction, SnackbarDuration, SnackbarKind } from '~modules/ui';
 
 import { StatusMessageAttributes } from '../types';
 
-const useStatusMessage = () => {
-  const [, setState] = useRecoilState(statusMessagesState);
+const useStatusMessage = (): ((
+  message: string,
+  kind?: SnackbarKind,
+  duration?: SnackbarDuration,
+  action?: SnackbarAction
+) => void) => {
+  const [, setState] = useRecoilState(statusMessagesAtom);
 
-  const displayStatusMessage = useCallback(
-    (
-      message: string,
-      kind?: SnackbarKind,
-      duration?: SnackbarDuration,
-      action?: SnackbarAction
-    ) => {
+  return useCallback(
+    (message: string, kind?: SnackbarKind, duration?: SnackbarDuration, action?: SnackbarAction) => {
       const statusMessage: StatusMessageAttributes = {
         message,
         kind,
@@ -27,8 +27,6 @@ const useStatusMessage = () => {
     },
     [setState]
   );
-
-  return displayStatusMessage;
 };
 
 export default useStatusMessage;

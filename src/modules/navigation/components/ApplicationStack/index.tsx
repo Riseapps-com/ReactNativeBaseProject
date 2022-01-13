@@ -4,7 +4,6 @@ import { useTranslation } from 'react-i18next';
 import { Platform } from 'react-native';
 
 import { getFont } from '~assets';
-import { testIDs } from '~config';
 import {
   COUNTRIES_SCREEN_NAME,
   CountriesScreen,
@@ -40,12 +39,12 @@ const ApplicationStack: React.FC = () => {
         headerTintColor: theme.separator,
         headerTitleStyle: {
           color: theme.secondaryText,
-          fontSize: sizes.BASE_FONT_SIZE,
-          fontFamily: getFont('quicksand-bold'),
+          fontSize: sizes.FONT_SIZE_M,
+          fontFamily: getFont('bold'),
         },
         headerBackTitleStyle: {
-          fontSize: sizes.SMALLER_FONT_SIZE,
-          fontFamily: getFont('quicksand-regular'),
+          fontSize: sizes.FONT_SIZE_S,
+          fontFamily: getFont('regular'),
         },
       }}
       initialRouteName={MENU_SCREEN_NAME}
@@ -59,7 +58,7 @@ const ApplicationStack: React.FC = () => {
           // eslint-disable-next-line @typescript-eslint/ban-ts-comment
           // @ts-ignore
           headerTitle: options.route.params.title,
-          headerBackAccessibilityLabel: testIDs.countries.back,
+          headerBackAccessibilityLabel: 'Back',
         })}
       />
       <Stack.Screen
@@ -69,20 +68,16 @@ const ApplicationStack: React.FC = () => {
           // eslint-disable-next-line @typescript-eslint/ban-ts-comment
           // @ts-ignore
           headerTitle: options.route.params.title,
-          headerBackAccessibilityLabel: testIDs.countryDetails.back,
+          headerBackAccessibilityLabel: 'Back',
         })}
       />
-      <Stack.Screen
-        name={MENU_SCREEN_NAME}
-        component={MenuScreen}
-        options={{ headerTitle: t('menu') }}
-      />
+      <Stack.Screen name={MENU_SCREEN_NAME} component={MenuScreen} options={{ headerTitle: t('menu') }} />
       <Stack.Screen
         name={SELECT_REGION_SCREEN_NAME}
         component={SelectRegionScreen}
         options={{
           headerTitle: t('regions'),
-          headerBackAccessibilityLabel: testIDs.selectRegion.back,
+          headerBackAccessibilityLabel: 'Back',
         }}
       />
     </Stack.Navigator>

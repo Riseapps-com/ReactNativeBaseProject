@@ -3,11 +3,16 @@
 exports[`errors <ErrorScreen /> should render correctly 1`] = `
 <View
   style={
-    Object {
-      "backgroundColor": "#FFFFFF",
-      "flex": 1,
-      "padding": 16,
-    }
+    Array [
+      Object {
+        "backgroundColor": "#FFFFFF",
+        "flex": 1,
+        "padding": 16,
+      },
+      Object {
+        "marginBottom": 16,
+      },
+    ]
   }
   testID="errorScreen"
 >
@@ -23,19 +28,29 @@ exports[`errors <ErrorScreen /> should render correctly 1`] = `
       style={
         Array [
           Object {
-            "color": "#4A4E4D",
+            "color": "#000000",
+            "fontFamily": "System",
+            "fontWeight": "400",
           },
           Object {
-            "fontFamily": "Quicksand-Bold",
+            "textAlign": "left",
           },
-          Object {
-            "fontSize": 18,
-          },
-          Object {
-            "color": "#fe4a49",
-            "marginBottom": 24,
-            "textAlign": "center",
-          },
+          Array [
+            Object {
+              "color": "#4A4E4D",
+            },
+            Object {
+              "fontFamily": "SF Pro Text Bold",
+            },
+            Object {
+              "fontSize": 18,
+            },
+            Object {
+              "color": "#fe4a49",
+              "marginBottom": 24,
+              "textAlign": "center",
+            },
+          ],
         ]
       }
     >
@@ -45,33 +60,25 @@ exports[`errors <ErrorScreen /> should render correctly 1`] = `
       style={
         Array [
           Object {
-            "color": "#4A4E4D",
+            "color": "#000000",
+            "fontFamily": "System",
+            "fontWeight": "400",
           },
           Object {
-            "fontFamily": "Quicksand-Bold",
+            "textAlign": "left",
           },
-          Object {
-            "fontSize": 16,
-          },
-          undefined,
-        ]
-      }
-    >
-      errorBoundaryTitle
-    </Text>
-    <Text
-      style={
-        Array [
-          Object {
-            "color": "#4A4E4D",
-          },
-          Object {
-            "fontFamily": "Quicksand-Regular",
-          },
-          Object {
-            "fontSize": 16,
-          },
-          undefined,
+          Array [
+            Object {
+              "color": "#4A4E4D",
+            },
+            Object {
+              "fontFamily": "SF Pro Display Regular",
+            },
+            Object {
+              "fontSize": 14,
+            },
+            undefined,
+          ],
         ]
       }
     >
@@ -79,48 +86,110 @@ exports[`errors <ErrorScreen /> should render correctly 1`] = `
     </Text>
   </View>
   <View
-    accessibilityRole="button"
-    accessible={true}
-    collapsable={false}
-    focusable={false}
-    nativeID="animatedComponent"
-    onClick={[Function]}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
     style={
       Object {
-        "opacity": 1,
+        "backgroundColor": "#0036A7",
+        "borderColor": "transparent",
+        "borderRadius": 8,
+        "borderStyle": "solid",
+        "borderWidth": 0,
+        "elevation": 2,
+        "minWidth": 64,
+        "shadowColor": "#000000",
+        "shadowOffset": Object {
+          "height": 0.75,
+          "width": 0,
+        },
+        "shadowOpacity": 0.24,
+        "shadowRadius": 1.5,
       }
     }
   >
     <View
+      accessibilityRole="button"
+      accessibilityState={
+        Object {
+          "disabled": true,
+        }
+      }
+      accessible={true}
+      focusable={false}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
       style={
         Array [
-          Object {},
+          Object {
+            "overflow": "hidden",
+          },
+          Object {
+            "borderRadius": 8,
+          },
         ]
       }
     >
-      <Text
+      <View
         style={
           Array [
             Object {
-              "color": "#007AFF",
-              "fontSize": 18,
-              "margin": 8,
-              "textAlign": "center",
+              "alignItems": "center",
+              "flexDirection": "row",
+              "justifyContent": "center",
             },
             Object {
-              "color": "#0036A7",
+              "height": 48,
             },
           ]
         }
       >
-        dismiss
-      </Text>
+        <Text
+          numberOfLines={1}
+          selectable={false}
+          style={
+            Array [
+              Object {
+                "color": "#000000",
+                "fontFamily": "System",
+                "fontWeight": "400",
+              },
+              Object {
+                "textAlign": "left",
+              },
+              Array [
+                Object {
+                  "letterSpacing": 1,
+                  "marginHorizontal": 16,
+                  "marginVertical": 9,
+                  "textAlign": "center",
+                },
+                undefined,
+                false,
+                Object {
+                  "color": "#ffffff",
+                  "fontFamily": "System",
+                  "fontWeight": "500",
+                },
+                Object {
+                  "fontFamily": "System",
+                  "fontWeight": "500",
+                },
+                Array [
+                  Object {
+                    "color": "#FFFFFF",
+                  },
+                  undefined,
+                ],
+              ],
+            ]
+          }
+        >
+          dismiss
+        </Text>
+      </View>
     </View>
   </View>
 </View>

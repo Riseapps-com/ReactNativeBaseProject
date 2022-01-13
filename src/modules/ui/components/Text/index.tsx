@@ -13,7 +13,7 @@ export type TextProps = React.ComponentProps<typeof PaperText> & {
 };
 
 const DEFAULT_FONT_STYLE = 'regular';
-const DEFAULT_FONT_SIZE = 'normal';
+const DEFAULT_FONT_SIZE = 's';
 
 /**
  * Renders a text with various styles. Text properties like size and weight can be passed via props.

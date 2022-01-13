@@ -30,7 +30,7 @@ const NavigationContainer: React.FC<NavigationContainerProps> = props => {
   }, []);
 
   useEffect(() => {
-    const restoreState = async () => {
+    const restoreState = async (): Promise<void> => {
       try {
         const savedStateString = await AsyncStorage.getItem(NAVIGATION_STATE_PERSISTENCE_KEY);
 
@@ -50,11 +50,7 @@ const NavigationContainer: React.FC<NavigationContainerProps> = props => {
   if (!isReady) return null;
 
   return (
-    <NativeNavigationContainer
-      theme={NavigationTheme}
-      initialState={initialState}
-      onStateChange={handleStateChange}
-    >
+    <NativeNavigationContainer theme={NavigationTheme} initialState={initialState} onStateChange={handleStateChange}>
       {props.children}
     </NativeNavigationContainer>
   );

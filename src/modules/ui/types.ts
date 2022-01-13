@@ -1,6 +1,8 @@
+import { Font } from '~assets';
+
 // Text
-export type TextFontStyle = 'light' | 'regular' | 'bold';
-export type TextSize = 'smaller' | 'smallest' | 'normal' | 'bigger' | 'biggest';
+export type TextFontStyle = Font;
+export type TextSize = 'xs' | 's' | 'm' | 'l' | 'xl';
 
 // Snackbar
 export type SnackbarKind = 'info' | 'success' | 'error';

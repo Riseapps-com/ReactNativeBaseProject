@@ -2,6 +2,7 @@
 
 exports[`countries <CountriesListItem /> renders <CountriesListItem /> 1`] = `
 <View
+  accessibilityLabel="Countries list item"
   accessible={true}
   collapsable={false}
   focusable={true}
@@ -21,7 +22,6 @@ exports[`countries <CountriesListItem /> renders <CountriesListItem /> 1`] = `
       "paddingVertical": 8,
     }
   }
-  testID="countries_country"
 >
   <Image
     resizeMode="contain"
@@ -49,15 +49,25 @@ exports[`countries <CountriesListItem /> renders <CountriesListItem /> 1`] = `
       style={
         Array [
           Object {
-            "color": "#4A4E4D",
+            "color": "#000000",
+            "fontFamily": "System",
+            "fontWeight": "400",
           },
           Object {
-            "fontFamily": "Quicksand-Bold",
+            "textAlign": "left",
           },
-          Object {
-            "fontSize": 16,
-          },
-          undefined,
+          Array [
+            Object {
+              "color": "#4A4E4D",
+            },
+            Object {
+              "fontFamily": "SF Pro Text Bold",
+            },
+            Object {
+              "fontSize": 14,
+            },
+            undefined,
+          ],
         ]
       }
     >
@@ -68,17 +78,27 @@ exports[`countries <CountriesListItem /> renders <CountriesListItem /> 1`] = `
       style={
         Array [
           Object {
-            "color": "#4A4E4D",
+            "color": "#000000",
+            "fontFamily": "System",
+            "fontWeight": "400",
           },
           Object {
-            "fontFamily": "Quicksand-Bold",
+            "textAlign": "left",
           },
-          Object {
-            "fontSize": 16,
-          },
-          Object {
-            "color": "rgba(74, 78, 77, 0.5)",
-          },
+          Array [
+            Object {
+              "color": "#4A4E4D",
+            },
+            Object {
+              "fontFamily": "SF Pro Text Bold",
+            },
+            Object {
+              "fontSize": 14,
+            },
+            Object {
+              "color": "rgba(74, 78, 77, 0.5)",
+            },
+          ],
         ]
       }
     >

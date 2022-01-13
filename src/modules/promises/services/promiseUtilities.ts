@@ -6,7 +6,7 @@ const DEFAULT_DELAY = 1000;
 export const retry = <T>(
   fn: (...args: any) => Promise<T>,
   options?: { times?: number; delay?: number }
-) => {
+): Promise<T> => {
   const passedOptions = options || {};
   const times: number = passedOptions.times || DEFAULT_TIMES;
   const delay: number = passedOptions.delay || DEFAULT_DELAY;
@@ -15,7 +15,7 @@ export const retry = <T>(
     let error: any;
     let retryCount = times;
 
-    const attempt = () => {
+    const attempt = (): void => {
       if (retryCount === 0) {
         return reject(error);
       }

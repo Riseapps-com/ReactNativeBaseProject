@@ -27,11 +27,11 @@ const useRetriever = <T>(
   }, []);
 
   const retrieve = useCallback(async () => {
-    const setIsLoadingCallback = (isLoadingInner: boolean) => {
+    const setIsLoadingCallback = (isLoadingInner: boolean): void => {
       if (isMounted.current) setIsLoading(isLoadingInner);
     };
 
-    const setResultCallback = (resultInner: T) => {
+    const setResultCallback = (resultInner: T): void => {
       if (isMounted.current) setResult(resultInner);
     };
 

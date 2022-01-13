@@ -2,20 +2,20 @@ import AppError from '~modules/errors/AppError';
 
 import { JSON_SPACE } from '../config';
 
-const doLog = (category: string, message: string, details?: any) => {
+const doLog = (category: string, message: string, details?: any): void => {
   // eslint-disable-next-line no-console
   console.log(`[${category}]`, message);
   // eslint-disable-next-line no-console
   if (details) console.log(JSON.stringify(details, undefined, JSON_SPACE));
 };
 
-export const log = (category: string, message: string, details?: any) => {
+export const log = (category: string, message: string, details?: any): void => {
   if (__DEV__) {
     doLog(category, message, details);
   }
 };
 
-const removeOriginalStack = (error: AppError) => {
+const removeOriginalStack = (error: AppError): AppError | undefined => {
   if (error.originalError instanceof Error) {
     if (error.originalError.stack) {
       return {
@@ -24,30 +24,24 @@ const removeOriginalStack = (error: AppError) => {
           name: error.originalError.name,
           message: error.originalError.message,
         },
-      };
+      } as AppError;
     }
   }
 
   return undefined;
 };
 
-const logAppError = (category: string, error: AppError) => {
+const logAppError = (category: string, error: AppError): void => {
   const errorMinusOriginalStack = removeOriginalStack(error);
 
   if (errorMinusOriginalStack) {
-    doLog(
-      category,
-      `AppError received:\n${JSON.stringify(errorMinusOriginalStack, null, JSON_SPACE)}\n`
-    );
+    doLog(category, `AppError received:\n${JSON.stringify(errorMinusOriginalStack, null, JSON_SPACE)}\n`);
 
     const originalError = error.originalError as Error;
 
     doLog(category, `Original Error's Stack:\n  ${originalError.stack?.replace(/\n/g, '\n  ')}\n`);
   } else {
-    doLog(
-      category,
-      `AppError received:\n${JSON.stringify(error, Object.getOwnPropertyNames(error))}\n`
-    );
+    doLog(category, `AppError received:\n${JSON.stringify(error, Object.getOwnPropertyNames(error))}\n`);
   }
 
   if (error.stack) {
@@ -55,7 +49,7 @@ const logAppError = (category: string, error: AppError) => {
   }
 };
 
-const logErrorObject = (category: string, error: Error) => {
+const logErrorObject = (category: string, error: Error): void => {
   // If a stack is present that will contain the message so just log that
   if (error.stack) {
     doLog(category, error.stack);
@@ -69,18 +63,11 @@ const logErrorObject = (category: string, error: Error) => {
     // (See: https://stackoverflow.com/a/26199752/1161972)
     const errorName = error.name || 'Error';
 
-    doLog(
-      category,
-      `${errorName} received:\n${JSON.stringify(
-        error,
-        Object.getOwnPropertyNames(error),
-        JSON_SPACE
-      )}`
-    );
+    doLog(category, `${errorName} received:\n${JSON.stringify(error, Object.getOwnPropertyNames(error), JSON_SPACE)}`);
   }
 };
 
-export const logError = (category: string, error: Error) => {
+export const logError = (category: string, error: Error): void => {
   if (__DEV__) {
     if (error instanceof AppError) {
       logAppError(category, error as AppError);

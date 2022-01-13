@@ -18,9 +18,7 @@ const Wrapper: React.FC = props => {
 
   return (
     <RecoilRoot>
-      <NavigationContext.Provider value={navContextValue}>
-        {props.children}
-      </NavigationContext.Provider>
+      <NavigationContext.Provider value={navContextValue}>{props.children}</NavigationContext.Provider>
     </RecoilRoot>
   );
 };
@@ -40,12 +38,9 @@ describe('promises', () => {
   describe('useRetriever', () => {
     describe('`retrieveFn` param', () => {
       it('resolves `retrieveFn` and returns its result', async () => {
-        const { result, waitForNextUpdate } = renderHook(
-          () => useRetriever(retrieveFn, retrieveFnDeps),
-          {
-            wrapper: Wrapper,
-          }
-        );
+        const { result, waitForNextUpdate } = renderHook(() => useRetriever(retrieveFn, retrieveFnDeps), {
+          wrapper: Wrapper,
+        });
 
         await waitForNextUpdate();
 
@@ -77,12 +72,9 @@ describe('promises', () => {
 
     describe('`defaultValue` param', () => {
       it('returns the default value before `retrieveFn` resolves', async () => {
-        const { result, waitForNextUpdate } = renderHook(
-          () => useRetriever(retrieveFn, retrieveFnDeps, defaultValue),
-          {
-            wrapper: Wrapper,
-          }
-        );
+        const { result, waitForNextUpdate } = renderHook(() => useRetriever(retrieveFn, retrieveFnDeps, defaultValue), {
+          wrapper: Wrapper,
+        });
 
         expect(result.current[0]).toBe(defaultValue);
 
@@ -94,12 +86,9 @@ describe('promises', () => {
 
     describe('loading', () => {
       it('sets loading to true before `retrieveFn` resolves', async () => {
-        const { result, waitForNextUpdate } = renderHook(
-          () => useRetriever(retrieveFn, retrieveFnDeps),
-          {
-            wrapper: Wrapper,
-          }
-        );
+        const { result, waitForNextUpdate } = renderHook(() => useRetriever(retrieveFn, retrieveFnDeps), {
+          wrapper: Wrapper,
+        });
 
         expect(result.current[1]).toBe(true);
 
@@ -107,12 +96,9 @@ describe('promises', () => {
       });
 
       it('sets loading to false after `retrieveFn` resolves', async () => {
-        const { result, waitForNextUpdate } = renderHook(
-          () => useRetriever(retrieveFn, retrieveFnDeps),
-          {
-            wrapper: Wrapper,
-          }
-        );
+        const { result, waitForNextUpdate } = renderHook(() => useRetriever(retrieveFn, retrieveFnDeps), {
+          wrapper: Wrapper,
+        });
 
         await waitForNextUpdate();
 
@@ -122,12 +108,9 @@ describe('promises', () => {
 
     describe('runOnFocus', () => {
       it('runs when specified', async () => {
-        const { waitForNextUpdate } = renderHook(
-          () => useRetriever(retrieveFn, retrieveFnDeps, undefined, true),
-          {
-            wrapper: Wrapper,
-          }
-        );
+        const { waitForNextUpdate } = renderHook(() => useRetriever(retrieveFn, retrieveFnDeps, undefined, true), {
+          wrapper: Wrapper,
+        });
 
         await waitForNextUpdate();
 
@@ -137,12 +120,9 @@ describe('promises', () => {
 
     describe('retrieve', () => {
       it('calls retrieve function', async () => {
-        const { result, waitForNextUpdate } = renderHook(
-          () => useRetriever(retrieveFn, retrieveFnDeps),
-          {
-            wrapper: Wrapper,
-          }
-        );
+        const { result, waitForNextUpdate } = renderHook(() => useRetriever(retrieveFn, retrieveFnDeps), {
+          wrapper: Wrapper,
+        });
 
         await act(async () => {
           result.current[2]();

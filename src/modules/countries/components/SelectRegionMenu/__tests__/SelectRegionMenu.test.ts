@@ -1,7 +1,6 @@
 import { useNavigation } from '@react-navigation/native';
 import { fireEvent } from '@testing-library/react-native';
 
-import { testIDs } from '~config';
 import { I18n } from '~modules/localization';
 import { mocked, renderComponent } from '~modules/tests';
 
@@ -17,18 +16,18 @@ describe('countries', () => {
     it('render <SelectRegionMenu />', () => {
       const selectRegionMenu = renderSelectRegionMenu();
 
-      expect(selectRegionMenu.getByTestId(testIDs.selectRegion.africa)).toBeTruthy();
-      expect(selectRegionMenu.getByTestId(testIDs.selectRegion.americas)).toBeTruthy();
-      expect(selectRegionMenu.getByTestId(testIDs.selectRegion.asia)).toBeTruthy();
-      expect(selectRegionMenu.getByTestId(testIDs.selectRegion.europe)).toBeTruthy();
-      expect(selectRegionMenu.getByTestId(testIDs.selectRegion.oceania)).toBeTruthy();
+      expect(selectRegionMenu.getByA11yLabel('africa')).toBeTruthy();
+      expect(selectRegionMenu.getByA11yLabel('americas')).toBeTruthy();
+      expect(selectRegionMenu.getByA11yLabel('asia')).toBeTruthy();
+      expect(selectRegionMenu.getByA11yLabel('europe')).toBeTruthy();
+      expect(selectRegionMenu.getByA11yLabel('oceania')).toBeTruthy();
       expect(selectRegionMenu).toMatchSnapshot();
     });
 
     it('navigates to countries', async () => {
       const selectRegionMenu = renderSelectRegionMenu();
 
-      fireEvent.press(selectRegionMenu.getByTestId(testIDs.selectRegion.africa));
+      fireEvent.press(selectRegionMenu.getByA11yLabel('africa'));
       jest.runAllTimers();
 
       expect(mockedUseNavigation().navigate).toBeCalledTimes(1);

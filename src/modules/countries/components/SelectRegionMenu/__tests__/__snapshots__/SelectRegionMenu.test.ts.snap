@@ -10,6 +10,7 @@ exports[`countries <SelectRegionMenu /> render <SelectRegionMenu /> 1`] = `
   }
 >
   <View
+    accessibilityLabel="africa"
     accessible={true}
     collapsable={false}
     focusable={true}
@@ -37,7 +38,6 @@ exports[`countries <SelectRegionMenu /> render <SelectRegionMenu /> 1`] = `
         "shadowRadius": 3.84,
       }
     }
-    testID="selectRegion_africa"
   >
     <View
       style={
@@ -89,17 +89,27 @@ exports[`countries <SelectRegionMenu /> render <SelectRegionMenu /> 1`] = `
           style={
             Array [
               Object {
-                "color": "#4A4E4D",
+                "color": "#000000",
+                "fontFamily": "System",
+                "fontWeight": "400",
               },
               Object {
-                "fontFamily": "Quicksand-Bold",
+                "textAlign": "left",
               },
-              Object {
-                "fontSize": 16,
-              },
-              Object {
-                "color": "#FFFFFF",
-              },
+              Array [
+                Object {
+                  "color": "#4A4E4D",
+                },
+                Object {
+                  "fontFamily": "SF Pro Text Bold",
+                },
+                Object {
+                  "fontSize": 14,
+                },
+                Object {
+                  "color": "#FFFFFF",
+                },
+              ],
             ]
           }
         >
@@ -109,6 +119,7 @@ exports[`countries <SelectRegionMenu /> render <SelectRegionMenu /> 1`] = `
     </View>
   </View>
   <View
+    accessibilityLabel="americas"
     accessible={true}
     collapsable={false}
     focusable={true}
@@ -136,7 +147,6 @@ exports[`countries <SelectRegionMenu /> render <SelectRegionMenu /> 1`] = `
         "shadowRadius": 3.84,
       }
     }
-    testID="selectRegion_americas"
   >
     <View
       style={
@@ -188,17 +198,27 @@ exports[`countries <SelectRegionMenu /> render <SelectRegionMenu /> 1`] = `
           style={
             Array [
               Object {
-                "color": "#4A4E4D",
+                "color": "#000000",
+                "fontFamily": "System",
+                "fontWeight": "400",
               },
               Object {
-                "fontFamily": "Quicksand-Bold",
+                "textAlign": "left",
               },
-              Object {
-                "fontSize": 16,
-              },
-              Object {
-                "color": "#FFFFFF",
-              },
+              Array [
+                Object {
+                  "color": "#4A4E4D",
+                },
+                Object {
+                  "fontFamily": "SF Pro Text Bold",
+                },
+                Object {
+                  "fontSize": 14,
+                },
+                Object {
+                  "color": "#FFFFFF",
+                },
+              ],
             ]
           }
         >
@@ -208,6 +228,7 @@ exports[`countries <SelectRegionMenu /> render <SelectRegionMenu /> 1`] = `
     </View>
   </View>
   <View
+    accessibilityLabel="asia"
     accessible={true}
     collapsable={false}
     focusable={true}
@@ -235,7 +256,6 @@ exports[`countries <SelectRegionMenu /> render <SelectRegionMenu /> 1`] = `
         "shadowRadius": 3.84,
       }
     }
-    testID="selectRegion_asia"
   >
     <View
       style={
@@ -287,17 +307,27 @@ exports[`countries <SelectRegionMenu /> render <SelectRegionMenu /> 1`] = `
           style={
             Array [
               Object {
-                "color": "#4A4E4D",
+                "color": "#000000",
+                "fontFamily": "System",
+                "fontWeight": "400",
               },
               Object {
-                "fontFamily": "Quicksand-Bold",
+                "textAlign": "left",
               },
-              Object {
-                "fontSize": 16,
-              },
-              Object {
-                "color": "#FFFFFF",
-              },
+              Array [
+                Object {
+                  "color": "#4A4E4D",
+                },
+                Object {
+                  "fontFamily": "SF Pro Text Bold",
+                },
+                Object {
+                  "fontSize": 14,
+                },
+                Object {
+                  "color": "#FFFFFF",
+                },
+              ],
             ]
           }
         >
@@ -307,6 +337,7 @@ exports[`countries <SelectRegionMenu /> render <SelectRegionMenu /> 1`] = `
     </View>
   </View>
   <View
+    accessibilityLabel="europe"
     accessible={true}
     collapsable={false}
     focusable={true}
@@ -334,7 +365,6 @@ exports[`countries <SelectRegionMenu /> render <SelectRegionMenu /> 1`] = `
         "shadowRadius": 3.84,
       }
     }
-    testID="selectRegion_europe"
   >
     <View
       style={
@@ -386,17 +416,27 @@ exports[`countries <SelectRegionMenu /> render <SelectRegionMenu /> 1`] = `
           style={
             Array [
               Object {
-                "color": "#4A4E4D",
+                "color": "#000000",
+                "fontFamily": "System",
+                "fontWeight": "400",
               },
               Object {
-                "fontFamily": "Quicksand-Bold",
+                "textAlign": "left",
               },
-              Object {
-                "fontSize": 16,
-              },
-              Object {
-                "color": "#FFFFFF",
-              },
+              Array [
+                Object {
+                  "color": "#4A4E4D",
+                },
+                Object {
+                  "fontFamily": "SF Pro Text Bold",
+                },
+                Object {
+                  "fontSize": 14,
+                },
+                Object {
+                  "color": "#FFFFFF",
+                },
+              ],
             ]
           }
         >
@@ -406,6 +446,7 @@ exports[`countries <SelectRegionMenu /> render <SelectRegionMenu /> 1`] = `
     </View>
   </View>
   <View
+    accessibilityLabel="oceania"
     accessible={true}
     collapsable={false}
     focusable={true}
@@ -433,7 +474,6 @@ exports[`countries <SelectRegionMenu /> render <SelectRegionMenu /> 1`] = `
         "shadowRadius": 3.84,
       }
     }
-    testID="selectRegion_oceania"
   >
     <View
       style={
@@ -485,17 +525,27 @@ exports[`countries <SelectRegionMenu /> render <SelectRegionMenu /> 1`] = `
           style={
             Array [
               Object {
-                "color": "#4A4E4D",
+                "color": "#000000",
+                "fontFamily": "System",
+                "fontWeight": "400",
               },
               Object {
-                "fontFamily": "Quicksand-Bold",
+                "textAlign": "left",
               },
-              Object {
-                "fontSize": 16,
-              },
-              Object {
-                "color": "#FFFFFF",
-              },
+              Array [
+                Object {
+                  "color": "#4A4E4D",
+                },
+                Object {
+                  "fontFamily": "SF Pro Text Bold",
+                },
+                Object {
+                  "fontSize": 14,
+                },
+                Object {
+                  "color": "#FFFFFF",
+                },
+              ],
             ]
           }
         >

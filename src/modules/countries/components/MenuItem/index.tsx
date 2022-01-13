@@ -12,22 +12,19 @@ export type MenuItemProps = {
   title: string;
   index: number;
   onItemPress?: (index: number) => void;
-  testID?: string;
+  accessibilityLabel?: string;
 };
 
 const MenuItem: React.FC<MenuItemProps> = props => {
   const [styles] = useTheme(themedStyles);
   const { onItemPress } = props;
 
-  const handleItemPress = useCallback(
-    () => onItemPress && onItemPress(props.index),
-    [onItemPress, props.index]
-  );
+  const handleItemPress = useCallback(() => onItemPress && onItemPress(props.index), [onItemPress, props.index]);
 
   return (
     <TouchableOpacity
       activeOpacity={DEFAULT_ACTIVE_OPACITY}
-      testID={props.testID}
+      accessibilityLabel={props.accessibilityLabel}
       onPress={handleItemPress}
       style={[styles.container, props.style]}
     >

@@ -90,11 +90,7 @@ describe('promises', () => {
         const { result } = renderHook(() => useAsync(), { wrapper: Wrapper });
         const doAsync = result.current;
 
-        const promise = doAsync(
-          async () => Promise.resolve('result'),
-          undefined,
-          setResultCallback
-        );
+        const promise = doAsync(async () => Promise.resolve('result'), undefined, setResultCallback);
 
         await promise;
         jest.runAllTimers();

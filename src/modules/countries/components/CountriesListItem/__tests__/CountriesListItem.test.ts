@@ -1,14 +1,12 @@
 import { fireEvent } from '@testing-library/react-native';
 
-import { testIDs } from '~config';
 import { renderComponent } from '~modules/tests';
 
 import { localCountry } from '../../../__data__';
 import { LocalCountry } from '../../../types';
 import CountriesListItem, { CountriesListItemProps } from '../index';
 
-const renderCountriesListItem = (props: CountriesListItemProps) =>
-  renderComponent(CountriesListItem, props);
+const renderCountriesListItem = (props: CountriesListItemProps) => renderComponent(CountriesListItem, props);
 
 describe('countries', () => {
   describe('<CountriesListItem />', () => {
@@ -44,7 +42,7 @@ describe('countries', () => {
         onItemPress,
       });
 
-      fireEvent.press(countriesListItem.getByTestId(testIDs.countries.country));
+      fireEvent.press(countriesListItem.getByA11yLabel('Countries list item'));
       jest.runAllTimers();
 
       expect(onItemPress).toBeCalledTimes(1);

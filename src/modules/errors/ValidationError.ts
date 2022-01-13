@@ -10,11 +10,11 @@ export default class ValidationError extends AppError {
     this.field = field;
   }
 
-  static from(error: AppError, field: string, message?: string) {
+  static from(error: AppError, field: string, message?: string): ValidationError {
     return new ValidationError(error.code, field, message || error.message, error.details);
   }
 
-  static fromOriginal(originalError: any, code: ErrorCode, field: string, message?: string) {
+  static fromOriginal(originalError: any, code: ErrorCode, field: string, message?: string): ValidationError {
     const errorMessage = message || originalError?.message || originalError.toString();
     const validationError = new ValidationError(code, field, errorMessage);
 

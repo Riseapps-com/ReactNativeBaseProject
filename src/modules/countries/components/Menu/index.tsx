@@ -4,7 +4,6 @@ import { useTranslation } from 'react-i18next';
 import { View } from 'react-native';
 
 import { useImages } from '~assets';
-import { testIDs } from '~config';
 import { useTheme } from '~theme';
 
 import { COUNTRIES_SCREEN_NAME, SELECT_REGION_SCREEN_NAME } from '../../config';
@@ -35,7 +34,7 @@ const Menu: React.FC = () => {
         index={0}
         onItemPress={handleAllCountriesPress}
         style={styles.menuItem}
-        testID={testIDs.menu.allCountries}
+        accessibilityLabel="All countries"
       />
 
       <MenuItem
@@ -44,7 +43,7 @@ const Menu: React.FC = () => {
         index={1}
         onItemPress={handleCountriesByRegionPress}
         style={styles.menuItem}
-        testID={testIDs.menu.countriesByRegion}
+        accessibilityLabel="Countries by region"
       />
     </View>
   );

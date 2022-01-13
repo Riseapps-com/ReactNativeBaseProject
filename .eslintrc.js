@@ -23,6 +23,9 @@ module.exports = {
     'jest-formatting',
     'import',
     'simple-import-sort',
+    'unused-imports',
+    'sonarjs',
+    'destructuring',
   ],
   extends: [
     'airbnb-base',
@@ -53,7 +56,7 @@ module.exports = {
     'class-methods-use-this': 'off',
     'consistent-return': 'off',
     'max-depth': ['error', 3],
-    'max-len': ['error', 100],
+    'max-len': ['error', 120],
     'max-lines': ['error', { max: 200 }],
     'max-nested-callbacks': ['error', 4],
     'max-params': ['error', 5],
@@ -137,6 +140,7 @@ module.exports = {
     '@typescript-eslint/space-infix-ops': ['error', { int32Hint: false }],
     '@typescript-eslint/no-shadow': ['error'],
     '@typescript-eslint/no-unused-vars': ['error', { ignoreRestSiblings: true, "argsIgnorePattern": "^_" }],
+    '@typescript-eslint/explicit-function-return-type': ['error', { allowExpressions: true }],
 
     // react
     'react/prop-types': 'off',
@@ -177,10 +181,20 @@ module.exports = {
     'import/order': 'off',
     'simple-import-sort/imports': 'error',
     'simple-import-sort/exports': 'error',
+
+    // unused-imports
+    "unused-imports/no-unused-imports": "error",
+
+    // sonarjs
+    'sonarjs/prefer-immediate-return': 'error',
+
+    // destructuring
+    'destructuring/in-params': ['error', { 'max-params': 0 }],
+    'destructuring/in-methods-params': 'error',
   },
   overrides: [
     {
-      files: ['*.stories.tsx', '*.e2e.ts', '*.test.ts', '*.test.tsx', '**/__data__/*.ts'],
+      files: ['*.e2e.ts', '*.test.ts', '*.test.tsx', '**/__data__/*.ts', '__mocks__/**'],
       rules: {
         'max-lines': 'off',
         'max-nested-callbacks': 'off',
@@ -190,7 +204,14 @@ module.exports = {
         '@typescript-eslint/no-magic-numbers': 'off',
         'react-native/no-inline-styles': 'off',
         '@typescript-eslint/no-empty-function': 'off',
+        '@typescript-eslint/explicit-function-return-type': 'off',
       },
     },
+    {
+      files: ['*.e2e.ts'],
+      rules: {
+        'jest/expect-expect': 'off',
+      }
+    }
   ],
 };

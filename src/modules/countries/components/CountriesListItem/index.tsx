@@ -1,7 +1,6 @@
 import React, { useCallback } from 'react';
 import { Image, TouchableOpacity, View } from 'react-native';
 
-import { testIDs } from '~config';
 import { Text } from '~modules/ui';
 import { useTheme } from '~theme';
 
@@ -21,17 +20,10 @@ const CountriesListItem: React.FC<CountriesListItemProps> = props => {
   const title = props.country.name;
   const subtitle = props.country.capital || '-';
 
-  const handleItemPress = useCallback(
-    () => onItemPress && onItemPress(props.index),
-    [onItemPress, props.index]
-  );
+  const handleItemPress = useCallback(() => onItemPress && onItemPress(props.index), [onItemPress, props.index]);
 
   return (
-    <TouchableOpacity
-      testID={testIDs.countries.country}
-      onPress={handleItemPress}
-      style={styles.container}
-    >
+    <TouchableOpacity accessibilityLabel="Countries list item" onPress={handleItemPress} style={styles.container}>
       <Image style={styles.icon} resizeMode="contain" source={{ uri: props.country.flagLink }} />
 
       <View style={styles.centerContainer}>

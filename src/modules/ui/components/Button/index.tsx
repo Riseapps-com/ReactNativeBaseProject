@@ -7,10 +7,7 @@ import { useTheme } from '~theme';
 import { ButtonTextType, ButtonType } from '../../types';
 import themedStyles from './styles';
 
-export type ButtonProps = Omit<
-  React.ComponentProps<typeof PaperButton>,
-  'dark' | 'disabled' | 'loading'
-> & {
+export type ButtonProps = Omit<React.ComponentProps<typeof PaperButton>, 'dark' | 'disabled' | 'loading'> & {
   buttonType?: ButtonType;
   style?: StyleProp<ViewStyle>;
   labelStyle?: StyleProp<TextStyle>;
@@ -22,8 +19,7 @@ const DEFAULT_MODE = 'contained';
 const DEFAULT_BUTTON_TYPE = 'primary';
 
 const Button: React.FC<ButtonProps> = props => {
-  const { mode, children, buttonType, labelStyle, style, isLoading, isDisabled, ...restProps } =
-    props;
+  const { mode, children, buttonType, labelStyle, style, isLoading, isDisabled, ...restProps } = props;
   const buttonMode = mode || DEFAULT_MODE;
   const defaultButtonType = buttonType || DEFAULT_BUTTON_TYPE;
   // eslint-disable-next-line

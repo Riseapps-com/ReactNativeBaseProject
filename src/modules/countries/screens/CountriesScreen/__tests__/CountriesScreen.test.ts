@@ -1,7 +1,6 @@
 import { useRoute } from '@react-navigation/native';
 import { act } from '@testing-library/react-native';
 
-import { testIDs } from '~config';
 import { mocked, renderNavigationComponent } from '~modules/tests';
 
 import { localCountry } from '../../../__data__';
@@ -18,16 +17,14 @@ const renderCountriesScreen = () => renderNavigationComponent(CountriesScreen, t
 describe('countries', () => {
   describe('<CountriesScreen />', () => {
     it('renders <CountriesScreen />', () => {
-      mockedCountriesApi.getAllCountries.mockImplementationOnce(() =>
-        Promise.resolve([localCountry])
-      );
+      mockedCountriesApi.getAllCountries.mockImplementationOnce(() => Promise.resolve([localCountry]));
       mockedUseRoute.mockImplementation(() => ({ params: {} } as any));
 
       const countriesScreen = renderCountriesScreen();
 
       act(() => jest.runAllTimers());
 
-      expect(countriesScreen.getByTestId(testIDs.countries.scrollContainer)).toBeTruthy();
+      expect(countriesScreen.getByA11yLabel('Countries list')).toBeTruthy();
     });
   });
 });

@@ -2,36 +2,30 @@ import { Country, Currencies, Languages } from '~modules/api';
 
 import { LocalCountry } from '../types';
 
-export const parseToLocalCapital = (capitals?: string[]) => {
+export const parseToLocalCapital = (capitals?: string[]): string | undefined => {
   if (!capitals) return undefined;
 
-  const capital = capitals.join(', ');
-
-  return capital;
+  return capitals.join(', ');
 };
 
-export const parseToLocalCurrencies = (remoteCurrencies?: Currencies) => {
+export const parseToLocalCurrencies = (remoteCurrencies?: Currencies): string | undefined => {
   if (!remoteCurrencies) return undefined;
 
-  const currencies = Object.values(remoteCurrencies)
+  return Object.values(remoteCurrencies)
     .map(currency => currency.name)
     .join(', ');
-
-  return currencies;
 };
 
-export const parseToLocalLanguages = (remoteLanguages?: Languages) => {
+export const parseToLocalLanguages = (remoteLanguages?: Languages): string | undefined => {
   if (!remoteLanguages) return undefined;
 
-  const languages = Object.values(remoteLanguages)
+  return Object.values(remoteLanguages)
     .map(language => language)
     .join(', ');
-
-  return languages;
 };
 
-export const parseToLocalCountry = (remoteCountry: Country) => {
-  const country: LocalCountry = {
+export const parseToLocalCountry = (remoteCountry: Country): LocalCountry => {
+  return {
     cca2: remoteCountry.cca2,
     name: remoteCountry.name.common,
     capital: parseToLocalCapital(remoteCountry.capital),
@@ -42,12 +36,8 @@ export const parseToLocalCountry = (remoteCountry: Country) => {
     currencies: parseToLocalCurrencies(remoteCountry.currencies),
     languages: parseToLocalLanguages(remoteCountry.languages),
   };
-
-  return country;
 };
 
-export const parseToLocalCountries = (remoteCountries: Country[]) => {
-  const countries = remoteCountries.map(parseToLocalCountry);
-
-  return countries;
+export const parseToLocalCountries = (remoteCountries: Country[]): LocalCountry[] => {
+  return remoteCountries.map(parseToLocalCountry);
 };

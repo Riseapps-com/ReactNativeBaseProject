@@ -26,12 +26,7 @@ export const renderComponent: RenderComponent = (Component, props, wrapper?) => 
   return render(<Component {...props} />, { wrapper });
 };
 
-export const renderNavigationComponent: RenderNavigationComponent = (
-  Component,
-  isFocused,
-  props,
-  wrapper
-) => {
+export const renderNavigationComponent: RenderNavigationComponent = (Component, isFocused, props, wrapper) => {
   const navContextValue: any = {
     isFocused: () => isFocused,
     addListener: jest.fn(() => jest.fn()),
@@ -59,7 +54,7 @@ export const renderStoreComponent: RenderStoreComponent = (Component, props, wra
 /**
  * Creates mocked parser exception
  */
-export const createMockParserException = (parserMethodName = 'parseError') =>
+export const createMockParserException = (parserMethodName = 'parseError'): RuntimeError =>
   new RuntimeError('UnknownException', `Error message for ${parserMethodName}`);
 
 /**

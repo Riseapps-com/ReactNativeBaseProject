@@ -35,7 +35,7 @@ const Snackbar: React.FC<SnackbarProps> = props => {
       theme={{ colors: { accent: accentColors[kind] } }}
       onDismiss={props.onDismiss}
     >
-      <Text style={styles.message} size="smaller">
+      <Text style={styles.message} size="s">
         {props.message}
       </Text>
     </NativeSnackbar>

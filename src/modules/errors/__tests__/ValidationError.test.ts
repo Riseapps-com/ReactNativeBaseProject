@@ -33,11 +33,7 @@ describe('errors', () => {
         const message = 'Error message.';
         const details = { useId: '1' };
         const abelMkrError = { code, message, details };
-        const validationError = ValidationError.from(
-          abelMkrError as any,
-          field,
-          'New error message.'
-        );
+        const validationError = ValidationError.from(abelMkrError as any, field, 'New error message.');
 
         expect(validationError.message).toBe('New error message.');
       });
@@ -58,12 +54,7 @@ describe('errors', () => {
         const error = new Error('Original error message.');
         const code = 'InvalidParameterException';
         const field = 'password';
-        const validationError = ValidationError.fromOriginal(
-          error,
-          code,
-          field,
-          'New error message.'
-        );
+        const validationError = ValidationError.fromOriginal(error, code, field, 'New error message.');
 
         expect(validationError.message).toBe('New error message.');
       });

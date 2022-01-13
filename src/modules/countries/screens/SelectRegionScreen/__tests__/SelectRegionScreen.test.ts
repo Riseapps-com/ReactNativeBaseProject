@@ -1,4 +1,3 @@
-import { testIDs } from '~config';
 import { renderComponent } from '~modules/tests';
 
 import SelectRegionMenuScreen from '../index';
@@ -10,11 +9,11 @@ describe('countries', () => {
     it('render <SelectRegionMenuScreen />', () => {
       const selectRegionMenuScreen = renderSelectRegionMenuScreen();
 
-      expect(selectRegionMenuScreen.getByTestId(testIDs.selectRegion.africa)).toBeTruthy();
-      expect(selectRegionMenuScreen.getByTestId(testIDs.selectRegion.americas)).toBeTruthy();
-      expect(selectRegionMenuScreen.getByTestId(testIDs.selectRegion.asia)).toBeTruthy();
-      expect(selectRegionMenuScreen.getByTestId(testIDs.selectRegion.europe)).toBeTruthy();
-      expect(selectRegionMenuScreen.getByTestId(testIDs.selectRegion.oceania)).toBeTruthy();
+      expect(selectRegionMenuScreen.getByA11yLabel('africa')).toBeTruthy();
+      expect(selectRegionMenuScreen.getByA11yLabel('americas')).toBeTruthy();
+      expect(selectRegionMenuScreen.getByA11yLabel('asia')).toBeTruthy();
+      expect(selectRegionMenuScreen.getByA11yLabel('europe')).toBeTruthy();
+      expect(selectRegionMenuScreen.getByA11yLabel('oceania')).toBeTruthy();
     });
   });
 });

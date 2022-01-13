@@ -10,6 +10,7 @@ exports[`countries <Menu /> renders <Menu /> 1`] = `
   }
 >
   <View
+    accessibilityLabel="All countries"
     accessible={true}
     collapsable={false}
     focusable={true}
@@ -37,7 +38,6 @@ exports[`countries <Menu /> renders <Menu /> 1`] = `
         "shadowRadius": 3.84,
       }
     }
-    testID="menu_allCountries"
   >
     <View
       style={
@@ -89,17 +89,27 @@ exports[`countries <Menu /> renders <Menu /> 1`] = `
           style={
             Array [
               Object {
-                "color": "#4A4E4D",
+                "color": "#000000",
+                "fontFamily": "System",
+                "fontWeight": "400",
               },
               Object {
-                "fontFamily": "Quicksand-Bold",
+                "textAlign": "left",
               },
-              Object {
-                "fontSize": 16,
-              },
-              Object {
-                "color": "#FFFFFF",
-              },
+              Array [
+                Object {
+                  "color": "#4A4E4D",
+                },
+                Object {
+                  "fontFamily": "SF Pro Text Bold",
+                },
+                Object {
+                  "fontSize": 14,
+                },
+                Object {
+                  "color": "#FFFFFF",
+                },
+              ],
             ]
           }
         >
@@ -109,6 +119,7 @@ exports[`countries <Menu /> renders <Menu /> 1`] = `
     </View>
   </View>
   <View
+    accessibilityLabel="Countries by region"
     accessible={true}
     collapsable={false}
     focusable={true}
@@ -136,7 +147,6 @@ exports[`countries <Menu /> renders <Menu /> 1`] = `
         "shadowRadius": 3.84,
       }
     }
-    testID="menu_countriesByRegion"
   >
     <View
       style={
@@ -188,17 +198,27 @@ exports[`countries <Menu /> renders <Menu /> 1`] = `
           style={
             Array [
               Object {
-                "color": "#4A4E4D",
+                "color": "#000000",
+                "fontFamily": "System",
+                "fontWeight": "400",
               },
               Object {
-                "fontFamily": "Quicksand-Bold",
+                "textAlign": "left",
               },
-              Object {
-                "fontSize": 16,
-              },
-              Object {
-                "color": "#FFFFFF",
-              },
+              Array [
+                Object {
+                  "color": "#4A4E4D",
+                },
+                Object {
+                  "fontFamily": "SF Pro Text Bold",
+                },
+                Object {
+                  "fontSize": 14,
+                },
+                Object {
+                  "color": "#FFFFFF",
+                },
+              ],
             ]
           }
         >

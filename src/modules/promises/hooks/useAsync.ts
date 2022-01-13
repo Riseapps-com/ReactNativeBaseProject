@@ -6,9 +6,11 @@ import { useStatusMessage } from '~modules/statusMessages';
 
 import { promiseUtilities } from '../services';
 
+// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 const useAsync = () => {
   const displayStatusMessage = useStatusMessage();
-  const doAsync = useCallback(
+
+  return useCallback(
     async <T>(
       toCall: () => Promise<T>,
       setIsLoadingCallback?: (isLoading: boolean) => void,
@@ -46,8 +48,6 @@ const useAsync = () => {
     },
     [displayStatusMessage]
   );
-
-  return doAsync;
 };
 
 export default useAsync;

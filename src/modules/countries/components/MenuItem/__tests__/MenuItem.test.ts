@@ -24,18 +24,18 @@ describe('countries', () => {
     });
 
     it('calls on item press', () => {
-      const testID = 'testID';
+      const accessibilityLabel = 'a11yLabel';
       const onItemPress = jest.fn();
       const index = 5;
       const menuItem = renderMenuItem({
-        testID,
         image: images.africa,
         title: 'Title',
         index,
         onItemPress,
+        accessibilityLabel,
       });
 
-      fireEvent.press(menuItem.getByTestId(testID));
+      fireEvent.press(menuItem.getByA11yLabel(accessibilityLabel));
       jest.runAllTimers();
 
       expect(onItemPress).toBeCalledTimes(1);

@@ -1,6 +1,4 @@
-const getLocales = () => [
-  { countryCode: 'US', languageTag: 'en', languageCode: 'en', isRTL: false },
-];
+const getLocales = () => [{ countryCode: 'US', languageTag: 'en', languageCode: 'en', isRTL: false }];
 
 const findBestAvailableLanguage = () => ({
   languageTag: 'en',

@@ -4,7 +4,6 @@ import { useTranslation } from 'react-i18next';
 import { View } from 'react-native';
 
 import { useImages } from '~assets';
-import { testIDs } from '~config';
 import { useTheme } from '~theme';
 
 import { COUNTRIES_SCREEN_NAME, regions } from '../../config';
@@ -36,7 +35,7 @@ const SelectRegionMenu: React.FC = () => {
           image={images[region]}
           index={index}
           onItemPress={handleItemPress}
-          testID={testIDs.selectRegion[region]}
+          accessibilityLabel={region}
         />
       ))}
     </View>

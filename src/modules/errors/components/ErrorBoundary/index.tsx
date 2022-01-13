@@ -10,22 +10,22 @@ class ErrorBoundary extends Component {
     hasError: false,
   };
 
-  static getDerivedStateFromError() {
+  static getDerivedStateFromError(): { hasError: boolean } {
     return { hasError: true };
   }
 
-  componentDidCatch(error: Error, errorInfo: ErrorInfo) {
+  componentDidCatch(error: Error, errorInfo: ErrorInfo): void {
     const runtimeError = RuntimeError.fromOriginal(error, 'UnknownException', error.toString());
 
     runtimeError.addDetail('componentStack', errorInfo);
     logger.logError('GLOBAL', runtimeError);
   }
 
-  handleDismiss = async () => {
+  handleDismiss = (): void => {
     this.setState({ hasError: false });
   };
 
-  render() {
+  render(): React.ReactNode {
     if (this.state.hasError) return <ErrorScreen onDismiss={this.handleDismiss} />;
 
     return this.props.children;

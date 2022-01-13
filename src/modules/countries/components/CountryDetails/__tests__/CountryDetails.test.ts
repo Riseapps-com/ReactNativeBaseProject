@@ -22,9 +22,7 @@ beforeAll(() => {
 describe('countries', () => {
   describe('<CountryDetails />', () => {
     it('renders <CountryDetails />', () => {
-      mockedCountriesApi.getCountryDetails.mockImplementationOnce(() =>
-        Promise.resolve(localCountry)
-      );
+      mockedCountriesApi.getCountryDetails.mockImplementationOnce(() => Promise.resolve(localCountry));
 
       const countryDetails = renderCountryDetails();
 
@@ -49,9 +47,7 @@ describe('countries', () => {
     });
 
     it('fetches country by code', () => {
-      mockedCountriesApi.getCountryDetails.mockImplementationOnce(() =>
-        Promise.resolve(localCountry)
-      );
+      mockedCountriesApi.getCountryDetails.mockImplementationOnce(() => Promise.resolve(localCountry));
 
       const countryDetails = renderCountryDetails();
 

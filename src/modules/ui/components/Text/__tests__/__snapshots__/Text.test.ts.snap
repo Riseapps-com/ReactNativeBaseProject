@@ -5,15 +5,25 @@ exports[`ui <Text /> renders <Text /> 1`] = `
   style={
     Array [
       Object {
-        "color": "#4A4E4D",
+        "color": "#000000",
+        "fontFamily": "System",
+        "fontWeight": "400",
       },
       Object {
-        "fontFamily": "Quicksand-Regular",
+        "textAlign": "left",
       },
-      Object {
-        "fontSize": 16,
-      },
-      undefined,
+      Array [
+        Object {
+          "color": "#4A4E4D",
+        },
+        Object {
+          "fontFamily": "SF Pro Display Regular",
+        },
+        Object {
+          "fontSize": 14,
+        },
+        undefined,
+      ],
     ]
   }
 >

@@ -1,7 +1,6 @@
 import { useNavigation } from '@react-navigation/native';
 import { fireEvent } from '@testing-library/react-native';
 
-import { testIDs } from '~config';
 import { I18n } from '~modules/localization';
 import { mocked, renderComponent } from '~modules/tests';
 
@@ -17,15 +16,15 @@ describe('countries', () => {
     it('renders <Menu />', () => {
       const menu = renderMenu();
 
-      expect(menu.getByTestId(testIDs.menu.allCountries)).toBeTruthy();
-      expect(menu.getByTestId(testIDs.menu.countriesByRegion)).toBeTruthy();
+      expect(menu.getByA11yLabel('All countries')).toBeTruthy();
+      expect(menu.getByA11yLabel('All countries')).toBeTruthy();
       expect(menu).toMatchSnapshot();
     });
 
     it('navigates to countries list', () => {
       const menu = renderMenu();
 
-      fireEvent.press(menu.getByTestId(testIDs.menu.allCountries));
+      fireEvent.press(menu.getByA11yLabel('All countries'));
       jest.runAllTimers();
 
       expect(mockedUseNavigation().navigate).toBeCalledTimes(1);
@@ -37,7 +36,7 @@ describe('countries', () => {
     it('navigates to select region menu', () => {
       const menu = renderMenu();
 
-      fireEvent.press(menu.getByTestId(testIDs.menu.countriesByRegion));
+      fireEvent.press(menu.getByA11yLabel('Countries by region'));
       jest.runAllTimers();
 
       expect(mockedUseNavigation().navigate).toBeCalledTimes(1);

@@ -1,7 +1,6 @@
 import { useNavigation, useRoute } from '@react-navigation/native';
 import { act, fireEvent } from '@testing-library/react-native';
 
-import { testIDs } from '~config';
 import { mocked, renderNavigationComponent } from '~modules/tests';
 
 import { localCountry } from '../../../__data__';
@@ -21,22 +20,18 @@ const renderCountriesList = () => renderNavigationComponent(CountriesList, true)
 describe('countries', () => {
   describe('<CountriesList />', () => {
     it('renders <CountriesList />', () => {
-      mockedCountriesApi.getAllCountries.mockImplementationOnce(() =>
-        Promise.resolve([localCountry])
-      );
+      mockedCountriesApi.getAllCountries.mockImplementationOnce(() => Promise.resolve([localCountry]));
       mockedUseRoute.mockImplementation(() => ({ params: {} } as any));
 
       const countriesList = renderCountriesList();
 
       act(() => jest.runAllTimers());
 
-      expect(countriesList.getByTestId(testIDs.countries.scrollContainer)).toBeTruthy();
+      expect(countriesList.getByA11yLabel('Countries list')).toBeTruthy();
     });
 
     it('fetches all countries', () => {
-      mockedCountriesApi.getAllCountries.mockImplementationOnce(() =>
-        Promise.resolve([localCountry])
-      );
+      mockedCountriesApi.getAllCountries.mockImplementationOnce(() => Promise.resolve([localCountry]));
       mockedUseRoute.mockImplementation(() => ({ params: {} } as any));
 
       const countriesList = renderCountriesList();
@@ -50,9 +45,7 @@ describe('countries', () => {
     it('fetches countries by region', () => {
       const region: LocalRegion = 'oceania';
 
-      mockedCountriesApi.getCountriesByRegion.mockImplementationOnce(() =>
-        Promise.resolve([localCountry])
-      );
+      mockedCountriesApi.getCountriesByRegion.mockImplementationOnce(() => Promise.resolve([localCountry]));
       mockedUseRoute.mockImplementation(() => ({ params: { region } } as any));
 
       const countriesList = renderCountriesList();
@@ -65,9 +58,7 @@ describe('countries', () => {
     });
 
     it('navigates to country details', async () => {
-      mockedCountriesApi.getAllCountries.mockImplementationOnce(() =>
-        Promise.resolve([localCountry])
-      );
+      mockedCountriesApi.getAllCountries.mockImplementationOnce(() => Promise.resolve([localCountry]));
       mockedUseRoute.mockImplementation(() => ({ params: {} } as any));
 
       const countriesList = renderCountriesList();

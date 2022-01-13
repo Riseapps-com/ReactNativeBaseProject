@@ -1,10 +1,10 @@
 import React, { useCallback } from 'react';
 
-import { statusMessagesState, useRecoilState } from '~modules/state';
+import { statusMessagesAtom, useRecoilState } from '~modules/state';
 import { Snackbar } from '~modules/ui';
 
 const StatusMessage: React.FC = () => {
-  const [state, setState] = useRecoilState(statusMessagesState);
+  const [state, setState] = useRecoilState(statusMessagesAtom);
   const currentStatusMessage = state.statusMessage;
   const isVisible = !!currentStatusMessage?.message;
 

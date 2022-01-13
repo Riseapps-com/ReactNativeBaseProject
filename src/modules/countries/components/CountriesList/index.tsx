@@ -2,7 +2,6 @@ import { useNavigation, useRoute } from '@react-navigation/native';
 import React, { useCallback } from 'react';
 import { FlatList, ListRenderItemInfo } from 'react-native';
 
-import { testIDs } from '~config';
 import { useRetriever } from '~modules/promises';
 import { ActivityIndicator } from '~modules/ui';
 
@@ -39,21 +38,17 @@ const CountriesList: React.FC = () => {
 
   const renderItem = useCallback(
     (itemInfo: ListRenderItemInfo<LocalCountry>) => (
-      <CountriesListItem
-        country={itemInfo.item}
-        index={itemInfo.index}
-        onItemPress={handleItemPress}
-      />
+      <CountriesListItem country={itemInfo.item} index={itemInfo.index} onItemPress={handleItemPress} />
     ),
     [handleItemPress]
   );
-  const keyExtractor = (localCountry: LocalCountry) => localCountry.name;
+  const keyExtractor = (localCountry: LocalCountry): string => localCountry.name;
 
   if (isLoadingCountries) return <ActivityIndicator />;
 
   return (
     <FlatList
-      testID={testIDs.countries.scrollContainer}
+      accessibilityLabel="Countries list"
       data={countries}
       renderItem={renderItem}
       keyExtractor={keyExtractor}

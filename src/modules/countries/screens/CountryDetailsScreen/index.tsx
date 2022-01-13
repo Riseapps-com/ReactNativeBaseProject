@@ -2,7 +2,6 @@ import React from 'react';
 import { ScrollView, StatusBar } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
-import { testIDs } from '~config';
 import { useTheme } from '~theme';
 
 import { CountryDetails } from '../../components';
@@ -20,7 +19,7 @@ const CountryDetailsScreen: React.FC<CountryDetailsScreenProps> = () => {
 
   return (
     <ScrollView
-      testID={testIDs.countryDetails.scrollContainer}
+      accessibilityLabel="Country details"
       contentContainerStyle={[styles.countryDetailsScreen, { marginBottom: bottom }]}
     >
       <StatusBar barStyle="light-content" />

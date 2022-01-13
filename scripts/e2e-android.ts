@@ -1,8 +1,9 @@
-import { exec } from 'shelljs';
+import { ChildProcess } from 'child_process';
+import { exec, ShellString } from 'shelljs';
 
-const startReactNative = () => exec('react-native start', { async: true });
-const detoxBuild = () => exec('detox build --configuration android.emu.debug');
-const detoxTest = () => exec('detox test --configuration android.emu.debug');
+const startReactNative = (): ChildProcess => exec('react-native start', { async: true });
+const detoxBuild = (): ShellString => exec('detox build --configuration android.emu.debug');
+const detoxTest = (): ShellString => exec('detox test --configuration android.emu.debug');
 
 startReactNative();
 detoxBuild();

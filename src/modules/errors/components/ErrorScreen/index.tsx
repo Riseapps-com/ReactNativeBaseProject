@@ -22,7 +22,7 @@ const ErrorScreen: React.FC<ErrorScreenProps> = props => {
       <StatusBar barStyle="light-content" />
 
       <View style={styles.content}>
-        <Text fontStyle="bold" size="bigger" style={styles.title}>
+        <Text fontStyle="bold" size="l" style={styles.title}>
           {t('errorBoundaryTitle')}
         </Text>
 

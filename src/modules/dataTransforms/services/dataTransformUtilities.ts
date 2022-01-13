@@ -1,9 +1,6 @@
 import { SortDirection } from '../types';
 
-export const comparator = <T extends Record<string, any>>(
-  sortBy?: string,
-  sortDirection?: SortDirection
-) => {
+export const comparator = <T extends Record<string, any>>(sortBy?: string, sortDirection?: SortDirection) => {
   return (a: T, b: T) => {
     // Tolerate null values by sorting them to the end rather than erroring out
     // If the sort direction is specified as `descending` then the return value should be reversed

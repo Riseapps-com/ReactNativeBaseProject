@@ -10,13 +10,9 @@ describe('Errors', () => {
     describe('parseError', () => {
       describe('returns unaltered AppErrors when given them', () => {
         it('verifying RuntimeErrors', () => {
-          const runtimeError = new RuntimeError(
-            'InvalidRequestException',
-            'My custom RuntimeError',
-            {
-              custom: 'dummy-detail-value',
-            }
-          );
+          const runtimeError = new RuntimeError('InvalidRequestException', 'My custom RuntimeError', {
+            custom: 'dummy-detail-value',
+          });
 
           const parsedError = errorUtils.parseError(runtimeError);
 
@@ -85,11 +81,7 @@ describe('Errors', () => {
         it('returns RuntimeError with "UnknownException" code when error is not object', () => {
           const errorString = 'dummy error message';
 
-          const expectedRuntimeError = RuntimeError.fromOriginal(
-            errorString,
-            'UnknownException',
-            'unknownException'
-          );
+          const expectedRuntimeError = RuntimeError.fromOriginal(errorString, 'UnknownException', 'unknownException');
 
           const parsedError = errorUtils.parseError(errorString);
 

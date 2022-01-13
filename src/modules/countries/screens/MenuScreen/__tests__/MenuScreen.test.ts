@@ -1,4 +1,3 @@
-import { testIDs } from '~config';
 import { renderComponent } from '~modules/tests';
 
 import MenuItemScreen from '../index';
@@ -10,8 +9,8 @@ describe('countries', () => {
     it('renders <MenuScreen />', () => {
       const menuScreen = renderMenuScreen();
 
-      expect(menuScreen.getByTestId(testIDs.menu.allCountries)).toBeTruthy();
-      expect(menuScreen.getByTestId(testIDs.menu.countriesByRegion)).toBeTruthy();
+      expect(menuScreen.getByA11yLabel('All countries')).toBeTruthy();
+      expect(menuScreen.getByA11yLabel('Countries by region')).toBeTruthy();
     });
   });
 });

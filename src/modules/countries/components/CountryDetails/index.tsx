@@ -16,10 +16,7 @@ const CountryDetails: React.FC = () => {
   const { t } = useTranslation();
   const { params } = useRoute<CountryDetailsRoute>();
   const { code } = params;
-  const [countryDetails, isLoadingCountryDetails] = useRetriever(
-    () => countriesApi.getCountryDetails(code),
-    [code]
-  );
+  const [countryDetails, isLoadingCountryDetails] = useRetriever(() => countriesApi.getCountryDetails(code), [code]);
 
   const contentRow = useCallback(
     (title: string, value?: string) => {
@@ -40,12 +37,8 @@ const CountryDetails: React.FC = () => {
   return (
     <View style={styles.cardContainer}>
       <View style={styles.contentContainer}>
-        <ImageBackground
-          style={styles.flagContainer}
-          resizeMode="cover"
-          source={{ uri: countryDetails.flagLink }}
-        >
-          <Text numberOfLines={1} style={styles.name} size="biggest" fontStyle="bold">
+        <ImageBackground style={styles.flagContainer} resizeMode="cover" source={{ uri: countryDetails.flagLink }}>
+          <Text numberOfLines={1} style={styles.name} size="xl" fontStyle="bold">
             {countryDetails.name}
           </Text>
         </ImageBackground>

@@ -1,6 +1,6 @@
 import { NamedStyles, StyleSheetData } from '../types';
 
-const useTheme = <T, N extends string, S extends NamedStyles<S> | NamedStyles<any>>(
+const useTheme = <T, N extends string, S extends NamedStyles<S>>(
   data: StyleSheetData<N, T, S>,
   name?: N
 ): [S, T, N] => {

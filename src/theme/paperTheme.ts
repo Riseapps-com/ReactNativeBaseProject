@@ -2,21 +2,23 @@ import { Appearance } from 'react-native';
 import { configureFonts, DefaultTheme } from 'react-native-paper';
 import { Fonts } from 'react-native-paper/lib/typescript/types';
 
+import { getFont } from '~assets';
+
 import { dark, light } from './config';
 import { Theme } from './types';
 
 const defaultFonts: Fonts = {
   regular: {
-    fontFamily: 'Quicksand-Regular',
+    fontFamily: getFont('regular'),
   },
   medium: {
-    fontFamily: 'Quicksand-Bold',
+    fontFamily: getFont('medium'),
   },
   light: {
-    fontFamily: 'Quicksand-Light',
+    fontFamily: getFont('light'),
   },
   thin: {
-    fontFamily: 'Quicksand-Light',
+    fontFamily: getFont('thin'),
   },
 };
 

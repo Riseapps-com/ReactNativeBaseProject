@@ -6,31 +6,59 @@ export default styleSheetFactory(theme => ({
     color: theme.text,
   },
 
+  black: {
+    fontFamily: getFont('black'),
+  },
+
+  heavy: {
+    fontFamily: getFont('heavy'),
+  },
+
   light: {
-    fontFamily: getFont('quicksand-light'),
+    fontFamily: getFont('light'),
+  },
+
+  medium: {
+    fontFamily: getFont('medium'),
   },
 
   regular: {
-    fontFamily: getFont('quicksand-regular'),
+    fontFamily: getFont('regular'),
+  },
+
+  semiBold: {
+    fontFamily: getFont('semiBold'),
+  },
+
+  thin: {
+    fontFamily: getFont('thin'),
+  },
+
+  ultraLight: {
+    fontFamily: getFont('ultraLight'),
   },
 
   bold: {
-    fontFamily: getFont('quicksand-bold'),
+    fontFamily: getFont('bold'),
   },
 
-  smallest: {
-    fontSize: sizes.SMALLEST_FONT_SIZE,
+  xs: {
+    fontSize: sizes.FONT_SIZE_XS,
   },
-  smaller: {
-    fontSize: sizes.SMALLER_FONT_SIZE,
+
+  s: {
+    fontSize: sizes.FONT_SIZE_S,
   },
-  normal: {
-    fontSize: sizes.BASE_FONT_SIZE,
+
+  m: {
+    fontSize: sizes.FONT_SIZE_M,
   },
-  bigger: {
-    fontSize: sizes.BIGGER_FONT_SIZE,
+
+  l: {
+    fontSize: sizes.FONT_SIZE_L,
   },
-  biggest: {
-    fontSize: sizes.BIGGEST_FONT_SIZE,
+
+  xl: {
+    fontSize: sizes.FONT_SIZE_XL,
   },
 }));

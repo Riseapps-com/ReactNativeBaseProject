@@ -21,9 +21,7 @@ beforeAll(() => {
 describe('countries', () => {
   describe('<CountryDetailsScreen />', () => {
     it('renders <CountryDetailsScreen />', () => {
-      mockedCountriesApi.getCountryDetails.mockImplementationOnce(() =>
-        Promise.resolve(localCountry)
-      );
+      mockedCountriesApi.getCountryDetails.mockImplementationOnce(() => Promise.resolve(localCountry));
 
       const countryDetailsScreen = renderCountryDetailsScreen();
 

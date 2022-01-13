@@ -14,7 +14,7 @@ export default abstract class AppError extends Error {
     this.details = details;
   }
 
-  addDetail(key: string, value: unknown) {
+  addDetail(key: string, value: unknown): this {
     // If there is already a detail value under that key we'll automatically
     // add this value alongside it in an array, converting the existing value as necessary
     const existingValue: unknown = this.details[key];

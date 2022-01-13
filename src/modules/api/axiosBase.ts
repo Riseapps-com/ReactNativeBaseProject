@@ -14,7 +14,7 @@ export const instance: AxiosInstance = axios.create({
   timeout: AXIOS_REQUEST_TIMEOUT,
 });
 
-const processAxiosError = (error: any) => {
+const processAxiosError = (error: any): never => {
   if (error.response) {
     throw new HttpRequestError(error.message, error.response.status);
   }

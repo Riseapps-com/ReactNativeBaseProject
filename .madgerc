@@ -1,5 +1,5 @@
 {
-  "excludeRegExp": ["navigation"],
+  "excludeRegExp": ["(main|navigation|state)"],
   "tsConfig": "tsconfig.json",
   "fileExtensions": ["js", "jsx", "ts", "tsx"]
 }
