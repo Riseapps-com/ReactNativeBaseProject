@@ -2,7 +2,6 @@
 
 exports[`countries <CountriesListItem /> renders <CountriesListItem /> 1`] = `
 <View
-  accessibilityLabel="Countries list item"
   accessible={true}
   collapsable={false}
   focusable={true}
@@ -22,6 +21,7 @@ exports[`countries <CountriesListItem /> renders <CountriesListItem /> 1`] = `
       "paddingVertical": 8,
     }
   }
+  testID="Countries list item"
 >
   <Image
     resizeMode="contain"

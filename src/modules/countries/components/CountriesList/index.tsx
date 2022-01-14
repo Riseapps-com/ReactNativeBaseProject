@@ -46,14 +46,7 @@ const CountriesList: React.FC = () => {
 
   if (isLoadingCountries) return <ActivityIndicator />;
 
-  return (
-    <FlatList
-      accessibilityLabel="Countries list"
-      data={countries}
-      renderItem={renderItem}
-      keyExtractor={keyExtractor}
-    />
-  );
+  return <FlatList testID="Countries" data={countries} renderItem={renderItem} keyExtractor={keyExtractor} />;
 };
 
 export default CountriesList;

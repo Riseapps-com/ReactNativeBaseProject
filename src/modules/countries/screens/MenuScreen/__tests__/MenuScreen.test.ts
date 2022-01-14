@@ -9,8 +9,8 @@ describe('countries', () => {
     it('renders <MenuScreen />', () => {
       const menuScreen = renderMenuScreen();
 
-      expect(menuScreen.getByA11yLabel('All countries')).toBeTruthy();
-      expect(menuScreen.getByA11yLabel('Countries by region')).toBeTruthy();
+      expect(menuScreen.getByTestId('All countries')).toBeTruthy();
+      expect(menuScreen.getByTestId('Countries by region')).toBeTruthy();
     });
   });
 });

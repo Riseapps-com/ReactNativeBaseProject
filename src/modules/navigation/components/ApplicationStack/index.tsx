@@ -52,7 +52,7 @@ const ApplicationStack: React.FC = () => {
           // eslint-disable-next-line @typescript-eslint/ban-ts-comment
           // @ts-ignore
           headerTitle: options.route.params.title,
-          headerBackAccessibilityLabel: 'Back',
+          headerBackTestID: 'Back',
         })}
       />
       <Stack.Screen
@@ -62,7 +62,7 @@ const ApplicationStack: React.FC = () => {
           // eslint-disable-next-line @typescript-eslint/ban-ts-comment
           // @ts-ignore
           headerTitle: options.route.params.title,
-          headerBackAccessibilityLabel: 'Back',
+          headerBackTestID: 'Back',
         })}
       />
       <Stack.Screen name={MENU_SCREEN_NAME} component={MenuScreen} options={{ headerTitle: t('menu') }} />
@@ -71,7 +71,7 @@ const ApplicationStack: React.FC = () => {
         component={SelectRegionScreen}
         options={{
           headerTitle: t('regions'),
-          headerBackAccessibilityLabel: 'Back',
+          headerBackTestID: 'Back',
         }}
       />
     </Stack.Navigator>

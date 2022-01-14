@@ -23,7 +23,7 @@ const CountryDetails: React.FC = () => {
   if (isLoadingCountryDetails) return <ActivityIndicator />;
 
   return (
-    <ScrollView accessibilityLabel="Country details" style={styles.container}>
+    <ScrollView testID="Country details" style={styles.container}>
       <Card style={styles.cardContainer} contentStyle={styles.contentContainer}>
         <ImageBackground style={styles.flagContainer} resizeMode="cover" source={{ uri: countryDetails.flagLink }}>
           <Text numberOfLines={1} style={styles.name} size="xl" fontStyle="bold">

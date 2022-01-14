@@ -24,7 +24,7 @@ describe('countries', () => {
 
       act(() => jest.runAllTimers());
 
-      expect(countriesScreen.getByA11yLabel('Countries list')).toBeTruthy();
+      expect(countriesScreen.getByTestId('Countries')).toBeTruthy();
     });
   });
 });

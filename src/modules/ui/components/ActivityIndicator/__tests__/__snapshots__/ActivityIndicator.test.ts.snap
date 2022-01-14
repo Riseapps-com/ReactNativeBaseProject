@@ -11,9 +11,9 @@ exports[`ui <ActivityIndicator /> renders <ActivityIndicator /> 1`] = `
   }
 >
   <ActivityIndicator
-    accessibilityLabel="Activity indicator"
     color="#0036A7"
     size="large"
+    testID="Activity indicator"
   />
 </View>
 `;

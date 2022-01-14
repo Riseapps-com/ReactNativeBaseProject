@@ -10,7 +10,6 @@ exports[`countries <Menu /> renders <Menu /> 1`] = `
   }
 >
   <View
-    accessibilityLabel="All countries"
     accessibilityState={
       Object {
         "disabled": false,
@@ -43,6 +42,7 @@ exports[`countries <Menu /> renders <Menu /> 1`] = `
         "shadowRadius": 3.84,
       }
     }
+    testID="All countries"
   >
     <View
       style={
@@ -128,7 +128,6 @@ exports[`countries <Menu /> renders <Menu /> 1`] = `
     </View>
   </View>
   <View
-    accessibilityLabel="Countries by region"
     accessibilityState={
       Object {
         "disabled": false,
@@ -161,6 +160,7 @@ exports[`countries <Menu /> renders <Menu /> 1`] = `
         "shadowRadius": 3.84,
       }
     }
+    testID="Countries by region"
   >
     <View
       style={

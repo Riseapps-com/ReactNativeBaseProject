@@ -34,7 +34,7 @@ const Menu: React.FC = () => {
         index={0}
         onItemPress={handleAllCountriesPress}
         style={styles.menuItem}
-        accessibilityLabel="All countries"
+        testID="All countries"
       />
 
       <MenuItem
@@ -43,7 +43,7 @@ const Menu: React.FC = () => {
         index={1}
         onItemPress={handleCountriesByRegionPress}
         style={styles.menuItem}
-        accessibilityLabel="Countries by region"
+        testID="Countries by region"
       />
     </View>
   );

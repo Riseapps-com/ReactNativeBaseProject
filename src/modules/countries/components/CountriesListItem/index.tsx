@@ -23,7 +23,7 @@ const CountriesListItem: React.FC<CountriesListItemProps> = props => {
   const handleItemPress = useCallback(() => onItemPress && onItemPress(props.index), [onItemPress, props.index]);
 
   return (
-    <TouchableOpacity accessibilityLabel="Countries list item" onPress={handleItemPress} style={styles.container}>
+    <TouchableOpacity testID="Countries list item" onPress={handleItemPress} style={styles.container}>
       <Image style={styles.icon} resizeMode="contain" source={{ uri: props.country.flagLink }} />
 
       <View style={styles.centerContainer}>

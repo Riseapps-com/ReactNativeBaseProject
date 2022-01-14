@@ -35,7 +35,7 @@ const SelectRegionMenu: React.FC = () => {
           image={images[region]}
           index={index}
           onItemPress={handleItemPress}
-          accessibilityLabel={region}
+          testID={region}
         />
       ))}
     </View>

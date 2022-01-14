@@ -27,7 +27,7 @@ describe('countries', () => {
 
       act(() => jest.runAllTimers());
 
-      expect(countriesList.getByA11yLabel('Countries list')).toBeTruthy();
+      expect(countriesList.getByTestId('Countries')).toBeTruthy();
     });
 
     it('fetches all countries', () => {

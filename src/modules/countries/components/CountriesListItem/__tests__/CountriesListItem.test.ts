@@ -42,7 +42,7 @@ describe('countries', () => {
         onItemPress,
       });
 
-      fireEvent.press(countriesListItem.getByA11yLabel('Countries list item'));
+      fireEvent.press(countriesListItem.getByTestId('Countries list item'));
       jest.runAllTimers();
 
       expect(onItemPress).toBeCalledTimes(1);

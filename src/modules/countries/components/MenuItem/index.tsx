@@ -13,7 +13,7 @@ export type MenuItemProps = {
   title: string;
   index: number;
   onItemPress?: (index: number) => void;
-  accessibilityLabel?: string;
+  testID?: string;
 };
 
 const MenuItem: React.FC<MenuItemProps> = props => {
@@ -24,7 +24,7 @@ const MenuItem: React.FC<MenuItemProps> = props => {
 
   return (
     <Card
-      accessibilityLabel={props.accessibilityLabel}
+      testID={props.testID}
       style={[styles.container, props.style]}
       contentStyle={styles.contentContainer}
       onPress={handleItemPress}

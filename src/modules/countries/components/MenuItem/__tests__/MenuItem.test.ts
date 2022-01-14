@@ -24,7 +24,7 @@ describe('countries', () => {
     });
 
     it('calls on item press', () => {
-      const accessibilityLabel = 'a11yLabel';
+      const testID = 'testID';
       const onItemPress = jest.fn();
       const index = 5;
       const menuItem = renderMenuItem({
@@ -32,10 +32,10 @@ describe('countries', () => {
         title: 'Title',
         index,
         onItemPress,
-        accessibilityLabel,
+        testID,
       });
 
-      fireEvent.press(menuItem.getByA11yLabel(accessibilityLabel));
+      fireEvent.press(menuItem.getByTestId(testID));
       jest.runAllTimers();
 
       expect(onItemPress).toBeCalledTimes(1);

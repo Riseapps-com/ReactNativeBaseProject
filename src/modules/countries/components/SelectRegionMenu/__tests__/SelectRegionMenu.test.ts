@@ -16,18 +16,18 @@ describe('countries', () => {
     it('renders <SelectRegionMenu />', () => {
       const selectRegionMenu = renderSelectRegionMenu();
 
-      expect(selectRegionMenu.getByA11yLabel('africa')).toBeTruthy();
-      expect(selectRegionMenu.getByA11yLabel('americas')).toBeTruthy();
-      expect(selectRegionMenu.getByA11yLabel('asia')).toBeTruthy();
-      expect(selectRegionMenu.getByA11yLabel('europe')).toBeTruthy();
-      expect(selectRegionMenu.getByA11yLabel('oceania')).toBeTruthy();
+      expect(selectRegionMenu.getByTestId('africa')).toBeTruthy();
+      expect(selectRegionMenu.getByTestId('americas')).toBeTruthy();
+      expect(selectRegionMenu.getByTestId('asia')).toBeTruthy();
+      expect(selectRegionMenu.getByTestId('europe')).toBeTruthy();
+      expect(selectRegionMenu.getByTestId('oceania')).toBeTruthy();
       expect(selectRegionMenu).toMatchSnapshot();
     });
 
     it('navigates to countries', async () => {
       const selectRegionMenu = renderSelectRegionMenu();
 
-      fireEvent.press(selectRegionMenu.getByA11yLabel('africa'));
+      fireEvent.press(selectRegionMenu.getByTestId('africa'));
       jest.runAllTimers();
 
       expect(mockedUseNavigation().navigate).toBeCalledTimes(1);

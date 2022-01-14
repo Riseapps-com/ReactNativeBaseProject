@@ -9,11 +9,11 @@ describe('countries', () => {
     it('renders <SelectRegionMenuScreen />', () => {
       const selectRegionMenuScreen = renderSelectRegionMenuScreen();
 
-      expect(selectRegionMenuScreen.getByA11yLabel('africa')).toBeTruthy();
-      expect(selectRegionMenuScreen.getByA11yLabel('americas')).toBeTruthy();
-      expect(selectRegionMenuScreen.getByA11yLabel('asia')).toBeTruthy();
-      expect(selectRegionMenuScreen.getByA11yLabel('europe')).toBeTruthy();
-      expect(selectRegionMenuScreen.getByA11yLabel('oceania')).toBeTruthy();
+      expect(selectRegionMenuScreen.getByTestId('africa')).toBeTruthy();
+      expect(selectRegionMenuScreen.getByTestId('americas')).toBeTruthy();
+      expect(selectRegionMenuScreen.getByTestId('asia')).toBeTruthy();
+      expect(selectRegionMenuScreen.getByTestId('europe')).toBeTruthy();
+      expect(selectRegionMenuScreen.getByTestId('oceania')).toBeTruthy();
     });
   });
 });

@@ -1,30 +1,47 @@
-const e2e = require('./config/e2e');
+const config = require("./e2e/e2e.config.json");
 
 module.exports = {
   testRunner: 'jest',
-  runnerConfig: './__e2e__/config.json',
-  configurations: {
-    'ios.sim.debug': {
-      binaryPath: `ios/build/Build/Products/Debug-iphonesimulator/${e2e.projectName}.app`,
-      build: `xcodebuild -workspace ios/${e2e.projectName}.xcworkspace -scheme ${e2e.projectName} -configuration Debug -sdk iphonesimulator -derivedDataPath ios/build`,
+  runnerConfig: './e2e/config.json',
+  apps: {
+    ios: {
+      type: 'ios.app',
+      binaryPath: config.ios.binaryPath,
+      build: config.ios.build,
+    },
+    android: {
+      type: 'android.apk',
+      binaryPath: config.android.binaryPath,
+      build: config.android.build,
+    },
+  },
+  devices: {
+    simulator: {
       type: 'ios.simulator',
       device: {
-        name: e2e.iosDeviceType,
+        type: config.ios.device.type,
       },
     },
-    'android.emu.debug': {
-      binaryPath: 'android/app/build/outputs/apk/debug/app-debug.apk',
-      build:
-        'cd android && ./gradlew assembleDebug assembleAndroidTest -DtestBuildType=debug && cd -',
+    emulator: {
       type: 'android.emulator',
       device: {
-        avdName: e2e.androidDeviceName,
+        avdName: config.android.device.avdName,
       },
     },
   },
-  behavior: {
-    init: {
-      exposeGlobals: false,
+  configurations: {
+    ios: {
+      device: 'simulator',
+      app: 'ios',
+    },
+    android: {
+      device: 'emulator',
+      app: 'android',
     },
   },
+  behaviour: {
+    init: {
+      "exposeGlobals": false,
+    },
+  }
 };
