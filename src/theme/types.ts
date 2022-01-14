@@ -3,7 +3,7 @@ import { ImageStyle, TextStyle, ViewStyle } from 'react-native';
 export type AppearanceProvider<T> = () => T;
 
 export type NamedStyles<T> = {
-  [P in keyof T]: ImageStyle | ViewStyle | TextStyle;
+  [P in keyof T]: ViewStyle | TextStyle | ImageStyle;
 };
 
 export type StyleSheetData<N extends string, T, S> = {

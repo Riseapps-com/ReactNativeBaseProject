@@ -2,7 +2,6 @@ import { mocked } from '~modules/tests';
 
 import * as axiosBase from '../../axiosBase';
 import { country } from '../__data__';
-import { ALL, BY_CODE, BY_REGION } from '../config';
 import * as countriesApi from '../countriesApi';
 import { Region } from '../types';
 
@@ -20,7 +19,7 @@ describe('api', () => {
           const result = await countriesApi.getAllCountries();
 
           expect(mockedGet).toBeCalledTimes(1);
-          expect(mockedGet).toBeCalledWith(ALL);
+          expect(mockedGet).toBeCalledWith('all');
           expect(result).toEqual([country]);
         });
       });
@@ -33,7 +32,7 @@ describe('api', () => {
           const result = await countriesApi.getCountriesByRegion(region);
 
           expect(mockedGet).toBeCalledTimes(1);
-          expect(mockedGet).toBeCalledWith(`${BY_REGION}/${region}`);
+          expect(mockedGet).toBeCalledWith(`region/${region}`);
           expect(result).toEqual([country]);
         });
       });
@@ -46,7 +45,7 @@ describe('api', () => {
           const result = await countriesApi.getCountryByCode(code);
 
           expect(mockedGet).toBeCalledTimes(1);
-          expect(mockedGet).toBeCalledWith(`${BY_CODE}/${code}`);
+          expect(mockedGet).toBeCalledWith(`alpha/${code}`);
           expect(result).toEqual(country);
         });
       });

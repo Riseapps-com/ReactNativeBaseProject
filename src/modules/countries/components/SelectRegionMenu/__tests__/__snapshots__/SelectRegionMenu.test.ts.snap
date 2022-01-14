@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`countries <SelectRegionMenu /> render <SelectRegionMenu /> 1`] = `
+exports[`countries <SelectRegionMenu /> renders <SelectRegionMenu /> 1`] = `
 <View
   style={
     Object {
@@ -11,6 +11,11 @@ exports[`countries <SelectRegionMenu /> render <SelectRegionMenu /> 1`] = `
 >
   <View
     accessibilityLabel="africa"
+    accessibilityState={
+      Object {
+        "disabled": false,
+      }
+    }
     accessible={true}
     collapsable={false}
     focusable={true}
@@ -41,13 +46,17 @@ exports[`countries <SelectRegionMenu /> render <SelectRegionMenu /> 1`] = `
   >
     <View
       style={
-        Object {
-          "backgroundColor": "#0036A7",
-          "borderRadius": 8,
-          "flex": 1,
-          "flexDirection": "row",
-          "overflow": "hidden",
-        }
+        Array [
+          Object {
+            "borderRadius": 8,
+            "overflow": "hidden",
+          },
+          Object {
+            "backgroundColor": "#0036A7",
+            "flex": 1,
+            "flexDirection": "row",
+          },
+        ]
       }
     >
       <View
@@ -120,6 +129,11 @@ exports[`countries <SelectRegionMenu /> render <SelectRegionMenu /> 1`] = `
   </View>
   <View
     accessibilityLabel="americas"
+    accessibilityState={
+      Object {
+        "disabled": false,
+      }
+    }
     accessible={true}
     collapsable={false}
     focusable={true}
@@ -150,13 +164,17 @@ exports[`countries <SelectRegionMenu /> render <SelectRegionMenu /> 1`] = `
   >
     <View
       style={
-        Object {
-          "backgroundColor": "#0036A7",
-          "borderRadius": 8,
-          "flex": 1,
-          "flexDirection": "row",
-          "overflow": "hidden",
-        }
+        Array [
+          Object {
+            "borderRadius": 8,
+            "overflow": "hidden",
+          },
+          Object {
+            "backgroundColor": "#0036A7",
+            "flex": 1,
+            "flexDirection": "row",
+          },
+        ]
       }
     >
       <View
@@ -229,6 +247,11 @@ exports[`countries <SelectRegionMenu /> render <SelectRegionMenu /> 1`] = `
   </View>
   <View
     accessibilityLabel="asia"
+    accessibilityState={
+      Object {
+        "disabled": false,
+      }
+    }
     accessible={true}
     collapsable={false}
     focusable={true}
@@ -259,13 +282,17 @@ exports[`countries <SelectRegionMenu /> render <SelectRegionMenu /> 1`] = `
   >
     <View
       style={
-        Object {
-          "backgroundColor": "#0036A7",
-          "borderRadius": 8,
-          "flex": 1,
-          "flexDirection": "row",
-          "overflow": "hidden",
-        }
+        Array [
+          Object {
+            "borderRadius": 8,
+            "overflow": "hidden",
+          },
+          Object {
+            "backgroundColor": "#0036A7",
+            "flex": 1,
+            "flexDirection": "row",
+          },
+        ]
       }
     >
       <View
@@ -338,6 +365,11 @@ exports[`countries <SelectRegionMenu /> render <SelectRegionMenu /> 1`] = `
   </View>
   <View
     accessibilityLabel="europe"
+    accessibilityState={
+      Object {
+        "disabled": false,
+      }
+    }
     accessible={true}
     collapsable={false}
     focusable={true}
@@ -368,13 +400,17 @@ exports[`countries <SelectRegionMenu /> render <SelectRegionMenu /> 1`] = `
   >
     <View
       style={
-        Object {
-          "backgroundColor": "#0036A7",
-          "borderRadius": 8,
-          "flex": 1,
-          "flexDirection": "row",
-          "overflow": "hidden",
-        }
+        Array [
+          Object {
+            "borderRadius": 8,
+            "overflow": "hidden",
+          },
+          Object {
+            "backgroundColor": "#0036A7",
+            "flex": 1,
+            "flexDirection": "row",
+          },
+        ]
       }
     >
       <View
@@ -447,6 +483,11 @@ exports[`countries <SelectRegionMenu /> render <SelectRegionMenu /> 1`] = `
   </View>
   <View
     accessibilityLabel="oceania"
+    accessibilityState={
+      Object {
+        "disabled": false,
+      }
+    }
     accessible={true}
     collapsable={false}
     focusable={true}
@@ -477,13 +518,17 @@ exports[`countries <SelectRegionMenu /> render <SelectRegionMenu /> 1`] = `
   >
     <View
       style={
-        Object {
-          "backgroundColor": "#0036A7",
-          "borderRadius": 8,
-          "flex": 1,
-          "flexDirection": "row",
-          "overflow": "hidden",
-        }
+        Array [
+          Object {
+            "borderRadius": 8,
+            "overflow": "hidden",
+          },
+          Object {
+            "backgroundColor": "#0036A7",
+            "flex": 1,
+            "flexDirection": "row",
+          },
+        ]
       }
     >
       <View

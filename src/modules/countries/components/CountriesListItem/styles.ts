@@ -12,11 +12,7 @@ export default styleSheetFactory(theme => ({
     marginStart: sizes.SPACING_M,
   },
 
-  subtitle: {
-    color: theme.disabled,
-  },
+  subtitle: { color: theme.disabled },
 
-  icon: {
-    width: sizes.SPACING_XL,
-  },
+  icon: { width: sizes.SPACING_XL },
 }));

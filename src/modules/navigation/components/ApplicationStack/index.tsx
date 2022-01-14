@@ -20,13 +20,7 @@ import themedStyles from './styles';
 
 const Stack = createStackNavigator();
 
-const ANDROID_TOP_BAR_HEIGHT = 56;
-const IOS_TOP_BAR_HEIGHT = 88;
-
-const TOP_BAR_HEIGHT = Platform.select({
-  ios: IOS_TOP_BAR_HEIGHT,
-  android: ANDROID_TOP_BAR_HEIGHT,
-});
+const TOP_BAR_HEIGHT = Platform.select({ ios: 88, android: 56 });
 
 const ApplicationStack: React.FC = () => {
   const { t } = useTranslation();

@@ -11,7 +11,7 @@ export type AppContainerProps = {
 const AppContainer: React.FC<AppContainerProps> = props => {
   return (
     <Portal.Host>
-      <StatusBar barStyle="dark-content" />
+      <StatusBar barStyle="light-content" />
       {props.children}
       <StatusMessage />
     </Portal.Host>

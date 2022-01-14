@@ -8,9 +8,7 @@ const BASE_URL = __DEV__ ? DEV_URL : PROD_URL;
 
 export const instance: AxiosInstance = axios.create({
   baseURL: BASE_URL,
-  headers: {
-    'Content-Type': 'application/json',
-  },
+  headers: { 'Content-Type': 'application/json' },
   timeout: AXIOS_REQUEST_TIMEOUT,
 });
 

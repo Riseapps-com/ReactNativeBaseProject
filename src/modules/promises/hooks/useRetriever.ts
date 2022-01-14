@@ -8,7 +8,7 @@ const useRetriever = <T>(
   retrieveFnDeps: any[],
   defaultValue?: T,
   runOnFocus = false
-): [T, boolean, () => Promise<void>] => {
+): [T, boolean, () => void] => {
   const isMounted = useRef<boolean>();
 
   const [isLoading, setIsLoading] = useState(true);
@@ -26,7 +26,7 @@ const useRetriever = <T>(
     };
   }, []);
 
-  const retrieve = useCallback(async () => {
+  const retrieve = useCallback(() => {
     const setIsLoadingCallback = (isLoadingInner: boolean): void => {
       if (isMounted.current) setIsLoading(isLoadingInner);
     };
@@ -35,7 +35,7 @@ const useRetriever = <T>(
       if (isMounted.current) setResult(resultInner);
     };
 
-    await doAsync<T>(retrieveFnCallback, setIsLoadingCallback, setResultCallback);
+    doAsync<T>(retrieveFnCallback, setIsLoadingCallback, setResultCallback);
   }, [retrieveFnCallback, doAsync]);
 
   useEffect(() => {

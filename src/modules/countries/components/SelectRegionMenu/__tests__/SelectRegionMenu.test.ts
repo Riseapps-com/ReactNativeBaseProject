@@ -13,7 +13,7 @@ const renderSelectRegionMenu = () => renderComponent(SelectRegionMenu);
 
 describe('countries', () => {
   describe('<SelectRegionMenu />', () => {
-    it('render <SelectRegionMenu />', () => {
+    it('renders <SelectRegionMenu />', () => {
       const selectRegionMenu = renderSelectRegionMenu();
 
       expect(selectRegionMenu.getByA11yLabel('africa')).toBeTruthy();

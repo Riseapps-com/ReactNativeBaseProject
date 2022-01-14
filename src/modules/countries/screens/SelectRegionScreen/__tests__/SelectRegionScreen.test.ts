@@ -6,7 +6,7 @@ const renderSelectRegionMenuScreen = () => renderComponent(SelectRegionMenuScree
 
 describe('countries', () => {
   describe('<SelectRegionMenuScreen />', () => {
-    it('render <SelectRegionMenuScreen />', () => {
+    it('renders <SelectRegionMenuScreen />', () => {
       const selectRegionMenuScreen = renderSelectRegionMenuScreen();
 
       expect(selectRegionMenuScreen.getByA11yLabel('africa')).toBeTruthy();

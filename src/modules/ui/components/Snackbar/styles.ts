@@ -1,19 +1,11 @@
 import { styleSheetFactory } from '~theme';
 
 export default styleSheetFactory(theme => ({
-  info: {
-    backgroundColor: theme.accent,
-  },
+  info: { backgroundColor: theme.accent },
 
-  success: {
-    backgroundColor: theme.primary,
-  },
+  success: { backgroundColor: theme.primary },
 
-  error: {
-    backgroundColor: theme.error,
-  },
+  error: { backgroundColor: theme.error },
 
-  message: {
-    color: theme.secondaryText,
-  },
+  message: { color: theme.secondaryText },
 }));

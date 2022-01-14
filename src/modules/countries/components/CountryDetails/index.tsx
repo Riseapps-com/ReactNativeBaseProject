@@ -1,7 +1,7 @@
 import { useRoute } from '@react-navigation/native';
-import React, { useCallback } from 'react';
+import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { ImageBackground, View } from 'react-native';
+import { ImageBackground, ScrollView } from 'react-native';
 
 import { useRetriever } from '~modules/promises';
 import { ActivityIndicator, Text } from '~modules/ui';
@@ -9,6 +9,8 @@ import { useTheme } from '~theme';
 
 import { countriesApi } from '../../services';
 import { CountryDetailsRoute } from '../../types';
+import Card from '../Card';
+import ContentRow from './ContentRow';
 import themedStyles from './styles';
 
 const CountryDetails: React.FC = () => {
@@ -18,44 +20,30 @@ const CountryDetails: React.FC = () => {
   const { code } = params;
   const [countryDetails, isLoadingCountryDetails] = useRetriever(() => countriesApi.getCountryDetails(code), [code]);
 
-  const contentRow = useCallback(
-    (title: string, value?: string) => {
-      return (
-        <View style={styles.rowContainer}>
-          <Text fontStyle="bold" style={styles.title}>{`${title}: `}</Text>
-          <Text fontStyle="bold" style={styles.value}>
-            {value || '-'}
-          </Text>
-        </View>
-      );
-    },
-    [styles.rowContainer, styles.title, styles.value]
-  );
-
   if (isLoadingCountryDetails) return <ActivityIndicator />;
 
   return (
-    <View style={styles.cardContainer}>
-      <View style={styles.contentContainer}>
+    <ScrollView accessibilityLabel="Country details" style={styles.container}>
+      <Card style={styles.cardContainer} contentStyle={styles.contentContainer}>
         <ImageBackground style={styles.flagContainer} resizeMode="cover" source={{ uri: countryDetails.flagLink }}>
           <Text numberOfLines={1} style={styles.name} size="xl" fontStyle="bold">
             {countryDetails.name}
           </Text>
         </ImageBackground>
 
-        {contentRow(t('capital'), countryDetails.capital)}
+        <ContentRow title={t('capital')} value={countryDetails.capital} />
 
-        {contentRow(t('region'), countryDetails.region)}
+        <ContentRow title={t('region')} value={countryDetails.region} />
 
-        {contentRow(t('subregion'), countryDetails.subregion)}
+        <ContentRow title={t('subregion')} value={countryDetails.subregion} />
 
-        {contentRow(t('population'), countryDetails.population.toString())}
+        <ContentRow title={t('population')} value={countryDetails.population} />
 
-        {contentRow(t('currencies'), countryDetails.currencies)}
+        <ContentRow title={t('currencies')} value={countryDetails.currencies} />
 
-        {contentRow(t('languages'), countryDetails.languages)}
-      </View>
-    </View>
+        <ContentRow title={t('languages')} value={countryDetails.languages} />
+      </Card>
+    </ScrollView>
   );
 };
 

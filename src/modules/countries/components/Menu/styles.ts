@@ -6,7 +6,5 @@ export default styleSheetFactory(() => ({
     justifyContent: 'space-between',
   },
 
-  menuItem: {
-    marginVertical: sizes.SPACING_M,
-  },
+  menuItem: { marginVertical: sizes.SPACING_M },
 }));

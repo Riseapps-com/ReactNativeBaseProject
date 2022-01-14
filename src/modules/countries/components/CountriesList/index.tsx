@@ -42,7 +42,7 @@ const CountriesList: React.FC = () => {
     ),
     [handleItemPress]
   );
-  const keyExtractor = (localCountry: LocalCountry): string => localCountry.name;
+  const keyExtractor = useCallback((localCountry: LocalCountry) => localCountry.name, []);
 
   if (isLoadingCountries) return <ActivityIndicator />;
 

@@ -1,12 +1,9 @@
 import React from 'react';
-import { StatusBar, View } from 'react-native';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
-import { useTheme } from '~theme';
+import { ScreenContainer } from '~modules/ui';
 
 import { SelectRegionMenu } from '../../components';
 import { SelectRegionNavigation, SelectRegionRoute } from '../../types';
-import themedStyles from './styles';
 
 export type SelectRegionScreenProps = {
   navigation: SelectRegionNavigation;
@@ -14,15 +11,10 @@ export type SelectRegionScreenProps = {
 };
 
 const SelectRegionScreen: React.FC<SelectRegionScreenProps> = () => {
-  const { bottom } = useSafeAreaInsets();
-  const [styles] = useTheme(themedStyles);
-
   return (
-    <View style={[styles.selectRegionScreen, { marginBottom: bottom }]}>
-      <StatusBar barStyle="light-content" />
-
+    <ScreenContainer withSafeBottomMargin>
       <SelectRegionMenu />
-    </View>
+    </ScreenContainer>
   );
 };
 

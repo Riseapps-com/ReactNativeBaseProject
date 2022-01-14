@@ -1,9 +1,10 @@
 import React, { useCallback } from 'react';
-import { Image, StyleProp, TouchableOpacity, View, ViewStyle } from 'react-native';
+import { Image, StyleProp, View, ViewStyle } from 'react-native';
 
-import { DEFAULT_ACTIVE_OPACITY, Text } from '~modules/ui';
+import { Text } from '~modules/ui';
 import { useTheme } from '~theme';
 
+import Card from '../Card';
 import themedStyles from './styles';
 
 export type MenuItemProps = {
@@ -22,24 +23,23 @@ const MenuItem: React.FC<MenuItemProps> = props => {
   const handleItemPress = useCallback(() => onItemPress && onItemPress(props.index), [onItemPress, props.index]);
 
   return (
-    <TouchableOpacity
-      activeOpacity={DEFAULT_ACTIVE_OPACITY}
+    <Card
       accessibilityLabel={props.accessibilityLabel}
-      onPress={handleItemPress}
       style={[styles.container, props.style]}
+      contentStyle={styles.contentContainer}
+      onPress={handleItemPress}
+      activeOpacity={0.7}
     >
-      <View style={styles.contentContainer}>
-        <View style={styles.imageContainer}>
-          <Image style={styles.image} source={props.image} />
-        </View>
-
-        <View style={styles.titleContainer}>
-          <Text numberOfLines={2} fontStyle="bold" style={styles.title}>
-            {props.title}
-          </Text>
-        </View>
+      <View style={styles.imageContainer}>
+        <Image style={styles.image} source={props.image} />
       </View>
-    </TouchableOpacity>
+
+      <View style={styles.titleContainer}>
+        <Text numberOfLines={2} fontStyle="bold" style={styles.title}>
+          {props.title}
+        </Text>
+      </View>
+    </Card>
   );
 };
 

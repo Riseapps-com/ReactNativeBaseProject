@@ -1,23 +1,7 @@
-import { Platform } from 'react-native';
-
-import { ELEVATION, SHADOW_HEIGHT, SHADOW_OPACITY, SHADOW_RADIUS } from '~modules/ui';
 import { sizes, styleSheetFactory } from '~theme';
-
-const MENU_IMAGE_WIDTH = 48;
 
 export default styleSheetFactory(theme => ({
   container: {
-    ...Platform.select({
-      ios: {
-        shadowColor: theme.backdrop,
-        shadowOffset: {
-          width: 0,
-          height: SHADOW_HEIGHT,
-        },
-        shadowOpacity: SHADOW_OPACITY,
-        shadowRadius: SHADOW_RADIUS,
-      },
-    }),
     marginHorizontal: sizes.SPACING_S,
     marginVertical: sizes.SPACING_S,
     padding: sizes.SPACING_S,
@@ -25,9 +9,6 @@ export default styleSheetFactory(theme => ({
   },
 
   contentContainer: {
-    ...Platform.select({ android: { elevation: ELEVATION } }),
-    overflow: 'hidden',
-    borderRadius: sizes.SPACING_S,
     flexDirection: 'row',
     backgroundColor: theme.primary,
     flex: 1,
@@ -41,8 +22,8 @@ export default styleSheetFactory(theme => ({
   },
 
   image: {
-    width: MENU_IMAGE_WIDTH,
-    height: MENU_IMAGE_WIDTH,
+    width: 48,
+    height: 48,
   },
 
   titleContainer: {

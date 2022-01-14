@@ -1,32 +1,13 @@
-import { Platform } from 'react-native';
-
-import { ELEVATION, SHADOW_HEIGHT, SHADOW_OPACITY, SHADOW_RADIUS } from '~modules/ui';
 import { sizes, styleSheetFactory } from '~theme';
 
 const FLAG_HEIGHT = 200;
 
 export default styleSheetFactory(theme => ({
-  cardContainer: {
-    ...Platform.select({
-      ios: {
-        shadowColor: theme.backdrop,
-        shadowOffset: {
-          width: 0,
-          height: SHADOW_HEIGHT,
-        },
-        shadowOpacity: SHADOW_OPACITY,
-        shadowRadius: SHADOW_RADIUS,
-      },
-    }),
-    margin: sizes.SPACING_M,
-  },
+  container: { flexGrow: 1 },
 
-  contentContainer: {
-    ...Platform.select({ android: { elevation: ELEVATION } }),
-    borderRadius: sizes.SPACING_S,
-    backgroundColor: theme.surface,
-    overflow: 'hidden',
-  },
+  cardContainer: { margin: sizes.SPACING_M },
+
+  contentContainer: { backgroundColor: theme.surface },
 
   flagContainer: {
     width: '100%',
@@ -47,9 +28,7 @@ export default styleSheetFactory(theme => ({
     flexDirection: 'row',
   },
 
-  title: {
-    flex: 1,
-  },
+  title: { flex: 1 },
 
   value: {
     flex: 1,

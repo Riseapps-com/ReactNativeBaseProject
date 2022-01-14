@@ -2,6 +2,11 @@
 
 exports[`countries <MenuItem /> renders <MenuItem /> 1`] = `
 <View
+  accessibilityState={
+    Object {
+      "disabled": false,
+    }
+  }
   accessible={true}
   collapsable={false}
   focusable={true}
@@ -32,13 +37,17 @@ exports[`countries <MenuItem /> renders <MenuItem /> 1`] = `
 >
   <View
     style={
-      Object {
-        "backgroundColor": "#0036A7",
-        "borderRadius": 8,
-        "flex": 1,
-        "flexDirection": "row",
-        "overflow": "hidden",
-      }
+      Array [
+        Object {
+          "borderRadius": 8,
+          "overflow": "hidden",
+        },
+        Object {
+          "backgroundColor": "#0036A7",
+          "flex": 1,
+          "flexDirection": "row",
+        },
+      ]
     }
   >
     <View

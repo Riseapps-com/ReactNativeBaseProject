@@ -1,12 +1,9 @@
 import React from 'react';
-import { StatusBar, View } from 'react-native';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
-import { useTheme } from '~theme';
+import { ScreenContainer } from '~modules/ui';
 
 import { Menu } from '../../components';
 import { MenuNavigation, MenuRoute } from '../../types';
-import themedStyles from './styles';
 
 export type MenuScreenProps = {
   navigation: MenuNavigation;
@@ -14,15 +11,10 @@ export type MenuScreenProps = {
 };
 
 const MenuScreen: React.FC<MenuScreenProps> = () => {
-  const { bottom } = useSafeAreaInsets();
-  const [styles] = useTheme(themedStyles);
-
   return (
-    <View style={[styles.menuScreen, { marginBottom: bottom }]}>
-      <StatusBar barStyle="light-content" />
-
+    <ScreenContainer withSafeBottomMargin>
       <Menu />
-    </View>
+    </ScreenContainer>
   );
 };
 

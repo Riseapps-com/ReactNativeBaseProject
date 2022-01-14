@@ -153,7 +153,6 @@ module.exports = {
     // jsx
     'react/jsx-closing-tag-location': 'error',
     'react/jsx-curly-newline': 'error',
-    'react/jsx-handler-names': ['error', { checkLocalVariables: true, checkInlineFunction: true }],
     'react/jsx-no-literals': 'error',
     'react/jsx-no-useless-fragment': 'error',
     'react/jsx-pascal-case': 'error',
