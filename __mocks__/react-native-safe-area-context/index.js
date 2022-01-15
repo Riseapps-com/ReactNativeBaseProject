@@ -2,9 +2,9 @@
 
 module.exports = {
   useSafeAreaInsets: () => ({
-    top: 16,
-    right: 8,
+    top: 8,
     bottom: 16,
-    left: 8,
+    left: 24,
+    right: 32,
   }),
 };

@@ -5,7 +5,6 @@ import { mocked, renderNavigationComponent } from '~modules/tests';
 
 import { localCountry } from '../../../__data__';
 import { countriesApi } from '../../../services';
-import { LocalCountry } from '../../../types';
 import CountryDetails from '../index';
 
 jest.mock('../../../services');
@@ -29,21 +28,6 @@ describe('countries', () => {
       act(() => jest.runAllTimers());
 
       expect(countryDetails.getByText(localCountry.name)).toBeTruthy();
-    });
-
-    it('renders placeholder if data is not specified', () => {
-      const country: LocalCountry = {
-        ...localCountry,
-        capital: undefined,
-      };
-
-      mockedCountriesApi.getCountryDetails.mockImplementationOnce(() => Promise.resolve(country));
-
-      const countryDetails = renderCountryDetails();
-
-      act(() => jest.runAllTimers());
-
-      expect(countryDetails.getByText('-')).toBeTruthy();
     });
 
     it('fetches country by code', () => {

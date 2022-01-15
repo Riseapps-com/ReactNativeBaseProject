@@ -15,7 +15,9 @@ const Card: React.FC<CardProps> = props => {
 
   return (
     <TouchableOpacity {...restProps} onPress={onPress} disabled={!onPress} style={[styles.container, props.style]}>
-      <View style={[styles.contentContainer, props.contentStyle]}>{props.children}</View>
+      <View accessibilityLabel="Content container" style={[styles.contentContainer, props.contentStyle]}>
+        {props.children}
+      </View>
     </TouchableOpacity>
   );
 };

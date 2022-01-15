@@ -45,6 +45,7 @@ exports[`countries <Menu /> renders <Menu /> 1`] = `
     testID="All countries"
   >
     <View
+      accessibilityLabel="Content container"
       style={
         Array [
           Object {
@@ -163,6 +164,7 @@ exports[`countries <Menu /> renders <Menu /> 1`] = `
     testID="Countries by region"
   >
     <View
+      accessibilityLabel="Content container"
       style={
         Array [
           Object {

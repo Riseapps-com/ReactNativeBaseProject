@@ -37,7 +37,7 @@ const ScreenContainer: React.FC<ScreenContainerProps> = props => {
   return (
     <>
       <StatusBar barStyle={statusBarStyle || 'light-content'} />
-      <View {...restProps} style={containerStyles}>
+      <View {...restProps} accessibilityLabel="Screen container" style={containerStyles}>
         {props.children}
       </View>
     </>

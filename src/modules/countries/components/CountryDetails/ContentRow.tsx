@@ -15,7 +15,7 @@ const ContentRow: React.FC<ContentRowProps> = props => {
   const [styles] = useTheme(themedStyles);
 
   return (
-    <View style={styles.rowContainer}>
+    <View accessibilityLabel="Content row" style={styles.rowContainer}>
       <Text fontStyle="bold" style={styles.title}>{`${props.title}: `}</Text>
       <Text fontStyle="bold" style={styles.value}>
         {props.value || '-'}

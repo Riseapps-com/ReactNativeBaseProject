@@ -36,6 +36,7 @@ exports[`countries <MenuItem /> renders <MenuItem /> 1`] = `
   }
 >
   <View
+    accessibilityLabel="Content container"
     style={
       Array [
         Object {

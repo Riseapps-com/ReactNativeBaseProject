@@ -1,0 +1,111 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ui <Button /> renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#0036A7",
+      "borderColor": "transparent",
+      "borderRadius": 8,
+      "borderStyle": "solid",
+      "borderWidth": 0,
+      "elevation": 2,
+      "minWidth": 64,
+      "shadowColor": "#000000",
+      "shadowOffset": Object {
+        "height": 0.75,
+        "width": 0,
+      },
+      "shadowOpacity": 0.24,
+      "shadowRadius": 1.5,
+    }
+  }
+>
+  <View
+    accessibilityRole="button"
+    accessibilityState={
+      Object {
+        "disabled": false,
+      }
+    }
+    accessible={true}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Array [
+        Object {
+          "overflow": "hidden",
+        },
+        Object {
+          "borderRadius": 8,
+        },
+      ]
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "justifyContent": "center",
+          },
+          Object {
+            "height": 48,
+          },
+        ]
+      }
+    >
+      <Text
+        numberOfLines={1}
+        selectable={false}
+        style={
+          Array [
+            Object {
+              "color": "#000000",
+              "fontFamily": "System",
+              "fontWeight": "400",
+            },
+            Object {
+              "textAlign": "left",
+            },
+            Array [
+              Object {
+                "letterSpacing": 1,
+                "marginHorizontal": 16,
+                "marginVertical": 9,
+                "textAlign": "center",
+              },
+              undefined,
+              false,
+              Object {
+                "color": "#ffffff",
+                "fontFamily": "System",
+                "fontWeight": "500",
+              },
+              Object {
+                "fontFamily": "System",
+                "fontWeight": "500",
+              },
+              Array [
+                Object {
+                  "color": "#FFFFFF",
+                },
+                undefined,
+              ],
+            ],
+          ]
+        }
+      >
+        Button text
+      </Text>
+    </View>
+  </View>
+</View>
+`;

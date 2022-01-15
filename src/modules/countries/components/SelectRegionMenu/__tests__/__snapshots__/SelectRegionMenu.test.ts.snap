@@ -45,6 +45,7 @@ exports[`countries <SelectRegionMenu /> renders <SelectRegionMenu /> 1`] = `
     testID="africa"
   >
     <View
+      accessibilityLabel="Content container"
       style={
         Array [
           Object {
@@ -163,6 +164,7 @@ exports[`countries <SelectRegionMenu /> renders <SelectRegionMenu /> 1`] = `
     testID="americas"
   >
     <View
+      accessibilityLabel="Content container"
       style={
         Array [
           Object {
@@ -281,6 +283,7 @@ exports[`countries <SelectRegionMenu /> renders <SelectRegionMenu /> 1`] = `
     testID="asia"
   >
     <View
+      accessibilityLabel="Content container"
       style={
         Array [
           Object {
@@ -399,6 +402,7 @@ exports[`countries <SelectRegionMenu /> renders <SelectRegionMenu /> 1`] = `
     testID="europe"
   >
     <View
+      accessibilityLabel="Content container"
       style={
         Array [
           Object {
@@ -517,6 +521,7 @@ exports[`countries <SelectRegionMenu /> renders <SelectRegionMenu /> 1`] = `
     testID="oceania"
   >
     <View
+      accessibilityLabel="Content container"
       style={
         Array [
           Object {
