@@ -4,3 +4,5 @@ ios
 coverage
 
 .eslintrc.js
+babel.config.js
+lint-staged.config.js

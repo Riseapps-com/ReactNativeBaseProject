@@ -8,6 +8,7 @@ const BASE_URL = __DEV__ ? DEV_URL : PROD_URL;
 
 export const instance: AxiosInstance = axios.create({
   baseURL: BASE_URL,
+  // eslint-disable-next-line @typescript-eslint/naming-convention
   headers: { 'Content-Type': 'application/json' },
   timeout: AXIOS_REQUEST_TIMEOUT,
 });

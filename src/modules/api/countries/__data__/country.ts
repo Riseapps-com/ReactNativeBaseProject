@@ -54,6 +54,7 @@ export const country: Country = {
     openStreetMaps: 'https://www.openstreetmap.org/relation/60199',
   },
   population: 44134693,
+  // eslint-disable-next-line @typescript-eslint/naming-convention
   gini: { '2019': 26.6 },
   flags: { svg: 'https://flagcdn.com/ua.svg', png: 'https://flagcdn.com/w320/ua.png' },
 };

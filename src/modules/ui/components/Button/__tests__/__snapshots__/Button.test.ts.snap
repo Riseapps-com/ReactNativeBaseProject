@@ -2,6 +2,7 @@
 
 exports[`ui <Button /> renders correctly 1`] = `
 <View
+  collapsable={false}
   style={
     Object {
       "backgroundColor": "#0036A7",

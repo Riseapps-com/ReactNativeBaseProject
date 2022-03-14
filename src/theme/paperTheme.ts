@@ -8,18 +8,10 @@ import { dark, light } from './config';
 import { Theme } from './types';
 
 const defaultFonts: Fonts = {
-  regular: {
-    fontFamily: getFont('regular'),
-  },
-  medium: {
-    fontFamily: getFont('medium'),
-  },
-  light: {
-    fontFamily: getFont('light'),
-  },
-  thin: {
-    fontFamily: getFont('thin'),
-  },
+  regular: { fontFamily: getFont('regular') },
+  medium: { fontFamily: getFont('medium') },
+  light: { fontFamily: getFont('light') },
+  thin: { fontFamily: getFont('thin') },
 };
 
 const isDark = Appearance.getColorScheme() === 'dark';

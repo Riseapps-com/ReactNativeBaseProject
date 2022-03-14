@@ -86,6 +86,7 @@ exports[`errors <ErrorScreen /> should render correctly 1`] = `
     </Text>
   </View>
   <View
+    collapsable={false}
     style={
       Object {
         "backgroundColor": "#0036A7",
