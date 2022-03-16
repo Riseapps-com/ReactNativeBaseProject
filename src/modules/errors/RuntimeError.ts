@@ -1,5 +1,6 @@
 import AppError from './AppError';
-import { ErrorCode, ErrorDetails } from './types';
+
+import type { ErrorCode, ErrorDetails } from './types';
 
 export default class RuntimeError extends AppError {
   constructor(code: ErrorCode, message?: string, details: ErrorDetails = {}) {

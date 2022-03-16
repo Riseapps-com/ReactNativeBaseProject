@@ -1,9 +1,11 @@
-import React, { Component, ErrorInfo } from 'react';
+import React, { Component } from 'react';
 
 import { logger } from '~modules/logger/services';
 
 import RuntimeError from '../../RuntimeError';
 import ErrorScreen from '../ErrorScreen';
+
+import type { ErrorInfo } from 'react';
 
 class ErrorBoundary extends Component {
   public state = {

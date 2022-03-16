@@ -54,7 +54,7 @@ exports[`errors <ErrorScreen /> should render correctly 1`] = `
         ]
       }
     >
-      errorBoundaryTitle
+      errors.title
     </Text>
     <Text
       style={
@@ -82,7 +82,7 @@ exports[`errors <ErrorScreen /> should render correctly 1`] = `
         ]
       }
     >
-      errorBoundarySubtitle
+      errors.subtitle
     </Text>
   </View>
   <View
@@ -188,7 +188,7 @@ exports[`errors <ErrorScreen /> should render correctly 1`] = `
             ]
           }
         >
-          dismiss
+          errors.dismiss
         </Text>
       </View>
     </View>

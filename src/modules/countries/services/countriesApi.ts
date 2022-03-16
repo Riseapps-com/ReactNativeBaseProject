@@ -1,9 +1,11 @@
-import { countriesApi, Region } from '~modules/api';
+import { countriesApi } from '~modules/api';
 import { dataTransformUtilities } from '~modules/dataTransforms';
 
 import { log } from '../logger';
-import { LocalCountry } from '../types';
 import * as countriesParsers from './countriesParsers';
+
+import type { LocalCountry } from '../types';
+import type { Region } from '~modules/api/countries/types';
 
 export const getAllCountries = async (): Promise<LocalCountry[]> => {
   log('getAllCountries');

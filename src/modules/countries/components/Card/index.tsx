@@ -1,9 +1,11 @@
 import React from 'react';
-import { StyleProp, TouchableOpacity, TouchableOpacityProps, View, ViewStyle } from 'react-native';
+import { TouchableOpacity, View } from 'react-native';
 
 import { useTheme } from '~theme';
 
 import themedStyles from './styles';
+
+import type { StyleProp, TouchableOpacityProps, ViewStyle } from 'react-native';
 
 export type CardProps = TouchableOpacityProps & {
   contentStyle?: StyleProp<ViewStyle>;

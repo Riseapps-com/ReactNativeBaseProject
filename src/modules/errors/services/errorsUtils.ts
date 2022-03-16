@@ -1,6 +1,8 @@
 import { I18n } from '~modules/localization';
 
-import { ErrorCode, HttpStatusCode } from '../types';
+import { HttpStatusCode } from '../types';
+
+import type { ErrorCode } from '../types';
 
 export const translateHttpStatusCode = (httpStatusCode?: number): ErrorCode => {
   if (httpStatusCode === HttpStatusCode.NOT_FOUND) {

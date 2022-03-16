@@ -1,7 +1,8 @@
-import { createStackNavigator } from '@react-navigation/stack';
 import React from 'react';
-import { useTranslation } from 'react-i18next';
 import { Platform } from 'react-native';
+
+import { createStackNavigator } from '@react-navigation/stack';
+import { useTranslation } from 'react-i18next';
 
 import { getFont } from '~assets';
 import {

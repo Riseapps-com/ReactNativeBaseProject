@@ -3,7 +3,8 @@ import React from 'react';
 import { ScreenContainer } from '~modules/ui';
 
 import { Menu } from '../../components';
-import { MenuNavigation, MenuRoute } from '../../types';
+
+import type { MenuNavigation, MenuRoute } from '../../types';
 
 export type MenuScreenProps = {
   navigation: MenuNavigation;

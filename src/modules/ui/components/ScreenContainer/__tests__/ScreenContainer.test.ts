@@ -1,6 +1,8 @@
 import { renderComponent } from '~modules/tests';
 
-import ScreenContainer, { ScreenContainerProps } from '../index';
+import ScreenContainer from '../index';
+
+import type { ScreenContainerProps } from '../index';
 
 const renderScreenContainer = (props: ScreenContainerProps = {}) => renderComponent(ScreenContainer, props);
 

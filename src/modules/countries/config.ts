@@ -1,4 +1,4 @@
-import { LocalRegion } from './types';
+import type { LocalRegion } from './types';
 
 export const MENU_SCREEN_NAME = 'MENU_SCREEN';
 export const COUNTRIES_SCREEN_NAME = 'COUNTRIES_SCREEN';

@@ -1,6 +1,7 @@
 import AppError from './AppError';
 import { errorsUtils } from './services';
-import { ErrorDetails } from './types';
+
+import type { ErrorDetails } from './types';
 
 export default class HttpRequestError extends AppError {
   status?: number;

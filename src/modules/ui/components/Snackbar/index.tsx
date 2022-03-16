@@ -1,11 +1,14 @@
 import React from 'react';
+
 import { Snackbar as NativeSnackbar } from 'react-native-paper';
 
 import { useTheme } from '~theme';
 
-import { SnackbarAction, SnackbarDuration, SnackbarKind } from '../../types';
 import Text from '../Text';
+
 import themedStyles from './styles';
+
+import type { SnackbarAction, SnackbarDuration, SnackbarKind } from '../../types';
 
 export type SnackbarProps = {
   isVisible: boolean;

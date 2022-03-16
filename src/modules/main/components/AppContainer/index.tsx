@@ -1,5 +1,6 @@
 import React from 'react';
 import { StatusBar } from 'react-native';
+
 import { Portal } from 'react-native-paper';
 
 import { StatusMessage } from '~modules/statusMessages';

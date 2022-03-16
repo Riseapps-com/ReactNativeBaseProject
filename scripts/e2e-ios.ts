@@ -1,6 +1,8 @@
-import { exec, ShellString } from 'shelljs';
+import { exec } from 'shelljs';
 
 import e2e from '../e2e/e2e.config.json';
+
+import type { ShellString } from 'shelljs';
 
 const withSimulator = process.argv.includes('--withSimulator');
 

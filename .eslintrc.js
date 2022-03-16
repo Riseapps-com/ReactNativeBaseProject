@@ -141,6 +141,7 @@ module.exports = {
     '@typescript-eslint/no-shadow': ['error'],
     '@typescript-eslint/no-unused-vars': ['error', { ignoreRestSiblings: true, "argsIgnorePattern": "^_" }],
     '@typescript-eslint/explicit-function-return-type': ['error', { allowExpressions: true }],
+    '@typescript-eslint/consistent-type-imports': ['error', { prefer: 'type-imports' }],
 
     // react
     'react/prop-types': 'off',
@@ -173,7 +174,27 @@ module.exports = {
     // simple-import-sort
     'sort-imports': 'off',
     'import/order': 'off',
-    'simple-import-sort/imports': 'error',
+    'simple-import-sort/imports': [
+      'error',
+      {
+        groups: [
+          // 1. Side effect imports
+          ['^\\u0000'],
+          // 2. React and React Native imports
+          ['^react$', '^react-native$', '^react/', '^react-native/'],
+          // 3. Any other 3rd party imports
+          ['^@?\\w'],
+          // 4. Our modules, other than the module the current file is part of
+          ['^'],
+          // 5. Other parts of the same module that the current file is part of
+          ['^\\.'],
+          // 6. Styles
+          ['^\\./styles'],
+          // 7. Types
+          ['^.*\\u0000$'],
+        ],
+      },
+    ],
     'simple-import-sort/exports': 'error',
 
     // unused-imports

@@ -1,4 +1,4 @@
-import { Font } from '../types';
+import type { Font } from '../types';
 
 const getFont = (font: Font): string => {
   switch (font) {

@@ -1,4 +1,4 @@
-import { StatusMessagesState } from './types';
+import type { StatusMessagesState } from './types';
 
 export const STATUS_MESSAGES_STATE_KEY = 'statusMessagesState';
 

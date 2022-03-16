@@ -1,11 +1,13 @@
 import React from 'react';
-import { StyleProp, TextStyle } from 'react-native';
+
 import { Text as PaperText } from 'react-native-paper';
 
 import { useTheme } from '~theme';
 
-import { TextFontStyle, TextSize } from '../../types';
 import themedStyles from './styles';
+
+import type { TextFontStyle, TextSize } from '../../types';
+import type { StyleProp, TextStyle } from 'react-native';
 
 export type TextProps = React.ComponentProps<typeof PaperText> & {
   fontStyle?: TextFontStyle;

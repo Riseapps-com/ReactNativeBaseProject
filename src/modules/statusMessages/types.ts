@@ -1,4 +1,4 @@
-import { SnackbarAction, SnackbarDuration, SnackbarKind } from '~modules/ui';
+import type { SnackbarAction, SnackbarDuration, SnackbarKind } from '~modules/ui/types';
 
 export type StatusMessageAttributes = {
   message: string;

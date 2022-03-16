@@ -1,7 +1,6 @@
-import { RouteProp } from '@react-navigation/native';
-import { StackNavigationProp } from '@react-navigation/stack';
-
-import { ApplicationParams } from '~modules/navigation';
+import type { RouteProp } from '@react-navigation/native';
+import type { StackNavigationProp } from '@react-navigation/stack';
+import type { ApplicationParams } from '~modules/navigation/types';
 
 export type LocalRegion = 'africa' | 'americas' | 'asia' | 'europe' | 'oceania';
 

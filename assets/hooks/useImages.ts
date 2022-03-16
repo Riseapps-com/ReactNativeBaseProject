@@ -1,6 +1,8 @@
 import { useColorScheme } from 'react-native';
 
-import { darkImages, Images, lightImages } from '../images/images';
+import { darkImages, lightImages } from '../images/images';
+
+import type { Images } from '../images/images';
 
 const useImages = (): Images => {
   const colorScheme = useColorScheme();

@@ -1,4 +1,4 @@
-import { NamedStyles, StyleSheetData } from '../types';
+import type { NamedStyles, StyleSheetData } from '../types';
 
 const useTheme = <T, N extends string, S extends NamedStyles<S>>(
   data: StyleSheetData<N, T, S>,

@@ -1,4 +1,4 @@
-import { LocalCountry } from '../types';
+import type { LocalCountry } from '../types';
 
 const localCountry: Omit<LocalCountry, 'id'> = {
   cca2: 'UA',

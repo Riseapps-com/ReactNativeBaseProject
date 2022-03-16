@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { Provider } from 'react-native-paper';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { RecoilRoot } from 'recoil';

@@ -1,7 +1,8 @@
+import React from 'react';
+
 import { NavigationContext } from '@react-navigation/native';
 import { renderHook } from '@testing-library/react-hooks';
 import { act } from '@testing-library/react-native';
-import React from 'react';
 
 import { mocked } from '~modules/tests';
 

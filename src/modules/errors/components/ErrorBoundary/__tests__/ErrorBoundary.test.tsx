@@ -1,10 +1,11 @@
-import { RenderAPI } from '@testing-library/react-native';
 import React, { useEffect } from 'react';
 import { View } from 'react-native';
 
 import { renderComponent } from '~modules/tests';
 
 import ErrorBoundary from '../index';
+
+import type { RenderAPI } from '@testing-library/react-native';
 
 jest.mock('../../../services');
 

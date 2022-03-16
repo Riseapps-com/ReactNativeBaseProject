@@ -1,9 +1,11 @@
-import { fireEvent, RenderAPI } from '@testing-library/react-native';
+import { fireEvent } from '@testing-library/react-native';
 
 import { I18n } from '~modules/localization';
 import { renderComponent } from '~modules/tests';
 
 import ErrorScreen from '../index';
+
+import type { RenderAPI } from '@testing-library/react-native';
 
 describe('errors', () => {
   describe('<ErrorScreen />', () => {

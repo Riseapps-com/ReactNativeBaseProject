@@ -1,5 +1,5 @@
-import { RenderAPI } from '@testing-library/react-native';
-import React from 'react';
+import type { RenderAPI } from '@testing-library/react-native';
+import type React from 'react';
 
 type MockableFunction = (...args: any[]) => any;
 type MethodKeysOf<T> = { [K in keyof T]: T[K] extends MockableFunction ? K : never }[keyof T];

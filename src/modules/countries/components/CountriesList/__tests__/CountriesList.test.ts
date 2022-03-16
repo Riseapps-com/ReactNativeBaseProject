@@ -6,8 +6,9 @@ import { mocked, renderNavigationComponent } from '~modules/tests';
 import { localCountry } from '../../../__data__';
 import { COUNTRY_DETAILS_SCREEN_NAME } from '../../../config';
 import { countriesApi } from '../../../services';
-import { LocalRegion } from '../../../types';
 import CountriesList from '../index';
+
+import type { LocalRegion } from '../../../types';
 
 jest.mock('../../../services');
 

@@ -1,10 +1,11 @@
 import { useCallback } from 'react';
+
 import { useRecoilState } from 'recoil';
 
 import { statusMessagesAtom } from '~modules/state';
-import { SnackbarAction, SnackbarDuration, SnackbarKind } from '~modules/ui';
 
-import { StatusMessageAttributes } from '../types';
+import type { StatusMessageAttributes } from '../types';
+import type { SnackbarAction, SnackbarDuration, SnackbarKind } from '~modules/ui/types';
 
 const useStatusMessage = (): ((
   message: string,

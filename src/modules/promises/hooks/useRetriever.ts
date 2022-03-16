@@ -1,9 +1,11 @@
-import { useFocusEffect } from '@react-navigation/native';
 import { useCallback, useEffect, useRef, useState } from 'react';
 
-import { AppError } from '~modules/errors';
+import { useFocusEffect } from '@react-navigation/native';
 
-import useAsync, { UseAsyncOptions } from './useAsync';
+import useAsync from './useAsync';
+
+import type { UseAsyncOptions } from './useAsync';
+import type { AppError } from '~modules/errors';
 
 type UseRetrieverReturn<T> = [
   OptionalNullable<T>,

@@ -3,7 +3,8 @@ import { mocked } from '~modules/tests';
 import * as axiosBase from '../../axiosBase';
 import { country } from '../__data__';
 import * as countriesApi from '../countriesApi';
-import { Region } from '../types';
+
+import type { Region } from '../types';
 
 jest.mock('../../axiosBase');
 

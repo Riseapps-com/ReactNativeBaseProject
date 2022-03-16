@@ -1,4 +1,4 @@
-import { ImageStyle, TextStyle, ViewStyle } from 'react-native';
+import type { ImageStyle, TextStyle, ViewStyle } from 'react-native';
 
 export type AppearanceProvider<T> = () => T;
 

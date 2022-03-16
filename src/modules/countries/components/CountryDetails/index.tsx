@@ -1,17 +1,20 @@
-import { useRoute } from '@react-navigation/native';
 import React, { useCallback } from 'react';
-import { useTranslation } from 'react-i18next';
 import { ImageBackground, ScrollView } from 'react-native';
+
+import { useRoute } from '@react-navigation/native';
+import { useTranslation } from 'react-i18next';
 
 import { useRetriever } from '~modules/promises';
 import { ActivityIndicator, Text } from '~modules/ui';
 import { useTheme } from '~theme';
 
 import { countriesApi } from '../../services';
-import { CountryDetailsRoute } from '../../types';
 import Card from '../Card';
 import ContentRow from './ContentRow';
+
 import themedStyles from './styles';
+
+import type { CountryDetailsRoute } from '../../types';
 
 const CountryDetails: React.FC = () => {
   const [styles] = useTheme(themedStyles);

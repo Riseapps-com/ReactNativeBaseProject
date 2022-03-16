@@ -4,8 +4,9 @@ import { Image, TouchableOpacity, View } from 'react-native';
 import { Text } from '~modules/ui';
 import { useTheme } from '~theme';
 
-import { LocalCountry } from '../../types';
 import themedStyles from './styles';
+
+import type { LocalCountry } from '../../types';
 
 export type CountriesListItemProps = {
   country: LocalCountry;

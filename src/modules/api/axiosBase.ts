@@ -1,8 +1,10 @@
-import axios, { AxiosInstance, AxiosRequestConfig } from 'axios';
+import axios from 'axios';
 
 import { HttpRequestError } from '~modules/errors';
 
 import { AXIOS_REQUEST_TIMEOUT, DEV_URL, PROD_URL } from './config';
+
+import type { AxiosInstance, AxiosRequestConfig } from 'axios';
 
 const BASE_URL = __DEV__ ? DEV_URL : PROD_URL;
 

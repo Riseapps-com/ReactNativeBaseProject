@@ -1,5 +1,6 @@
 import * as axiosBase from '../axiosBase';
-import { Country, Region } from './types';
+
+import type { Country, Region } from './types';
 
 export const getAllCountries = (): Promise<Country[]> => axiosBase.get<Country[]>('all');
 

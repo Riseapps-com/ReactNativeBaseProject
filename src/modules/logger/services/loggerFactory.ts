@@ -1,6 +1,6 @@
-import AppError from '~modules/errors/AppError';
-
 import { log, logError } from './logger';
+
+import type AppError from '~modules/errors/AppError';
 
 export const logger = (category: string) => (message: string, details?: any) => log(category, message, details);
 

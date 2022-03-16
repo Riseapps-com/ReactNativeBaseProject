@@ -1,13 +1,10 @@
-import {
+import type {
   COUNTRIES_SCREEN_NAME,
-  CountriesParams,
   COUNTRY_DETAILS_SCREEN_NAME,
-  CountryDetailsParams,
   MENU_SCREEN_NAME,
-  MenuParams,
   SELECT_REGION_SCREEN_NAME,
-  SelectRegionParams,
 } from '~modules/countries';
+import type { CountriesParams, CountryDetailsParams, MenuParams, SelectRegionParams } from '~modules/countries/types';
 
 export type ApplicationParams = {
   // COUNTRIES

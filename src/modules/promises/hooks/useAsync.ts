@@ -1,9 +1,11 @@
 import { useCallback } from 'react';
 
-import { AppError, HttpRequestError, RuntimeError, ValidationError } from '~modules/errors';
+import { HttpRequestError, RuntimeError, ValidationError } from '~modules/errors';
 import { useStatusMessage } from '~modules/statusMessages';
 
 import { promiseUtilities } from '../services';
+
+import type { AppError } from '~modules/errors';
 
 export type UseAsyncOptions<T> = {
   setResult?: (result: T | null) => void;

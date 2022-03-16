@@ -3,7 +3,8 @@ import React from 'react';
 import { ScreenContainer } from '~modules/ui';
 
 import { CountriesList } from '../../components';
-import { CountriesNavigation, CountriesRoute } from '../../types';
+
+import type { CountriesNavigation, CountriesRoute } from '../../types';
 
 export type CountriesScreenProps = {
   navigation: CountriesNavigation;

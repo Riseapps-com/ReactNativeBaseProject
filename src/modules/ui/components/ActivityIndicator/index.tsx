@@ -1,13 +1,11 @@
 import React from 'react';
-import {
-  ActivityIndicator as NativeActivityIndicator,
-  ActivityIndicatorProps as NativeActivityIndicatorProps,
-  View,
-} from 'react-native';
+import { ActivityIndicator as NativeActivityIndicator, View } from 'react-native';
 
 import { useTheme } from '~theme';
 
 import themedStyles from './styles';
+
+import type { ActivityIndicatorProps as NativeActivityIndicatorProps } from 'react-native';
 
 export type ActivityIndicatorProps = NativeActivityIndicatorProps;
 

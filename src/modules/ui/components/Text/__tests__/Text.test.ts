@@ -1,10 +1,11 @@
-import React from 'react';
-
 import { getFont } from '~assets';
 import { renderComponent } from '~modules/tests';
 import { sizes } from '~theme';
 
-import Text, { TextProps } from '../index';
+import Text from '../index';
+
+import type { TextProps } from '../index';
+import type React from 'react';
 
 const children = 'Hello world!';
 const defaultProps: React.PropsWithChildren<TextProps> = {

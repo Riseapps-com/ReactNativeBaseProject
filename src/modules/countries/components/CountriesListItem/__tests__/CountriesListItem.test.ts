@@ -3,8 +3,10 @@ import { fireEvent } from '@testing-library/react-native';
 import { renderComponent } from '~modules/tests';
 
 import { localCountry } from '../../../__data__';
-import { LocalCountry } from '../../../types';
-import CountriesListItem, { CountriesListItemProps } from '../index';
+import CountriesListItem from '../index';
+
+import type { LocalCountry } from '../../../types';
+import type { CountriesListItemProps } from '../index';
 
 const renderCountriesListItem = (props: CountriesListItemProps) => renderComponent(CountriesListItem, props);
 

@@ -1,4 +1,4 @@
-import { Font } from '~assets';
+import type { Font } from '~assets';
 
 // Text
 export type TextFontStyle = Font;

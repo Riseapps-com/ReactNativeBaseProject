@@ -1,4 +1,4 @@
-import { SortDirection } from '../types';
+import type { SortDirection } from '../types';
 
 export const comparator = <T extends Record<string, any>>(sortBy?: string, sortDirection?: SortDirection) => {
   return (a: T, b: T) => {

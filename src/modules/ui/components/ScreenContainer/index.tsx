@@ -1,10 +1,13 @@
 import React from 'react';
-import { StatusBar, StatusBarStyle, StyleProp, View, ViewProps, ViewStyle } from 'react-native';
+import { StatusBar, View } from 'react-native';
+
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { useTheme } from '~theme';
 
 import themedStyles from './styles';
+
+import type { StatusBarStyle, StyleProp, ViewProps, ViewStyle } from 'react-native';
 
 export type ScreenContainerProps = ViewProps & {
   statusBarStyle?: StatusBarStyle;

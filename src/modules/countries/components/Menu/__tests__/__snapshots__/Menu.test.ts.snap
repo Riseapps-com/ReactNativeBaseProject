@@ -72,7 +72,7 @@ exports[`countries <Menu /> renders <Menu /> 1`] = `
         <Image
           source={
             Object {
-              "testUri": "../../../assets/images/flag.png",
+              "testUri": "../../../assets/images/countries/flag.png",
             }
           }
           style={
@@ -122,7 +122,7 @@ exports[`countries <Menu /> renders <Menu /> 1`] = `
             ]
           }
         >
-          allCountries
+          menu.allCountries
         </Text>
       </View>
     </View>
@@ -190,7 +190,7 @@ exports[`countries <Menu /> renders <Menu /> 1`] = `
         <Image
           source={
             Object {
-              "testUri": "../../../assets/images/region.png",
+              "testUri": "../../../assets/images/countries/region.png",
             }
           }
           style={
@@ -240,7 +240,7 @@ exports[`countries <Menu /> renders <Menu /> 1`] = `
             ]
           }
         >
-          countriesByRegion
+          menu.countriesByRegion
         </Text>
       </View>
     </View>

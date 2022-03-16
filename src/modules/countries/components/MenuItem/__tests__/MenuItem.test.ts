@@ -3,7 +3,9 @@ import { fireEvent } from '@testing-library/react-native';
 import { images } from '~assets';
 import { renderComponent } from '~modules/tests';
 
-import MenuItem, { MenuItemProps } from '../index';
+import MenuItem from '../index';
+
+import type { MenuItemProps } from '../index';
 
 const renderMenuItem = (props: MenuItemProps) => renderComponent(MenuItem, props);
 

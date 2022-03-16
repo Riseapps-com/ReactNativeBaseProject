@@ -1,6 +1,5 @@
-import { Country, Currencies, Languages } from '~modules/api';
-
-import { LocalCountry } from '../types';
+import type { LocalCountry } from '../types';
+import type { Country, Currencies, Languages } from '~modules/api/countries/types';
 
 export const parseToLocalCapital = (capitals?: string[]): string | undefined => {
   if (!capitals) return undefined;

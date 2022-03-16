@@ -4,14 +4,15 @@
  * defined in `@types/jest.d.ts` file.
  */
 
+import React from 'react';
+
 import { NavigationContext } from '@react-navigation/native';
 import { render } from '@testing-library/react-native';
-import React from 'react';
 import { RecoilRoot } from 'recoil';
 
 import RuntimeError from '~modules/errors/RuntimeError';
 
-import {
+import type {
   MaybeMocked,
   MaybeMockedDeep,
   RenderComponent,

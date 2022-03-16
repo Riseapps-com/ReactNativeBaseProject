@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+
 import RNBootSplash from 'react-native-bootsplash';
 
 import ApplicationStack from '../ApplicationStack';

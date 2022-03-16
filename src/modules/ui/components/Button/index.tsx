@@ -1,11 +1,13 @@
 import React from 'react';
-import { StyleProp, TextStyle, ViewStyle } from 'react-native';
+
 import { Button as PaperButton } from 'react-native-paper';
 
 import { useTheme } from '~theme';
 
-import { ButtonTextType, ButtonType } from '../../types';
 import themedStyles from './styles';
+
+import type { ButtonTextType, ButtonType } from '../../types';
+import type { StyleProp, TextStyle, ViewStyle } from 'react-native';
 
 export type ButtonProps = Omit<React.ComponentProps<typeof PaperButton>, 'dark' | 'disabled' | 'loading'> & {
   buttonType?: ButtonType;

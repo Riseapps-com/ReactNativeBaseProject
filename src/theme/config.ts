@@ -1,7 +1,8 @@
 import Color from 'color';
 
 import * as colors from './colors';
-import { Theme } from './types';
+
+import type { Theme } from './types';
 
 export const themes = ['light', 'dark'];
 

@@ -1,15 +1,15 @@
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import {
-  DefaultTheme,
-  NavigationContainer as NativeNavigationContainer,
-  NavigationState,
-} from '@react-navigation/native';
 import React, { useCallback, useEffect, useState } from 'react';
+
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { DefaultTheme, NavigationContainer as NativeNavigationContainer } from '@react-navigation/native';
 
 import { useTheme } from '~theme';
 
 import { NAVIGATION_STATE_PERSISTENCE_KEY } from '../../config';
+
 import themedStyles from './styles';
+
+import type { NavigationState } from '@react-navigation/native';
 
 type NavigationContainerProps = React.ComponentProps<typeof NativeNavigationContainer>;
 

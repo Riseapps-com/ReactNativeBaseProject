@@ -1,13 +1,15 @@
-import { useNavigation } from '@react-navigation/native';
 import React, { useCallback } from 'react';
-import { useTranslation } from 'react-i18next';
 import { View } from 'react-native';
+
+import { useNavigation } from '@react-navigation/native';
+import { useTranslation } from 'react-i18next';
 
 import { useImages } from '~assets';
 import { useTheme } from '~theme';
 
 import { COUNTRIES_SCREEN_NAME, SELECT_REGION_SCREEN_NAME } from '../../config';
 import MenuItem from '../MenuItem';
+
 import themedStyles from './styles';
 
 const Menu: React.FC = () => {

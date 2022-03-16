@@ -1,9 +1,12 @@
-import { fireEvent, RenderAPI } from '@testing-library/react-native';
+import { fireEvent } from '@testing-library/react-native';
 
 import { renderComponent } from '~modules/tests';
 import { light } from '~theme';
 
-import Button, { ButtonProps } from '../index';
+import Button from '../index';
+
+import type { ButtonProps } from '../index';
+import type { RenderAPI } from '@testing-library/react-native';
 
 const children = 'Button text';
 const onPress = jest.fn();

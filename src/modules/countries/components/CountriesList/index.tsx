@@ -1,14 +1,17 @@
-import { useNavigation, useRoute } from '@react-navigation/native';
 import React, { useCallback } from 'react';
-import { FlatList, ListRenderItemInfo } from 'react-native';
+import { FlatList } from 'react-native';
+
+import { useNavigation, useRoute } from '@react-navigation/native';
 
 import { useRetriever } from '~modules/promises';
 import { ActivityIndicator } from '~modules/ui';
 
 import { COUNTRY_DETAILS_SCREEN_NAME } from '../../config';
 import { countriesApi } from '../../services';
-import { CountriesRoute, LocalCountry } from '../../types';
 import CountriesListItem from '../CountriesListItem';
+
+import type { CountriesRoute, LocalCountry } from '../../types';
+import type { ListRenderItemInfo } from 'react-native';
 
 const CountriesList: React.FC = () => {
   const navigation = useNavigation();

@@ -1,11 +1,14 @@
 import React, { useCallback } from 'react';
-import { Image, StyleProp, View, ViewStyle } from 'react-native';
+import { Image, View } from 'react-native';
 
 import { Text } from '~modules/ui';
 import { useTheme } from '~theme';
 
 import Card from '../Card';
+
 import themedStyles from './styles';
+
+import type { StyleProp, ViewStyle } from 'react-native';
 
 export type MenuItemProps = {
   style?: StyleProp<ViewStyle>;

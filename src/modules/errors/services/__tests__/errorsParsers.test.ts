@@ -1,9 +1,9 @@
-import { ErrorCode } from '~modules/errors/types';
-
 import HttpRequestError from '../../HttpRequestError';
 import RuntimeError from '../../RuntimeError';
 import ValidationError from '../../ValidationError';
 import * as errorsParsers from '../errorsParsers';
+
+import type { ErrorCode } from '~modules/errors/types';
 
 describe('Errors', () => {
   describe('errorsParsers', () => {
@@ -97,7 +97,7 @@ describe('Errors', () => {
           const expectedRuntimeError = RuntimeError.fromOriginal(
             genericErrorWithCode,
             untranslatedErrorCode as ErrorCode,
-            'unknownException'
+            'errors.unknownException'
           );
 
           const parsedError = errorsParsers.parseError(genericErrorWithCode);

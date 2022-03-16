@@ -1,6 +1,8 @@
 import { renderComponent } from '~modules/tests';
 
-import Card, { CardProps } from '../index';
+import Card from '../index';
+
+import type { CardProps } from '../index';
 
 const renderCard = (props: CardProps = {}) => renderComponent(Card, props);
 

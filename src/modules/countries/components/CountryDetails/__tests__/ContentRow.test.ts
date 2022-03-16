@@ -2,7 +2,9 @@ import { act } from '@testing-library/react-native';
 
 import { renderComponent } from '~modules/tests';
 
-import ContentRow, { ContentRowProps } from '../ContentRow';
+import ContentRow from '../ContentRow';
+
+import type { ContentRowProps } from '../ContentRow';
 
 const renderContentRow = (props: ContentRowProps) => renderComponent(ContentRow, props);
 

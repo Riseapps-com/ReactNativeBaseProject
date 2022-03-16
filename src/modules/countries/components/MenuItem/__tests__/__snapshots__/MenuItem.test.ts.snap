@@ -63,7 +63,7 @@ exports[`countries <MenuItem /> renders <MenuItem /> 1`] = `
       <Image
         source={
           Object {
-            "testUri": "../../../assets/images/africa.png",
+            "testUri": "../../../assets/images/selectRegionMenu/africa.png",
           }
         }
         style={

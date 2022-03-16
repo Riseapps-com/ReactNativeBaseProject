@@ -1,4 +1,4 @@
-import { Country } from '../types';
+import type { Country } from '../types';
 
 export const country: Country = {
   name: {
