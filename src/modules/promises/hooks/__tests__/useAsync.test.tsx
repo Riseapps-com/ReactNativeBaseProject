@@ -1,15 +1,15 @@
 import { renderHook } from '@testing-library/react-hooks';
-import React from 'react';
-import { RecoilRoot } from 'recoil';
 
-import { ValidationError } from '~modules/errors';
+import { RuntimeError, ValidationError } from '~modules/errors';
+import { useStatusMessage } from '~modules/statusMessages';
+import { mocked } from '~modules/tests';
 
 import { promiseUtilities } from '../../services';
 import useAsync from '../useAsync';
 
-const Wrapper: React.FC = props => {
-  return <RecoilRoot>{props.children}</RecoilRoot>;
-};
+jest.mock('~modules/statusMessages');
+
+const mockedUseStatusMessage = mocked(useStatusMessage);
 
 describe('promises', () => {
   describe('useAsync', () => {
@@ -17,86 +17,101 @@ describe('promises', () => {
       it('passes the provided callback to `retry`', async () => {
         const retrySpy = jest.spyOn(promiseUtilities, 'retry').mockImplementationOnce(jest.fn());
         const toCall = jest.fn(async () => Promise.resolve());
-
-        const { result } = renderHook(() => useAsync(), { wrapper: Wrapper });
+        const { result } = renderHook(() => useAsync());
         const doAsync = result.current;
 
         await doAsync(() => toCall());
 
-        jest.runAllTimers();
-
         expect(retrySpy).toBeCalledTimes(1);
       });
 
-      it('rethrows error when any other exception is thrown', async () => {
-        const error = new ValidationError('UnknownException', 'email', 'Error message.');
+      it('displays error status message when exception is thrown', () => {
+        const mockedDisplayStatusMessage = jest.fn();
+
+        mockedUseStatusMessage.mockImplementationOnce(() => mockedDisplayStatusMessage);
+        const error = new RuntimeError('UnknownException', 'Error message.');
         const toCall = jest.fn(async () => Promise.reject(error));
-
-        const { result } = renderHook(() => useAsync(), { wrapper: Wrapper });
+        const { result } = renderHook(() => useAsync());
         const doAsync = result.current;
 
-        const resolved = doAsync(async () => toCall());
+        doAsync(() => toCall());
 
         jest.runAllTimers();
 
-        await expect(resolved).rejects.toThrowError(ValidationError);
-      });
-    });
-
-    describe('when `setIsLoadingCallback` is provided', () => {
-      it('invokes the callback correctly for successfully resolved call', async () => {
-        const setIsLoadingCallback = jest.fn();
-
-        const { result } = renderHook(() => useAsync(), { wrapper: Wrapper });
-        const doAsync = result.current;
-
-        const promise = doAsync(async () => {}, setIsLoadingCallback);
-
-        expect(setIsLoadingCallback).toBeCalledTimes(1);
-        expect(setIsLoadingCallback).toBeCalledWith(true);
-
-        await promise;
-        jest.runAllTimers();
-
-        expect(setIsLoadingCallback).toBeCalledTimes(2);
-        expect(setIsLoadingCallback).toBeCalledWith(false);
-      });
-
-      it('invokes the callback correctly for rejected call', async () => {
-        const setIsLoadingCallback = jest.fn();
-        const error = new ValidationError('UnknownException', 'Error message.');
-
-        const { result } = renderHook(() => useAsync(), { wrapper: Wrapper });
-        const doAsync = result.current;
-
-        const promise = doAsync(() => Promise.reject(error), setIsLoadingCallback);
-
-        expect(setIsLoadingCallback).toBeCalledTimes(1);
-        expect(setIsLoadingCallback).toBeCalledWith(true);
-
-        jest.runAllTimers();
-
-        await expect(promise).rejects.toThrow(error);
-
-        expect(setIsLoadingCallback).toBeCalledTimes(2);
-        expect(setIsLoadingCallback).toBeCalledWith(false);
+        expect(mockedDisplayStatusMessage).toBeCalledTimes(1);
+        expect(mockedDisplayStatusMessage).toBeCalledWith(error.message, 'error');
       });
     });
 
     describe('when `setResultCallback` is provided', () => {
       it('invokes the callback correctly for successfully resolved call', async () => {
-        const setResultCallback = jest.fn();
-
-        const { result } = renderHook(() => useAsync(), { wrapper: Wrapper });
+        const setResult = jest.fn();
+        const { result } = renderHook(() => useAsync());
         const doAsync = result.current;
 
-        const promise = doAsync(async () => Promise.resolve('result'), undefined, setResultCallback);
+        await doAsync(async () => Promise.resolve('result'), { setResult });
+
+        expect(setResult).toBeCalledTimes(1);
+        expect(setResult).toBeCalledWith('result');
+      });
+    });
+
+    describe('when `setErrorCallback` is provided', () => {
+      it('invokes the callback correctly when error is thrown', () => {
+        const setError = jest.fn();
+        const error = new RuntimeError('UnknownException', 'Error message.');
+        const toCall = jest.fn(async () => Promise.reject(error));
+        const { result } = renderHook(() => useAsync());
+        const doAsync = result.current;
+
+        doAsync(toCall, { setError });
+
+        jest.runAllTimers();
+
+        expect(setError).toBeCalledTimes(1);
+        expect(setError).toBeCalledWith(error);
+      });
+    });
+
+    describe('when `setIsLoadingCallback` is provided', () => {
+      it('invokes the callback correctly for successfully resolved call', async () => {
+        const setIsLoading = jest.fn();
+        const { result } = renderHook(() => useAsync());
+        const doAsync = result.current;
+
+        const promise = doAsync(async () => {}, { setIsLoading });
+
+        expect(setIsLoading).toBeCalledTimes(1);
+        expect(setIsLoading).toBeCalledWith(true);
 
         await promise;
         jest.runAllTimers();
 
-        expect(setResultCallback).toBeCalledTimes(1);
-        expect(setResultCallback).toBeCalledWith('result');
+        expect(setIsLoading).toBeCalledTimes(2);
+        expect(setIsLoading).toBeCalledWith(false);
+      });
+
+      it('invokes the callback correctly for rejected call', async () => {
+        const setIsLoading = jest.fn();
+        const error = new ValidationError('InvalidParameterException', 'Error message.');
+
+        const { result } = renderHook(() => useAsync());
+        const doAsync = result.current;
+
+        const promise = doAsync(async () => Promise.reject(error), { setIsLoading });
+
+        expect(setIsLoading).toBeCalledTimes(1);
+        expect(setIsLoading).toBeCalledWith(true);
+
+        try {
+          await promise;
+          // eslint-disable-next-line no-empty,@typescript-eslint/no-shadow
+        } catch (error) {}
+
+        jest.runAllTimers();
+
+        expect(setIsLoading).toBeCalledTimes(2);
+        expect(setIsLoading).toBeCalledWith(false);
       });
     });
   });

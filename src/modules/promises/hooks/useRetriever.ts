@@ -1,22 +1,24 @@
 import { useFocusEffect } from '@react-navigation/native';
 import { useCallback, useEffect, useRef, useState } from 'react';
 
-import useAsync from './useAsync';
+import { AppError } from '~modules/errors';
 
-const useRetriever = <T>(
-  retrieveFn: () => Promise<T>,
-  retrieveFnDeps: any[],
-  defaultValue?: T,
-  runOnFocus = false
-): [T, boolean, () => void] => {
+import useAsync, { UseAsyncOptions } from './useAsync';
+
+type UseRetrieverReturn<T> = [
+  OptionalNullable<T>,
+  OptionalNullable<boolean>,
+  OptionalNullable<AppError>,
+  () => Promise<void>
+];
+
+const useRetriever = <T>(retrieveFn: () => Promise<T>, defaultValue?: T, runOnFocus = false): UseRetrieverReturn<T> => {
   const isMounted = useRef<boolean>();
-
+  const [result, setResult] = useState<OptionalNullable<T>>(defaultValue as T);
+  const [error, setError] = useState<OptionalNullable<AppError>>();
   const [isLoading, setIsLoading] = useState(true);
-  const [result, setResult] = useState<T>(defaultValue as T);
 
   const doAsync = useAsync();
-  // eslint-disable-next-line
-  const retrieveFnCallback = useCallback(retrieveFn, retrieveFnDeps);
 
   useEffect(() => {
     isMounted.current = true;
@@ -26,17 +28,27 @@ const useRetriever = <T>(
     };
   }, []);
 
-  const retrieve = useCallback(() => {
-    const setIsLoadingCallback = (isLoadingInner: boolean): void => {
-      if (isMounted.current) setIsLoading(isLoadingInner);
+  const retrieve = useCallback(async () => {
+    const setResultCallback = (innerResult: Nullable<T>): void => {
+      if (isMounted.current) setResult(innerResult);
     };
 
-    const setResultCallback = (resultInner: T): void => {
-      if (isMounted.current) setResult(resultInner);
+    const setErrorCallback = (innerError: Nullable<AppError>): void => {
+      if (isMounted.current && innerError) setError(innerError);
     };
 
-    doAsync<T>(retrieveFnCallback, setIsLoadingCallback, setResultCallback);
-  }, [retrieveFnCallback, doAsync]);
+    const setIsLoadingCallback = (innerIsLoading: boolean): void => {
+      if (isMounted.current) setIsLoading(innerIsLoading);
+    };
+
+    const doAsyncOptions: UseAsyncOptions<T> = {
+      setResult: setResultCallback,
+      setError: setErrorCallback,
+      setIsLoading: setIsLoadingCallback,
+    };
+
+    await doAsync<T>(retrieveFn, doAsyncOptions);
+  }, [doAsync, retrieveFn]);
 
   useEffect(() => {
     if (runOnFocus) return;
@@ -52,7 +64,7 @@ const useRetriever = <T>(
     }, [retrieve, runOnFocus])
   );
 
-  return [result, isLoading, retrieve];
+  return [result, isLoading, error, retrieve];
 };
 
 export default useRetriever;

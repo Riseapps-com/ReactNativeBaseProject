@@ -15,19 +15,17 @@ const CountriesList: React.FC = () => {
   const { params } = useRoute<CountriesRoute>();
   const { region } = params;
 
-  const [countries, isLoadingCountries] = useRetriever(
-    async () => {
-      if (region) return countriesApi.getCountriesByRegion(region);
+  const getCountriesByRegion = useCallback(async () => {
+    if (region) return countriesApi.getCountriesByRegion(region);
 
-      return countriesApi.getAllCountries();
-    },
-    [region],
-    undefined,
-    true
-  );
+    return countriesApi.getAllCountries();
+  }, [region]);
+  const [countries, isLoadingCountries] = useRetriever(getCountriesByRegion, undefined, true);
 
   const handleItemPress = useCallback(
     (index: number) => {
+      if (!countries) return;
+
       navigation.navigate(COUNTRY_DETAILS_SCREEN_NAME, {
         code: countries[index].cca2,
         title: countries[index].name,

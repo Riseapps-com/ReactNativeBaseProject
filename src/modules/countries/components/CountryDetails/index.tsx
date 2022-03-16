@@ -1,5 +1,5 @@
 import { useRoute } from '@react-navigation/native';
-import React from 'react';
+import React, { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ImageBackground, ScrollView } from 'react-native';
 
@@ -18,9 +18,11 @@ const CountryDetails: React.FC = () => {
   const { t } = useTranslation();
   const { params } = useRoute<CountryDetailsRoute>();
   const { code } = params;
-  const [countryDetails, isLoadingCountryDetails] = useRetriever(() => countriesApi.getCountryDetails(code), [code]);
+  const getCountryDetails = useCallback(() => countriesApi.getCountryDetails(code), [code]);
+  const [countryDetails, isLoadingCountryDetails] = useRetriever(getCountryDetails);
 
   if (isLoadingCountryDetails) return <ActivityIndicator />;
+  if (!countryDetails) return null;
 
   return (
     <ScrollView testID="Country details" style={styles.container}>

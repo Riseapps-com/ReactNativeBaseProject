@@ -1,7 +1,7 @@
 import { NavigationContext } from '@react-navigation/native';
-import { act, renderHook } from '@testing-library/react-hooks';
+import { renderHook } from '@testing-library/react-hooks';
+import { act } from '@testing-library/react-native';
 import React from 'react';
-import { RecoilRoot } from 'recoil';
 
 import { mocked } from '~modules/tests';
 
@@ -9,6 +9,7 @@ import { promiseUtilities } from '../../services';
 import useRetriever from '../useRetriever';
 
 jest.mock('../../services');
+jest.mock('~modules/statusMessages');
 
 const Wrapper: React.FC = props => {
   const navContextValue: any = {
@@ -16,16 +17,11 @@ const Wrapper: React.FC = props => {
     addListener: jest.fn(() => jest.fn()),
   };
 
-  return (
-    <RecoilRoot>
-      <NavigationContext.Provider value={navContextValue}>{props.children}</NavigationContext.Provider>
-    </RecoilRoot>
-  );
+  return <NavigationContext.Provider value={navContextValue}>{props.children}</NavigationContext.Provider>;
 };
 
 const mockedPromiseUtilities = mocked(promiseUtilities);
-const retrieveFn = jest.fn(async () => Promise.resolve('Resolved'));
-let retrieveFnDeps: any = [];
+const retrieveFn = jest.fn(() => Promise.resolve('Resolved'));
 const defaultValue = 'default';
 
 const useCallbackSpy = jest.spyOn(React, 'useCallback');
@@ -38,7 +34,7 @@ describe('promises', () => {
   describe('useRetriever', () => {
     describe('`retrieveFn` param', () => {
       it('resolves `retrieveFn` and returns its result', async () => {
-        const { result, waitForNextUpdate } = renderHook(() => useRetriever(retrieveFn, retrieveFnDeps), {
+        const { result, waitForNextUpdate } = renderHook(() => useRetriever(retrieveFn), {
           wrapper: Wrapper,
         });
 
@@ -49,30 +45,17 @@ describe('promises', () => {
       });
 
       it('passes `retrieveFn` to retry function', async () => {
-        const { waitForNextUpdate } = renderHook(() => useRetriever(retrieveFn, retrieveFnDeps), {
-          wrapper: Wrapper,
-        });
+        const { waitForNextUpdate } = renderHook(() => useRetriever(retrieveFn), { wrapper: Wrapper });
 
         await waitForNextUpdate();
 
         expect(mockedPromiseUtilities.retry).toBeCalledTimes(1);
       });
-
-      it('passes correct parameters to useCallback', async () => {
-        retrieveFnDeps = ['dep1', 'dep2'];
-        const { waitForNextUpdate } = renderHook(() => useRetriever(retrieveFn, retrieveFnDeps), {
-          wrapper: Wrapper,
-        });
-
-        await waitForNextUpdate();
-
-        expect(useCallbackSpy).toBeCalledWith(retrieveFn, retrieveFnDeps);
-      });
     });
 
     describe('`defaultValue` param', () => {
       it('returns the default value before `retrieveFn` resolves', async () => {
-        const { result, waitForNextUpdate } = renderHook(() => useRetriever(retrieveFn, retrieveFnDeps, defaultValue), {
+        const { result, waitForNextUpdate } = renderHook(() => useRetriever(retrieveFn, defaultValue), {
           wrapper: Wrapper,
         });
 
@@ -86,7 +69,7 @@ describe('promises', () => {
 
     describe('loading', () => {
       it('sets loading to true before `retrieveFn` resolves', async () => {
-        const { result, waitForNextUpdate } = renderHook(() => useRetriever(retrieveFn, retrieveFnDeps), {
+        const { result, waitForNextUpdate } = renderHook(() => useRetriever(retrieveFn), {
           wrapper: Wrapper,
         });
 
@@ -96,7 +79,7 @@ describe('promises', () => {
       });
 
       it('sets loading to false after `retrieveFn` resolves', async () => {
-        const { result, waitForNextUpdate } = renderHook(() => useRetriever(retrieveFn, retrieveFnDeps), {
+        const { result, waitForNextUpdate } = renderHook(() => useRetriever(retrieveFn), {
           wrapper: Wrapper,
         });
 
@@ -108,7 +91,7 @@ describe('promises', () => {
 
     describe('runOnFocus', () => {
       it('runs when specified', async () => {
-        const { waitForNextUpdate } = renderHook(() => useRetriever(retrieveFn, retrieveFnDeps, undefined, true), {
+        const { waitForNextUpdate } = renderHook(() => useRetriever(retrieveFn, undefined, true), {
           wrapper: Wrapper,
         });
 
@@ -120,13 +103,13 @@ describe('promises', () => {
 
     describe('retrieve', () => {
       it('calls retrieve function', async () => {
-        const { result, waitForNextUpdate } = renderHook(() => useRetriever(retrieveFn, retrieveFnDeps), {
+        const { result, waitForNextUpdate } = renderHook(() => useRetriever(retrieveFn), {
           wrapper: Wrapper,
         });
 
         await act(async () => {
-          result.current[2]();
           await waitForNextUpdate();
+          result.current[3]();
         });
 
         expect(retrieveFn).toBeCalledTimes(2);

@@ -161,12 +161,7 @@ module.exports = {
 
     // react-hooks
     'react-hooks/rules-of-hooks': 'error',
-    'react-hooks/exhaustive-deps': [
-      'error',
-      {
-        additionalHooks: '(useRetriever)',
-      },
-    ],
+    'react-hooks/exhaustive-deps': 'error',
 
     // react-native
     'react-native/split-platform-components': 'error',
