@@ -8,7 +8,7 @@ describe('errors', () => {
       it('creates errors with 404 status code correctly', () => {
         const code = 'NotFoundException';
         const status = 404;
-        const message = I18n.t('notFoundException');
+        const message = I18n.t('errors.notFoundException');
         const details = { useId: '1' };
         const requestError = new HttpRequestError(status, undefined, details);
 
@@ -19,7 +19,7 @@ describe('errors', () => {
       it('creates errors with 4xx (non-404) status code correctly', () => {
         const code = 'InvalidRequestException';
         const status = 400;
-        const message = I18n.t('invalidRequestException');
+        const message = I18n.t('errors.invalidRequestException');
         const details = { useId: '1' };
         const requestError = new HttpRequestError(status, undefined, details);
 
@@ -30,7 +30,7 @@ describe('errors', () => {
       it('creates errors with 5xx status code correctly', () => {
         const code = 'ServerErrorException';
         const status = 500;
-        const message = I18n.t('serverErrorException');
+        const message = I18n.t('errors.serverErrorException');
         const details = { useId: '1' };
         const requestError = new HttpRequestError(status, undefined, details);
 
@@ -41,7 +41,7 @@ describe('errors', () => {
       it('creates errors with unrecognized errors status code correctly', () => {
         const code = 'UnknownException';
         const status = 600;
-        const message = I18n.t('unknownException');
+        const message = I18n.t('errors.unknownException');
         const details = { useId: '1' };
         const requestError = new HttpRequestError(status, undefined, details);
 

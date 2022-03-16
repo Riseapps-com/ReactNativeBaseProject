@@ -1,5 +1,5 @@
-import * as errorsUtils from '../errorsUtils';
+import * as errorsParsers from '../errorsParsers';
 
-jest.mock('../errorsUtils');
+jest.mock('../errorsParsers');
 
-export { errorsUtils };
+export { errorsParsers };

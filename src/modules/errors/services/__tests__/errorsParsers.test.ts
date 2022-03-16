@@ -3,10 +3,10 @@ import { ErrorCode } from '~modules/errors/types';
 import HttpRequestError from '../../HttpRequestError';
 import RuntimeError from '../../RuntimeError';
 import ValidationError from '../../ValidationError';
-import * as errorUtils from '../errorsUtils';
+import * as errorsParsers from '../errorsParsers';
 
 describe('Errors', () => {
-  describe('errorUtilities', () => {
+  describe('errorsParsers', () => {
     describe('parseError', () => {
       describe('returns unaltered AppErrors when given them', () => {
         it('verifying RuntimeErrors', () => {
@@ -14,7 +14,7 @@ describe('Errors', () => {
             custom: 'dummy-detail-value',
           });
 
-          const parsedError = errorUtils.parseError(runtimeError);
+          const parsedError = errorsParsers.parseError(runtimeError);
 
           expect(parsedError).toBe(runtimeError);
         });
@@ -29,7 +29,7 @@ describe('Errors', () => {
             }
           );
 
-          const parsedError = errorUtils.parseError(validationError);
+          const parsedError = errorsParsers.parseError(validationError);
 
           expect(parsedError).toBe(validationError);
         });
@@ -39,7 +39,7 @@ describe('Errors', () => {
             custom: 'dummy-detail-value',
           });
 
-          const parsedError = errorUtils.parseError(validationError);
+          const parsedError = errorsParsers.parseError(validationError);
 
           expect(parsedError).toBe(validationError);
         });
@@ -57,7 +57,7 @@ describe('Errors', () => {
             'invalidRequestException'
           );
 
-          const parsedError = errorUtils.parseError(genericErrorWithCode);
+          const parsedError = errorsParsers.parseError(genericErrorWithCode);
 
           expect(parsedError).toEqual(expectedRuntimeError);
         });
@@ -73,7 +73,7 @@ describe('Errors', () => {
             'unknownException'
           );
 
-          const parsedError = errorUtils.parseError(genericErrorWithNoCode);
+          const parsedError = errorsParsers.parseError(genericErrorWithNoCode);
 
           expect(parsedError).toEqual(expectedRuntimeError);
         });
@@ -83,7 +83,7 @@ describe('Errors', () => {
 
           const expectedRuntimeError = RuntimeError.fromOriginal(errorString, 'UnknownException', 'unknownException');
 
-          const parsedError = errorUtils.parseError(errorString);
+          const parsedError = errorsParsers.parseError(errorString);
 
           expect(parsedError).toEqual(expectedRuntimeError);
         });
@@ -100,7 +100,7 @@ describe('Errors', () => {
             'unknownException'
           );
 
-          const parsedError = errorUtils.parseError(genericErrorWithCode);
+          const parsedError = errorsParsers.parseError(genericErrorWithCode);
 
           expect(parsedError).toEqual(expectedRuntimeError);
         });

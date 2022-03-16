@@ -31,7 +31,7 @@ const SelectRegionMenu: React.FC = () => {
       {regions.map((region, index) => (
         <MenuItem
           key={index}
-          title={t(region)}
+          title={t(`selectRegionMenu.${region}`)}
           image={images[region]}
           index={index}
           onItemPress={handleItemPress}

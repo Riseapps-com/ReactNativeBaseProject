@@ -33,17 +33,17 @@ const CountryDetails: React.FC = () => {
           </Text>
         </ImageBackground>
 
-        <ContentRow title={t('capital')} value={countryDetails.capital} />
+        <ContentRow title={t('countryDetails.capital')} value={countryDetails.capital} />
 
-        <ContentRow title={t('region')} value={countryDetails.region} />
+        <ContentRow title={t('countryDetails.region')} value={countryDetails.region} />
 
-        <ContentRow title={t('subregion')} value={countryDetails.subregion} />
+        <ContentRow title={t('countryDetails.subregion')} value={countryDetails.subregion} />
 
-        <ContentRow title={t('population')} value={countryDetails.population} />
+        <ContentRow title={t('countryDetails.population')} value={countryDetails.population} />
 
-        <ContentRow title={t('currencies')} value={countryDetails.currencies} />
+        <ContentRow title={t('countryDetails.currencies')} value={countryDetails.currencies} />
 
-        <ContentRow title={t('languages')} value={countryDetails.languages} />
+        <ContentRow title={t('countryDetails.languages')} value={countryDetails.languages} />
       </Card>
     </ScrollView>
   );

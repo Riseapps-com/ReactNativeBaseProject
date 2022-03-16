@@ -18,7 +18,7 @@ const Menu: React.FC = () => {
 
   const handleAllCountriesPress = useCallback(() => {
     navigation.navigate(COUNTRIES_SCREEN_NAME, {
-      title: t('allCountries'),
+      title: t('menu.allCountries'),
     });
   }, [navigation, t]);
 
@@ -29,7 +29,7 @@ const Menu: React.FC = () => {
   return (
     <View style={styles.container}>
       <MenuItem
-        title={t('allCountries')}
+        title={t('menu.allCountries')}
         image={images.flag}
         index={0}
         onItemPress={handleAllCountriesPress}
@@ -38,7 +38,7 @@ const Menu: React.FC = () => {
       />
 
       <MenuItem
-        title={t('countriesByRegion')}
+        title={t('menu.countriesByRegion')}
         image={images.region}
         index={1}
         onItemPress={handleCountriesByRegionPress}

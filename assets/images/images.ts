@@ -2,9 +2,12 @@
 
 import { Appearance } from 'react-native';
 
-export type Images = {
+type Countries = {
   flag: number;
   region: number;
+};
+
+type SelectRegionMenu = {
   africa: number;
   americas: number;
   asia: number;
@@ -12,24 +15,26 @@ export type Images = {
   oceania: number;
 };
 
+export type Images = Countries & SelectRegionMenu;
+
 export const lightImages: Images = {
-  flag: require('./flag.png'),
-  region: require('./region.png'),
-  africa: require('./africa.png'),
-  americas: require('./america.png'),
-  asia: require('./asia.png'),
-  europe: require('./europe.png'),
-  oceania: require('./oceania.png'),
+  flag: require('./countries/flag.png'),
+  region: require('./countries/region.png'),
+  africa: require('./selectRegionMenu/africa.png'),
+  americas: require('./selectRegionMenu/america.png'),
+  asia: require('./selectRegionMenu/asia.png'),
+  europe: require('./selectRegionMenu/europe.png'),
+  oceania: require('./selectRegionMenu/oceania.png'),
 };
 
 export const darkImages: Images = {
-  flag: require('./flag.png'),
-  region: require('./region.png'),
-  africa: require('./africa.png'),
-  americas: require('./america.png'),
-  asia: require('./asia.png'),
-  europe: require('./europe.png'),
-  oceania: require('./oceania.png'),
+  flag: require('./countries/flag.png'),
+  region: require('./countries/region.png'),
+  africa: require('./selectRegionMenu/africa.png'),
+  americas: require('./selectRegionMenu/america.png'),
+  asia: require('./selectRegionMenu/asia.png'),
+  europe: require('./selectRegionMenu/europe.png'),
+  oceania: require('./selectRegionMenu/oceania.png'),
 };
 
 export const images: Images = Appearance.getColorScheme() === 'dark' ? darkImages : lightImages;

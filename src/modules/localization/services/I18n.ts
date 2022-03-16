@@ -23,6 +23,8 @@ I18n.use(initReactI18next).init({
   },
 
   compatibilityJSON: 'v3',
+
+  returnObjects: true,
 });
 
 export default I18n;

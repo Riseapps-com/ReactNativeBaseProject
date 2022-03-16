@@ -17,7 +17,7 @@ describe('errors', () => {
       const onDismiss = jest.fn();
       const errorScreen: RenderAPI = renderComponent(ErrorScreen, { onDismiss });
 
-      fireEvent.press(errorScreen.getByText(I18n.t('dismiss')));
+      fireEvent.press(errorScreen.getByText(I18n.t('errors.dismiss')));
 
       expect(onDismiss).toBeCalledTimes(1);
     });

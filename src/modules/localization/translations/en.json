@@ -1,26 +1,35 @@
 {
-  "africa": "Africa",
-  "all": "All",
-  "allCountries": "All Countries",
-  "americas": "Americas",
-  "asia": "Asia",
-  "capital": "Capital",
-  "countriesByRegion": "Countries by Region",
-  "currencies": "Currencies",
-  "europe": "Europe",
-  "languages": "Languages",
-  "name": "Name",
-  "oceania": "Oceania",
-  "region": "Region",
-  "regions": "Regions",
-  "subregion": "Subregion",
-  "menu": "Menu",
-  "notFoundException": "Couldn't find the requested item.",
-  "invalidRequestException": "There was a problem with the request. Please try again or contact our support.",
-  "serverErrorException": "Something went wrong. Please try again or contact our support.",
-  "unknownException": "Something went wrong. Please try again or contact our support.",
-  "errorBoundaryTitle": "Something went wrong",
-  "errorBoundarySubtitle": "Please try again. If the issue persists contact our support.",
-  "population": "Population",
-  "dismiss": "Dismiss"
+  "countryDetails": {
+    "capital": "Capital",
+    "currencies": "Currencies",
+    "languages": "Languages",
+    "name": "Name",
+    "subregion": "Subregion",
+    "region": "Region",
+    "population": "Population"
+  },
+  "errors": {
+    "notFoundException": "Couldn't find the requested item.",
+    "invalidRequestException": "There was a problem with the request. Please try again or contact our support.",
+    "serverErrorException": "Something went wrong. Please try again or contact our support.",
+    "unknownException": "Something went wrong. Please try again or contact our support.",
+    "title": "Something went wrong",
+    "subtitle": "Please try again. If the issue persists contact our support.",
+    "dismiss": "Dismiss"
+  },
+  "menu": {
+    "allCountries": "All Countries",
+    "countriesByRegion": "Countries by Region"
+  },
+  "navigation": {
+    "menu": "Menu",
+    "regions": "Regions"
+  },
+  "selectRegionMenu": {
+    "africa": "Africa",
+    "americas": "Americas",
+    "asia": "Asia",
+    "europe": "Europe",
+    "oceania": "Oceania"
+  }
 }

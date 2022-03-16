@@ -1,7 +1,5 @@
 import { I18n } from '~modules/localization';
 
-import AppError from '../AppError';
-import RuntimeError from '../RuntimeError';
 import { ErrorCode, HttpStatusCode } from '../types';
 
 export const translateHttpStatusCode = (httpStatusCode?: number): ErrorCode => {
@@ -31,22 +29,12 @@ export const translateHttpStatusCode = (httpStatusCode?: number): ErrorCode => {
 export const getHttpErrorMessage = (errorCode: ErrorCode): string => {
   switch (errorCode) {
     case 'NotFoundException':
-      return I18n.t('notFoundException');
+      return I18n.t('errors.notFoundException');
     case 'InvalidRequestException':
-      return I18n.t('invalidRequestException');
+      return I18n.t('errors.invalidRequestException');
     case 'ServerErrorException':
-      return I18n.t('serverErrorException');
+      return I18n.t('errors.serverErrorException');
     default:
-      return I18n.t('unknownException');
+      return I18n.t('errors.unknownException');
   }
-};
-
-export const parseError = (error: any): AppError => {
-  // We don't want to parse our own error types
-  if (error instanceof AppError) return error;
-
-  const code = typeof error === 'object' && error.code ? error.code : 'UnknownException';
-  const i18nKey = `${code[0].toLowerCase()}${code.slice(1)}`;
-
-  return RuntimeError.fromOriginal(error, code, I18n.t(i18nKey, { defaultValue: I18n.t('unknownException') }));
 };

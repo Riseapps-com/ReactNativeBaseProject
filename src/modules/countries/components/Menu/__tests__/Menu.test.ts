@@ -29,7 +29,7 @@ describe('countries', () => {
 
       expect(mockedUseNavigation().navigate).toBeCalledTimes(1);
       expect(mockedUseNavigation().navigate).toBeCalledWith(COUNTRIES_SCREEN_NAME, {
-        title: I18n.t('allCountries'),
+        title: I18n.t('menu.allCountries'),
       });
     });
 

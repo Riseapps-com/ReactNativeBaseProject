@@ -65,12 +65,12 @@ const ApplicationStack: React.FC = () => {
           headerBackTestID: 'Back',
         })}
       />
-      <Stack.Screen name={MENU_SCREEN_NAME} component={MenuScreen} options={{ headerTitle: t('menu') }} />
+      <Stack.Screen name={MENU_SCREEN_NAME} component={MenuScreen} options={{ headerTitle: t('navigation.menu') }} />
       <Stack.Screen
         name={SELECT_REGION_SCREEN_NAME}
         component={SelectRegionScreen}
         options={{
-          headerTitle: t('regions'),
+          headerTitle: t('navigation.regions'),
           headerBackTestID: 'Back',
         }}
       />

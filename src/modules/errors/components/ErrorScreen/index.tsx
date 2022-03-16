@@ -23,13 +23,13 @@ const ErrorScreen: React.FC<ErrorScreenProps> = props => {
 
       <View style={styles.content}>
         <Text fontStyle="bold" size="l" style={styles.title}>
-          {t('errorBoundaryTitle')}
+          {t('errors.title')}
         </Text>
 
-        <Text>{t('errorBoundarySubtitle')}</Text>
+        <Text>{t('errors.subtitle')}</Text>
       </View>
 
-      <Button onPress={props.onDismiss}>{t('dismiss')}</Button>
+      <Button onPress={props.onDismiss}>{t('errors.dismiss')}</Button>
     </View>
   );
 };
