@@ -1,3 +1,4 @@
+import mockRNCNetInfo from '@react-native-community/netinfo/jest/netinfo-mock.js';
 import jestFetchMock from 'jest-fetch-mock';
 
 const IGNORED_WARNINGS = [
@@ -50,3 +51,5 @@ jest.mock('react-native/Libraries/LogBox/LogBox');
 
 // Otherwise recoil will throw an error
 if (!global.navigator) global.navigator = { product: 'ReactNative' };
+
+jest.mock('@react-native-community/netinfo', () => mockRNCNetInfo);

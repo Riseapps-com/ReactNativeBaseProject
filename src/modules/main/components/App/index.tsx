@@ -6,6 +6,7 @@ import { RecoilRoot } from 'recoil';
 
 import { ErrorBoundary } from '~modules/errors';
 import { NavigationContainer, RootStack } from '~modules/navigation';
+import { NetworkProvider } from '~modules/network';
 import { paperTheme } from '~theme';
 
 import AppContainer from '../AppContainer';
@@ -16,11 +17,13 @@ const App: React.FC = () => {
       <SafeAreaProvider>
         <Provider theme={paperTheme}>
           <ErrorBoundary>
-            <AppContainer>
-              <NavigationContainer>
-                <RootStack />
-              </NavigationContainer>
-            </AppContainer>
+            <NetworkProvider>
+              <AppContainer>
+                <NavigationContainer>
+                  <RootStack />
+                </NavigationContainer>
+              </AppContainer>
+            </NetworkProvider>
           </ErrorBoundary>
         </Provider>
       </SafeAreaProvider>

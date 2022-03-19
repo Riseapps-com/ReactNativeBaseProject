@@ -6,10 +6,10 @@ export type TextSize = 'xs' | 's' | 'm' | 'l' | 'xl';
 
 // Snackbar
 export type SnackbarKind = 'info' | 'success' | 'error';
-export type SnackbarDuration = 1500 | 2750;
+export type SnackbarDuration = 1500 | 2750 | typeof Infinity;
 export type SnackbarAction = {
   label: string;
-  onPress: () => void;
+  onPress?: () => void;
 };
 
 // Button
