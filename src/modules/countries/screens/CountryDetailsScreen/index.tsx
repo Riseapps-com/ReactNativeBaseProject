@@ -13,7 +13,7 @@ export type CountryDetailsScreenProps = {
 
 const CountryDetailsScreen: React.FC<CountryDetailsScreenProps> = () => {
   return (
-    <ScreenContainer withSafeBottomMargin>
+    <ScreenContainer safeMargin={{ bottom: true }}>
       <CountryDetails />
     </ScreenContainer>
   );

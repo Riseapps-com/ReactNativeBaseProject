@@ -5,4 +5,9 @@ export default styleSheetFactory(theme => ({
     flex: 1,
     backgroundColor: theme.background,
   },
+
+  centered: {
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
 }));

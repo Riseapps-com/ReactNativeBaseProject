@@ -7,43 +7,39 @@ import { useTheme } from '~theme';
 
 import themedStyles from './styles';
 
+import type { SafeAreaInsets } from '../../types';
 import type { StatusBarStyle, StyleProp, ViewProps, ViewStyle } from 'react-native';
 
 export type ScreenContainerProps = ViewProps & {
   statusBarStyle?: StatusBarStyle;
-  withSafeTopMargin?: boolean;
-  withSafeBottomMargin?: boolean;
-  withSafeLeftMargin?: boolean;
-  withSafeRightMargin?: boolean;
+  safeMargin?: SafeAreaInsets;
+  safePadding?: SafeAreaInsets;
+  isCentered?: boolean;
 };
 
 const ScreenContainer: React.FC<ScreenContainerProps> = props => {
   const [styles] = useTheme(themedStyles);
   const { top, bottom, left, right } = useSafeAreaInsets();
-  const {
-    statusBarStyle,
-    withSafeTopMargin,
-    withSafeBottomMargin,
-    withSafeLeftMargin,
-    withSafeRightMargin,
-    ...restProps
-  } = props;
+  const { statusBarStyle, safeMargin, safePadding, isCentered, ...restProps } = props;
   const containerStyles: StyleProp<ViewStyle> = [
     styles.container,
-    props.withSafeTopMargin && { marginTop: top },
-    props.withSafeBottomMargin && { marginBottom: bottom },
-    props.withSafeLeftMargin && { marginStart: left },
-    props.withSafeRightMargin && { marginEnd: right },
+    safeMargin?.top && { marginTop: top },
+    safeMargin?.bottom && { marginBottom: bottom },
+    safeMargin?.left && { marginStart: left },
+    safeMargin?.right && { marginEnd: right },
+    safePadding?.top && { paddingTop: top },
+    safePadding?.bottom && { paddingBottom: bottom },
+    safePadding?.left && { paddingStart: left },
+    safePadding?.right && { paddingEnd: right },
+    isCentered && styles.centered,
     props.style,
   ];
 
   return (
-    <>
+    <View {...restProps} accessibilityLabel="Screen container" style={containerStyles}>
       <StatusBar barStyle={statusBarStyle || 'light-content'} />
-      <View {...restProps} accessibilityLabel="Screen container" style={containerStyles}>
-        {props.children}
-      </View>
-    </>
+      {props.children}
+    </View>
   );
 };
 

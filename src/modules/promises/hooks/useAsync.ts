@@ -8,7 +8,7 @@ import { promiseUtilities } from '../services';
 import type { AppError } from '~modules/errors';
 
 export type UseAsyncOptions<T> = {
-  setResult?: (result: T | null) => void;
+  setResult?: (result: Nullable<T>) => void;
   setError?: (error: AppError) => void;
   setIsLoading?: (isLoading: boolean) => void;
 };
@@ -19,13 +19,13 @@ const useAsync = () => {
   const displayStatusMessage = useStatusMessage();
 
   return useCallback(
-    async <T>(toCall: () => Promise<T | null>, options: UseAsyncOptions<T> = {}) => {
+    async <T>(toCall: () => Promise<Nullable<T>>, options: UseAsyncOptions<T> = {}) => {
       const { setResult, setError, setIsLoading } = options;
 
       try {
         setIsLoading?.(true);
 
-        const result = await promiseUtilities.retry<T | null>(toCall);
+        const result = await promiseUtilities.retry<Nullable<T>>(toCall);
 
         setResult?.(result);
         setIsLoading?.(false);

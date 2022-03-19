@@ -1,8 +1,6 @@
 import { useCallback } from 'react';
 
-import { useRecoilState } from 'recoil';
-
-import { statusMessagesAtom } from '~modules/state';
+import { statusMessagesAtom, useRecoilState } from '~modules/state';
 
 import type { StatusMessageAttributes } from '../types';
 import type { SnackbarAction, SnackbarDuration, SnackbarKind } from '~modules/ui/types';

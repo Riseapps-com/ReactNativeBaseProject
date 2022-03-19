@@ -13,7 +13,7 @@ export type MenuScreenProps = {
 
 const MenuScreen: React.FC<MenuScreenProps> = () => {
   return (
-    <ScreenContainer withSafeBottomMargin>
+    <ScreenContainer safeMargin={{ bottom: true }}>
       <Menu />
     </ScreenContainer>
   );

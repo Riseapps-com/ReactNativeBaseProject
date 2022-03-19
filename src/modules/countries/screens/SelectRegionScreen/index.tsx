@@ -13,7 +13,7 @@ export type SelectRegionScreenProps = {
 
 const SelectRegionScreen: React.FC<SelectRegionScreenProps> = () => {
   return (
-    <ScreenContainer withSafeBottomMargin>
+    <ScreenContainer safeMargin={{ bottom: true }}>
       <SelectRegionMenu />
     </ScreenContainer>
   );

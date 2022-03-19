@@ -2,20 +2,12 @@ import React from 'react';
 import { Platform } from 'react-native';
 
 import { createStackNavigator } from '@react-navigation/stack';
-import { useTranslation } from 'react-i18next';
 
 import { getFont } from '~assets';
-import {
-  COUNTRIES_SCREEN_NAME,
-  CountriesScreen,
-  COUNTRY_DETAILS_SCREEN_NAME,
-  CountryDetailsScreen,
-  MENU_SCREEN_NAME,
-  MenuScreen,
-  SELECT_REGION_SCREEN_NAME,
-  SelectRegionScreen,
-} from '~modules/countries';
+import { MENU_SCREEN_NAME } from '~modules/countries';
 import { sizes, useTheme } from '~theme';
+
+import { CountriesCapsule } from '../CountriesCapsule';
 
 import themedStyles from './styles';
 
@@ -24,7 +16,6 @@ const Stack = createStackNavigator();
 const TOP_BAR_HEIGHT = Platform.select({ ios: 88, android: 56 });
 
 const ApplicationStack: React.FC = () => {
-  const { t } = useTranslation();
   const [, theme] = useTheme(themedStyles);
 
   return (
@@ -44,37 +35,7 @@ const ApplicationStack: React.FC = () => {
       }}
       initialRouteName={MENU_SCREEN_NAME}
     >
-      {/* // COUNTRIES */}
-
-      <Stack.Screen
-        name={COUNTRIES_SCREEN_NAME}
-        component={CountriesScreen}
-        options={options => ({
-          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-          // @ts-ignore
-          headerTitle: options.route.params.title,
-          headerBackTestID: 'Back',
-        })}
-      />
-      <Stack.Screen
-        name={COUNTRY_DETAILS_SCREEN_NAME}
-        component={CountryDetailsScreen}
-        options={options => ({
-          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-          // @ts-ignore
-          headerTitle: options.route.params.title,
-          headerBackTestID: 'Back',
-        })}
-      />
-      <Stack.Screen name={MENU_SCREEN_NAME} component={MenuScreen} options={{ headerTitle: t('navigation.menu') }} />
-      <Stack.Screen
-        name={SELECT_REGION_SCREEN_NAME}
-        component={SelectRegionScreen}
-        options={{
-          headerTitle: t('navigation.regions'),
-          headerBackTestID: 'Back',
-        }}
-      />
+      {CountriesCapsule(Stack)}
     </Stack.Navigator>
   );
 };

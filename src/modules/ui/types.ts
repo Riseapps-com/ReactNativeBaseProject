@@ -15,3 +15,11 @@ export type SnackbarAction = {
 // Button
 export type ButtonType = 'primary' | 'secondary';
 export type ButtonTextType = 'textPrimary' | 'textSecondary';
+
+// Screen container
+export type SafeAreaInsets = {
+  top?: boolean;
+  bottom?: boolean;
+  left?: boolean;
+  right?: boolean;
+};
