@@ -17,6 +17,7 @@ module.exports = function (api) {
           },
         },
       ],
+      '@babel/plugin-transform-named-capturing-groups-regex',
     ],
     env: {
       production: {

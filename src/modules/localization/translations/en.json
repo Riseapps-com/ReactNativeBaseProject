@@ -25,6 +25,10 @@
     "menu": "Menu",
     "regions": "Regions"
   },
+  "network": {
+    "offlineMessage": "You're offline. Your data won't be synced until you get back online.",
+    "ok": "Ok"
+  },
   "selectRegionMenu": {
     "africa": "Africa",
     "americas": "Americas",

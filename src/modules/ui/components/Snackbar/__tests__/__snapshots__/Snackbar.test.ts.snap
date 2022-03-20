@@ -1,0 +1,106 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ui <Snackbar /> renders <Snackbar /> 1`] = `
+<RCTSafeAreaView
+  emulateUnlessSupported={true}
+  pointerEvents="box-none"
+  style={
+    Array [
+      Object {
+        "bottom": 0,
+        "position": "absolute",
+        "width": "100%",
+      },
+      undefined,
+    ]
+  }
+>
+  <View
+    accessibilityLiveRegion="polite"
+    collapsable={false}
+    pointerEvents="box-none"
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#0036A7",
+        "borderRadius": 4,
+        "elevation": 6,
+        "flexDirection": "row",
+        "justifyContent": "space-between",
+        "margin": 8,
+        "opacity": 0,
+        "shadowColor": "#000000",
+        "shadowOffset": Object {
+          "height": 5,
+          "width": 0,
+        },
+        "shadowOpacity": 0.24,
+        "shadowRadius": 6,
+        "transform": Array [
+          Object {
+            "scale": 0.9,
+          },
+        ],
+      }
+    }
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#000000",
+            "fontFamily": "System",
+            "fontWeight": "400",
+          },
+          Object {
+            "textAlign": "left",
+          },
+          Array [
+            Object {
+              "flex": 1,
+              "flexWrap": "wrap",
+              "marginLeft": 16,
+              "marginVertical": 14,
+            },
+            Object {
+              "color": "#ffffff",
+              "marginRight": 16,
+            },
+          ],
+        ]
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#000000",
+              "fontFamily": "System",
+              "fontWeight": "400",
+            },
+            Object {
+              "textAlign": "left",
+            },
+            Array [
+              Object {
+                "color": "#4A4E4D",
+              },
+              Object {
+                "fontFamily": "SF Pro Display Regular",
+              },
+              Object {
+                "fontSize": 14,
+              },
+              Object {
+                "color": "#FFFFFF",
+              },
+            ],
+          ]
+        }
+      >
+        message
+      </Text>
+    </Text>
+  </View>
+</RCTSafeAreaView>
+`;

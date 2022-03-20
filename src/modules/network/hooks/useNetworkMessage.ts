@@ -2,13 +2,14 @@ import { useEffect } from 'react';
 
 import { useTranslation } from 'react-i18next';
 
-import { netInfoAtom, useRecoilState } from '~modules/state';
+import { netInfoAtom, statusMessagesAtom, useRecoilState } from '~modules/state';
 import { useStatusMessage } from '~modules/statusMessages';
 
 const useNetworkMessage = (): void => {
   const { t } = useTranslation();
   const displayStatusMessage = useStatusMessage();
-  const [netInfoState, setNetInfoState] = useRecoilState(netInfoAtom);
+  const [netInfoState] = useRecoilState(netInfoAtom);
+  const [, setStatusMessagesState] = useRecoilState(statusMessagesAtom);
   const { netInfo } = netInfoState;
 
   useEffect(() => {
@@ -17,11 +18,11 @@ const useNetworkMessage = (): void => {
     const isOnline = netInfo.isConnected && netInfo.isInternetReachable;
 
     if (isOnline) {
-      setNetInfoState(prevState => ({ ...prevState, netInfo: null }));
+      setStatusMessagesState(prevState => ({ ...prevState, statusMessage: null }));
     } else {
-      displayStatusMessage(t('offlineMessage'), 'info', Number.POSITIVE_INFINITY, { label: t('ok') });
+      displayStatusMessage(t('network.offlineMessage'), 'info', Number.POSITIVE_INFINITY, { label: t('network.ok') });
     }
-  }, [displayStatusMessage, netInfo, setNetInfoState, t]);
+  }, [displayStatusMessage, netInfo, setStatusMessagesState, t]);
 };
 
 export default useNetworkMessage;

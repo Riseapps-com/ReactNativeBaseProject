@@ -22,7 +22,7 @@ const SelectRegionMenu: React.FC = () => {
     (index: number) => {
       navigation.navigate(COUNTRIES_SCREEN_NAME, {
         region: regions[index],
-        title: t(regions[index]),
+        title: t(`selectRegionMenu.${regions[index]}`),
       });
     },
     [navigation, t]
