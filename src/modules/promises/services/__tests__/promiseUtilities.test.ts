@@ -1,3 +1,5 @@
+import { RuntimeError } from '~modules/errors';
+
 import * as promisesUtilities from '../promiseUtilities';
 
 describe('promises', () => {
@@ -53,6 +55,28 @@ describe('promises', () => {
         expect.assertions(2);
         await expect(retry).rejects.toEqual({ code: 'UnknownException' });
         expect(promiseFn).toHaveBeenCalledTimes(5);
+      });
+
+      it('aborts the function if timeout is expired', async () => {
+        const promiseFn = jest.fn(() => Promise.reject({ code: 'Mocked request failed.' }));
+        const retry = promisesUtilities.retry(promiseFn);
+
+        jest.advanceTimersByTime(8000);
+
+        expect.assertions(2);
+        await expect(retry).rejects.toEqual(new RuntimeError('RequestWasAbortedException'));
+        expect(promiseFn).toHaveBeenCalledTimes(1);
+      });
+
+      it('allows to specify custom abort timeout', async () => {
+        const promiseFn = jest.fn(() => Promise.reject({ code: 'Mocked request failed.' }));
+        const retry = promisesUtilities.retry(promiseFn, { abortTimeout: 1000 });
+
+        jest.advanceTimersByTime(1000);
+
+        expect.assertions(2);
+        await expect(retry).rejects.toEqual(new RuntimeError('RequestWasAbortedException'));
+        expect(promiseFn).toHaveBeenCalledTimes(1);
       });
     });
   });

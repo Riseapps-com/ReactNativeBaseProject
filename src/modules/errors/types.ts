@@ -67,7 +67,8 @@ export type ErrorCode =
   | 'NotFoundException'
   | 'InvalidRequestException'
   | 'ServerErrorException'
-  | 'InvalidParameterException';
+  | 'InvalidParameterException'
+  | 'RequestWasAbortedException';
 
 export type ErrorDetails = {
   [key: string]: any;

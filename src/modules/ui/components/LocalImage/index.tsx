@@ -18,7 +18,7 @@ const LocalImage: React.FC<LocalImageProps> = props => {
   const images = useImages();
   const localSource = images[source];
 
-  return <Image {...restProps} accessibilityLabel={localSource.toString()} source={localSource} style={imageStyles} />;
+  return <Image {...restProps} accessibilityLabel={source} source={localSource} style={imageStyles} />;
 };
 
 export default LocalImage;

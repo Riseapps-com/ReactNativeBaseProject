@@ -3,7 +3,7 @@ import { Image } from 'react-native';
 
 import type { ImageProps, ImageStyle, StyleProp } from 'react-native';
 
-type RemoteImageProps = Omit<ImageProps, 'source'> & {
+export type RemoteImageProps = Omit<ImageProps, 'source'> & {
   width?: number;
   height?: number;
   source: string;
