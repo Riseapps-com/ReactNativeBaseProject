@@ -70,16 +70,21 @@ exports[`countries <Menu /> renders <Menu /> 1`] = `
         }
       >
         <Image
+          accessibilityLabel="[object Object]"
           source={
             Object {
               "testUri": "../../../assets/images/countries/flag.png",
             }
           }
           style={
-            Object {
-              "height": 48,
-              "width": 48,
-            }
+            Array [
+              false,
+              false,
+              Object {
+                "height": 48,
+                "width": 48,
+              },
+            ]
           }
         />
       </View>
@@ -188,16 +193,21 @@ exports[`countries <Menu /> renders <Menu /> 1`] = `
         }
       >
         <Image
+          accessibilityLabel="[object Object]"
           source={
             Object {
               "testUri": "../../../assets/images/countries/region.png",
             }
           }
           style={
-            Object {
-              "height": 48,
-              "width": 48,
-            }
+            Array [
+              false,
+              false,
+              Object {
+                "height": 48,
+                "width": 48,
+              },
+            ]
           }
         />
       </View>

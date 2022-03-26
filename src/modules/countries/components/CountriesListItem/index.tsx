@@ -1,7 +1,7 @@
 import React, { useCallback } from 'react';
-import { Image, TouchableOpacity, View } from 'react-native';
+import { TouchableOpacity, View } from 'react-native';
 
-import { Text } from '~modules/ui';
+import { RemoteImage, Text } from '~modules/ui';
 import { useTheme } from '~theme';
 
 import themedStyles from './styles';
@@ -25,7 +25,7 @@ const CountriesListItem: React.FC<CountriesListItemProps> = props => {
 
   return (
     <TouchableOpacity testID="Countries list item" onPress={handleItemPress} style={styles.container}>
-      <Image style={styles.icon} resizeMode="contain" source={{ uri: props.country.flagLink }} />
+      <RemoteImage style={styles.icon} resizeMode="contain" source={props.country.flagLink} />
 
       <View style={styles.centerContainer}>
         <Text numberOfLines={1} fontStyle="bold">

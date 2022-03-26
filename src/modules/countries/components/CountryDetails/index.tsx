@@ -30,7 +30,12 @@ const CountryDetails: React.FC = () => {
   return (
     <ScrollView testID="Country details" style={styles.container}>
       <Card style={styles.cardContainer} contentStyle={styles.contentContainer}>
-        <ImageBackground style={styles.flagContainer} resizeMode="cover" source={{ uri: countryDetails.flagLink }}>
+        <ImageBackground
+          accessibilityLabel={countryDetails.flagLink}
+          style={styles.flagContainer}
+          resizeMode="cover"
+          source={{ uri: countryDetails.flagLink }}
+        >
           <Text numberOfLines={1} style={styles.name} size="xl" fontStyle="bold">
             {countryDetails.name}
           </Text>

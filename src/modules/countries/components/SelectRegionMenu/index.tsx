@@ -4,7 +4,6 @@ import { View } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { useTranslation } from 'react-i18next';
 
-import { useImages } from '~assets';
 import { useTheme } from '~theme';
 
 import { COUNTRIES_SCREEN_NAME, regions } from '../../config';
@@ -16,7 +15,6 @@ const SelectRegionMenu: React.FC = () => {
   const { t } = useTranslation();
   const navigation = useNavigation();
   const [styles] = useTheme(themedStyles);
-  const images = useImages();
 
   const handleItemPress = useCallback(
     (index: number) => {
@@ -34,7 +32,7 @@ const SelectRegionMenu: React.FC = () => {
         <MenuItem
           key={index}
           title={t(`selectRegionMenu.${region}`)}
-          image={images[region]}
+          image={region}
           index={index}
           onItemPress={handleItemPress}
           testID={region}

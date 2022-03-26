@@ -1,8 +1,8 @@
-const config = require("./e2e/e2e.config.json");
+const config = require("./e2e/config.json");
 
 module.exports = {
   testRunner: 'jest',
-  runnerConfig: './e2e/config.json',
+  runnerConfig: './e2e/.jestrc.json',
   apps: {
     ios: {
       type: 'ios.app',

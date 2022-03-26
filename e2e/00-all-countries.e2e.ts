@@ -1,53 +1,49 @@
 import { expect } from 'detox';
 
-import { byId, disableAndroidEmulatorAnimations } from './utils';
+import { afghanistanPage, allCountriesPage, menuPage } from './atomicPageObjects';
 
 describe('00-all-countries', () => {
-  beforeAll(() => {
-    disableAndroidEmulatorAnimations();
-  });
-
   describe('Menu', () => {
     it('renders menu', async () => {
-      await expect(byId('All countries')).toBeVisible();
-      await expect(byId('Countries by region')).toBeVisible();
+      await expect(menuPage.getAllCountriesElement()).toBeVisible();
+      await expect(menuPage.getCountriesByRegionElement()).toBeVisible();
     });
 
     it('opens all countries', async () => {
-      await byId('All countries').tap();
-      await expect(byId('Back')).toBeVisible();
-      await byId('Back').tap();
-      await expect(byId('All countries')).toBeVisible();
+      await menuPage.openAllCountries();
+      await expect(allCountriesPage.getListItem().getTitleElement()).toBeVisible();
+      await allCountriesPage.goBack();
+      await expect(menuPage.getAllCountriesElement()).toBeVisible();
     });
   });
 
   describe('AllCountries', () => {
     it('renders all countries', async () => {
-      await byId('All countries').tap();
+      await menuPage.openAllCountries();
     });
 
-    it('scrolls', async () => {
-      await byId('Countries').scroll(200, 'down');
-      await byId('Countries').scrollTo('top');
+    it('scrolls the page', async () => {
+      await allCountriesPage.scroll();
     });
 
     it('opens country details', async () => {
-      await byId('Countries list item').atIndex(0).tap();
-      await expect(byId('Back').atIndex(0)).toBeVisible();
-      await byId('Back').atIndex(0).tap();
-      await expect(byId('Back')).toBeVisible();
+      await allCountriesPage.openCountry();
+      await expect(afghanistanPage.getBackButtonElement()).toBeVisible();
+      await afghanistanPage.goBack();
+      await expect(allCountriesPage.getBackButtonElement()).toBeVisible();
     });
   });
 
   describe('CountryDetails', () => {
     it('renders country details', async () => {
-      await byId('Countries list item').atIndex(0).tap();
-      await expect(byId('Back').atIndex(0)).toBeVisible();
-    });
-
-    it('scrolls', async () => {
-      await byId('Country details').scrollTo('bottom');
-      await byId('Country details').scrollTo('top');
+      await allCountriesPage.openCountry();
+      await expect(afghanistanPage.countryDetails.getImageElement()).toBeVisible();
+      await expect(afghanistanPage.countryDetails.getCapitalElement()).toBeVisible();
+      await expect(afghanistanPage.countryDetails.getRegionElement()).toBeVisible();
+      await expect(afghanistanPage.countryDetails.getSubregionElement()).toBeVisible();
+      await expect(afghanistanPage.countryDetails.getPopulationElement()).toBeVisible();
+      await expect(afghanistanPage.countryDetails.getCurrenciesElement()).toBeVisible();
+      await expect(afghanistanPage.countryDetails.getLanguagesElement()).toBeVisible();
     });
   });
 });

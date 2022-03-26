@@ -1,9 +1,17 @@
 {
-  "setupFilesAfterEnv": ["./setup.ts"],
-  "testEnvironment": "./environment",
-  "testRunner": "jest-circus/runner",
-  "testTimeout": 360000,
-  "testRegex": "\\.e2e\\.ts$",
-  "reporters": ["detox/runners/jest/streamlineReporter"],
-  "verbose": true
+  "ios": {
+    "binaryPath": "ios/build/Build/Products/Debug-iphonesimulator/ReactNativeBaseProject.app",
+    "build": "xcodebuild -workspace ios/ReactNativeBaseProject.xcworkspace -scheme ReactNativeBaseProject -configuration Debug -sdk iphonesimulator -derivedDataPath ios/build",
+    "device": {
+      "type": "iPhone 13",
+      "UDID": "B7C885C4-C557-4269-8DA4-C32408E68F08"
+    }
+  },
+  "android": {
+    "binaryPath": "android/app/build/outputs/apk/debug/app-debug.apk",
+    "build": "cd android && ./gradlew assembleDebug assembleAndroidTest -DtestBuildType=debug",
+    "device": {
+      "avdName": "Pixel_4_API_30_1"
+    }
+  }
 }

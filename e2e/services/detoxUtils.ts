@@ -11,9 +11,9 @@ export const byType = (type: string): Detox.IndexableNativeElement => element(by
 
 export const byTraits = (traits: string[]): Detox.IndexableNativeElement => element(by.traits(traits));
 
-export const sleep = (ms: number): Promise<unknown> => {
+export const sleep = (tts: number): Promise<unknown> => {
   return new Promise(res => {
-    setTimeout(res, ms);
+    setTimeout(res, tts);
   });
 };
 

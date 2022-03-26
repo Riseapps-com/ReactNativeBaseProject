@@ -4,7 +4,6 @@ import { View } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { useTranslation } from 'react-i18next';
 
-import { useImages } from '~assets';
 import { useTheme } from '~theme';
 
 import { COUNTRIES_SCREEN_NAME, SELECT_REGION_SCREEN_NAME } from '../../config';
@@ -16,7 +15,6 @@ const Menu: React.FC = () => {
   const { t } = useTranslation();
   const navigation = useNavigation();
   const [styles] = useTheme(themedStyles);
-  const images = useImages();
 
   const handleAllCountriesPress = useCallback(() => {
     navigation.navigate(COUNTRIES_SCREEN_NAME, {
@@ -32,7 +30,7 @@ const Menu: React.FC = () => {
     <View style={styles.container}>
       <MenuItem
         title={t('menu.allCountries')}
-        image={images.flag}
+        image="flag"
         index={0}
         onItemPress={handleAllCountriesPress}
         style={styles.menuItem}
@@ -41,7 +39,7 @@ const Menu: React.FC = () => {
 
       <MenuItem
         title={t('menu.countriesByRegion')}
-        image={images.region}
+        image="region"
         index={1}
         onItemPress={handleCountriesByRegionPress}
         style={styles.menuItem}

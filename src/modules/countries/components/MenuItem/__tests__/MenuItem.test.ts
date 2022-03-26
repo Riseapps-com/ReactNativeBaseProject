@@ -1,6 +1,5 @@
 import { fireEvent } from '@testing-library/react-native';
 
-import { images } from '~assets';
 import { renderComponent } from '~modules/tests';
 
 import MenuItem from '../index';
@@ -14,7 +13,7 @@ describe('countries', () => {
     it('renders <MenuItem />', () => {
       const title = 'Title';
       const menuItem = renderMenuItem({
-        image: images.africa,
+        image: 'africa',
         title,
         index: 0,
       });
@@ -30,7 +29,7 @@ describe('countries', () => {
       const onItemPress = jest.fn();
       const index = 5;
       const menuItem = renderMenuItem({
-        image: images.africa,
+        image: 'africa',
         title: 'Title',
         index,
         onItemPress,

@@ -1,18 +1,19 @@
 import React, { useCallback } from 'react';
-import { Image, View } from 'react-native';
+import { View } from 'react-native';
 
-import { Text } from '~modules/ui';
+import { LocalImage, Text } from '~modules/ui';
 import { useTheme } from '~theme';
 
 import Card from '../Card';
 
 import themedStyles from './styles';
 
+import type { Images } from '~assets';
 import type { StyleProp, ViewStyle } from 'react-native';
 
 export type MenuItemProps = {
   style?: StyleProp<ViewStyle>;
-  image: number;
+  image: keyof Images;
   title: string;
   index: number;
   onItemPress?: (index: number) => void;
@@ -34,7 +35,7 @@ const MenuItem: React.FC<MenuItemProps> = props => {
       activeOpacity={0.7}
     >
       <View style={styles.imageContainer}>
-        <Image style={styles.image} source={props.image} />
+        <LocalImage style={styles.image} source={props.image} />
       </View>
 
       <View style={styles.titleContainer}>

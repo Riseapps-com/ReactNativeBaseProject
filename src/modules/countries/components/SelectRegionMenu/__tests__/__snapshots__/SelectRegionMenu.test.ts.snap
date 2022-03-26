@@ -70,16 +70,21 @@ exports[`countries <SelectRegionMenu /> renders <SelectRegionMenu /> 1`] = `
         }
       >
         <Image
+          accessibilityLabel="[object Object]"
           source={
             Object {
               "testUri": "../../../assets/images/selectRegionMenu/africa.png",
             }
           }
           style={
-            Object {
-              "height": 48,
-              "width": 48,
-            }
+            Array [
+              false,
+              false,
+              Object {
+                "height": 48,
+                "width": 48,
+              },
+            ]
           }
         />
       </View>
@@ -188,16 +193,21 @@ exports[`countries <SelectRegionMenu /> renders <SelectRegionMenu /> 1`] = `
         }
       >
         <Image
+          accessibilityLabel="[object Object]"
           source={
             Object {
               "testUri": "../../../assets/images/selectRegionMenu/america.png",
             }
           }
           style={
-            Object {
-              "height": 48,
-              "width": 48,
-            }
+            Array [
+              false,
+              false,
+              Object {
+                "height": 48,
+                "width": 48,
+              },
+            ]
           }
         />
       </View>
@@ -306,16 +316,21 @@ exports[`countries <SelectRegionMenu /> renders <SelectRegionMenu /> 1`] = `
         }
       >
         <Image
+          accessibilityLabel="[object Object]"
           source={
             Object {
               "testUri": "../../../assets/images/selectRegionMenu/asia.png",
             }
           }
           style={
-            Object {
-              "height": 48,
-              "width": 48,
-            }
+            Array [
+              false,
+              false,
+              Object {
+                "height": 48,
+                "width": 48,
+              },
+            ]
           }
         />
       </View>
@@ -424,16 +439,21 @@ exports[`countries <SelectRegionMenu /> renders <SelectRegionMenu /> 1`] = `
         }
       >
         <Image
+          accessibilityLabel="[object Object]"
           source={
             Object {
               "testUri": "../../../assets/images/selectRegionMenu/europe.png",
             }
           }
           style={
-            Object {
-              "height": 48,
-              "width": 48,
-            }
+            Array [
+              false,
+              false,
+              Object {
+                "height": 48,
+                "width": 48,
+              },
+            ]
           }
         />
       </View>
@@ -542,16 +562,21 @@ exports[`countries <SelectRegionMenu /> renders <SelectRegionMenu /> 1`] = `
         }
       >
         <Image
+          accessibilityLabel="[object Object]"
           source={
             Object {
               "testUri": "../../../assets/images/selectRegionMenu/oceania.png",
             }
           }
           style={
-            Object {
-              "height": 48,
-              "width": 48,
-            }
+            Array [
+              false,
+              false,
+              Object {
+                "height": 48,
+                "width": 48,
+              },
+            ]
           }
         />
       </View>

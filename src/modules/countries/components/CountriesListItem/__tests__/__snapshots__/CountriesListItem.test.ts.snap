@@ -23,6 +23,7 @@ exports[`countries <CountriesListItem /> renders <CountriesListItem /> 1`] = `
   testID="Countries list item"
 >
   <Image
+    accessibilityLabel="https://flagcdn.com/w320/ua.png"
     resizeMode="contain"
     source={
       Object {
@@ -30,9 +31,13 @@ exports[`countries <CountriesListItem /> renders <CountriesListItem /> 1`] = `
       }
     }
     style={
-      Object {
-        "width": 32,
-      }
+      Array [
+        false,
+        false,
+        Object {
+          "width": 32,
+        },
+      ]
     }
   />
   <View

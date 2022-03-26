@@ -35,9 +35,14 @@ describe('network', () => {
       renderHook(() => useNetworkMessage());
 
       expect(mockedDisplayStatusMessage).toBeCalledTimes(1);
-      expect(mockedDisplayStatusMessage).toBeCalledWith(I18n.t('offlineMessage'), 'info', Number.POSITIVE_INFINITY, {
-        label: I18n.t('ok'),
-      });
+      expect(mockedDisplayStatusMessage).toBeCalledWith(
+        I18n.t('network.offlineMessage'),
+        'info',
+        Number.POSITIVE_INFINITY,
+        {
+          label: I18n.t('network.ok'),
+        }
+      );
     });
 
     it('hides status bar if is online', async () => {

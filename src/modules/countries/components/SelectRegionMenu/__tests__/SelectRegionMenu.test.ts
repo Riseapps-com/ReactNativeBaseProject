@@ -33,7 +33,7 @@ describe('countries', () => {
       expect(mockedUseNavigation().navigate).toBeCalledTimes(1);
       expect(mockedUseNavigation().navigate).toBeCalledWith(COUNTRIES_SCREEN_NAME, {
         region: 'africa',
-        title: I18n.t('africa'),
+        title: I18n.t('selectRegionMenu.africa'),
       });
     });
   });
