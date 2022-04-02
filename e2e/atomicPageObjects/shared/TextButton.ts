@@ -2,19 +2,19 @@ import { detoxUtils } from '../../services';
 import { Atom } from '../entities';
 
 class TextButton extends Atom {
-  protected text: string;
+  protected _text: string;
 
   constructor(text: string) {
     super();
-    this.text = text;
+    this._text = text;
+  }
+
+  get(): Detox.IndexableNativeElement {
+    return detoxUtils.byText(this._text);
   }
 
   async tap(): Promise<void> {
-    await detoxUtils.byText(this.text).tap();
-  }
-
-  getElement(): Detox.IndexableNativeElement {
-    return detoxUtils.byText(this.text);
+    await detoxUtils.byText(this._text).tap();
   }
 }
 

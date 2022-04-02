@@ -1,67 +1,60 @@
 import { Organism } from '../entities';
 import { Image, Text } from '../shared';
 
+import type { CountryDetailsContent } from '../../types';
+
 class CountryDetails extends Organism {
-  private image;
+  private _image;
 
-  private capital;
+  private _capital;
 
-  private region;
+  private _region;
 
-  private subregion;
+  private _subregion;
 
-  private population;
+  private _population;
 
-  private currencies;
+  private _currencies;
 
-  private languages;
+  private _languages;
 
-  // eslint-disable-next-line max-params
-  constructor(
-    image: string,
-    capital: string,
-    region: string,
-    subregion: string,
-    population: string,
-    currencies: string,
-    languages: string
-  ) {
+  constructor(countryDetails: CountryDetailsContent) {
     super();
-    this.image = new Image(image);
-    this.capital = new Text(capital);
-    this.region = new Text(region);
-    this.subregion = new Text(subregion);
-    this.population = new Text(population);
-    this.currencies = new Text(currencies);
-    this.languages = new Text(languages);
+    this._image = new Image(countryDetails.image);
+    this._capital = new Text(countryDetails.capital);
+    this._region = new Text(countryDetails.region);
+    this._subregion = new Text(countryDetails.subregion);
+    this._population = new Text(countryDetails.population);
+    this._currencies = new Text(countryDetails.currencies);
+    this._languages = new Text(countryDetails.languages);
   }
 
-  getImageElement(): Detox.IndexableNativeElement {
-    return this.image.getElement();
+  get image(): Detox.IndexableNativeElement {
+    return this._image.get();
   }
 
-  getCapitalElement(): Detox.NativeElement {
-    return this.capital.getElement();
+  get capital(): Detox.NativeElement {
+    return this._capital.get();
   }
 
-  getRegionElement(): Detox.NativeElement {
-    return this.region.getElement();
+  get region(): Detox.NativeElement {
+    return this._region.get();
   }
 
-  getSubregionElement(): Detox.NativeElement {
-    return this.subregion.getElement();
+  get subregion(): Detox.NativeElement {
+    return this._subregion.get();
   }
 
-  getPopulationElement(): Detox.NativeElement {
-    return this.population.getElement();
+  get population(): Detox.NativeElement {
+    return this._population.get();
   }
 
-  getCurrenciesElement(): Detox.NativeElement {
-    return this.currencies.getElement();
+  get currencies(): Detox.NativeElement {
+    return this._currencies.get();
   }
 
-  getLanguagesElement(): Detox.NativeElement {
-    return this.languages.getElement();
+  get languages(): Detox.NativeElement {
+    return this._languages.get();
   }
 }
 

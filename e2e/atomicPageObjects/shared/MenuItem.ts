@@ -4,29 +4,29 @@ import Image from './Image';
 import Text from './Text';
 
 class MenuItem extends Molecule {
-  private id;
+  private _id;
 
-  private image;
+  private _image;
 
-  private text;
+  private _text;
 
   constructor(id: string, image: string, text: string) {
     super();
-    this.id = id;
-    this.image = new Image(image);
-    this.text = new Text(text);
+    this._id = id;
+    this._image = new Image(image);
+    this._text = new Text(text);
   }
 
-  getImageElement(): Detox.IndexableNativeElement {
-    return this.image.getElement();
+  get image(): Detox.IndexableNativeElement {
+    return this._image.get();
   }
 
-  getTextElement(): Detox.NativeElement {
-    return this.text.getElement();
+  get text(): Detox.NativeElement {
+    return this._text.get();
   }
 
   async tap(): Promise<void> {
-    await detoxUtils.byId(this.id).tap();
+    await detoxUtils.byId(this._id).tap();
   }
 }
 

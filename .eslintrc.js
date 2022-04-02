@@ -55,6 +55,7 @@ module.exports = {
     'no-throw-literal': 'off',
     'class-methods-use-this': 'off',
     'consistent-return': 'off',
+    'no-underscore-dangle': 'off',
     'max-depth': ['error', 3],
     'max-len': ['error', 120],
     'max-lines': ['error', { max: 200 }],
@@ -114,6 +115,7 @@ module.exports = {
       {
         selector: 'property',
         format: ['camelCase', 'PascalCase'],
+        leadingUnderscore: 'allow',
       },
     ],
     '@typescript-eslint/explicit-module-boundary-types': 'off',

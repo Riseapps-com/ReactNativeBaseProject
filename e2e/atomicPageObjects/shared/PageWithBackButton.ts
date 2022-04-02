@@ -2,14 +2,14 @@ import { Page } from '../entities';
 import BackButton from './BackButton';
 
 class PageWithBackButton extends Page {
-  private backButton = new BackButton();
+  private _backButton = new BackButton();
 
-  async goBack(): Promise<void> {
-    await this.backButton.tap();
+  get backButton(): Detox.NativeElement {
+    return this._backButton.get();
   }
 
-  getBackButtonElement(): Detox.NativeElement {
-    return this.backButton.getElement();
+  async goBack(): Promise<void> {
+    await this._backButton.tap();
   }
 }
 

@@ -4,24 +4,24 @@ import type { ListItemContent } from '../../types';
 import type ListItem from '../shared/ListItem';
 
 class CountriesPage extends PageWithBackButton {
-  protected list;
+  protected _list;
 
   constructor(listItems: ListItemContent[]) {
     super();
-    this.list = new FlatList(listItems);
+    this._list = new FlatList(listItems);
+  }
+
+  get listItem(): ListItem {
+    return this._list.getListItemByIndex(0);
   }
 
   async scroll(): Promise<void> {
-    await this.list.scrollToBottom();
-    await this.list.scrollToTop();
+    await this._list.scrollDown();
+    await this._list.scrollToTop();
   }
 
   async openCountry(): Promise<void> {
-    await this.list.tapByIndex(0);
-  }
-
-  getListItem(): ListItem {
-    return this.list.getListItemByIndex(0);
+    await this._list.tapByIndex(0);
   }
 }
 

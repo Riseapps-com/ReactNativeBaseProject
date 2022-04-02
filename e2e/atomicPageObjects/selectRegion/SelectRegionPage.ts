@@ -2,26 +2,26 @@ import { PageWithBackButton } from '../shared';
 import SelectRegionMenu from './SelectRegionMenu';
 
 class SelectRegionPage extends PageWithBackButton {
-  private menu = new SelectRegionMenu();
+  private _menu = new SelectRegionMenu();
 
   async openAfrica(): Promise<void> {
-    await this.menu.tapByIndex(0);
+    await this._menu.tapByIndex(0);
   }
 
   async openAmericas(): Promise<void> {
-    await this.menu.tapByIndex(1);
+    await this._menu.tapByIndex(1);
   }
 
   async openAsia(): Promise<void> {
-    await this.menu.tapByIndex(2);
+    await this._menu.tapByIndex(2);
   }
 
   async openEurope(): Promise<void> {
-    await this.menu.tapByIndex(3);
+    await this._menu.tapByIndex(3);
   }
 
   async openOceania(): Promise<void> {
-    await this.menu.tapByIndex(4);
+    await this._menu.tapByIndex(4);
   }
 }
 

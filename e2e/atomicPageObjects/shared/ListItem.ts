@@ -4,35 +4,35 @@ import Image from './Image';
 import Text from './Text';
 
 class ListItem extends Molecule {
-  private id = 'Countries list item';
+  private _id = 'Countries list item';
 
-  private image;
+  private _image;
 
-  private title;
+  private _title;
 
-  private subtitle;
+  private _subtitle;
 
   constructor(image: string, title: string, subtitle: string) {
     super();
-    this.image = new Image(image);
-    this.title = new Text(title);
-    this.subtitle = new Text(subtitle);
+    this._image = new Image(image);
+    this._title = new Text(title);
+    this._subtitle = new Text(subtitle);
+  }
+
+  get image(): Detox.NativeElement {
+    return this._image.get();
+  }
+
+  get title(): Detox.NativeElement {
+    return this._title.get();
+  }
+
+  get subtitle(): Detox.NativeElement {
+    return this._subtitle.get();
   }
 
   async tapByIndex(index: number): Promise<void> {
-    await detoxUtils.byId(this.id).atIndex(index).tap();
-  }
-
-  getImageElement(): Detox.IndexableNativeElement {
-    return this.image.getElement();
-  }
-
-  getTitleElement(): Detox.NativeElement {
-    return this.title.getElement();
-  }
-
-  getSubtitleElement(): Detox.NativeElement {
-    return this.subtitle.getElement();
+    await detoxUtils.byId(this._id).atIndex(index).tap();
   }
 }
 

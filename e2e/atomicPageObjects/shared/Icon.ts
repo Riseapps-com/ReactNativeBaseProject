@@ -2,19 +2,19 @@ import { detoxUtils } from '../../services';
 import { Atom } from '../entities';
 
 class Icon extends Atom {
-  protected a11yLabel: string;
+  protected _a11yLabel: string;
 
   constructor(a11yLabel: string) {
     super();
-    this.a11yLabel = a11yLabel;
+    this._a11yLabel = a11yLabel;
+  }
+
+  get(): Detox.NativeElement {
+    return detoxUtils.byLabel(this._a11yLabel).atIndex(0);
   }
 
   async tap(): Promise<void> {
-    await detoxUtils.byLabel(this.a11yLabel).atIndex(0).tap();
-  }
-
-  getElement(): Detox.NativeElement {
-    return detoxUtils.byLabel(this.a11yLabel).atIndex(0);
+    await detoxUtils.byLabel(this._a11yLabel).atIndex(0).tap();
   }
 }
 

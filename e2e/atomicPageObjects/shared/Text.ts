@@ -2,15 +2,15 @@ import { detoxUtils } from '../../services';
 import { Atom } from '../entities';
 
 class Text extends Atom {
-  protected text: string;
+  protected _text: string;
 
   constructor(text: string) {
     super();
-    this.text = text;
+    this._text = text;
   }
 
-  getElement(): Detox.NativeElement {
-    return detoxUtils.byText(this.text).atIndex(0);
+  get(): Detox.NativeElement {
+    return detoxUtils.byText(this._text).atIndex(0);
   }
 }
 

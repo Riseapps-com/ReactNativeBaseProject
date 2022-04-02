@@ -4,19 +4,19 @@ import MenuItem from './MenuItem';
 import type { MenuItemContent } from '../../types';
 
 class Menu extends Organism {
-  protected menuItems;
+  protected _menuItems;
 
   constructor(menuItems: MenuItemContent[]) {
     super();
-    this.menuItems = menuItems.map(menuItem => new MenuItem(menuItem.id, menuItem.image, menuItem.text));
-  }
-
-  async tapByIndex(index: number): Promise<void> {
-    await this.menuItems[index].tap();
+    this._menuItems = menuItems.map(menuItem => new MenuItem(menuItem.id, menuItem.image, menuItem.text));
   }
 
   getMenuItemByIndex(index: number): MenuItem {
-    return this.menuItems[index];
+    return this._menuItems[index];
+  }
+
+  async tapByIndex(index: number): Promise<void> {
+    await this._menuItems[index].tap();
   }
 }
 

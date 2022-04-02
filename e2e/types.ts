@@ -17,3 +17,13 @@ export type ListItemContent = {
   title: string;
   subtitle: string;
 };
+
+export type CountryDetailsContent = {
+  image: string;
+  capital: string;
+  region: string;
+  subregion: string;
+  population: string;
+  currencies: string;
+  languages: string;
+};
