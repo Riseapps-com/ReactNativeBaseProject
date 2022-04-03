@@ -70,7 +70,7 @@ exports[`countries <SelectRegionMenu /> renders <SelectRegionMenu /> 1`] = `
         }
       >
         <Image
-          accessibilityLabel="[object Object]"
+          accessibilityLabel="africa"
           source={
             Object {
               "testUri": "../../../assets/images/selectRegionMenu/africa.png",
@@ -193,7 +193,7 @@ exports[`countries <SelectRegionMenu /> renders <SelectRegionMenu /> 1`] = `
         }
       >
         <Image
-          accessibilityLabel="[object Object]"
+          accessibilityLabel="americas"
           source={
             Object {
               "testUri": "../../../assets/images/selectRegionMenu/america.png",
@@ -316,7 +316,7 @@ exports[`countries <SelectRegionMenu /> renders <SelectRegionMenu /> 1`] = `
         }
       >
         <Image
-          accessibilityLabel="[object Object]"
+          accessibilityLabel="asia"
           source={
             Object {
               "testUri": "../../../assets/images/selectRegionMenu/asia.png",
@@ -439,7 +439,7 @@ exports[`countries <SelectRegionMenu /> renders <SelectRegionMenu /> 1`] = `
         }
       >
         <Image
-          accessibilityLabel="[object Object]"
+          accessibilityLabel="europe"
           source={
             Object {
               "testUri": "../../../assets/images/selectRegionMenu/europe.png",
@@ -562,7 +562,7 @@ exports[`countries <SelectRegionMenu /> renders <SelectRegionMenu /> 1`] = `
         }
       >
         <Image
-          accessibilityLabel="[object Object]"
+          accessibilityLabel="oceania"
           source={
             Object {
               "testUri": "../../../assets/images/selectRegionMenu/oceania.png",

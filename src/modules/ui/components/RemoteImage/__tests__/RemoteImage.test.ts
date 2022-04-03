@@ -14,6 +14,7 @@ describe('ui', () => {
       });
 
       expect(remoteImage.getByA11yLabel('https://testImage.com')).toBeTruthy();
+      expect(remoteImage).toMatchSnapshot();
     });
 
     it('renders custom width and height', () => {

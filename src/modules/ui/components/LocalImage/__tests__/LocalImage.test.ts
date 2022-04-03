@@ -14,6 +14,7 @@ describe('ui', () => {
       });
 
       expect(localImage.getByA11yLabel('flag')).toBeTruthy();
+      expect(localImage).toMatchSnapshot();
     });
 
     it('renders custom width and height', () => {

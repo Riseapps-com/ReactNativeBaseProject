@@ -70,7 +70,7 @@ exports[`countries <Menu /> renders <Menu /> 1`] = `
         }
       >
         <Image
-          accessibilityLabel="[object Object]"
+          accessibilityLabel="flag"
           source={
             Object {
               "testUri": "../../../assets/images/countries/flag.png",
@@ -193,7 +193,7 @@ exports[`countries <Menu /> renders <Menu /> 1`] = `
         }
       >
         <Image
-          accessibilityLabel="[object Object]"
+          accessibilityLabel="region"
           source={
             Object {
               "testUri": "../../../assets/images/countries/region.png",

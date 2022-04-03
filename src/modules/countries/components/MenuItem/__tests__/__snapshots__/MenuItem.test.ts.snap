@@ -61,7 +61,7 @@ exports[`countries <MenuItem /> renders <MenuItem /> 1`] = `
       }
     >
       <Image
-        accessibilityLabel="[object Object]"
+        accessibilityLabel="africa"
         source={
           Object {
             "testUri": "../../../assets/images/selectRegionMenu/africa.png",

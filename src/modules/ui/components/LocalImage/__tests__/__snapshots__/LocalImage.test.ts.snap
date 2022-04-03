@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ui <LocalImage /> renders <LocalImage /> 1`] = `
+<Image
+  accessibilityLabel="flag"
+  source={
+    Object {
+      "testUri": "../../../assets/images/countries/flag.png",
+    }
+  }
+  style={
+    Array [
+      false,
+      false,
+      undefined,
+    ]
+  }
+/>
+`;

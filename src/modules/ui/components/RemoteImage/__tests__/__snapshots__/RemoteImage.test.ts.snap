@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ui <RemoteImage /> renders <LocalImage /> 1`] = `
+<Image
+  accessibilityLabel="https://testImage.com"
+  source={
+    Object {
+      "uri": "https://testImage.com",
+    }
+  }
+  style={
+    Array [
+      false,
+      false,
+      undefined,
+    ]
+  }
+/>
+`;
