@@ -7,6 +7,6 @@ import { App } from '~modules/main';
 
 import { name as appName } from './app.json';
 
-LogBox.ignoreLogs(['1[react-native-gesture-handler]', 'RCTBridge required dispatch_sync']);
+LogBox.ignoreLogs(['[react-native-gesture-handler]', 'RCTBridge required dispatch_sync']);
 
 AppRegistry.registerComponent(appName, () => App);
