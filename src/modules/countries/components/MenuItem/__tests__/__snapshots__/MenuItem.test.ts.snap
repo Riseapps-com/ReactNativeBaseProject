@@ -106,7 +106,7 @@ exports[`countries <MenuItem /> renders <MenuItem /> 1`] = `
                 "color": "#4A4E4D",
               },
               Object {
-                "fontFamily": "SF Pro Text Bold",
+                "fontFamily": "SFProText-Bold",
               },
               Object {
                 "fontSize": 14,

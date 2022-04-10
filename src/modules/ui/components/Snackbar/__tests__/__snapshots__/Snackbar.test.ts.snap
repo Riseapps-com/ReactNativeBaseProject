@@ -86,7 +86,7 @@ exports[`ui <Snackbar /> renders <Snackbar /> 1`] = `
                 "color": "#4A4E4D",
               },
               Object {
-                "fontFamily": "SF Pro Display Regular",
+                "fontFamily": "SFProDisplay-Regular",
               },
               Object {
                 "fontSize": 14,

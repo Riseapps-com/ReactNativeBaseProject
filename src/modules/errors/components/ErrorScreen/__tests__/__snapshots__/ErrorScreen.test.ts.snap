@@ -40,7 +40,7 @@ exports[`errors <ErrorScreen /> should render correctly 1`] = `
               "color": "#4A4E4D",
             },
             Object {
-              "fontFamily": "SF Pro Text Bold",
+              "fontFamily": "SFProText-Bold",
             },
             Object {
               "fontSize": 18,
@@ -72,7 +72,7 @@ exports[`errors <ErrorScreen /> should render correctly 1`] = `
               "color": "#4A4E4D",
             },
             Object {
-              "fontFamily": "SF Pro Display Regular",
+              "fontFamily": "SFProDisplay-Regular",
             },
             Object {
               "fontSize": 14,

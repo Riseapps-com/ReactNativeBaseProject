@@ -17,7 +17,7 @@ exports[`ui <Text /> renders <Text /> 1`] = `
           "color": "#4A4E4D",
         },
         Object {
-          "fontFamily": "SF Pro Display Regular",
+          "fontFamily": "SFProDisplay-Regular",
         },
         Object {
           "fontSize": 14,

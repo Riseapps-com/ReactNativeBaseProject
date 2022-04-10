@@ -3,25 +3,25 @@ import type { Font } from '../types';
 const getFont = (font: Font): string => {
   switch (font) {
     case 'black':
-      return 'SF Pro Display Black';
+      return 'SFProDisplay-Black';
     case 'heavy':
-      return 'SF Pro Display Heavy';
+      return 'SFProDisplay-Heavy';
     case 'light':
-      return 'SF Pro Display Light';
+      return 'SFProDisplay-Light';
     case 'medium':
-      return 'SF Pro Display Medium';
+      return 'SFProDisplay-Medium';
     case 'regular':
-      return 'SF Pro Display Regular';
+      return 'SFProDisplay-Regular';
     case 'semiBold':
-      return 'SF Pro Display Semibold';
+      return 'SFProDisplay-Semibold';
     case 'thin':
-      return 'SF Pro Display Thin';
+      return 'SFProDisplay-Thin';
     case 'ultraLight':
-      return 'SF Pro Display Ultralight';
+      return 'SFProDisplay-Ultralight';
     case 'bold':
-      return 'SF Pro Text Bold';
+      return 'SFProText-Bold';
     default:
-      return 'SF Pro Display Regular';
+      return 'SFProDisplay-Regular';
   }
 };
 
