@@ -1,13 +1,28 @@
-import AfricaPage from './AfricaPage';
-import AllCountriesPage from './AllCountriesPage';
-import AmericasPage from './AmericasPage';
-import AsiaPage from './AsiaPage';
-import EuropePage from './EuropePage';
-import OceaniaPage from './OceaniaPage';
+import { FlatList, PageWithBackButton } from '../shared';
 
-export const africaPage = new AfricaPage();
-export const allCountriesPage = new AllCountriesPage();
-export const americasPage = new AmericasPage();
-export const asiaPage = new AsiaPage();
-export const oceaniaPage = new OceaniaPage();
-export const europePage = new EuropePage();
+import type { ListItemContent } from '../../types';
+import type { ListItem } from '../shared';
+
+class CountriesPage extends PageWithBackButton {
+  protected _list;
+
+  constructor(listItems: ListItemContent[]) {
+    super();
+    this._list = new FlatList(listItems);
+  }
+
+  get listItem(): ListItem {
+    return this._list.getItemByIndex(0);
+  }
+
+  async scroll(): Promise<void> {
+    await this._list.scrollDown();
+    await this._list.scrollToTop();
+  }
+
+  async openCountry(): Promise<void> {
+    await this._list.tapByIndex(0);
+  }
+}
+
+export default CountriesPage;

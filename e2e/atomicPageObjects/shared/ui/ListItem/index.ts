@@ -1,7 +1,9 @@
-import { detoxUtils } from '../../services';
-import { Molecule } from '../entities';
-import Image from './Image';
-import Text from './Text';
+import { detoxUtils } from '../../../../services';
+import { Molecule } from '../../../entities';
+import Image from '../Image';
+import Text from '../Text';
+
+import type { ListItemContent } from '../../../../types';
 
 class ListItem extends Molecule {
   private _id = 'Countries list item';
@@ -12,11 +14,11 @@ class ListItem extends Molecule {
 
   private _subtitle;
 
-  constructor(image: string, title: string, subtitle: string) {
+  constructor(content: ListItemContent) {
     super();
-    this._image = new Image(image);
-    this._title = new Text(title);
-    this._subtitle = new Text(subtitle);
+    this._image = new Image(content.image);
+    this._title = new Text(content.title);
+    this._subtitle = new Text(content.subtitle);
   }
 
   get image(): Detox.NativeElement {

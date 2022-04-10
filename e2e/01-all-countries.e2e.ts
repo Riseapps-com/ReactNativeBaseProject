@@ -1,6 +1,11 @@
 import { expect } from 'detox';
 
-import { afghanistanPage, allCountriesPage, menuPage } from './atomicPageObjects';
+import { CountriesPage, CountryDetailsPage, MenuPage } from './atomicPageObjects';
+import config from './config.json';
+
+const menuPage = new MenuPage();
+const allCountriesPage = new CountriesPage([config.data.countries.allCountries]);
+const afghanistanPage = new CountryDetailsPage(config.data.countryDetails.afghanistan);
 
 describe('00-all-countries', () => {
   describe('Menu Screen', () => {
@@ -17,7 +22,7 @@ describe('00-all-countries', () => {
     });
   });
 
-  describe('AllCountries Screen', () => {
+  describe('All Countries Screen', () => {
     it('renders all countries', async () => {
       await menuPage.openAllCountries();
     });
@@ -34,7 +39,7 @@ describe('00-all-countries', () => {
     });
   });
 
-  describe('CountryDetails Screen', () => {
+  describe('Country Details Screen', () => {
     it('renders country details', async () => {
       await allCountriesPage.openCountry();
       await expect(afghanistanPage.countryDetails.image).toBeVisible();

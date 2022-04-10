@@ -1,5 +1,5 @@
-import { detoxUtils } from '../../services';
-import { Atom } from '../entities';
+import { detoxUtils } from '../../../../services';
+import { Atom } from '../../../entities';
 
 class Text extends Atom {
   protected _text: string;

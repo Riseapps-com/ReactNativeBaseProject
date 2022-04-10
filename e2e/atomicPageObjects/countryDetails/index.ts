@@ -1,5 +1,19 @@
-import AfghanistanPage from './AfghanistanPage';
-import AlgeriaPage from './AlgeriaPage';
+import { PageWithBackButton } from '../shared';
+import CountryDetails from './CountryDetails';
 
-export const afghanistanPage = new AfghanistanPage();
-export const algerianPage = new AlgeriaPage();
+import type { CountryDetailsContent } from '../../types';
+
+class CountryDetailsPage extends PageWithBackButton {
+  private readonly _countryDetails;
+
+  constructor(content: CountryDetailsContent) {
+    super();
+    this._countryDetails = new CountryDetails(content);
+  }
+
+  get countryDetails(): CountryDetails {
+    return this._countryDetails;
+  }
+}
+
+export default CountryDetailsPage;

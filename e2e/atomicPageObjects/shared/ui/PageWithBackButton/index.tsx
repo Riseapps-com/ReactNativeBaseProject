@@ -1,4 +1,4 @@
-import { Page } from '../entities';
+import { Page } from '../../../entities';
 import BackButton from './BackButton';
 
 class PageWithBackButton extends Page {

@@ -1,14 +1,14 @@
-import { Organism } from '../entities';
+import { Organism } from '../../../entities';
 import MenuItem from './MenuItem';
 
-import type { MenuItemContent } from '../../types';
+import type { MenuItemContent } from '../../../../types';
 
 class Menu extends Organism {
   protected _menuItems;
 
-  constructor(menuItems: MenuItemContent[]) {
+  constructor(items: MenuItemContent[]) {
     super();
-    this._menuItems = menuItems.map(menuItem => new MenuItem(menuItem.id, menuItem.image, menuItem.text));
+    this._menuItems = items.map(item => new MenuItem(item));
   }
 
   getMenuItemByIndex(index: number): MenuItem {

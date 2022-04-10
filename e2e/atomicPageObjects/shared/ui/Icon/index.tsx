@@ -1,5 +1,5 @@
-import { detoxUtils } from '../../services';
-import { Atom } from '../entities';
+import { detoxUtils } from '../../../../services';
+import { Atom } from '../../../entities';
 
 class Icon extends Atom {
   protected _a11yLabel: string;
@@ -14,7 +14,7 @@ class Icon extends Atom {
   }
 
   async tap(): Promise<void> {
-    await detoxUtils.byLabel(this._a11yLabel).atIndex(0).tap();
+    await this.get().tap();
   }
 }
 

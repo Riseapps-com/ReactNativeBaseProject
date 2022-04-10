@@ -18,18 +18,18 @@ class CountryDetails extends Organism {
 
   private _languages;
 
-  constructor(countryDetails: CountryDetailsContent) {
+  constructor(content: CountryDetailsContent) {
     super();
-    this._image = new Image(countryDetails.image);
-    this._capital = new Text(countryDetails.capital);
-    this._region = new Text(countryDetails.region);
-    this._subregion = new Text(countryDetails.subregion);
-    this._population = new Text(countryDetails.population);
-    this._currencies = new Text(countryDetails.currencies);
-    this._languages = new Text(countryDetails.languages);
+    this._image = new Image(content.image);
+    this._capital = new Text(content.capital);
+    this._region = new Text(content.region);
+    this._subregion = new Text(content.subregion);
+    this._population = new Text(content.population);
+    this._currencies = new Text(content.currencies);
+    this._languages = new Text(content.languages);
   }
 
-  get image(): Detox.IndexableNativeElement {
+  get image(): Detox.NativeElement {
     return this._image.get();
   }
 

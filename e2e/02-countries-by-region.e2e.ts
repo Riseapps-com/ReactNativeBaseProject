@@ -1,15 +1,16 @@
 import { expect } from 'detox';
 
-import {
-  africaPage,
-  algerianPage,
-  americasPage,
-  asiaPage,
-  europePage,
-  menuPage,
-  oceaniaPage,
-  selectRegionPage,
-} from './atomicPageObjects';
+import { CountriesPage, CountryDetailsPage, MenuPage, SelectRegionPage } from './atomicPageObjects';
+import config from './config.json';
+
+const menuPage = new MenuPage();
+const selectRegionPage = new SelectRegionPage();
+const africaPage = new CountriesPage([config.data.countries.africa]);
+const americasPage = new CountriesPage([config.data.countries.americas]);
+const asiaPage = new CountriesPage([config.data.countries.asia]);
+const europePage = new CountriesPage([config.data.countries.europe]);
+const oceaniaPage = new CountriesPage([config.data.countries.oceania]);
+const algerianPage = new CountryDetailsPage(config.data.countryDetails.algeria);
 
 describe('01-countries-by-region', () => {
   describe('Menu Screen', () => {
@@ -26,7 +27,7 @@ describe('01-countries-by-region', () => {
     });
   });
 
-  describe('SelectRegionMenu Screen', () => {
+  describe('Select Region Menu Screen', () => {
     it('renders select region menu', async () => {
       await menuPage.openCountriesByRegion();
       await expect(selectRegionPage.backButton).toBeVisible();
@@ -63,7 +64,7 @@ describe('01-countries-by-region', () => {
     });
   });
 
-  describe('CountriesByRegion Screen', () => {
+  describe('Countries By Region Screen', () => {
     it('renders countriesByRegion', async () => {
       await selectRegionPage.openAfrica();
     });
@@ -80,7 +81,7 @@ describe('01-countries-by-region', () => {
     });
   });
 
-  describe('CountryDetails Screen', () => {
+  describe('Country Details Screen', () => {
     it('renders country details', async () => {
       await africaPage.openCountry();
       await expect(algerianPage.countryDetails.image).toBeVisible();
