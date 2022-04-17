@@ -8,9 +8,9 @@ import type { MenuItemContent } from '../../../../types';
 class MenuItem extends Molecule {
   private _id;
 
-  private _image;
+  private readonly _image;
 
-  private _text;
+  private readonly _text;
 
   constructor(content: MenuItemContent) {
     super();
@@ -19,12 +19,12 @@ class MenuItem extends Molecule {
     this._text = new Text(content.text);
   }
 
-  get image(): Detox.NativeElement {
-    return this._image.get();
+  get image(): Image {
+    return this._image;
   }
 
-  get text(): Detox.NativeElement {
-    return this._text.get();
+  get text(): Text {
+    return this._text;
   }
 
   async tap(): Promise<void> {

@@ -13,59 +13,5 @@
     "device": {
       "avdName": "Pixel_4_API_30_1"
     }
-  },
-  "data": {
-    "countries": {
-      "allCountries": {
-        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Flag_of_the_Taliban.svg/320px-Flag_of_the_Taliban.svg.png",
-        "title": "Afghanistan",
-        "subtitle": "Kabul"
-      },
-      "africa": {
-        "image": "https://flagcdn.com/w320/dz.png",
-        "title": "Algeria",
-        "subtitle": "Algiers"
-      },
-      "americas": {
-        "image": "https://mainfacts.com/media/images/coats_of_arms/ai.png",
-        "title": "Anguilla",
-        "subtitle": "The Valley"
-      },
-      "asia": {
-        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Flag_of_the_Taliban.svg/320px-Flag_of_the_Taliban.svg.png",
-        "title": "Afghanistan",
-        "subtitle": "Kabul"
-      },
-      "europe": {
-        "image": "https://flagcdn.com/w320/al.png",
-        "title": "Albania",
-        "subtitle": "Tirana"
-      },
-      "oceania": {
-        "image": "https://flagcdn.com/w320/as.png",
-        "title": "American Samoa",
-        "subtitle": "Pago Pago"
-      }
-    },
-    "countryDetails": {
-      "afghanistan": {
-        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Flag_of_the_Taliban.svg/320px-Flag_of_the_Taliban.svg.png",
-        "capital": "Kabul",
-        "region": "Asia",
-        "subregion": "Southern Asia",
-        "population": "40,218,234",
-        "currencies": "Afghan afghani",
-        "languages": "Dari, Pashto, Turkmen"
-      },
-      "algeria": {
-        "image": "https://flagcdn.com/w320/dz.png",
-        "capital": "Algiers",
-        "region": "Africa",
-        "subregion": "Northern Africa",
-        "population": "44,700,000",
-        "currencies": "Algerian dinar",
-        "languages": "Arabic"
-      }
-    }
   }
 }

@@ -1,24 +1,24 @@
 import { expect } from 'detox';
 
 import { CountriesPage, CountryDetailsPage, MenuPage } from './atomicPageObjects';
-import config from './config.json';
+import data from './data.json';
 
 const menuPage = new MenuPage();
-const allCountriesPage = new CountriesPage([config.data.countries.allCountries]);
-const afghanistanPage = new CountryDetailsPage(config.data.countryDetails.afghanistan);
+const allCountriesPage = new CountriesPage([data.countries.allCountries]);
+const afghanistanPage = new CountryDetailsPage(data.countryDetails.afghanistan);
 
 describe('00-all-countries', () => {
   describe('Menu Screen', () => {
     it('renders menu', async () => {
-      await expect(menuPage.allCountries).toBeVisible();
-      await expect(menuPage.countriesByRegion).toBeVisible();
+      await expect(menuPage.allCountries.text.get()).toBeVisible();
+      await expect(menuPage.countriesByRegion.text.get()).toBeVisible();
     });
 
     it('opens all countries', async () => {
       await menuPage.openAllCountries();
-      await expect(allCountriesPage.listItem.title).toBeVisible();
+      await expect(allCountriesPage.listItem.title.get()).toBeVisible();
       await allCountriesPage.goBack();
-      await expect(menuPage.allCountries).toBeVisible();
+      await expect(menuPage.allCountries.text.get()).toBeVisible();
     });
   });
 
@@ -27,7 +27,7 @@ describe('00-all-countries', () => {
       await menuPage.openAllCountries();
     });
 
-    it('scrolls the page', async () => {
+    it('scrolls page', async () => {
       await allCountriesPage.scroll();
     });
 
@@ -42,13 +42,13 @@ describe('00-all-countries', () => {
   describe('Country Details Screen', () => {
     it('renders country details', async () => {
       await allCountriesPage.openCountry();
-      await expect(afghanistanPage.countryDetails.image).toBeVisible();
-      await expect(afghanistanPage.countryDetails.capital).toBeVisible();
-      await expect(afghanistanPage.countryDetails.region).toBeVisible();
-      await expect(afghanistanPage.countryDetails.subregion).toBeVisible();
-      await expect(afghanistanPage.countryDetails.population).toBeVisible();
-      await expect(afghanistanPage.countryDetails.currencies).toBeVisible();
-      await expect(afghanistanPage.countryDetails.languages).toBeVisible();
+      await expect(afghanistanPage.countryDetails.image.get()).toBeVisible();
+      await expect(afghanistanPage.countryDetails.capital.get()).toBeVisible();
+      await expect(afghanistanPage.countryDetails.region.get()).toBeVisible();
+      await expect(afghanistanPage.countryDetails.subregion.get()).toBeVisible();
+      await expect(afghanistanPage.countryDetails.population.get()).toBeVisible();
+      await expect(afghanistanPage.countryDetails.currencies.get()).toBeVisible();
+      await expect(afghanistanPage.countryDetails.languages.get()).toBeVisible();
     });
   });
 });

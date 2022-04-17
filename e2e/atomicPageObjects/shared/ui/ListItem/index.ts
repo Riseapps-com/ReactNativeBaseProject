@@ -6,31 +6,32 @@ import Text from '../Text';
 import type { ListItemContent } from '../../../../types';
 
 class ListItem extends Molecule {
-  private _id = 'Countries list item';
+  private _id;
 
-  private _image;
+  private readonly _image;
 
-  private _title;
+  private readonly _title;
 
-  private _subtitle;
+  private readonly _subtitle;
 
-  constructor(content: ListItemContent) {
+  constructor(id: string, content: ListItemContent) {
     super();
+    this._id = id;
     this._image = new Image(content.image);
     this._title = new Text(content.title);
     this._subtitle = new Text(content.subtitle);
   }
 
-  get image(): Detox.NativeElement {
-    return this._image.get();
+  get image(): Image {
+    return this._image;
   }
 
-  get title(): Detox.NativeElement {
-    return this._title.get();
+  get title(): Text {
+    return this._title;
   }
 
-  get subtitle(): Detox.NativeElement {
-    return this._subtitle.get();
+  get subtitle(): Text {
+    return this._subtitle;
   }
 
   async tapByIndex(index: number): Promise<void> {

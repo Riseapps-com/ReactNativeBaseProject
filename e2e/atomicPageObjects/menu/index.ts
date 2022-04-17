@@ -1,15 +1,17 @@
 import { Page } from '../entities';
 import MainMenu from './MainMenu';
 
+import type { MenuItem } from '../shared';
+
 class MenuPage extends Page {
   private _menu = new MainMenu();
 
-  get allCountries(): Detox.NativeElement {
-    return this._menu.getMenuItemByIndex(0).text;
+  get allCountries(): MenuItem {
+    return this._menu.getMenuItemByIndex(0);
   }
 
-  get countriesByRegion(): Detox.NativeElement {
-    return this._menu.getMenuItemByIndex(1).text;
+  get countriesByRegion(): MenuItem {
+    return this._menu.getMenuItemByIndex(1);
   }
 
   async openAllCountries(): Promise<void> {

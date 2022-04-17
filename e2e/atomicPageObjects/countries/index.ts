@@ -8,7 +8,7 @@ class CountriesPage extends PageWithBackButton {
 
   constructor(listItems: ListItemContent[]) {
     super();
-    this._list = new FlatList(listItems);
+    this._list = new FlatList('Countries', listItems);
   }
 
   get listItem(): ListItem {

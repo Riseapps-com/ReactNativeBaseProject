@@ -4,6 +4,7 @@ export { default as Icon } from './Icon';
 export { default as Image } from './Image';
 export { default as ListItem } from './ListItem';
 export { default as Menu } from './Menu';
+export { default as MenuItem } from './MenuItem';
 export { default as PageWithBackButton } from './PageWithBackButton';
 export { default as ScrollView } from './ScrollView';
 export { default as Text } from './Text';

@@ -6,9 +6,9 @@ import type { ListItemContent } from '../../../../types';
 class FlatList extends ScrollView {
   private readonly _items;
 
-  constructor(items: ListItemContent[]) {
-    super('Countries');
-    this._items = items.map(item => new ListItem(item));
+  constructor(id: string, items: ListItemContent[]) {
+    super(id);
+    this._items = items.map(item => new ListItem('Countries list item', item));
   }
 
   getItemByIndex(index: number): ListItem {

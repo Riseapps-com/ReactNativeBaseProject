@@ -1,5 +1,5 @@
 import { Organism } from '../../../entities';
-import MenuItem from './MenuItem';
+import MenuItem from '../MenuItem';
 
 import type { MenuItemContent } from '../../../../types';
 

@@ -4,19 +4,19 @@ import { Image, Text } from '../shared';
 import type { CountryDetailsContent } from '../../types';
 
 class CountryDetails extends Organism {
-  private _image;
+  private readonly _image;
 
-  private _capital;
+  private readonly _capital;
 
-  private _region;
+  private readonly _region;
 
-  private _subregion;
+  private readonly _subregion;
 
-  private _population;
+  private readonly _population;
 
-  private _currencies;
+  private readonly _currencies;
 
-  private _languages;
+  private readonly _languages;
 
   constructor(content: CountryDetailsContent) {
     super();
@@ -29,32 +29,32 @@ class CountryDetails extends Organism {
     this._languages = new Text(content.languages);
   }
 
-  get image(): Detox.NativeElement {
-    return this._image.get();
+  get image(): Image {
+    return this._image;
   }
 
-  get capital(): Detox.NativeElement {
-    return this._capital.get();
+  get capital(): Text {
+    return this._capital;
   }
 
-  get region(): Detox.NativeElement {
-    return this._region.get();
+  get region(): Text {
+    return this._region;
   }
 
-  get subregion(): Detox.NativeElement {
-    return this._subregion.get();
+  get subregion(): Text {
+    return this._subregion;
   }
 
-  get population(): Detox.NativeElement {
-    return this._population.get();
+  get population(): Text {
+    return this._population;
   }
 
-  get currencies(): Detox.NativeElement {
-    return this._currencies.get();
+  get currencies(): Text {
+    return this._currencies;
   }
 
-  get languages(): Detox.NativeElement {
-    return this._languages.get();
+  get languages(): Text {
+    return this._languages;
   }
 }
 
