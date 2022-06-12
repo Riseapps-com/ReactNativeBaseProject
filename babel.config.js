@@ -18,6 +18,7 @@ module.exports = function (api) {
         },
       ],
       '@babel/plugin-transform-named-capturing-groups-regex',
+      'react-native-reanimated/plugin',
     ],
     env: {
       production: {

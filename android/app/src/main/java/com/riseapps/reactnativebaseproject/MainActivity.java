@@ -2,6 +2,7 @@ package com.riseapps.reactnativebaseproject;
 
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;
+import com.facebook.react.ReactRootView;
 import com.zoontek.rnbootsplash.RNBootSplash;
 
 public class MainActivity extends ReactActivity {
@@ -14,14 +15,32 @@ public class MainActivity extends ReactActivity {
         return "ReactNativeBaseProject";
     }
 
+    /**
+     * Returns the instance of the {@link ReactActivityDelegate}. There the RootView is created and
+     * you can specify the rendered you wish to use (Fabric or the older renderer).
+     */
     @Override
     protected ReactActivityDelegate createReactActivityDelegate() {
-        return new ReactActivityDelegate(this, getMainComponentName()) {
+        return new MainActivityDelegate(this, getMainComponentName()) {
             @Override
             protected void loadApp(String appKey) {
                 RNBootSplash.init(MainActivity.this);
                 super.loadApp(appKey);
             }
         };
+    }
+
+    public static class MainActivityDelegate extends ReactActivityDelegate {
+        public MainActivityDelegate(ReactActivity activity, String mainComponentName) {
+            super(activity, mainComponentName);
+        }
+
+        @Override
+        protected ReactRootView createRootView() {
+            ReactRootView reactRootView = new ReactRootView(getContext());
+            // If you opted-in for the New Architecture, we enable the Fabric Renderer.
+            reactRootView.setIsFabric(BuildConfig.IS_NEW_ARCHITECTURE_ENABLED);
+            return reactRootView;
+        }
     }
 }
