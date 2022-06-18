@@ -11,7 +11,7 @@
     "binaryPath": "android/app/build/outputs/apk/debug/app-debug.apk",
     "build": "cd android && ./gradlew assembleDebug assembleAndroidTest -DtestBuildType=debug",
     "device": {
-      "avdName": "Pixel_5_API_31"
+      "avdName": "Pixel_5_API_32"
     }
   }
 }
