@@ -25,21 +25,19 @@ describe('promises', () => {
         expect(retrySpy).toBeCalledTimes(1);
       });
 
-      it('displays error status message when exception is thrown', () => {
+      it('displays error status message when exception is thrown', async () => {
         const mockedDisplayStatusMessage = jest.fn();
 
-        mockedUseStatusMessage.mockImplementationOnce(() => mockedDisplayStatusMessage);
-        const error = new RuntimeError('UnknownException', 'Error message.');
+        mockedUseStatusMessage.mockImplementation(() => mockedDisplayStatusMessage);
+        const error = new RuntimeError('InvalidRequestException', 'Error message.');
         const toCall = jest.fn(async () => Promise.reject(error));
         const { result } = renderHook(() => useAsync());
         const doAsync = result.current;
 
-        doAsync(() => toCall());
-
-        jest.runAllTimers();
+        await doAsync(() => toCall());
 
         expect(mockedDisplayStatusMessage).toBeCalledTimes(1);
-        expect(mockedDisplayStatusMessage).toBeCalledWith(error.message, 'error');
+        expect(mockedDisplayStatusMessage).toBeCalledWith(error.message, 'error', 2750);
       });
     });
 
@@ -57,16 +55,14 @@ describe('promises', () => {
     });
 
     describe('when `setErrorCallback` is provided', () => {
-      it('invokes the callback correctly when error is thrown', () => {
+      it('invokes the callback correctly when error is thrown', async () => {
         const setError = jest.fn();
-        const error = new RuntimeError('UnknownException', 'Error message.');
+        const error = new RuntimeError('InvalidRequestException', 'Error message.');
         const toCall = jest.fn(async () => Promise.reject(error));
         const { result } = renderHook(() => useAsync());
         const doAsync = result.current;
 
-        doAsync(toCall, { setError });
-
-        jest.runAllTimers();
+        await doAsync(toCall, { setError });
 
         expect(setError).toBeCalledTimes(1);
         expect(setError).toBeCalledWith(error);
@@ -93,19 +89,19 @@ describe('promises', () => {
 
       it('invokes the callback correctly for rejected call', async () => {
         const setIsLoading = jest.fn();
-        const error = new ValidationError('InvalidParameterException', 'Error message.');
+        const validationError = new ValidationError('InvalidParameterException', 'Error message.');
 
         const { result } = renderHook(() => useAsync());
         const doAsync = result.current;
 
-        const promise = doAsync(async () => Promise.reject(error), { setIsLoading });
+        const promise = doAsync(async () => Promise.reject(validationError), { setIsLoading });
 
         expect(setIsLoading).toBeCalledTimes(1);
         expect(setIsLoading).toBeCalledWith(true);
 
         try {
           await promise;
-          // eslint-disable-next-line no-empty,@typescript-eslint/no-shadow
+          // eslint-disable-next-line no-empty
         } catch (error) {}
 
         jest.runAllTimers();

@@ -4,7 +4,7 @@ import { ImageBackground, ScrollView } from 'react-native';
 import { useRoute } from '@react-navigation/native';
 import { useTranslation } from 'react-i18next';
 
-import { useRetriever } from '~modules/promises';
+import { useItemRetriever } from '~modules/promises';
 import { ActivityIndicator, Text } from '~modules/ui';
 import { useTheme } from '~theme';
 
@@ -22,7 +22,7 @@ const CountryDetails: React.FC = () => {
   const { params } = useRoute<CountryDetailsRoute>();
   const { code } = params;
   const getCountryDetails = useCallback(() => countriesApi.getCountryDetails(code), [code]);
-  const [countryDetails, isLoadingCountryDetails] = useRetriever(getCountryDetails);
+  const [countryDetails, isLoadingCountryDetails] = useItemRetriever(getCountryDetails);
 
   if (isLoadingCountryDetails) return <ActivityIndicator />;
   if (!countryDetails) return null;

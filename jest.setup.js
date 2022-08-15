@@ -1,3 +1,5 @@
+import '@shopify/flash-list/jestSetup';
+
 import mockRNCNetInfo from '@react-native-community/netinfo/jest/netinfo-mock.js';
 import jestFetchMock from 'jest-fetch-mock';
 

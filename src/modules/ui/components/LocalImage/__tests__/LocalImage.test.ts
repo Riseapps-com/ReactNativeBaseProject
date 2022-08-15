@@ -13,7 +13,7 @@ describe('ui', () => {
         source: 'flag',
       });
 
-      expect(localImage.getByA11yLabel('flag')).toBeTruthy();
+      expect(localImage.getByLabelText('flag')).toBeTruthy();
       expect(localImage).toMatchSnapshot();
     });
 
@@ -24,7 +24,7 @@ describe('ui', () => {
         height: 200,
       });
 
-      expect(localImage.getByA11yLabel('flag')).toHaveStyle({ width: 100, height: 200 });
+      expect(localImage.getByLabelText('flag')).toHaveStyle({ width: 100, height: 200 });
     });
   });
 });

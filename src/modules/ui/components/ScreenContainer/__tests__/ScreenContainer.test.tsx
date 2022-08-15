@@ -18,8 +18,8 @@ describe('ui', () => {
         children: <View accessibilityLabel="Children" />,
       });
 
-      expect(screenContainer.getByA11yLabel('Screen container')).toBeTruthy();
-      expect(screenContainer.getByA11yLabel('Children')).toBeTruthy();
+      expect(screenContainer.getByLabelText('Screen container')).toBeTruthy();
+      expect(screenContainer.getByLabelText('Children')).toBeTruthy();
       expect(screenContainer).toMatchSnapshot();
     });
 
@@ -29,7 +29,7 @@ describe('ui', () => {
         isCentered: true,
       });
 
-      expect(screenContainer.getByA11yLabel('Screen container')).toHaveStyle({
+      expect(screenContainer.getByLabelText('Screen container')).toHaveStyle({
         alignItems: 'center',
         justifyContent: 'center',
       });
@@ -61,7 +61,7 @@ describe('ui', () => {
           safeMargin: { top: true },
         });
 
-        expect(screenContainer.getByA11yLabel('Screen container')).toHaveStyle({ marginTop: 8 });
+        expect(screenContainer.getByLabelText('Screen container')).toHaveStyle({ marginTop: 8 });
       });
 
       it('renders bottom margin', () => {
@@ -70,7 +70,7 @@ describe('ui', () => {
           safeMargin: { bottom: true },
         });
 
-        expect(screenContainer.getByA11yLabel('Screen container')).toHaveStyle({ marginBottom: 16 });
+        expect(screenContainer.getByLabelText('Screen container')).toHaveStyle({ marginBottom: 16 });
       });
 
       it('renders left margin', () => {
@@ -79,7 +79,7 @@ describe('ui', () => {
           safeMargin: { left: true },
         });
 
-        expect(screenContainer.getByA11yLabel('Screen container')).toHaveStyle({ marginStart: 24 });
+        expect(screenContainer.getByLabelText('Screen container')).toHaveStyle({ marginStart: 24 });
       });
 
       it('renders right margin', () => {
@@ -88,7 +88,7 @@ describe('ui', () => {
           safeMargin: { right: true },
         });
 
-        expect(screenContainer.getByA11yLabel('Screen container')).toHaveStyle({ marginEnd: 32 });
+        expect(screenContainer.getByLabelText('Screen container')).toHaveStyle({ marginEnd: 32 });
       });
     });
 
@@ -99,7 +99,7 @@ describe('ui', () => {
           safePadding: { top: true },
         });
 
-        expect(screenContainer.getByA11yLabel('Screen container')).toHaveStyle({ paddingTop: 8 });
+        expect(screenContainer.getByLabelText('Screen container')).toHaveStyle({ paddingTop: 8 });
       });
 
       it('renders bottom padding', () => {
@@ -108,7 +108,7 @@ describe('ui', () => {
           safePadding: { bottom: true },
         });
 
-        expect(screenContainer.getByA11yLabel('Screen container')).toHaveStyle({ paddingBottom: 16 });
+        expect(screenContainer.getByLabelText('Screen container')).toHaveStyle({ paddingBottom: 16 });
       });
 
       it('renders left padding', () => {
@@ -117,7 +117,7 @@ describe('ui', () => {
           safePadding: { left: true },
         });
 
-        expect(screenContainer.getByA11yLabel('Screen container')).toHaveStyle({ paddingStart: 24 });
+        expect(screenContainer.getByLabelText('Screen container')).toHaveStyle({ paddingStart: 24 });
       });
 
       it('renders right padding', () => {
@@ -126,7 +126,7 @@ describe('ui', () => {
           safePadding: { right: true },
         });
 
-        expect(screenContainer.getByA11yLabel('Screen container')).toHaveStyle({ paddingEnd: 32 });
+        expect(screenContainer.getByLabelText('Screen container')).toHaveStyle({ paddingEnd: 32 });
       });
     });
   });

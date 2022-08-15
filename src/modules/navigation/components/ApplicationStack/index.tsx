@@ -7,7 +7,7 @@ import { getFont } from '~assets';
 import { MENU_SCREEN_NAME } from '~modules/countries';
 import { sizes, useTheme } from '~theme';
 
-import { CountriesCapsule } from '../CountriesCapsule';
+import { CountriesGroup } from '../CountriesGroup';
 
 import themedStyles from './styles';
 
@@ -35,7 +35,7 @@ const ApplicationStack: React.FC = () => {
       }}
       initialRouteName={MENU_SCREEN_NAME}
     >
-      {CountriesCapsule(Stack)}
+      {CountriesGroup(Stack)}
     </Stack.Navigator>
   );
 };

@@ -4,7 +4,7 @@
     "build": "xcodebuild -workspace ios/ReactNativeBaseProject.xcworkspace -scheme ReactNativeBaseProject -configuration Debug -sdk iphonesimulator -derivedDataPath ios/build",
     "device": {
       "type": "iPhone 13",
-      "UDID": "6CFC781A-5B5A-4C72-B7F6-F10ABE7D44A3"
+      "UDID": "E3522745-90C6-4C59-B246-5EC04F0B550A"
     }
   },
   "android": {

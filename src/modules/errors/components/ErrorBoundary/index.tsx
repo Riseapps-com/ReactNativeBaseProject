@@ -7,7 +7,7 @@ import ErrorScreen from '../ErrorScreen';
 
 import type { ErrorInfo } from 'react';
 
-class ErrorBoundary extends Component {
+class ErrorBoundary extends Component<React.PropsWithChildren> {
   public state = {
     hasError: false,
   };

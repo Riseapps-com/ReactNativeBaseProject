@@ -19,7 +19,8 @@
       "~assets": ["assets"],
       "~config": ["config"],
       "~modules/*": ["src/modules/*"],
-      "~theme": ["src/theme"]
+      "~theme": ["src/theme"],
+      "react": ["./node_modules/@types/react"]
     },
     "removeComments": true,
     "skipLibCheck": true,

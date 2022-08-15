@@ -11,7 +11,7 @@ describe('countries', () => {
     it('renders <Card />', () => {
       const card = renderCard();
 
-      expect(card.getByA11yLabel('Content container')).toBeTruthy();
+      expect(card.getByLabelText('Content container')).toBeTruthy();
     });
   });
 });

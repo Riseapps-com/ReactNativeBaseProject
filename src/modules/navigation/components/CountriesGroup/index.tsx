@@ -12,34 +12,32 @@ import {
 } from '~modules/countries';
 import { I18n } from '~modules/localization';
 
-export const CountriesCapsule = (Navigator: any): React.ReactFragment => (
+import type { createStackNavigator } from '@react-navigation/stack';
+
+export const CountriesGroup = (Stack: ReturnType<typeof createStackNavigator>): React.ReactNode => (
   <>
-    <Navigator.Screen
+    <Stack.Screen
       name={COUNTRIES_SCREEN_NAME}
       component={CountriesScreen}
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore
       options={options => ({
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
         headerTitle: options.route.params.title,
         headerBackTestID: 'Back',
       })}
     />
-    <Navigator.Screen
+    <Stack.Screen
       name={COUNTRY_DETAILS_SCREEN_NAME}
       component={CountryDetailsScreen}
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore
       options={options => ({
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
         headerTitle: options.route.params.title,
         headerBackTestID: 'Back',
       })}
     />
-    <Navigator.Screen
-      name={MENU_SCREEN_NAME}
-      component={MenuScreen}
-      options={{ headerTitle: I18n.t('navigation.menu') }}
-    />
-    <Navigator.Screen
+    <Stack.Screen name={MENU_SCREEN_NAME} component={MenuScreen} options={{ headerTitle: I18n.t('navigation.menu') }} />
+    <Stack.Screen
       name={SELECT_REGION_SCREEN_NAME}
       component={SelectRegionScreen}
       options={{

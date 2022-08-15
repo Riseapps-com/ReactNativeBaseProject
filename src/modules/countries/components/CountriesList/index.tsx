@@ -1,9 +1,9 @@
 import React, { useCallback } from 'react';
-import { FlatList } from 'react-native';
 
 import { useNavigation, useRoute } from '@react-navigation/native';
+import { FlashList } from '@shopify/flash-list';
 
-import { useRetriever } from '~modules/promises';
+import { useItemRetriever } from '~modules/promises';
 import { ActivityIndicator } from '~modules/ui';
 
 import { COUNTRY_DETAILS_SCREEN_NAME } from '../../config';
@@ -11,7 +11,7 @@ import { countriesApi } from '../../services';
 import CountriesListItem from '../CountriesListItem';
 
 import type { CountriesRoute, LocalCountry } from '../../types';
-import type { ListRenderItemInfo } from 'react-native';
+import type { ListRenderItemInfo } from '@shopify/flash-list';
 
 const CountriesList: React.FC = () => {
   const navigation = useNavigation();
@@ -23,7 +23,7 @@ const CountriesList: React.FC = () => {
 
     return countriesApi.getAllCountries();
   }, [region]);
-  const [countries, isLoadingCountries] = useRetriever(getCountriesByRegion, undefined, true);
+  const [countries, isLoadingCountries] = useItemRetriever(getCountriesByRegion, { runOnFocus: true });
 
   const handleItemPress = useCallback(
     (index: number) => {
@@ -47,7 +47,15 @@ const CountriesList: React.FC = () => {
 
   if (isLoadingCountries) return <ActivityIndicator />;
 
-  return <FlatList testID="Countries" data={countries} renderItem={renderItem} keyExtractor={keyExtractor} />;
+  return (
+    <FlashList
+      testID="Countries"
+      data={countries}
+      renderItem={renderItem}
+      keyExtractor={keyExtractor}
+      estimatedItemSize={47}
+    />
+  );
 };
 
 export default CountriesList;

@@ -2,6 +2,7 @@ import { useNavigation, useRoute } from '@react-navigation/native';
 import { act, fireEvent } from '@testing-library/react-native';
 
 import { mocked, renderNavigationComponent } from '~modules/tests';
+import { runAllTimersWrapped } from '~modules/tests/services';
 
 import { localCountry } from '../../../__data__';
 import { COUNTRY_DETAILS_SCREEN_NAME } from '../../../config';
@@ -64,8 +65,9 @@ describe('countries', () => {
 
       const countriesList = renderCountriesList();
 
+      runAllTimersWrapped();
+
       await act(async () => {
-        jest.runAllTimers();
         await fireEvent.press(countriesList.getByText(localCountry.name));
       });
 

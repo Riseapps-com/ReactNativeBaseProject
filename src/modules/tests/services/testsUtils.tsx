@@ -7,7 +7,8 @@
 import React from 'react';
 
 import { NavigationContext } from '@react-navigation/native';
-import { render } from '@testing-library/react-native';
+import { act as actHooks } from '@testing-library/react-hooks';
+import { act as actComponents, render } from '@testing-library/react-native';
 import { RecoilRoot } from 'recoil';
 
 import RuntimeError from '~modules/errors/RuntimeError';
@@ -68,3 +69,21 @@ export function mocked<T>(item: T, deep: true): MaybeMockedDeep<T>;
 export function mocked<T>(item: T, _deep = false): MaybeMocked<T> | MaybeMockedDeep<T> {
   return item as any;
 }
+
+/** React native 69.4th version uses React 18th version, so there was a lot of major changes.
+ * A part of our tests were broken after the upgrade. For some reason, for some components
+ * we need to call `act(() => jest.runAllTimers())` twice or more and in this case all the timers
+ * will be run correctly. I investigated possible reasons and found nothing suitable.
+ * Anyway, all the tests that are started with `act(() => jest.runAllTimers())` just after the components is rendered
+ * use this function now. If this issue is fixed inside `@testing-library/react-native` or `jest` packages then will
+ * simply remove the second call.
+ *
+ * Note: current fix doesn't spoil the performance.
+ */
+export const runAllTimersWrapped = (numberToRun = 2, isHook?: boolean): void => {
+  const act = isHook ? actHooks : actComponents;
+
+  new Array(numberToRun).fill(-1).forEach(() => {
+    act(() => jest.runAllTimers());
+  });
+};

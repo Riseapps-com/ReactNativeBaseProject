@@ -12,7 +12,7 @@ describe('network', () => {
         children: <View accessibilityLabel="TestLabel" />,
       });
 
-      expect(networkProvider.getByA11yLabel('TestLabel')).toBeTruthy();
+      expect(networkProvider.getByLabelText('TestLabel')).toBeTruthy();
     });
   });
 });

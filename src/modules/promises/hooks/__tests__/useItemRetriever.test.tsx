@@ -7,12 +7,16 @@ import { act } from '@testing-library/react-native';
 import { mocked } from '~modules/tests';
 
 import { promiseUtilities } from '../../services';
-import useRetriever from '../useRetriever';
+import useBlurEvent from '../useBlurEvent';
+import useItemRetriever from '../useItemRetriever';
 
 jest.mock('../../services');
+jest.mock('../useBlurEvent');
 jest.mock('~modules/statusMessages');
 
-const Wrapper: React.FC = props => {
+const mockedUseBlurEvent = mocked(useBlurEvent);
+
+const Wrapper: React.FC<React.PropsWithChildren> = props => {
   const navContextValue: any = {
     isFocused: () => true,
     addListener: jest.fn(() => jest.fn()),
@@ -25,17 +29,11 @@ const mockedPromiseUtilities = mocked(promiseUtilities);
 const retrieveFn = jest.fn(() => Promise.resolve('Resolved'));
 const defaultValue = 'default';
 
-const useCallbackSpy = jest.spyOn(React, 'useCallback');
-
-afterAll(() => {
-  useCallbackSpy.mockRestore();
-});
-
 describe('promises', () => {
-  describe('useRetriever', () => {
+  describe('useItemRetriever', () => {
     describe('`retrieveFn` param', () => {
       it('resolves `retrieveFn` and returns its result', async () => {
-        const { result, waitForNextUpdate } = renderHook(() => useRetriever(retrieveFn), {
+        const { result, waitForNextUpdate } = renderHook(() => useItemRetriever(retrieveFn), {
           wrapper: Wrapper,
         });
 
@@ -46,7 +44,7 @@ describe('promises', () => {
       });
 
       it('passes `retrieveFn` to retry function', async () => {
-        const { waitForNextUpdate } = renderHook(() => useRetriever(retrieveFn), { wrapper: Wrapper });
+        const { waitForNextUpdate } = renderHook(() => useItemRetriever(retrieveFn), { wrapper: Wrapper });
 
         await waitForNextUpdate();
 
@@ -56,7 +54,7 @@ describe('promises', () => {
 
     describe('`defaultValue` param', () => {
       it('returns the default value before `retrieveFn` resolves', async () => {
-        const { result, waitForNextUpdate } = renderHook(() => useRetriever(retrieveFn, defaultValue), {
+        const { result, waitForNextUpdate } = renderHook(() => useItemRetriever(retrieveFn, { defaultValue }), {
           wrapper: Wrapper,
         });
 
@@ -70,7 +68,7 @@ describe('promises', () => {
 
     describe('loading', () => {
       it('sets loading to true before `retrieveFn` resolves', async () => {
-        const { result, waitForNextUpdate } = renderHook(() => useRetriever(retrieveFn), {
+        const { result, waitForNextUpdate } = renderHook(() => useItemRetriever(retrieveFn), {
           wrapper: Wrapper,
         });
 
@@ -80,7 +78,7 @@ describe('promises', () => {
       });
 
       it('sets loading to false after `retrieveFn` resolves', async () => {
-        const { result, waitForNextUpdate } = renderHook(() => useRetriever(retrieveFn), {
+        const { result, waitForNextUpdate } = renderHook(() => useItemRetriever(retrieveFn), {
           wrapper: Wrapper,
         });
 
@@ -92,7 +90,11 @@ describe('promises', () => {
 
     describe('runOnFocus', () => {
       it('runs when specified', async () => {
-        const { waitForNextUpdate } = renderHook(() => useRetriever(retrieveFn, undefined, true), {
+        mockedUseBlurEvent.mockImplementationOnce(
+          (callback: () => void, runOnFocus?: boolean) => runOnFocus && callback()
+        );
+
+        const { waitForNextUpdate } = renderHook(() => useItemRetriever(retrieveFn, { runOnFocus: true }), {
           wrapper: Wrapper,
         });
 
@@ -104,7 +106,7 @@ describe('promises', () => {
 
     describe('retrieve', () => {
       it('calls retrieve function', async () => {
-        const { result, waitForNextUpdate } = renderHook(() => useRetriever(retrieveFn), {
+        const { result, waitForNextUpdate } = renderHook(() => useItemRetriever(retrieveFn), {
           wrapper: Wrapper,
         });
 

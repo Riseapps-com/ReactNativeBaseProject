@@ -24,6 +24,7 @@ import com.facebook.react.uimanager.ViewManagerRegistry;
 import com.riseapps.reactnativebaseproject.BuildConfig;
 import com.riseapps.reactnativebaseproject.newarchitecture.components.MainComponentsRegistry;
 import com.riseapps.reactnativebaseproject.newarchitecture.modules.MainApplicationTurboModuleManagerDelegate;
+import com.facebook.react.fabric.ReactNativeConfig;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -108,7 +109,7 @@ public class MainApplicationReactNativeHost extends ReactNativeHost {
                                 return new FabricJSIModuleProvider(
                                         reactApplicationContext,
                                         componentFactory,
-                                        new EmptyReactNativeConfig(),
+                                        ReactNativeConfig.DEFAULT_CONFIG,
                                         viewManagerRegistry);
                             }
                         });

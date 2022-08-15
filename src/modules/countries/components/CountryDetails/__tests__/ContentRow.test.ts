@@ -16,7 +16,7 @@ describe('countries', () => {
         value: 'value',
       });
 
-      expect(contentRow.getByA11yLabel('Content row')).toBeTruthy();
+      expect(contentRow.getByLabelText('Content row')).toBeTruthy();
       expect(contentRow.getByText('title:')).toBeTruthy();
       expect(contentRow.getByText('value')).toBeTruthy();
     });

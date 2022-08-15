@@ -2,7 +2,7 @@ import React from 'react';
 
 import { useNetInfo, useNetworkMessage } from '../../hooks';
 
-const NetworkProvider: React.FC = props => {
+const NetworkProvider: React.FC<React.PropsWithChildren> = props => {
   useNetInfo();
   useNetworkMessage();
 

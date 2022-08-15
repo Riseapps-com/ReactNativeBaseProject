@@ -13,7 +13,7 @@ describe('ui', () => {
         source: 'https://testImage.com',
       });
 
-      expect(remoteImage.getByA11yLabel('https://testImage.com')).toBeTruthy();
+      expect(remoteImage.getByLabelText('https://testImage.com')).toBeTruthy();
       expect(remoteImage).toMatchSnapshot();
     });
 
@@ -24,7 +24,7 @@ describe('ui', () => {
         height: 200,
       });
 
-      expect(remoteImage.getByA11yLabel('https://testImage.com')).toHaveStyle({ width: 100, height: 200 });
+      expect(remoteImage.getByLabelText('https://testImage.com')).toHaveStyle({ width: 100, height: 200 });
     });
   });
 });
